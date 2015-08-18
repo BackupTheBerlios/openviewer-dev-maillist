@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] Forms architecture
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20Forms%20architecture&In-Reply-To=%3CD34F5C5E193B4144AD333BBBB940A5280527A3%40exchange1.lan.konge.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000020.html">
+   <LINK REL="Next"  HREF="000022.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] Forms architecture</H1>
+    <B>Tedd Hansen</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20Forms%20architecture&In-Reply-To=%3CD34F5C5E193B4144AD333BBBB940A5280527A3%40exchange1.lan.konge.net%3E"
+       TITLE="[Openviewer-dev] Forms architecture">tedd at konge.net
+       </A><BR>
+    <I>Mon Feb 25 10:37:25 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000020.html">[Openviewer-dev] Forms architecture
+</A></li>
+        <LI>Next message: <A HREF="000022.html">[Openviewer-dev] Implications of Binding Ogre3d
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#21">[ date ]</a>
+              <a href="thread.html#21">[ thread ]</a>
+              <a href="subject.html#21">[ subject ]</a>
+              <a href="author.html#21">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>The project is called Moonlight.
+
+This was 6 months ago:
+<A HREF="http://www.mono-project.com/MoonlightShots">http://www.mono-project.com/MoonlightShots</A>
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev-bounces at lists.berlios.de</A>] On Behalf Of Tedd
+Hansen
+Sent: 25. februar 2008 10:32
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev at lists.berlios.de</A>
+Subject: Re: [Openviewer-dev] Forms architecture
+
+Someone should fix the reply-to address of this list... Annoying :)
+
+-----Original Message-----
+From: Tedd Hansen 
+Sent: 25. februar 2008 10:31
+To: 'Daedius'
+Subject: RE: [Openviewer-dev] Forms architecture
+
+Isn't XAML used by Silverlight, which is developed by Novell/Mono on
+contract from Microsoft to be as cross platform/cross browser as
+possible?
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev-bounces at lists.berlios.de</A>] On Behalf Of Daedius
+Sent: 25. februar 2008 04:38
+To: Johan Berntsson
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev at lists.berlios.de</A>
+Subject: Re: [Openviewer-dev] Forms architecture
+
+As far as I know, XAML is as far from crossplatform as you can get
+about right now.  Unless you know something I dont?
+
+Daedius
+
+On 2/24/08, Johan Berntsson &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">johan at ngigroup.com</A>&gt; wrote:
+&gt;<i> It does sounds like a good design for the kind of system you describe.
+</I>&gt;<i>
+</I>&gt;<i>  In our case it is a bit simpler, but one thing we could consider is
+</I>the
+&gt;<i>  hot-swap mechanism you hint at. That is, the main window basically
+</I>&gt;<i>  provides a custom widget that the renderer module can draw on, but
+</I>that
+&gt;<i>  we can replace the renderer without restarting the program (by
+</I>loading
+&gt;<i>  another DLL and supplying the widget surface somehow). In this way we
+</I>&gt;<i>  could change renderers (realXtend, vanilla SL) and so on from a menu
+</I>or
+&gt;<i>  key selection.
+</I>&gt;<i>
+</I>&gt;<i>  The idea is still to make OpenViewer a framework in which you can add
+</I>a
+&gt;<i>  number of plugins that actually do the work. These modules include
+</I>UI,
+&gt;<i>  Rendering, communication and so on.
+</I>&gt;<i>
+</I>&gt;<i>  Re: design of WinForms. The plan is to support XAML, so that the UI
+</I>can
+&gt;<i>  be customized without rewriting the program. Can Visual Studio's UI
+</I>&gt;<i>  designer produce XAML? (I haven't had time to investigate, perhaps
+</I>&gt;<i>  someone knows?)
+</I>&gt;<i>
+</I>&gt;<i>  Johan
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  Tedd Hansen wrote:
+</I>&gt;<i>  &gt; Hi
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; Don't know how far you've come on the architecture of the
+</I>Forms-part of
+&gt;<i>  &gt; OpenViewer, but thought I'd share some thoughts. It's an obvious
+</I>&gt;<i>  &gt; approach that may or may not spark some ideas. ;)
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; In my previous job I made an advertisement application for
+</I>&gt;<i>  &gt; busses/boats/in-store advertisement.
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; In short, the architecture was:
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; Startup -&gt; Window manager -&gt; Windows -&gt; Content modules
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; Startup also started/was helped by other modules that controls
+</I>content
+&gt;<i>  &gt; (like downloader, content scheduler, etc).
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; Window manager started external .EXE's and communicated with them.
+</I>&gt;<i>  &gt; (OpenViewer don't need external .EXE's of course)
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; These window forms were positioned on different display areas
+</I>(could be
+&gt;<i>  &gt; different monitors or separating top &quot;ad&quot; from bottom news scroll).
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; Window manager also pinged the window modules to kill and restart
+</I>any if
+&gt;<i>  &gt; they failed. It also knew what was scheduled and how long it was to
+</I>run,
+&gt;<i>  &gt; for example an image for 10 sec or video for 30 sec.
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; The Windows were told (from Scheduler module via Window Manager)
+</I>what to
+&gt;<i>  &gt; display. It then loaded a .dll, hooked it up to one of its display
+</I>&gt;<i>  &gt; surfaces and told it what to do (for example loading
+</I>&gt;<i>  &gt; myapp.display.plugin.image.dll is told to load image1.jpg).
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; (It also had preloading etc, but that is not relevant here)
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; Content modules handled actual display of whatever. (Images, video,
+</I>&gt;<i>  &gt; flash, scrolling text, etc)
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; Using a similar approach in OpenViewer (with a Window Manager and
+</I>&gt;<i>  &gt; Content Modules) would abstract the Window (WinForms/GTK/whatever)
+</I>and
+&gt;<i>  &gt; the rendering engine from the application itself.
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; My app is running 24/7 on 320 busses, a few boats and I don't know
+</I>how
+&gt;<i>  &gt; many shops - changing content every 5-30 seconds and being
+</I>monitored
+&gt;<i>  &gt; remotely with screenshots daily -- so it does work at least. :)
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; - Tedd
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>
+</I>&gt;<i> &gt;
+</I>------------------------------------------------------------------------
+&gt;<i>  &gt;
+</I>&gt;<i>  &gt; _______________________________________________
+</I>&gt;<i>  &gt; Openviewer-dev mailing list
+</I>&gt;<i>  &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i>  &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>&gt;<i>
+</I>&gt;<i>  _______________________________________________
+</I>&gt;<i>  Openviewer-dev mailing list
+</I>&gt;<i>  <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i>  <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>&gt;<i>
+</I>_______________________________________________
+Openviewer-dev mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+
+
+_______________________________________________
+Openviewer-dev mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000020.html">[Openviewer-dev] Forms architecture
+</A></li>
+	<LI>Next message: <A HREF="000022.html">[Openviewer-dev] Implications of Binding Ogre3d
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#21">[ date ]</a>
+              <a href="thread.html#21">[ thread ]</a>
+              <a href="subject.html#21">[ subject ]</a>
+              <a href="author.html#21">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

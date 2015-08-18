@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] OpenViewer Status
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20OpenViewer%20Status&In-Reply-To=%3CB43DA0998FC18F46A583FFFE01BF7FE598BC4FA5%40orsmsx504.amr.corp.intel.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000159.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] OpenViewer Status</H1>
+    <B>Chang, Francis</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20OpenViewer%20Status&In-Reply-To=%3CB43DA0998FC18F46A583FFFE01BF7FE598BC4FA5%40orsmsx504.amr.corp.intel.com%3E"
+       TITLE="[Openviewer-dev] OpenViewer Status">francis.chang at intel.com
+       </A><BR>
+    <I>Wed Jul 30 05:38:19 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000159.html">[Openviewer-dev] OpenViewer Status
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#160">[ date ]</a>
+              <a href="thread.html#160">[ thread ]</a>
+              <a href="subject.html#160">[ subject ]</a>
+              <a href="author.html#160">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Jeff,
+
+Thanks for your reply!
+
+&gt;<i> Yes.  There hasn't been much activity on the mailing list or IRC
+</I>&gt;<i> lately because we've been a little side-tracked looking into some new
+</I>&gt;<i> possibilities.
+</I>
+What other things are you looking into? I'm trying to get a sense for where this project is headed.
+
+Can you tell me what the goal of openviewer is? What will it provide that the opensource secondlife client won't? What timeline do you see for when openviewer development? How much of the existing codebase do you see being rewritten in the near future?
+
+&gt;<i> We were using Mogre, but it's a Windows-only library.  We've updated
+</I>&gt;<i> the old OgreDotNet to work with recent versions of Ogre, and now it's
+</I>&gt;<i> working on Linux, Mac OS X, and Windows.  As of r324, we've switched
+</I>&gt;<i> to only officially supporting OgreDotNet.
+</I>
+That makes a lot of sense. Is performance an important consideration for openviewer? As I understand it, the SWIG wrappers that ogredotnet uses have a penalty due to lots of boxing/unboxing. (Although I'm no expert, this might not be significant at all)
+
+&gt;<i> &gt; In my development environment (VS2008/XP), I ran into a couple of
+</I>&gt;<i> &gt; multi-threading issues. I've got a couple of work-arounds - is
+</I>&gt;<i> &gt; anyone interested in this code?
+</I>&gt;<i>
+</I>&gt;<i> Is this under WinForms?  I'm not sure we'll use WinForms long-term due
+</I>&gt;<i> to the somewhat lacking support under mono, but there may be people
+</I>&gt;<i> interested in using it for particular projects.  If you have any code
+</I>&gt;<i> to contribute, it would be much appreciated.  You can submit patches
+</I>&gt;<i> through trac on the OpenViewer website.
+</I>
+One of the bugs was with winforms. The other was an object sharing issue between the World and the TerrainManager. I've submitted the patch through trac.
+
+--
+Francis
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000159.html">[Openviewer-dev] OpenViewer Status
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#160">[ date ]</a>
+              <a href="thread.html#160">[ thread ]</a>
+              <a href="subject.html#160">[ subject ]</a>
+              <a href="author.html#160">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

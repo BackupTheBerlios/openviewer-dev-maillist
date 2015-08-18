@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] PATCH: Nunit Testing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20PATCH%3A%20Nunit%20Testing&In-Reply-To=%3C351467290803201251h48a792e7q407c1a41ebcec198%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000049.html">
+   <LINK REL="Next"  HREF="000051.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] PATCH: Nunit Testing</H1>
+    <B>Daedius</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20PATCH%3A%20Nunit%20Testing&In-Reply-To=%3C351467290803201251h48a792e7q407c1a41ebcec198%40mail.gmail.com%3E"
+       TITLE="[Openviewer-dev] PATCH: Nunit Testing">daedius at daedius.com
+       </A><BR>
+    <I>Thu Mar 20 20:51:30 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000049.html">[Openviewer-dev] Patch: Fractal Spline Source Code
+</A></li>
+        <LI>Next message: <A HREF="000051.html">[Openviewer-dev] PATCH: Nunit testing 2 + login changes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#50">[ date ]</a>
+              <a href="thread.html#50">[ thread ]</a>
+              <a href="subject.html#50">[ subject ]</a>
+              <a href="author.html#50">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>This patch includes changes for adding an nunit testing project for
+the SL Protocol.  Right now I just test login but I think its a great
+first start.  You will need the nunit.framework.dll binary from nunit
+website ( get the .net 2.0 version )
+
+Compile as normal.
+
+to run tests
+
+cd bin
+nunit-console2 OpenViewer.Protocol.SL.Tests.dll
+
+I created a test account named Open Viewer to run our tests with.
+
+Enjoy!
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: daedius_nunit.patch
+Type: text/x-patch
+Size: 4923 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080320/38ecded5/attachment.bin">https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080320/38ecded5/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000049.html">[Openviewer-dev] Patch: Fractal Spline Source Code
+</A></li>
+	<LI>Next message: <A HREF="000051.html">[Openviewer-dev] PATCH: Nunit testing 2 + login changes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#50">[ date ]</a>
+              <a href="thread.html#50">[ thread ]</a>
+              <a href="subject.html#50">[ subject ]</a>
+              <a href="author.html#50">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

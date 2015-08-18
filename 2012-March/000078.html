@@ -1,0 +1,342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> No subject
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.3.1331736991.8202.openviewer-dev%40lists.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000073.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>No subject</H1>
+    <B></B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.3.1331736991.8202.openviewer-dev%40lists.berlios.de%3E"
+       TITLE="No subject">
+       </A><BR>
+    <I>Wed Mar 14 15:56:30 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000073.html">No subject
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#78">[ date ]</a>
+              <a href="thread.html#78">[ thread ]</a>
+              <a href="subject.html#78">[ subject ]</a>
+              <a href="author.html#78">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>what's 
+on 
+the 
+wiki, 
+it 
+sounds 
+like 
+a 
+lot 
+of 
+this 
+should 
+happen 
+at&lt;br&gt;&gt; 
+the 
+protocol 
+layer. 
+Then 
+the 
+UI 
+would 
+query 
+the 
+protocol 
+to 
+see 
+if&lt;br&gt;&gt; 
+certain 
+features 
+are 
+supported. 
+For 
+the 
+time 
+being, 
+though, 
+I 
+think&lt;br&gt;&gt; 
+it's 
+fairly 
+safe 
+to 
+assume 
+that 
+any 
+protocol 
+we're 
+using 
+is 
+a 
+superset&lt;br&gt;&gt; 
+of 
+the 
+Second 
+Life 
+protocol.&lt;br&gt;&gt;&lt;br&gt;&gt; 
+(If 
+anyone 
+wants 
+to 
+add 
+other 
+totally 
+different 
+protocols, 
+they're 
+of&lt;br&gt;&gt; 
+course 
+welcome 
+to 
+do 
+so. 
+It 
+would 
+be 
+quite 
+interesting 
+to 
+see 
+how&lt;br&gt;&gt; 
+well 
+the 
+IProtocol 
+interface 
+can 
+abstract 
+the 
+differences 
+out.)&lt;br&gt;&gt;&lt;br&gt;&gt; 
+&gt;<i> 
+</I>- 
+UserSettings&lt;br&gt;&gt;&lt;br&gt;&gt; 
+This 
+now 
+auto-generates 
+an 
+XML 
+file 
+when 
+you 
+run 
+the 
+app. 
+We 
+may 
+want&lt;br&gt;&gt; 
+to 
+add 
+a 
+version 
+header 
+to 
+it, 
+though, 
+to 
+avoid 
+upgrade 
+problems.&lt;br&gt;&gt;&lt;br&gt;&gt; 
+However, 
+my 
+feeling 
+is 
+that 
+it 
+belongs 
+more 
+at 
+the 
+application 
+layer 
+than&lt;br&gt;&gt; 
+in 
+the 
+GTK 
+UI.&lt;br&gt;&gt;&lt;br&gt;&gt; 
+&gt;<i> 
+</I>- 
+3D 
+Integration 
+(if 
+not, 
+an 
+external 
+window 
+will 
+be 
+fine)&lt;br&gt;&gt;&lt;br&gt;&gt; 
+This 
+is 
+something 
+we 
+should 
+look 
+into 
+very 
+soon 
+(though 
+I 
+think 
+MW 
+is&lt;br&gt;&gt; 
+already). 
+If 
+we 
+run 
+into 
+problems 
+here 
+(like 
+GTK# 
+not 
+supporting 
+GL&lt;br&gt;&gt; 
+contexts, 
+or 
+such), 
+it 
+could 
+seriously 
+limit 
+the 
+usefulness 
+of 
+these&lt;br&gt;&gt; 
+UI's.&lt;br&gt;&gt;&lt;br&gt;&gt; 
+&gt;<i> 
+</I>- 
+fixed 
+some 
+namespacing 
+issues&lt;br&gt;&gt;&lt;br&gt;&gt; 
+If 
+there 
+are 
+conflicts 
+with 
+the 
+Gtk 
+namespace, 
+we 
+can 
+change 
+to&lt;br&gt;&gt; 
+something 
+like 
+GtkUI 
+or 
+GtkPlugin 
+or 
+such. 
+However, 
+the 
+namespace&lt;br&gt;&gt; 
+should 
+mirror 
+the 
+file 
+path 
+(so&lt;br&gt;&gt; 
+OpenViewer/UI/GtkPlugin/GtkMainWindow.cs 
+should 
+define 
+a 
+class&lt;br&gt;&gt; 
+GtkMainWindow 
+in 
+the 
+namespace 
+OpenViewer.UI.GtkPlugin)&lt;br&gt;&gt;&lt;br&gt;&gt; 
+Also, 
+the 
+way 
+we're 
+using 
+namespaces 
+currently 
+means 
+we 
+can't 
+have&lt;br&gt;&gt; 
+classes 
+and 
+namespaces 
+with 
+the 
+same 
+name, 
+so 
+we 
+have 
+to 
+avoid 
+doing&lt;br&gt;&gt; 
+something 
+like 
+GtkPlugin/GtkPlugin.cs.&lt;br&gt;&gt;&lt;br&gt;&gt; 
+Jeff&lt;br&gt;&gt; 
+_______________________________________________&lt;br&gt;&gt; 
+Openviewer-dev 
+mailing 
+list&lt;br&gt;&gt; 
+&lt;a ymailto=&quot;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&quot; href=&quot;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&quot;&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&lt;/a&gt;&lt;br&gt;&gt; 
+&lt;a href=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>&quot; target=&quot;_blank&quot;&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev&lt;/a">https://lists.berlios.de/mailman/listinfo/openviewer-dev&lt;/a</A>&gt;&lt;br&gt;&gt;&lt;br&gt;&gt;&lt;br&gt;&gt;&lt;br&gt;&gt;&nbsp; 
+________________________________&lt;br&gt;&gt;&nbsp; 
+Sent 
+from 
+Yahoo! 
+Mail.&lt;br&gt;&gt;&nbsp; 
+More 
+Ways 
+to 
+Keep 
+in 
+Touch.&lt;br&gt;&gt; 
+_______________________________________________&lt;br&gt;&gt;&nbsp; 
+Openviewer-dev 
+mailing 
+list&lt;br&gt;&gt;&nbsp; 
+&lt;a ymailto=&quot;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&quot; href=&quot;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&quot;&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&lt;/a&gt;&lt;br&gt;&gt;&nbsp; 
+&lt;a href=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>&quot; target=&quot;_blank&quot;&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev&lt;/a">https://lists.berlios.de/mailman/listinfo/openviewer-dev&lt;/a</A>&gt;&lt;br&gt;&gt;&lt;br&gt;&gt;&lt;br&gt;_______________________________________________&lt;br&gt;Openviewer-dev 
+mailing 
+list&lt;br&gt;&lt;a ymailto=&quot;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&quot; href=&quot;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&quot;&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>&quot; target=&quot;_blank&quot;&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev&lt;/a">https://lists.berlios.de/mailman/listinfo/openviewer-dev&lt;/a</A>&gt;&lt;br&gt;&lt;/div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+--0-1729617952-1206458541=:65776--
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000073.html">No subject
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#78">[ date ]</a>
+              <a href="thread.html#78">[ thread ]</a>
+              <a href="subject.html#78">[ subject ]</a>
+              <a href="author.html#78">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

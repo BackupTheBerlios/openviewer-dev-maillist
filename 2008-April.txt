@@ -1,0 +1,2481 @@
+From deifante at gmail.com  Mon Apr  7 22:42:31 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Mon, 7 Apr 2008 14:42:31 -0600
+Subject: [Openviewer-dev] PATCH: Namespace update
+Message-ID: <f38794ad0804071342h59d9010mbc2f885d87237e19@mail.gmail.com>
+
+Had problems building on windows. Small change to fully qualify a namespace.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080407/137ddf77/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: NameSpacePatch.patch
+Type: application/octet-stream
+Size: 1195 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080407/137ddf77/attachment.obj>
+
+From jeffames at gmail.com  Tue Apr  8 01:43:23 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Tue, 8 Apr 2008 08:43:23 +0900
+Subject: [Openviewer-dev] PATCH: Namespace update
+In-Reply-To: <f38794ad0804071342h59d9010mbc2f885d87237e19@mail.gmail.com>
+References: <f38794ad0804071342h59d9010mbc2f885d87237e19@mail.gmail.com>
+Message-ID: <acd357460804071643h24d8cfsf0406b2a34884588@mail.gmail.com>
+
+This is hopefully fixed in r261.  Could someone test this on Windows
+and see if it works?
+
+Jeff
+
+
+From deifante at gmail.com  Tue Apr  8 02:18:18 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Mon, 7 Apr 2008 18:18:18 -0600
+Subject: [Openviewer-dev] PATCH: Namespace update
+In-Reply-To: <acd357460804071643h24d8cfsf0406b2a34884588@mail.gmail.com>
+References: <f38794ad0804071342h59d9010mbc2f885d87237e19@mail.gmail.com>
+	<acd357460804071643h24d8cfsf0406b2a34884588@mail.gmail.com>
+Message-ID: <f38794ad0804071718y29be8e0av89817aafa335a5b6@mail.gmail.com>
+
+it works
+
+On Mon, Apr 7, 2008 at 5:43 PM, Jeff Ames <jeffames at gmail.com> wrote:
+
+> This is hopefully fixed in r261.  Could someone test this on Windows
+> and see if it works?
+>
+> Jeff
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080407/87c55085/attachment.html>
+
+From daedius at daedius.com  Tue Apr  8 05:27:46 2008
+From: daedius at daedius.com (Daedius)
+Date: Mon, 7 Apr 2008 22:27:46 -0500
+Subject: [Openviewer-dev] Transition to Google Code
+Message-ID: <351467290804072027p640420d6tbbe543099e71b92f@mail.gmail.com>
+
+Hello Everyone,
+
+This mailing list thread is to start discussion on server migration.
+We have two problems that are a hindrance to the progression of
+OpenViewer, and I speak of them with great humbleness and respect to
+the people who have been working on OpenViewer:
+
+- There are not enough active people to sustain patch inclusion, checking, etc.
+- We cannot easily grow the active people who are committers because
+of our connection to opensim (many of our contributors happen to be
+coders of both projects)
+
+The plan D-Font and myself are going to pursue is for the betterment
+of our group.  We believe that a transition to a new source code
+repository location is the answer.  We have formed a group on Google
+code, which provides free SVN access to groups.  There are benefits
+and cons to this solution which we will pursue:
+
+Benefits:
+- Non-connection with OpenSim, allowing both projects to add new
+members without risk of trashing the others code
+- Free hosting for SVN
+- Little maintenance for running source code repository
+- Many users have gmail accounts or can easily obtain them for use if
+they become members
+- free source code browsing and search
+Cons:
+- Only gmail accounts may be used
+- Does not provide offerings of git for developers interested ( we may
+have to set this up elsewhere )
+
+Please note that this change in source repository will not change the
+policy of our group on adding new members to get commit access (in the
+OpenSim tradition).  Additionally, all old members with commit access
+will get access as members of the Google code group.  Myself, Daedius,
+and D-Font will be administering this google code project and thusly
+have code access as well unless there is some great outcry against us.
+
+We will be making the transition after some discussion of SVN
+structure layout, and then update the wiki accordingly.  If you have
+any ideas, objections, praises on this topic, please feel free to post
+them below! This transition will be made on Wednesday, April 9th,
+unless we have great objection in the following discussion.  If you
+are an existing committer, please send either D-Font or myself your
+gmail contact information and you will be added promptly.  Lastly, if
+it is not blatantly clear, this is not an effort to fork openviewer.
+Our unity is one of our greatest strengths.  Thanks and happy coding!
+
+- Daedius
+
+
+From ryan at 3di.jp  Tue Apr  8 05:37:22 2008
+From: ryan at 3di.jp (Ryan McDougall)
+Date: Tue, 8 Apr 2008 12:37:22 +0900 (JST)
+Subject: [Openviewer-dev] Transition to Google Code
+In-Reply-To: <351467290804072027p640420d6tbbe543099e71b92f@mail.gmail.com>
+Message-ID: <195692424.2740381207625842823.JavaMail.root@berkeley.lan>
+
+
+----- "Daedius" <daedius at daedius.com> wrote:
+> Hello Everyone,
+> 
+> This mailing list thread is to start discussion on server migration.
+> We have two problems that are a hindrance to the progression of
+> OpenViewer, and I speak of them with great humbleness and respect to
+> the people who have been working on OpenViewer:
+> 
+> - There are not enough active people to sustain patch inclusion,
+> checking, etc.
+> - We cannot easily grow the active people who are committers because
+> of our connection to opensim (many of our contributors happen to be
+> coders of both projects)
+> 
+> The plan D-Font and myself are going to pursue is for the betterment
+> of our group.  We believe that a transition to a new source code
+> repository location is the answer.  We have formed a group on Google
+> code, which provides free SVN access to groups.  There are benefits
+> and cons to this solution which we will pursue:
+> 
+> Benefits:
+> - Non-connection with OpenSim, allowing both projects to add new
+> members without risk of trashing the others code
+> - Free hosting for SVN
+> - Little maintenance for running source code repository
+> - Many users have gmail accounts or can easily obtain them for use if
+> they become members
+> - free source code browsing and search
+> Cons:
+> - Only gmail accounts may be used
+> - Does not provide offerings of git for developers interested ( we
+> may
+> have to set this up elsewhere )
+> 
+> Please note that this change in source repository will not change the
+> policy of our group on adding new members to get commit access (in
+> the
+> OpenSim tradition).  Additionally, all old members with commit access
+> will get access as members of the Google code group.  Myself,
+> Daedius,
+> and D-Font will be administering this google code project and thusly
+> have code access as well unless there is some great outcry against
+> us.
+> 
+> We will be making the transition after some discussion of SVN
+> structure layout, and then update the wiki accordingly.  If you have
+> any ideas, objections, praises on this topic, please feel free to
+> post
+> them below! This transition will be made on Wednesday, April 9th,
+> unless we have great objection in the following discussion.  If you
+> are an existing committer, please send either D-Font or myself your
+> gmail contact information and you will be added promptly.  Lastly, if
+> it is not blatantly clear, this is not an effort to fork openviewer.
+> Our unity is one of our greatest strengths.  Thanks and happy coding!
+> 
+> - Daedius
+
+For my own 2-cents, I can say that I feel that every new project lives and dies by its active developers, and that if OpenViewer wants to live, it needs to be more open to accepting more contributors.
+
+Cheers,
+
+
+
+From michaelwri22 at yahoo.co.uk  Tue Apr  8 11:07:45 2008
+From: michaelwri22 at yahoo.co.uk (Michael Wright)
+Date: Tue, 8 Apr 2008 10:07:45 +0100 (BST)
+Subject: [Openviewer-dev] Transition to Google Code
+In-Reply-To: <195692424.2740381207625842823.JavaMail.root@berkeley.lan>
+Message-ID: <215534.45478.qm@web23012.mail.ird.yahoo.com>
+
+Yes we all agreed that openviewer needs to move to a new server and have more commiters and we were actively working towards moving it to a new server. 
+
+However I'm afraid when a group of people just take it on themselves to move it and set themselves up as the admins of the new project then thats really a fork and thats how I at this time feel about this.
+
+
+
+Ryan McDougall <ryan at 3di.jp> wrote: 
+----- "Daedius"  wrote:
+> Hello Everyone,
+> 
+> This mailing list thread is to start discussion on server migration.
+> We have two problems that are a hindrance to the progression of
+> OpenViewer, and I speak of them with great humbleness and respect to
+> the people who have been working on OpenViewer:
+> 
+> - There are not enough active people to sustain patch inclusion,
+> checking, etc.
+> - We cannot easily grow the active people who are committers because
+> of our connection to opensim (many of our contributors happen to be
+> coders of both projects)
+> 
+> The plan D-Font and myself are going to pursue is for the betterment
+> of our group.  We believe that a transition to a new source code
+> repository location is the answer.  We have formed a group on Google
+> code, which provides free SVN access to groups.  There are benefits
+> and cons to this solution which we will pursue:
+> 
+> Benefits:
+> - Non-connection with OpenSim, allowing both projects to add new
+> members without risk of trashing the others code
+> - Free hosting for SVN
+> - Little maintenance for running source code repository
+> - Many users have gmail accounts or can easily obtain them for use if
+> they become members
+> - free source code browsing and search
+> Cons:
+> - Only gmail accounts may be used
+> - Does not provide offerings of git for developers interested ( we
+> may
+> have to set this up elsewhere )
+> 
+> Please note that this change in source repository will not change the
+> policy of our group on adding new members to get commit access (in
+> the
+> OpenSim tradition).  Additionally, all old members with commit access
+> will get access as members of the Google code group.  Myself,
+> Daedius,
+> and D-Font will be administering this google code project and thusly
+> have code access as well unless there is some great outcry against
+> us.
+> 
+> We will be making the transition after some discussion of SVN
+> structure layout, and then update the wiki accordingly.  If you have
+> any ideas, objections, praises on this topic, please feel free to
+> post
+> them below! This transition will be made on Wednesday, April 9th,
+> unless we have great objection in the following discussion.  If you
+> are an existing committer, please send either D-Font or myself your
+> gmail contact information and you will be added promptly.  Lastly, if
+> it is not blatantly clear, this is not an effort to fork openviewer.
+> Our unity is one of our greatest strengths.  Thanks and happy coding!
+> 
+> - Daedius
+
+For my own 2-cents, I can say that I feel that every new project lives and dies by its active developers, and that if OpenViewer wants to live, it needs to be more open to accepting more contributors.
+
+Cheers,
+
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+       
+---------------------------------
+ Yahoo! for Good helps you make a difference
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080408/054961f4/attachment.html>
+
+From michaelwri22 at yahoo.co.uk  Tue Apr  8 11:16:50 2008
+From: michaelwri22 at yahoo.co.uk (Michael Wright)
+Date: Tue, 8 Apr 2008 10:16:50 +0100 (BST)
+Subject: [Openviewer-dev] Transition to Google Code
+In-Reply-To: <215534.45478.qm@web23012.mail.ird.yahoo.com>
+Message-ID: <537385.69356.qm@web23002.mail.ird.yahoo.com>
+
+ps, the gmail issue really rules it out as our answer, I don't want to create yet another email account. 
+
+Michael Wright <michaelwri22 at yahoo.co.uk> wrote: Yes we all agreed that openviewer needs to move to a new server and have more commiters and we were actively working towards moving it to a new server. 
+
+However I'm afraid when a group of people just take it on themselves to move it and set themselves up as the admins of the new project then thats really a fork and thats how I at this time feel about this.
+
+
+
+Ryan McDougall <ryan at 3di.jp> wrote: 
+----- "Daedius"  wrote:
+> Hello Everyone,
+> 
+> This mailing list thread is to start discussion on server migration.
+> We have two problems that are a hindrance to the progression of
+> OpenViewer, and I speak of them with great humbleness and respect to
+> the people who have been working on OpenViewer:
+> 
+> - There are not enough active people to sustain patch  inclusion,
+> checking, etc.
+> - We cannot easily grow the active people who are committers because
+> of our connection to opensim (many of our contributors happen to be
+> coders of both projects)
+> 
+> The plan D-Font and myself are going to pursue is for the betterment
+> of our group.  We believe that a transition to a new source code
+> repository location is the answer.  We have formed a group on Google
+> code, which provides free SVN access to groups.  There are benefits
+> and cons to this solution which we will pursue:
+> 
+> Benefits:
+> - Non-connection with OpenSim, allowing both projects to add new
+> members without risk of trashing the others code
+> - Free hosting for SVN
+> - Little maintenance for running source code repository
+> - Many users have gmail accounts or can easily obtain them for use if
+> they become members
+> - free source code browsing and  search
+> Cons:
+> - Only gmail accounts may be used
+> - Does not provide offerings of git for developers interested ( we
+> may
+> have to set this up elsewhere )
+> 
+> Please note that this change in source repository will not change the
+> policy of our group on adding new members to get commit access (in
+> the
+> OpenSim tradition).  Additionally, all old members with commit access
+> will get access as members of the Google code group.  Myself,
+> Daedius,
+> and D-Font will be administering this google code project and thusly
+> have code access as well unless there is some great outcry against
+> us.
+> 
+> We will be making the transition after some discussion of SVN
+> structure layout, and then update the wiki accordingly.  If you have
+> any ideas, objections, praises on this topic, please feel free to
+> post
+> them below! This transition will be made on  Wednesday, April 9th,
+> unless we have great objection in the following discussion.  If you
+> are an existing committer, please send either D-Font or myself your
+> gmail contact information and you will be added promptly.  Lastly, if
+> it is not blatantly clear, this is not an effort to fork openviewer.
+> Our unity is one of our greatest strengths.  Thanks and happy coding!
+> 
+> - Daedius
+
+For my own 2-cents, I can say that I feel that every new project lives and dies by its active developers, and that if OpenViewer wants to live, it needs to be more open to accepting more contributors.
+
+Cheers,
+
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+           
+
+---------------------------------
+  Yahoo! for Good helps you make a difference_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+       
+---------------------------------
+ Yahoo! for Good helps you make a difference
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080408/4b2c1cc4/attachment.html>
+
+From michaelwri22 at yahoo.co.uk  Tue Apr  8 12:27:17 2008
+From: michaelwri22 at yahoo.co.uk (Michael Wright)
+Date: Tue, 8 Apr 2008 11:27:17 +0100 (BST)
+Subject: [Openviewer-dev] Transition to Google Code
+In-Reply-To: <351467290804072027p640420d6tbbe543099e71b92f@mail.gmail.com>
+Message-ID: <571320.21238.qm@web23009.mail.ird.yahoo.com>
+
+Just to explain what my biggest problem with this is. 
+ It relates to one of your sentences: 
+
+"Please note that this change in source repository will not change the
+policy of our group on adding new members to get commit access (in the
+OpenSim tradition)."
+
+Basically in my view, this has been broke at least four times in what has happened here.
+We have that policy on Core members voting for new memember and any other big decision.
+
+Two in yourself and D-front becoming core members without that vote. Another one in you both being the admins without a vote.
+And in the project being moved to google without a vote. Now its very possible that all of these things would have got a go ahead after a vote. 
+But those votes weren't held so it broke that policy and hurt trust. 
+
+So I have to consider this google project a fork. That should change its name to something other than openviewer. 
+
+
+Daedius <daedius at daedius.com> wrote: Hello Everyone,
+
+This mailing list thread is to start discussion on server migration.
+We have two problems that are a hindrance to the progression of
+OpenViewer, and I speak of them with great humbleness and respect to
+the people who have been working on OpenViewer:
+
+- There are not enough active people to sustain patch inclusion, checking, etc.
+- We cannot easily grow the active people who are committers because
+of our connection to opensim (many of our contributors happen to be
+coders of both projects)
+
+The plan D-Font and myself are going to pursue is for the betterment
+of our group.  We believe that a transition to a new source code
+repository location is the answer.  We have formed a group on Google
+code, which provides free SVN access to groups.  There are benefits
+and cons to this solution which we will pursue:
+
+Benefits:
+- Non-connection with OpenSim, allowing both projects to add new
+members without risk of trashing the others code
+- Free hosting for SVN
+- Little maintenance for running source code repository
+- Many users have gmail accounts or can easily obtain them for use if
+they become members
+- free source code browsing and search
+Cons:
+- Only gmail accounts may be used
+- Does not provide offerings of git for developers interested ( we may
+have to set this up elsewhere )
+
+Please note that this change in source repository will not change the
+policy of our group on adding new members to get commit access (in the
+OpenSim tradition).  Additionally, all old members with commit access
+will get access as members of the Google code group.  Myself, Daedius,
+and D-Font will be administering this google code project and thusly
+have code access as well unless there is some great outcry against us.
+
+We will be making the transition after some discussion of SVN
+structure layout, and then update the wiki accordingly.  If you have
+any ideas, objections, praises on this topic, please feel free to post
+them below! This transition will be made on Wednesday, April 9th,
+unless we have great objection in the following discussion.  If you
+are an existing committer, please send either D-Font or myself your
+gmail contact information and you will be added promptly.  Lastly, if
+it is not blatantly clear, this is not an effort to fork openviewer.
+Our unity is one of our greatest strengths.  Thanks and happy coding!
+
+- Daedius
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+       
+---------------------------------
+ Yahoo! for Good helps you make a difference
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080408/e2c63673/attachment.html>
+
+From jeffames at gmail.com  Tue Apr  8 13:42:34 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Tue, 8 Apr 2008 20:42:34 +0900
+Subject: [Openviewer-dev] Transition to Google Code
+In-Reply-To: <571320.21238.qm@web23009.mail.ird.yahoo.com>
+References: <351467290804072027p640420d6tbbe543099e71b92f@mail.gmail.com>
+	<571320.21238.qm@web23009.mail.ird.yahoo.com>
+Message-ID: <acd357460804080442jea995bcr1268a6c3c6b57642@mail.gmail.com>
+
+Hello,
+
+I'm sure this is done with the best of intentions.  However, splitting
+off from the core team, starting your own repository, adding
+committers, and then emailing the list announcing it and telling the
+core developers that they should express their opinions on the matter
+by tomorrow, or else it goes through, is not likely to be received well.
+
+> Please note that this change in source repository will not change the
+> policy of our group on adding new members to get commit access (in the
+> OpenSim tradition).  Additionally, all old members with commit access
+> will get access as members of the Google code group.  Myself, Daedius,
+> and D-Font will be administering this google code project and thusly
+> have code access as well unless there is some great outcry against us.
+
+As MW pointed out, this already breaks the policy of adding new
+members to the group.  Following this example, anyone who wants access
+in the future could just clone the repository, add themselves and
+whoever else they want, and declare that the new official home of
+OpenViewer.  In essence, you *are* forking the code.
+
+> There are not enough active people to sustain patch inclusion,
+> checking, etc.
+
+I see two open patches in mantis, both of which have been reviewed and
+are waiting on some kind of issue.  I don't see any that are waiting
+on a core developer.
+
+Of course, having more active developers is helpful, and I don't think
+anyone on this project is averse to accepting more contributors
+(though of course I speak only for myself).
+
+Until the logistic issues are resolved, though, I'd recommend we simply
+continue with the existing methods of tracking and applying patches.
+
+Jeff
+
+
+From daedius at daedius.com  Tue Apr  8 16:25:51 2008
+From: daedius at daedius.com (Daedius)
+Date: Tue, 8 Apr 2008 09:25:51 -0500
+Subject: [Openviewer-dev] Transition to Google Code
+In-Reply-To: <acd357460804080442jea995bcr1268a6c3c6b57642@mail.gmail.com>
+References: <351467290804072027p640420d6tbbe543099e71b92f@mail.gmail.com>
+	<571320.21238.qm@web23009.mail.ird.yahoo.com>
+	<acd357460804080442jea995bcr1268a6c3c6b57642@mail.gmail.com>
+Message-ID: <351467290804080725s7c5c4524hf58c0999fc2ccd58@mail.gmail.com>
+
+Perhaps I am not clear enough in my original email.  This is not a
+fork.  If you all could please be on topic, that would be appreciated.
+ It would be nice to have a formality of people doing what they say
+they intend to do about adding new devs in the OpenSim spirit, but
+I've not seen that happen or any discussion of it to happen, and the
+way our source code is a limitation to everything related to that.
+There are active people who want to do things, and just because a few
+people have commit access to one repository doesn't entirely mean the
+wheels of progress will stop.
+
+MW, i'm not sure how a google account rules out Google code hosting.
+I've made two new accounts just in joining this group for wiki and
+berlios.  If creating a new account is going to be keeping a new dev
+from working on the project, that sounds like a problem with the dev
+more than our system.  Technically, do you have anything against
+google code?
+
+Chi11ken, we thank you for your help.  But honostly, you must realize
+how we've lost faith in the current arrangement a bit.  Additionally,
+this last week we have been focused on getting 3d from ogredotnet to
+work on our respective machines, play around with ogre3d, think about
+3d could be done, and write tests for your ogredotnet.  That is
+probably why you don't see any patches.  Also, you talk about waiting
+until the "logistics issues are resolved", well, this is the
+discussion thread to talk about them. Please do.
+
+Lastly, if you all don't believe I wouldn't hand over the reigns of
+administration openviewer on Google code you are mistaken.  Please
+work with me and see my intention are for the best of the group and
+keeping us together.  I know this topic is rough, but I have talked
+about it to the active members in IRC for the last week among our
+other tasks, hoping that you would have followed up on progressing
+this issue ( but have not ).  I am trying to be as humble as possible
+and I hope you see that I enjoy working with you all.
+
+- Daedius
+
+On Tue, Apr 8, 2008 at 6:42 AM, Jeff Ames <jeffames at gmail.com> wrote:
+> Hello,
+>
+>  I'm sure this is done with the best of intentions.  However, splitting
+>  off from the core team, starting your own repository, adding
+>  committers, and then emailing the list announcing it and telling the
+>  core developers that they should express their opinions on the matter
+>  by tomorrow, or else it goes through, is not likely to be received well.
+>
+>
+>  > Please note that this change in source repository will not change the
+>  > policy of our group on adding new members to get commit access (in the
+>  > OpenSim tradition).  Additionally, all old members with commit access
+>  > will get access as members of the Google code group.  Myself, Daedius,
+>  > and D-Font will be administering this google code project and thusly
+>  > have code access as well unless there is some great outcry against us.
+>
+>  As MW pointed out, this already breaks the policy of adding new
+>  members to the group.  Following this example, anyone who wants access
+>  in the future could just clone the repository, add themselves and
+>  whoever else they want, and declare that the new official home of
+>  OpenViewer.  In essence, you *are* forking the code.
+>
+>
+>  > There are not enough active people to sustain patch inclusion,
+>  > checking, etc.
+>
+>  I see two open patches in mantis, both of which have been reviewed and
+>  are waiting on some kind of issue.  I don't see any that are waiting
+>  on a core developer.
+>
+>  Of course, having more active developers is helpful, and I don't think
+>  anyone on this project is averse to accepting more contributors
+>  (though of course I speak only for myself).
+>
+>  Until the logistic issues are resolved, though, I'd recommend we simply
+>  continue with the existing methods of tracking and applying patches.
+>
+>  Jeff
+>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+
+
+From daedius at daedius.com  Tue Apr  8 16:32:09 2008
+From: daedius at daedius.com (Daedius)
+Date: Tue, 8 Apr 2008 09:32:09 -0500
+Subject: [Openviewer-dev] Transition to Google Code
+In-Reply-To: <acd357460804080442jea995bcr1268a6c3c6b57642@mail.gmail.com>
+References: <351467290804072027p640420d6tbbe543099e71b92f@mail.gmail.com>
+	<571320.21238.qm@web23009.mail.ird.yahoo.com>
+	<acd357460804080442jea995bcr1268a6c3c6b57642@mail.gmail.com>
+Message-ID: <351467290804080732w62ba11aard1bb8845229456ec@mail.gmail.com>
+
+Sorry, I forgot to mention in my last email that we will put this
+transition on hold for now.  The warning bell that this needs to be
+discussed more have obviously been set off, and I am prepared for
+that.  I honestly did not know how you all would respond.
+
+Thanks
+-Daedius
+
+On Tue, Apr 8, 2008 at 6:42 AM, Jeff Ames <jeffames at gmail.com> wrote:
+> Hello,
+>
+>  I'm sure this is done with the best of intentions.  However, splitting
+>  off from the core team, starting your own repository, adding
+>  committers, and then emailing the list announcing it and telling the
+>  core developers that they should express their opinions on the matter
+>  by tomorrow, or else it goes through, is not likely to be received well.
+>
+>
+>  > Please note that this change in source repository will not change the
+>  > policy of our group on adding new members to get commit access (in the
+>  > OpenSim tradition).  Additionally, all old members with commit access
+>  > will get access as members of the Google code group.  Myself, Daedius,
+>  > and D-Font will be administering this google code project and thusly
+>  > have code access as well unless there is some great outcry against us.
+>
+>  As MW pointed out, this already breaks the policy of adding new
+>  members to the group.  Following this example, anyone who wants access
+>  in the future could just clone the repository, add themselves and
+>  whoever else they want, and declare that the new official home of
+>  OpenViewer.  In essence, you *are* forking the code.
+>
+>
+>  > There are not enough active people to sustain patch inclusion,
+>  > checking, etc.
+>
+>  I see two open patches in mantis, both of which have been reviewed and
+>  are waiting on some kind of issue.  I don't see any that are waiting
+>  on a core developer.
+>
+>  Of course, having more active developers is helpful, and I don't think
+>  anyone on this project is averse to accepting more contributors
+>  (though of course I speak only for myself).
+>
+>  Until the logistic issues are resolved, though, I'd recommend we simply
+>  continue with the existing methods of tracking and applying patches.
+>
+>  Jeff
+>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+
+
+From cfk at pacbell.net  Tue Apr  8 16:32:57 2008
+From: cfk at pacbell.net (Charles Krinke)
+Date: Tue, 8 Apr 2008 07:32:57 -0700 (PDT)
+Subject: [Openviewer-dev] Transition to Google Code
+Message-ID: <995660.50046.qm@web82606.mail.mud.yahoo.com>
+
+My vote is no.
+
+-1
+
+Charles
+
+----- Original Message ----
+From: Jeff Ames <jeffames at gmail.com>
+To: openviewer-dev at lists.berlios.de
+Sent: Tuesday, April 8, 2008 4:42:34 AM
+Subject: Re: [Openviewer-dev] Transition to Google Code
+
+Hello,
+
+I'm sure this is done with the best of intentions.  However, splitting
+off from the core team, starting your own repository, adding
+committers, and then emailing the list announcing it and telling the
+core developers that they should express their opinions on the matter
+by tomorrow, or else it goes through, is not likely to be received well.
+
+> Please note that this change in source repository will not change the
+> policy of our group on adding new members to get commit access (in the
+> OpenSim tradition).  Additionally, all old members with commit access
+> will get access as members of the Google code group.  Myself, Daedius,
+> and D-Font will be administering this google code project and thusly
+> have code access as well unless there is some great outcry against us.
+
+As MW pointed out, this already breaks the policy of adding new
+members to the group.  Following this example, anyone who wants access
+in the future could just clone the repository, add themselves and
+whoever else they want, and declare that the new official home of
+OpenViewer.  In essence, you *are* forking the code.
+
+> There are not enough active people to sustain patch inclusion,
+> checking, etc.
+
+I see two open patches in mantis, both of which have been reviewed and
+are waiting on some kind of issue.  I don't see any that are waiting
+on a core developer.
+
+Of course, having more active developers is helpful, and I don't think
+anyone on this project is averse to accepting more contributors
+(though of course I speak only for myself).
+
+Until the logistic issues are resolved, though, I'd recommend we simply
+continue with the existing methods of tracking and applying patches.
+
+Jeff
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080408/df4901b8/attachment.html>
+
+From daedius at daedius.com  Tue Apr  8 16:35:19 2008
+From: daedius at daedius.com (Daedius)
+Date: Tue, 8 Apr 2008 09:35:19 -0500
+Subject: [Openviewer-dev] Transition to Google Code
+In-Reply-To: <995660.50046.qm@web82606.mail.mud.yahoo.com>
+References: <995660.50046.qm@web82606.mail.mud.yahoo.com>
+Message-ID: <351467290804080735w48253957k9b8414e9d68bfb55@mail.gmail.com>
+
+Hey there Charles
+
+Thanks for chiming in. Do you have any options to present to address
+our problems?  Or does you vote of no imply that your comfortable with
+adding new people to the current shared opensim/openviewer repo?  I'm
+trying to understand your short response.
+
+- Daedius
+
+On Tue, Apr 8, 2008 at 9:32 AM, Charles Krinke <cfk at pacbell.net> wrote:
+>
+> My vote is no.
+>
+> -1
+>
+> Charles
+>
+>
+>
+> ----- Original Message ----
+> From: Jeff Ames <jeffames at gmail.com>
+> To: openviewer-dev at lists.berlios.de
+> Sent: Tuesday, April 8, 2008 4:42:34 AM
+> Subject: Re: [Openviewer-dev] Transition to Google Code
+>
+>  Hello,
+>
+> I'm sure this is done with the best of intentions.  However, splitting
+> off from the core team, starting your own repository, adding
+> committers, and then emailing the list announcing it and telling the
+> core developers that they should express their opinions on the matter
+> by tomorrow, or else it goes through, is not likely to be received well.
+>
+> > Please note that this change in source repository will not change the
+> > policy of our group on adding new members to get commit access (in the
+> > OpenSim tradition).  Additionally, all old members with commit access
+> > will get access as members of the Google code group.  Myself, Daedius,
+> > and D-Font will be administering this google code project and thusly
+> > have code access as well unless there is some great outcry against us.
+>
+> As MW pointed out, this already breaks the policy of adding new
+> members to the group.  Following this example, anyone who wants access
+> in the future could just clone the repository, add themselves and
+> whoever else they want, and declare that the new official home of
+> OpenViewer.  In essence, you *are* forking the code.
+>
+> > There are not enough active people to sustain patch inclusion,
+> > checking, etc.
+>
+> I see two open patches in mantis, both of which have been reviewed and
+> are waiting on some kind of issue.  I don't see any that are waiting
+> on a core developer.
+>
+> Of course, having more active developers is helpful, and I don't think
+> anyone on this project is averse to accepting more contributors
+> (though of course I speak only for myself).
+>
+> Until the logistic issues are resolved, though, I'd recommend we simply
+> continue with the existing methods of tracking and applying patches.
+>
+> Jeff
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+
+
+From cfk at pacbell.net  Tue Apr  8 16:47:46 2008
+From: cfk at pacbell.net (Charles Krinke)
+Date: Tue, 8 Apr 2008 07:47:46 -0700 (PDT)
+Subject: [Openviewer-dev] Transition to Google Code
+Message-ID: <829451.54613.qm@web82603.mail.mud.yahoo.com>
+
+In my opinion, it is important to support the opinions of Mw. This whole thing is his vision.
+
+Things never move fast enough when one is waiting on someone else to do something, and I feel that also. But working together long-term is the most important part. 
+
+This whole thing is a marathon. We are just embarking on the OpenViewer marathon and it will take longer then we can imagine to finish it.
+
+The strategy for commit is:
+
+1. Submit a few patches and work with the core developers to get them committed, thus establishing a relationship.
+
+2. From time to time, the core developers will vote and invite a new member to the team from those who submit patches.
+
+The reason for this is to allow all the participants to ensure they can work together with each other long-term.
+
+Charles
+
+----- Original Message ----
+From: Daedius <daedius at daedius.com>
+To: openviewer-dev at lists.berlios.de
+Sent: Tuesday, April 8, 2008 7:35:19 AM
+Subject: Re: [Openviewer-dev] Transition to Google Code
+
+Hey there Charles
+
+Thanks for chiming in. Do you have any options to present to address
+our problems?  Or does you vote of no imply that your comfortable with
+adding new people to the current shared opensim/openviewer repo?  I'm
+trying to understand your short response.
+
+- Daedius
+
+On Tue, Apr 8, 2008 at 9:32 AM, Charles Krinke <cfk at pacbell.net> wrote:
+>
+> My vote is no.
+>
+> -1
+>
+> Charles
+>
+>
+>
+> ----- Original Message ----
+> From: Jeff Ames <jeffames at gmail.com>
+> To: openviewer-dev at lists.berlios.de
+> Sent: Tuesday, April 8, 2008 4:42:34 AM
+> Subject: Re: [Openviewer-dev] Transition to Google Code
+>
+>  Hello,
+>
+> I'm sure this is done with the best of intentions.  However, splitting
+> off from the core team, starting your own repository, adding
+> committers, and then emailing the list announcing it and telling the
+> core developers that they should express their opinions on the matter
+> by tomorrow, or else it goes through, is not likely to be received well.
+>
+> > Please note that this change in source repository will not change the
+> > policy of our group on adding new members to get commit access (in the
+> > OpenSim tradition).  Additionally, all old members with commit access
+> > will get access as members of the Google code group.  Myself, Daedius,
+> > and D-Font will be administering this google code project and thusly
+> > have code access as well unless there is some great outcry against us.
+>
+> As MW pointed out, this already breaks the policy of adding new
+> members to the group.  Following this example, anyone who wants access
+> in the future could just clone the repository, add themselves and
+> whoever else they want, and declare that the new official home of
+> OpenViewer.  In essence, you *are* forking the code.
+>
+> > There are not enough active people to sustain patch inclusion,
+> > checking, etc.
+>
+> I see two open patches in mantis, both of which have been reviewed and
+> are waiting on some kind of issue.  I don't see any that are waiting
+> on a core developer.
+>
+> Of course, having more active developers is helpful, and I don't think
+> anyone on this project is averse to accepting more contributors
+> (though of course I speak only for myself).
+>
+> Until the logistic issues are resolved, though, I'd recommend we simply
+> continue with the existing methods of tracking and applying patches.
+>
+> Jeff
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080408/93f0d415/attachment.html>
+
+From adjohn at gmail.com  Tue Apr  8 17:04:12 2008
+From: adjohn at gmail.com (Adam Johnson)
+Date: Tue, 8 Apr 2008 10:04:12 -0500
+Subject: [Openviewer-dev] Transition to Google Code
+In-Reply-To: <215534.45478.qm@web23012.mail.ird.yahoo.com>
+References: <195692424.2740381207625842823.JavaMail.root@berkeley.lan>
+	<215534.45478.qm@web23012.mail.ird.yahoo.com>
+Message-ID: <56468c1f0804080804i312a472al4909ccaefeb2ef60@mail.gmail.com>
+
+I completely agree with MW on this one.  I know some of the patches
+going in are a little slow, but we want to take the time to really
+review everything to make sure that everything is of top quality.  We
+are at the very early stages of development in this project, and it's
+building up the core of OpenViewer.  If we rush things in, then we
+will end up doing countless rewrites.   I would like to avoid that as
+much as possible.
+
+As MW said, we were actively working on moving the SVN to it's own set
+of servers, and expanding commit access to some that have shown good
+quality patches.  I will continue to support this specific project,
+and not the google code project, and I hope everyone else can agree
+with that as well.
+
+On Tue, Apr 8, 2008 at 4:07 AM, Michael Wright <michaelwri22 at yahoo.co.uk> wrote:
+> Yes we all agreed that openviewer needs to move to a new server and have
+> more commiters and we were actively working towards moving it to a new
+> server.
+>
+> However I'm afraid when a group of people just take it on themselves to move
+> it and set themselves up as the admins of the new project then thats really
+> a fork and thats how I at this time feel about this.
+>
+>
+>
+> Ryan McDougall <ryan at 3di.jp> wrote:
+>
+>
+> ----- "Daedius" wrote:
+> > Hello Everyone,
+> >
+> > This mailing list thread is to start discussion on server migration.
+> > We have two problems that are a hindrance to the progression of
+> > OpenViewer, and I speak of them with great humbleness and respect to
+> > the people who have been working on OpenViewer:
+> >
+> > - There are not enough active people to sustain patch inclusion,
+> > checking, etc.
+> > - We cannot easily grow the active people who are committers because
+> > of our connection to opensim (many of our contributors happen to be
+> > coders of both projects)
+> >
+> > The plan D-Font and myself are going to pursue is for the betterment
+> > of our group. We believe that a transition to a new source code
+> > repository location is the answer. We have formed a group on Google
+> > code, which provides free SVN access to groups. There are benefits
+> > and cons to this solution which we will pursue:
+> >
+> > Benefits:
+> > - Non-connection with OpenSim, allowing both projects to add new
+> > members without risk of trashing the others code
+> > - Free hosting for SVN
+> > - Little maintenance for running source code repository
+> > - Many users have gmail accounts or can easily obtain them for use if
+> > they become members
+> > - free source code browsing and search
+> > Cons:
+> > - Only gmail accounts may be used
+> > - Does not provide offerings of git for developers interested ( we
+> > may
+> > have to set this up elsewhere )
+> >
+> > Please note that this change in source repository will not change the
+> > policy of our group on adding new members to get commit access (in
+> > the
+> > OpenSim tradition). Additionally, all old members with commit access
+> > will get access as members of the Google code group. Myself,
+> > Daedius,
+> > and D-Font will be administering this google code project and thusly
+> > have code access as well unless there is some great outcry against
+> > us.
+> >
+> > We will be making the transition after some discussion of SVN
+> > structure layout, and then update the wiki accordingly. If you have
+> > any ideas, objections, praises on this topic, please feel free to
+> > post
+> > them below! This transition will be made on Wednesday, April 9th,
+> > unless we have great objection in the following discussion. If you
+> > are an existing committer, please send either D-Font or myself your
+> > gmail contact information and you will be added promptly. Lastly, if
+> > it is not blatantly clear, this is not an effort to fork openviewer.
+> > Our unity is one of our greatest strengths. Thanks and happy coding!
+> >
+> > - Daedius
+>
+> For my own 2-cents, I can say that I feel that every new project lives and
+> dies by its active developers, and that if OpenViewer wants to live, it
+> needs to be more open to accepting more contributors.
+>
+> Cheers,
+>
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>
+> ________________________________
+> Yahoo! for Good helps you make a difference
+>
+>
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+
+
+From deifante at gmail.com  Tue Apr  8 18:28:09 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Tue, 8 Apr 2008 10:28:09 -0600
+Subject: [Openviewer-dev] Transition to Google Code
+In-Reply-To: <56468c1f0804080804i312a472al4909ccaefeb2ef60@mail.gmail.com>
+References: <195692424.2740381207625842823.JavaMail.root@berkeley.lan>
+	<215534.45478.qm@web23012.mail.ird.yahoo.com>
+	<56468c1f0804080804i312a472al4909ccaefeb2ef60@mail.gmail.com>
+Message-ID: <f38794ad0804080928g78f63567r666b4431b8b098b7@mail.gmail.com>
+
+ I did want to chime in as well. I want to say that this is not about
+control, commit access or patches, it is very much about progress and
+communication. If progress can happen with the current system, I fully
+support that. If moving to a new server will create progress I'll support
+that. My biggest concern is stagnation of the project.  Right now I believe
+that there are people that have a very clear idea of where they want
+OpenViewer to go. My concern is that I've only heard this from a few people.
+I feel like there are quite a few people that are passionate about
+OpenViewer yet I don't have great clarity on what is to be done other than
+getting it "done". I would like all of us that care about the project to be
+on the same page. How can we do that?
+
+I also want to acknowledge that I have not read the proper processes for
+change. Where can I find these?
+
+On Tue, Apr 8, 2008 at 9:04 AM, Adam Johnson <adjohn at gmail.com> wrote:
+
+> I completely agree with MW on this one.  I know some of the patches
+> going in are a little slow, but we want to take the time to really
+> review everything to make sure that everything is of top quality.  We
+> are at the very early stages of development in this project, and it's
+> building up the core of OpenViewer.  If we rush things in, then we
+> will end up doing countless rewrites.   I would like to avoid that as
+> much as possible.
+>
+> As MW said, we were actively working on moving the SVN to it's own set
+> of servers, and expanding commit access to some that have shown good
+> quality patches.  I will continue to support this specific project,
+> and not the google code project, and I hope everyone else can agree
+> with that as well.
+>
+> On Tue, Apr 8, 2008 at 4:07 AM, Michael Wright <michaelwri22 at yahoo.co.uk>
+> wrote:
+> > Yes we all agreed that openviewer needs to move to a new server and have
+> > more commiters and we were actively working towards moving it to a new
+> > server.
+> >
+> > However I'm afraid when a group of people just take it on themselves to
+> move
+> > it and set themselves up as the admins of the new project then thats
+> really
+> > a fork and thats how I at this time feel about this.
+> >
+> >
+> >
+> > Ryan McDougall <ryan at 3di.jp> wrote:
+> >
+> >
+> > ----- "Daedius" wrote:
+> > > Hello Everyone,
+> > >
+> > > This mailing list thread is to start discussion on server migration.
+> > > We have two problems that are a hindrance to the progression of
+> > > OpenViewer, and I speak of them with great humbleness and respect to
+> > > the people who have been working on OpenViewer:
+> > >
+> > > - There are not enough active people to sustain patch inclusion,
+> > > checking, etc.
+> > > - We cannot easily grow the active people who are committers because
+> > > of our connection to opensim (many of our contributors happen to be
+> > > coders of both projects)
+> > >
+> > > The plan D-Font and myself are going to pursue is for the betterment
+> > > of our group. We believe that a transition to a new source code
+> > > repository location is the answer. We have formed a group on Google
+> > > code, which provides free SVN access to groups. There are benefits
+> > > and cons to this solution which we will pursue:
+> > >
+> > > Benefits:
+> > > - Non-connection with OpenSim, allowing both projects to add new
+> > > members without risk of trashing the others code
+> > > - Free hosting for SVN
+> > > - Little maintenance for running source code repository
+> > > - Many users have gmail accounts or can easily obtain them for use if
+> > > they become members
+> > > - free source code browsing and search
+> > > Cons:
+> > > - Only gmail accounts may be used
+> > > - Does not provide offerings of git for developers interested ( we
+> > > may
+> > > have to set this up elsewhere )
+> > >
+> > > Please note that this change in source repository will not change the
+> > > policy of our group on adding new members to get commit access (in
+> > > the
+> > > OpenSim tradition). Additionally, all old members with commit access
+> > > will get access as members of the Google code group. Myself,
+> > > Daedius,
+> > > and D-Font will be administering this google code project and thusly
+> > > have code access as well unless there is some great outcry against
+> > > us.
+> > >
+> > > We will be making the transition after some discussion of SVN
+> > > structure layout, and then update the wiki accordingly. If you have
+> > > any ideas, objections, praises on this topic, please feel free to
+> > > post
+> > > them below! This transition will be made on Wednesday, April 9th,
+> > > unless we have great objection in the following discussion. If you
+> > > are an existing committer, please send either D-Font or myself your
+> > > gmail contact information and you will be added promptly. Lastly, if
+> > > it is not blatantly clear, this is not an effort to fork openviewer.
+> > > Our unity is one of our greatest strengths. Thanks and happy coding!
+> > >
+> > > - Daedius
+> >
+> > For my own 2-cents, I can say that I feel that every new project lives
+> and
+> > dies by its active developers, and that if OpenViewer wants to live, it
+> > needs to be more open to accepting more contributors.
+> >
+> > Cheers,
+> >
+> > _______________________________________________
+> > Openviewer-dev mailing list
+> > Openviewer-dev at lists.berlios.de
+> > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+> >
+> >
+> > ________________________________
+> > Yahoo! for Good helps you make a difference
+> >
+> >
+> > _______________________________________________
+> > Openviewer-dev mailing list
+> > Openviewer-dev at lists.berlios.de
+> > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+> >
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080408/71b770ee/attachment.html>
+
+From michaelwri22 at yahoo.co.uk  Tue Apr  8 19:24:47 2008
+From: michaelwri22 at yahoo.co.uk (Michael Wright)
+Date: Tue, 8 Apr 2008 18:24:47 +0100 (BST)
+Subject: [Openviewer-dev] Transition to Google Code
+In-Reply-To: <f38794ad0804080928g78f63567r666b4431b8b098b7@mail.gmail.com>
+Message-ID: <687358.82703.qm@web23004.mail.ird.yahoo.com>
+
+I think you brought up a very important issue, and thats only a few people are trying to decide where openviewer should go, and too much of that talk is happening on irc, as has been the problem a lot of us haven't had time to be on irc a lot lately. So if more of all this talking happened on this mailing list, it would give everyone a chance to be involved. 
+
+Daedius said in one of his emails, how they had been talking about how things should work, well most of that should be on the mailing list. or at least a summary of what was talked about. 
+
+As for we all being on the same page, in some sense that isn't going to happen completely as we all have different ideas. I think some even have a completely different vision of what the project is about to others. But as long as there is enough in common then we can still work together.
+
+Just what happened was not the way to go about things. 
+
+Deifante Walters <deifante at gmail.com> wrote:  I did want to chime in as well. I want to say that this is not about control, commit access or patches, it is very much about progress and communication. If progress can happen with the current system, I fully support that. If moving to a new server will create progress I'll support that. My biggest concern is stagnation of the project.  Right now I believe that there are people that have a very clear idea of where they want OpenViewer to go. My concern is that I've only heard this from a few people. I feel like there are quite a few people that are passionate about OpenViewer yet I don't have great clarity on what is to be done other than  getting it "done". I would like all of us that care about the project to be on the same page. How can we do that?
+ 
+I also want to acknowledge that I have not read the proper processes for change. Where can I find these?
+
+On Tue, Apr 8, 2008 at 9:04 AM, Adam Johnson <adjohn at gmail.com> wrote:
+ I completely agree with MW on this one.  I know some of the patches
+ going in are a little slow, but we want to take the time to really
+ review everything to make sure that everything is of top quality.  We
+ are at the very early stages of development in this project, and it's
+ building up the core of OpenViewer.  If we rush things in, then we
+ will end up doing countless rewrites.   I would like to avoid that as
+ much as possible.
+ 
+ As MW said, we were actively working on moving the SVN to it's own set
+ of servers, and expanding commit access to some that have shown good
+ quality patches.  I will continue to support this specific project,
+ and not the google code project, and I hope everyone else can agree
+ with that as well.
+ 
+
+ On Tue, Apr 8, 2008 at 4:07 AM, Michael Wright <michaelwri22 at yahoo.co.uk> wrote:
+ > Yes we all agreed that openviewer needs to move to a new server and have
+ > more commiters and we were actively working towards moving it to a new
+ > server.
+ >
+ > However I'm afraid when a group of people just take it on themselves to move
+ > it and set themselves up as the admins of the new project then thats really
+ > a fork and thats how I at this time feel about this.
+ >
+ >
+ >
+ > Ryan McDougall <ryan at 3di.jp> wrote:
+ >
+ >
+ > ----- "Daedius" wrote:
+ > > Hello Everyone,
+ > >
+ > > This mailing list thread is to start discussion on server migration.
+ > > We have two problems that are a hindrance to the progression of
+ > > OpenViewer, and I speak of them with great humbleness and respect to
+ > > the people who have been working on OpenViewer:
+ > >
+ > > - There are not enough active people to sustain patch inclusion,
+ > > checking, etc.
+ > > - We cannot easily grow the active people who are committers because
+ > > of our connection to opensim (many of our contributors happen to be
+ > > coders of both projects)
+ > >
+ > > The plan D-Font and myself are going to pursue is for the betterment
+ > > of our group. We believe that a transition to a new source code
+ > > repository location is the answer. We have formed a group on Google
+ > > code, which provides free SVN access to groups. There are benefits
+ > > and cons to this solution which we will pursue:
+ > >
+ > > Benefits:
+ > > - Non-connection with OpenSim, allowing both projects to add new
+ > > members without risk of trashing the others code
+ > > - Free hosting for SVN
+ > > - Little maintenance for running source code repository
+ > > - Many users have gmail accounts or can easily obtain them for use if
+ > > they become members
+ > > - free source code browsing and search
+ > > Cons:
+ > > - Only gmail accounts may be used
+ > > - Does not provide offerings of git for developers interested ( we
+ > > may
+ > > have to set this up elsewhere )
+ > >
+ > > Please note that this change in source repository will not change the
+ > > policy of our group on adding new members to get commit access (in
+ > > the
+ > > OpenSim tradition). Additionally, all old members with commit access
+ > > will get access as members of the Google code group. Myself,
+ > > Daedius,
+ > > and D-Font will be administering this google code project and thusly
+ > > have code access as well unless there is some great outcry against
+ > > us.
+ > >
+ > > We will be making the transition after some discussion of SVN
+ > > structure layout, and then update the wiki accordingly. If you have
+ > > any ideas, objections, praises on this topic, please feel free to
+ > > post
+ > > them below! This transition will be made on Wednesday, April 9th,
+ > > unless we have great objection in the following discussion. If you
+ > > are an existing committer, please send either D-Font or myself your
+ > > gmail contact information and you will be added promptly. Lastly, if
+ > > it is not blatantly clear, this is not an effort to fork openviewer.
+ > > Our unity is one of our greatest strengths. Thanks and happy coding!
+ > >
+ > > - Daedius
+ >
+ > For my own 2-cents, I can say that I feel that every new project lives and
+ > dies by its active developers, and that if OpenViewer wants to live, it
+ > needs to be more open to accepting more contributors.
+ >
+ > Cheers,
+ >
+ > _______________________________________________
+ > Openviewer-dev mailing list
+ > Openviewer-dev at lists.berlios.de
+ > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+ >
+ >
+ >
+ > ________________________________
+ > Yahoo! for Good helps you make a difference
+ >
+ >
+ > _______________________________________________
+ > Openviewer-dev mailing list
+ > Openviewer-dev at lists.berlios.de
+ > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+ >
+ >
+ _______________________________________________
+ Openviewer-dev mailing list
+ Openviewer-dev at lists.berlios.de
+ https://lists.berlios.de/mailman/listinfo/openviewer-dev
+ 
+
+
+
+ _______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+       
+---------------------------------
+ Yahoo! for Good helps you make a difference
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080408/f8ad0eef/attachment.html>
+
+From deifante at gmail.com  Wed Apr  9 21:57:08 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Wed, 9 Apr 2008 13:57:08 -0600
+Subject: [Openviewer-dev] tdd
+Message-ID: <f38794ad0804091257q376b5391ic8b52e2b4971476f@mail.gmail.com>
+
+Hello, in the irc channel the idea of Test Driven Development was brought
+up. The idea being that this will assist in making sure the code quality is
+there. It was also mentioned that if the whole group is not on board with
+this idea it will not float. What do people think about this?
+
+D-Font
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080409/9894bb15/attachment.html>
+
+From daedius at daedius.com  Wed Apr  9 22:17:35 2008
+From: daedius at daedius.com (Daedius)
+Date: Wed, 9 Apr 2008 15:17:35 -0500
+Subject: [Openviewer-dev] tdd
+In-Reply-To: <f38794ad0804091257q376b5391ic8b52e2b4971476f@mail.gmail.com>
+References: <f38794ad0804091257q376b5391ic8b52e2b4971476f@mail.gmail.com>
+Message-ID: <351467290804091317s5a886289tec64ced34e3fe7ee@mail.gmail.com>
+
++1 For test driven development.
+
+Our group is small, and we have the opportunity to influence the
+methodology of how OpenViewer will be created for years to come.  We
+should aim for a process that tries to keep a real view of the quality
+of our application.  I feel test driven development is that way.
+Break down our application into small testable chunks of code.
+
+I think this is good in many ways.  For example, just yesterday,
+Harrison was having a trouble testing OgreDotNet in isolation.  We did
+not know what his issue was exactly,  So I created an nunit test so he
+can run a ogredotnet 3d window alone without any other dependencies.
+With such tests our our library, we can give people a suite of tests
+that people can run on their respective operating system and runtime
+to verify our code works under our assumptions, or to aid them in
+resolving issues when they do not function.
+
+- Daedius
+
+
+On Wed, Apr 9, 2008 at 2:57 PM, Deifante Walters <deifante at gmail.com> wrote:
+> Hello, in the irc channel the idea of Test Driven Development was brought
+> up. The idea being that this will assist in making sure the code quality is
+> there. It was also mentioned that if the whole group is not on board with
+> this idea it will not float. What do people think about this?
+>
+> D-Font
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+
+
+From soren.renner at gmail.com  Wed Apr  9 22:20:19 2008
+From: soren.renner at gmail.com (=?ISO-8859-1?Q?S=F8ren_Renner?=)
+Date: Wed, 9 Apr 2008 15:20:19 -0500
+Subject: [Openviewer-dev] tdd
+In-Reply-To: <351467290804091317s5a886289tec64ced34e3fe7ee@mail.gmail.com>
+References: <f38794ad0804091257q376b5391ic8b52e2b4971476f@mail.gmail.com>
+	<351467290804091317s5a886289tec64ced34e3fe7ee@mail.gmail.com>
+Message-ID: <a4280a600804091320m495f905dld79d5178a8d75216@mail.gmail.com>
+
+>
+> For example, just yesterday,
+> Harrison was having a trouble testing OgreDotNet in isolation.  We did
+> not know what his issue was exactly,  So I created an nunit test so he
+> can run a ogredotnet 3d window alone without any other dependencies.
+>
+> Not yet he can't. He is looking forward to the instantiation of this
+vision.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080409/a3411141/attachment.html>
+
+From daedius at daedius.com  Thu Apr 10 00:58:04 2008
+From: daedius at daedius.com (Daedius)
+Date: Wed, 9 Apr 2008 17:58:04 -0500
+Subject: [Openviewer-dev] New Server Ideas
+Message-ID: <351467290804091558w479e96bbue005d02ce0bd12ef@mail.gmail.com>
+
+Hey everyone, I wanted to send out an email to gather some ideas we
+can put on a new server of our own, get opinions about what people are
+looking for, here are some of my ideas:
+
+- Wordpress developer blog
+- Mindtouch wiki ( has better support for videos, comments, mashups )
+- Mind map would be cool, I know there is some cool wiki versions of
+this out there
+- SVN obviously
+- SVN browser, that way we can show each other peice of code easily
+- An account and space we could do some automated builds on
+
+Daedius
+
+
+From daedius at daedius.com  Thu Apr 10 00:59:08 2008
+From: daedius at daedius.com (Daedius)
+Date: Wed, 9 Apr 2008 17:59:08 -0500
+Subject: [Openviewer-dev] OpenSim Media Wiki Skin
+Message-ID: <351467290804091559r31f44188y1fa871dbe1cc0ece@mail.gmail.com>
+
+http://jslplus.os-networks.net/osskin.tar
+
+Sending this URL out to the mailing list for reference.
+
+- Daedius
+
+
+From deifante at gmail.com  Thu Apr 10 06:54:22 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Wed, 9 Apr 2008 22:54:22 -0600
+Subject: [Openviewer-dev] New Server Ideas
+In-Reply-To: <351467290804091558w479e96bbue005d02ce0bd12ef@mail.gmail.com>
+References: <351467290804091558w479e96bbue005d02ce0bd12ef@mail.gmail.com>
+Message-ID: <f38794ad0804092154l2f311191iaf9d2f7a6950c5af@mail.gmail.com>
+
+perhaps something that can duplicate pastebin? so It can be in one spot?
+
+On Wed, Apr 9, 2008 at 4:58 PM, Daedius <daedius at daedius.com> wrote:
+
+> Hey everyone, I wanted to send out an email to gather some ideas we
+> can put on a new server of our own, get opinions about what people are
+> looking for, here are some of my ideas:
+>
+> - Wordpress developer blog
+> - Mindtouch wiki ( has better support for videos, comments, mashups )
+> - Mind map would be cool, I know there is some cool wiki versions of
+> this out there
+> - SVN obviously
+> - SVN browser, that way we can show each other peice of code easily
+> - An account and space we could do some automated builds on
+>
+> Daedius
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080409/59a2b33b/attachment.html>
+
+From stefan at tribalmedia.se  Thu Apr 10 09:13:11 2008
+From: stefan at tribalmedia.se (Stefan Andersson)
+Date: Thu, 10 Apr 2008 09:13:11 +0200
+Subject: [Openviewer-dev] tdd
+In-Reply-To: <351467290804091317s5a886289tec64ced34e3fe7ee@mail.gmail.com>
+References: <f38794ad0804091257q376b5391ic8b52e2b4971476f@mail.gmail.com>
+	<351467290804091317s5a886289tec64ced34e3fe7ee@mail.gmail.com>
+Message-ID: <BLU134-W45BA95585CC09AB89FB4C8D5EC0@phx.gbl>
+
+I have worked quite a lot with Test Driven Development.
+ 
++1 on doing it now, if it's ever going to be done; retrofitting code for TDD is notoriously hairy.
+ 
+* Make sure everbody sees the difference between unit testing and integration testing (and that they should be separate test spaces)
+* Badly written tests are as hampering for development as badly written code. Make sure your test test exactly the requisite it's supposed to; not more, not less. Refactor code to accomodate for testing.
+* Tests should live in assemblies side by side with the code it's testing, following the same code and name conventions.
+ 
+One of the effects of TDD is 'decoupling', since you want to be able to test isolated units.
+Also, you really don't want your call stack to get deep (since that's complicating the scenario setup) so code for simple operations involving few actors.
+Also, TDD tends to push the developer away from state; it's difficult to write tests to proof changes in the internal state of an object. Incidentally, this leads to better code, as many bugs and unnessecary complexities emanate from use of state.
+/Stefan
+
+
+
+> Date: Wed, 9 Apr 2008 15:17:35 -0500> From: daedius at daedius.com> To: openviewer-dev at lists.berlios.de> Subject: Re: [Openviewer-dev] tdd> > +1 For test driven development.> > Our group is small, and we have the opportunity to influence the> methodology of how OpenViewer will be created for years to come. We> should aim for a process that tries to keep a real view of the quality> of our application. I feel test driven development is that way.> Break down our application into small testable chunks of code.> > I think this is good in many ways. For example, just yesterday,> Harrison was having a trouble testing OgreDotNet in isolation. We did> not know what his issue was exactly, So I created an nunit test so he> can run a ogredotnet 3d window alone without any other dependencies.> With such tests our our library, we can give people a suite of tests> that people can run on their respective operating system and runtime> to verify our code works under our assumptions, or to aid them in> resolving issues when they do not function.> > - Daedius> > > On Wed, Apr 9, 2008 at 2:57 PM, Deifante Walters <deifante at gmail.com> wrote:> > Hello, in the irc channel the idea of Test Driven Development was brought> > up. The idea being that this will assist in making sure the code quality is> > there. It was also mentioned that if the whole group is not on board with> > this idea it will not float. What do people think about this?> >> > D-Font> >> > _______________________________________________> > Openviewer-dev mailing list> > Openviewer-dev at lists.berlios.de> > https://lists.berlios.de/mailman/listinfo/openviewer-dev> >> >> _______________________________________________> Openviewer-dev mailing list> Openviewer-dev at lists.berlios.de> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080410/f9d7b034/attachment.html>
+
+From daedius at daedius.com  Fri Apr 11 03:05:29 2008
+From: daedius at daedius.com (Daedius)
+Date: Thu, 10 Apr 2008 20:05:29 -0500
+Subject: [Openviewer-dev] GtkUI Milestone 1 Design Spec: Please lookover!
+Message-ID: <351467290804101805q7875d652s95d077bcfdf9c146@mail.gmail.com>
+
+Hey everyone,
+
+I have put together a GtkUI milestone 1 design specification for
+review.  Its 27 pages long and shows mocks of what will be created
+along with use cases.  Please review it here:
+
+https://developer.berlios.de/mantis/file_download.php?file_id=22&type=bug
+
+I'd love to hear your ideas!
+
+- Daedius
+
+
+From soren.renner at gmail.com  Fri Apr 11 03:08:18 2008
+From: soren.renner at gmail.com (=?ISO-8859-1?Q?S=F8ren_Renner?=)
+Date: Thu, 10 Apr 2008 20:08:18 -0500
+Subject: [Openviewer-dev] GtkUI Milestone 1 Design Spec: Please lookover!
+In-Reply-To: <351467290804101805q7875d652s95d077bcfdf9c146@mail.gmail.com>
+References: <351467290804101805q7875d652s95d077bcfdf9c146@mail.gmail.com>
+Message-ID: <a4280a600804101808h4e486b88i2ddabe8fc52fb015@mail.gmail.com>
+
+Looks well thought out -- except for all the comma splices.
+
+On Thu, Apr 10, 2008 at 8:05 PM, Daedius <daedius at daedius.com> wrote:
+
+> Hey everyone,
+>
+> I have put together a GtkUI milestone 1 design specification for
+> review.  Its 27 pages long and shows mocks of what will be created
+> along with use cases.  Please review it here:
+>
+> https://developer.berlios.de/mantis/file_download.php?file_id=22&type=bug
+>
+> I'd love to hear your ideas!
+>
+> - Daedius
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080410/431f5dd5/attachment.html>
+
+From gryc.ueusp at gmail.com  Fri Apr 11 05:53:30 2008
+From: gryc.ueusp at gmail.com (Gryc Ueusp)
+Date: Thu, 10 Apr 2008 22:53:30 -0500
+Subject: [Openviewer-dev] GtkUI Milestone 1 Design Spec: Please lookover!
+In-Reply-To: <351467290804101805q7875d652s95d077bcfdf9c146@mail.gmail.com>
+References: <351467290804101805q7875d652s95d077bcfdf9c146@mail.gmail.com>
+Message-ID: <200804102253.32768.gryc.ueusp@gmail.com>
+
+(Some opinions and not necessarily in the order presented)
+
+First, wrt "User should be able to type in action text": 
+The client should change "/me" to the speaking user's name.  The user shouldnt 
+have to type in action text, the client should just handle it.  
+
+Second, wrt the about screens: 
+Can we load that text from a file instead of embedding it inside the glade 
+files?
+
+"Enter in a URL for us to try to extrapolate a grid for them to connect to":
+So then it would basically brute-force a loginuri? Like, if a user entered 
+"osgrid.org", would it just try logging in using "http://www.osgrid.org:8002"?
+
+The address bar controls are rather unintuitive.  Those buttons should 
+probably go into menu options instead, and be replaced with a "Go!" button on 
+the right side of the address bar.  If I want my browsing history, I'll go 
+to "History", if I want my favorites, I'll go to "Favorites" just like every 
+other browser since NCSA Mosaic.  Also, connect/disconnect is rather weighty 
+to put on the address bar, since personally it takes about 20 seconds to log 
+in to any grid.  It's comparable to re-dialing on a dialup modem, and I dont 
+need to accidentally click that while I'm browsing.  If I want to connect, 
+I'll type it in or select it from a list and hit enter or click the "go" 
+button.  If I want to disconnect, I'll close the tab (or the whole client), 
+or if it's there and I really want to, a "logout" selection from a mennu 
+somewhere.
+
+Also, in the "Accounts" dialog, instead of "Add" perhaps consider naming that 
+button "New".
+
+On Thursday 10 April 2008 8:05:29 pm Daedius wrote:
+> Hey everyone,
+>
+> I have put together a GtkUI milestone 1 design specification for
+> review.  Its 27 pages long and shows mocks of what will be created
+> along with use cases.  Please review it here:
+>
+> https://developer.berlios.de/mantis/file_download.php?file_id=22&type=bug
+>
+> I'd love to hear your ideas!
+>
+> - Daedius
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+From sempuki1 at gmail.com  Fri Apr 11 06:03:32 2008
+From: sempuki1 at gmail.com (Ryan McDougall)
+Date: Fri, 11 Apr 2008 13:03:32 +0900
+Subject: [Openviewer-dev] GtkUI Milestone 1 Design Spec: Please	lookover!
+In-Reply-To: <200804102253.32768.gryc.ueusp@gmail.com>
+References: <351467290804101805q7875d652s95d077bcfdf9c146@mail.gmail.com>
+	<200804102253.32768.gryc.ueusp@gmail.com>
+Message-ID: <1207886612.22021.32.camel@localhost.localdomain>
+
+
+On Thu, 2008-04-10 at 22:53 -0500, Gryc Ueusp wrote:
+> (Some opinions and not necessarily in the order presented)
+> 
+> First, wrt "User should be able to type in action text": 
+> The client should change "/me" to the speaking user's name.  The user shouldnt 
+> have to type in action text, the client should just handle it.  
+> 
+> Second, wrt the about screens: 
+> Can we load that text from a file instead of embedding it inside the glade 
+> files?
+> 
+> "Enter in a URL for us to try to extrapolate a grid for them to connect to":
+> So then it would basically brute-force a loginuri? Like, if a user entered 
+> "osgrid.org", would it just try logging in using "http://www.osgrid.org:8002"?
+
+I think OS has just committed a patch from lulurun to allow logins from
+URLs of the form http://grid.org/region/x/y/z
+
+Cheers,
+
+> The address bar controls are rather unintuitive.  Those buttons should 
+> probably go into menu options instead, and be replaced with a "Go!" button on 
+> the right side of the address bar.  If I want my browsing history, I'll go 
+> to "History", if I want my favorites, I'll go to "Favorites" just like every 
+> other browser since NCSA Mosaic.  Also, connect/disconnect is rather weighty 
+> to put on the address bar, since personally it takes about 20 seconds to log 
+> in to any grid.  It's comparable to re-dialing on a dialup modem, and I dont 
+> need to accidentally click that while I'm browsing.  If I want to connect, 
+> I'll type it in or select it from a list and hit enter or click the "go" 
+> button.  If I want to disconnect, I'll close the tab (or the whole client), 
+> or if it's there and I really want to, a "logout" selection from a mennu 
+> somewhere.
+> 
+> Also, in the "Accounts" dialog, instead of "Add" perhaps consider naming that 
+> button "New".
+> 
+> On Thursday 10 April 2008 8:05:29 pm Daedius wrote:
+> > Hey everyone,
+> >
+> > I have put together a GtkUI milestone 1 design specification for
+> > review.  Its 27 pages long and shows mocks of what will be created
+> > along with use cases.  Please review it here:
+> >
+> > https://developer.berlios.de/mantis/file_download.php?file_id=22&type=bug
+> >
+> > I'd love to hear your ideas!
+> >
+> > - Daedius
+> > _______________________________________________
+> > Openviewer-dev mailing list
+> > Openviewer-dev at lists.berlios.de
+> > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+From daedius at daedius.com  Fri Apr 11 16:04:39 2008
+From: daedius at daedius.com (Daedius)
+Date: Fri, 11 Apr 2008 09:04:39 -0500
+Subject: [Openviewer-dev] GtkUI Milestone 1 Design Spec: Please lookover!
+In-Reply-To: <1207886612.22021.32.camel@localhost.localdomain>
+References: <351467290804101805q7875d652s95d077bcfdf9c146@mail.gmail.com>
+	<200804102253.32768.gryc.ueusp@gmail.com>
+	<1207886612.22021.32.camel@localhost.localdomain>
+Message-ID: <351467290804110704r22685876ma78c39f4b65a15e4@mail.gmail.com>
+
+Thats great Ryan, thanks for the info! =)
+
+On Thu, Apr 10, 2008 at 11:03 PM, Ryan McDougall <sempuki1 at gmail.com> wrote:
+>
+>  On Thu, 2008-04-10 at 22:53 -0500, Gryc Ueusp wrote:
+>  > (Some opinions and not necessarily in the order presented)
+>  >
+>  > First, wrt "User should be able to type in action text":
+>  > The client should change "/me" to the speaking user's name.  The user shouldnt
+>  > have to type in action text, the client should just handle it.
+>  >
+>  > Second, wrt the about screens:
+>  > Can we load that text from a file instead of embedding it inside the glade
+>  > files?
+>  >
+>  > "Enter in a URL for us to try to extrapolate a grid for them to connect to":
+>  > So then it would basically brute-force a loginuri? Like, if a user entered
+>  > "osgrid.org", would it just try logging in using "http://www.osgrid.org:8002"?
+>
+>  I think OS has just committed a patch from lulurun to allow logins from
+>  URLs of the form http://grid.org/region/x/y/z
+>
+>  Cheers,
+>
+>
+>
+>  > The address bar controls are rather unintuitive.  Those buttons should
+>  > probably go into menu options instead, and be replaced with a "Go!" button on
+>  > the right side of the address bar.  If I want my browsing history, I'll go
+>  > to "History", if I want my favorites, I'll go to "Favorites" just like every
+>  > other browser since NCSA Mosaic.  Also, connect/disconnect is rather weighty
+>  > to put on the address bar, since personally it takes about 20 seconds to log
+>  > in to any grid.  It's comparable to re-dialing on a dialup modem, and I dont
+>  > need to accidentally click that while I'm browsing.  If I want to connect,
+>  > I'll type it in or select it from a list and hit enter or click the "go"
+>  > button.  If I want to disconnect, I'll close the tab (or the whole client),
+>  > or if it's there and I really want to, a "logout" selection from a mennu
+>  > somewhere.
+>  >
+>  > Also, in the "Accounts" dialog, instead of "Add" perhaps consider naming that
+>  > button "New".
+>  >
+>  > On Thursday 10 April 2008 8:05:29 pm Daedius wrote:
+>  > > Hey everyone,
+>  > >
+>  > > I have put together a GtkUI milestone 1 design specification for
+>  > > review.  Its 27 pages long and shows mocks of what will be created
+>  > > along with use cases.  Please review it here:
+>  > >
+>  > > https://developer.berlios.de/mantis/file_download.php?file_id=22&type=bug
+>  > >
+>  > > I'd love to hear your ideas!
+>  > >
+>  > > - Daedius
+>  > > _______________________________________________
+>  > > Openviewer-dev mailing list
+>  > > Openviewer-dev at lists.berlios.de
+>  > > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>  > _______________________________________________
+>  > Openviewer-dev mailing list
+>  > Openviewer-dev at lists.berlios.de
+>  > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+
+
+From daedius at daedius.com  Sat Apr 12 02:32:33 2008
+From: daedius at daedius.com (Daedius)
+Date: Fri, 11 Apr 2008 19:32:33 -0500
+Subject: [Openviewer-dev] GtkUI Milestone 1 Design Spec Revision 2
+Message-ID: <351467290804111732h1147d6d2l842ece8f61a88cd0@mail.gmail.com>
+
+Hey there everyone,
+
+I first want to say thank you for all the feedback I've received from
+you all =)  I am sending out revision 2 for you all to look at.
+There's been some significant changes since rev 1, particularly with
+avatar management, address bar, and some other new slides.
+
+http://developer.berlios.de/mantis/file_download.php?file_id=23&type=bug
+
+Please send me your criticism, praise, etc.  Keep in mind, that the
+more we get this right now, the less we recode later. =) Thanks.
+
+- Daedius
+
+
+From deifante at gmail.com  Sat Apr 12 17:56:32 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Sat, 12 Apr 2008 09:56:32 -0600
+Subject: [Openviewer-dev] Plugin structure
+Message-ID: <f38794ad0804120856q3067d252l5d0d753d0e8f6db@mail.gmail.com>
+
+I was just taking a little look at the plugin manager classes and the
+ModuleLoader class and I was wondering if there is a specific reason why all
+plugins are loaded and instantiated then searched in memory rather than
+loading only the requested plugin? I'm wondering if down the line loading
+everything that is available wouldn't cause a lot of bloat for things that
+aren't being used.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080412/63d6fd23/attachment.html>
+
+From deifante at gmail.com  Sat Apr 12 18:22:10 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Sat, 12 Apr 2008 10:22:10 -0600
+Subject: [Openviewer-dev] PATCH: Documentation
+Message-ID: <f38794ad0804120922n5d226039s57968ed765c31be7@mail.gmail.com>
+
+patch notes:
+added documentation to ModuleLoader.cs, ProtocolManager.cs,
+RenderingEngineManager.cs and UIManager.cs
+Added a guarantee that modules loaded in ModuleLoader will implement the
+IPlugin interface because it was previously assumed that they would.
+
+Fixed a spelling Error in LoginTests.cs
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080412/d9e73152/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: DocumentationPatch0.patch
+Type: application/octet-stream
+Size: 7206 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080412/d9e73152/attachment.obj>
+
+From soren.renner at gmail.com  Sun Apr 13 18:07:57 2008
+From: soren.renner at gmail.com (=?ISO-8859-1?Q?S=F8ren_Renner?=)
+Date: Sun, 13 Apr 2008 11:07:57 -0500
+Subject: [Openviewer-dev] PATCH: Documentation
+In-Reply-To: <f38794ad0804120922n5d226039s57968ed765c31be7@mail.gmail.com>
+References: <f38794ad0804120922n5d226039s57968ed765c31be7@mail.gmail.com>
+Message-ID: <a4280a600804130907t17f62126l93a33c6567c6552f@mail.gmail.com>
+
+This is an outrage. We can't develop by mailing patches around. Why have a
+repository at all in that case?
+
+On Sat, Apr 12, 2008 at 11:22 AM, Deifante Walters <deifante at gmail.com>
+wrote:
+
+> patch notes:
+> added documentation to ModuleLoader.cs, ProtocolManager.cs,
+> RenderingEngineManager.cs and UIManager.cs
+> Added a guarantee that modules loaded in ModuleLoader will implement the
+> IPlugin interface because it was previously assumed that they would.
+>
+> Fixed a spelling Error in LoginTests.cs
+>
+>
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080413/c66fd27c/attachment.html>
+
+From soren.renner at gmail.com  Sun Apr 13 18:52:49 2008
+From: soren.renner at gmail.com (=?ISO-8859-1?Q?S=F8ren_Renner?=)
+Date: Sun, 13 Apr 2008 11:52:49 -0500
+Subject: [Openviewer-dev] GtkUI Milestone 1 Design Spec Revision 2
+In-Reply-To: <351467290804111732h1147d6d2l842ece8f61a88cd0@mail.gmail.com>
+References: <351467290804111732h1147d6d2l842ece8f61a88cd0@mail.gmail.com>
+Message-ID: <a4280a600804130952h146556d1saa16bfb1884108e7@mail.gmail.com>
+
+patch
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080413/01fde3ab/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Daedius_OgreDotNetTests2.patch
+Type: text/x-diff
+Size: 7949 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080413/01fde3ab/attachment.patch>
+
+From jeffames at gmail.com  Mon Apr 14 02:43:37 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Mon, 14 Apr 2008 09:43:37 +0900
+Subject: [Openviewer-dev] PATCH: Documentation
+In-Reply-To: <f38794ad0804120922n5d226039s57968ed765c31be7@mail.gmail.com>
+References: <f38794ad0804120922n5d226039s57968ed765c31be7@mail.gmail.com>
+Message-ID: <acd357460804131743h2a3e036ckd912a5288de3e6d@mail.gmail.com>
+
+Moved to mantis:
+https://developer.berlios.de/mantis/view.php?id=70
+
+
+From sempuki1 at gmail.com  Mon Apr 14 05:26:51 2008
+From: sempuki1 at gmail.com (sempuki watanabe)
+Date: Mon, 14 Apr 2008 12:26:51 +0900
+Subject: [Openviewer-dev] GtkUI Milestone 1 Design Spec Revision 2
+In-Reply-To: <351467290804111732h1147d6d2l842ece8f61a88cd0@mail.gmail.com>
+References: <351467290804111732h1147d6d2l842ece8f61a88cd0@mail.gmail.com>
+Message-ID: <c7a1b5240804132026t6c169daeo11c640ad4a1d535f@mail.gmail.com>
+
+I like it as a good first step.
+
+If there is no criticisms, then I think we can move forward with this. Speak
+now or forever hold your piece. ;)
+
+Cheers,
+
+On Sat, Apr 12, 2008 at 9:32 AM, Daedius <daedius at daedius.com> wrote:
+
+> Hey there everyone,
+>
+> I first want to say thank you for all the feedback I've received from
+> you all =)  I am sending out revision 2 for you all to look at.
+> There's been some significant changes since rev 1, particularly with
+> avatar management, address bar, and some other new slides.
+>
+> http://developer.berlios.de/mantis/file_download.php?file_id=23&type=bug
+>
+> Please send me your criticism, praise, etc.  Keep in mind, that the
+> more we get this right now, the less we recode later. =) Thanks.
+>
+> - Daedius
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080414/ecba63ab/attachment.html>
+
+From michaelwri22 at yahoo.co.uk  Mon Apr 14 10:37:47 2008
+From: michaelwri22 at yahoo.co.uk (Michael Wright)
+Date: Mon, 14 Apr 2008 09:37:47 +0100 (BST)
+Subject: [Openviewer-dev] PATCH: Documentation
+In-Reply-To: <a4280a600804130907t17f62126l93a33c6567c6552f@mail.gmail.com>
+Message-ID: <624753.24135.qm@web23001.mail.ird.yahoo.com>
+
+err we have a mantis, that patches should be able to be added to. 
+
+S?ren Renner <soren.renner at gmail.com> wrote: This is an outrage. We can't develop by mailing patches around. Why have a repository at all in that case?
+
+On Sat, Apr 12, 2008 at 11:22 AM, Deifante Walters <deifante at gmail.com> wrote:
+ patch notes:
+added documentation to ModuleLoader.cs, ProtocolManager.cs, RenderingEngineManager.cs and UIManager.cs
+ Added a guarantee that modules loaded in ModuleLoader will implement the IPlugin interface because it was previously assumed that they would.
+ 
+Fixed a spelling Error in LoginTests.cs
+
+ 
+_______________________________________________
+ Openviewer-dev mailing list
+ Openviewer-dev at lists.berlios.de
+ https://lists.berlios.de/mailman/listinfo/openviewer-dev
+ 
+
+
+ _______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+       
+---------------------------------
+ Yahoo! for Good helps you make a difference
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080414/c9741774/attachment.html>
+
+From daedius at daedius.com  Mon Apr 14 15:31:09 2008
+From: daedius at daedius.com (Daedius)
+Date: Mon, 14 Apr 2008 08:31:09 -0500
+Subject: [Openviewer-dev] GtkUI Milestone 1 Design Spec Revision 2
+In-Reply-To: <c7a1b5240804132026t6c169daeo11c640ad4a1d535f@mail.gmail.com>
+References: <351467290804111732h1147d6d2l842ece8f61a88cd0@mail.gmail.com>
+	<c7a1b5240804132026t6c169daeo11c640ad4a1d535f@mail.gmail.com>
+Message-ID: <351467290804140631t4591e2bat6f5d5d54b06f4b0d@mail.gmail.com>
+
+Thanks for checking it over sempuki =)  I agree, this first part of
+the week I am going to form an architecture plan for this guy.  By
+mid-week I should be stubbing it all out, and then coding.  If anyone
+has experience in architecture and design patterns.  Please join the
+conversation when I start posting! =)  I hope to be able to give a
+clear vision to all those who want to program on the GtkUI what needs
+to be done, and how to keep all our code in line with the same system
+when we do it.
+
+- Daedius
+
+On Sun, Apr 13, 2008 at 10:26 PM, sempuki watanabe <sempuki1 at gmail.com> wrote:
+> I like it as a good first step.
+>
+> If there is no criticisms, then I think we can move forward with this. Speak
+> now or forever hold your piece. ;)
+>
+> Cheers,
+>
+>
+>
+> On Sat, Apr 12, 2008 at 9:32 AM, Daedius <daedius at daedius.com> wrote:
+>
+> >
+> >
+> >
+> > Hey there everyone,
+> >
+> > I first want to say thank you for all the feedback I've received from
+> > you all =)  I am sending out revision 2 for you all to look at.
+> > There's been some significant changes since rev 1, particularly with
+> > avatar management, address bar, and some other new slides.
+> >
+> > http://developer.berlios.de/mantis/file_download.php?file_id=23&type=bug
+> >
+> > Please send me your criticism, praise, etc.  Keep in mind, that the
+> > more we get this right now, the less we recode later. =) Thanks.
+> >
+> > - Daedius
+> > _______________________________________________
+> > Openviewer-dev mailing list
+> > Openviewer-dev at lists.berlios.de
+> > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+
+
+From daedius at daedius.com  Thu Apr 17 02:16:02 2008
+From: daedius at daedius.com (Daedius)
+Date: Wed, 16 Apr 2008 19:16:02 -0500
+Subject: [Openviewer-dev] Fixing Windows + Mogre + Winforms
+Message-ID: <351467290804161716q56b01dabq350cfe08a555f65@mail.gmail.com>
+
+Hey everyone,
+
+Ckrinke and I noticed the windows plugins of openviewers weren't
+working: here's how you can fix them
+
+- check out the latest version of libsecond life ( 1751 for me ),
+compile, and copy the libsecondlife and openjpeg dlls into
+openviewer/bin
+- then apply this patch below
+
+Login() seems to be broken with the latest builds of libsecondlife (
+Though maybe I am seeing glitches with OSGrid), so I've started using
+BeginLogin(), which we probably should be doing anyways
+
+Daedius
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Daedius_winformsmogrefix.patch
+Type: application/octet-stream
+Size: 3974 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080416/477223e6/attachment.obj>
+
+From cfk at pacbell.net  Thu Apr 17 04:05:55 2008
+From: cfk at pacbell.net (Charles Krinke)
+Date: Wed, 16 Apr 2008 19:05:55 -0700 (PDT)
+Subject: [Openviewer-dev] Fixing Windows + Mogre + Winforms
+Message-ID: <958729.23768.qm@web82602.mail.mud.yahoo.com>
+
+I would like to suggest that for OpenViewer we should concentrate on getting a well defined setup on our computers, be they Windows or Linux. Then next a well defined recipe for compiling with no errors and minimal warnings. Then third a well defined test on a common region or regions that allows anyone to test OpenViewer.
+
+I would suggest that the first one be defined on our wiki so we can say:
+
+"See wiki page X for the setup required for your computer to compile successfully OpenViewer".
+
+Then the second one be defined so we can say:
+
+"See wiki page Y and checkout our svn, runprebuild.bat, build, run and it should run with no errors"
+
+The the third one be defined so we can say:
+
+"Logon to standaloneA or GridG to the region framelwanker and you should see terrain, prims, walk, chat and logoff with no errors"
+
+Charles
+
+----- Original Message ----
+From: Daedius <daedius at daedius.com>
+To: openviewer-dev at lists.berlios.de
+Sent: Wednesday, April 16, 2008 5:16:02 PM
+Subject: [Openviewer-dev] Fixing Windows + Mogre + Winforms
+
+Hey everyone,
+
+Ckrinke and I noticed the windows plugins of openviewers weren't
+working: here's how you can fix them
+
+- check out the latest version of libsecond life ( 1751 for me ),
+compile, and copy the libsecondlife and openjpeg dlls into
+openviewer/bin
+- then apply this patch below
+
+Login() seems to be broken with the latest builds of libsecondlife (
+Though maybe I am seeing glitches with OSGrid), so I've started using
+BeginLogin(), which we probably should be doing anyways
+
+Daedius
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080416/31019c5c/attachment.html>
+
+From soren.renner at gmail.com  Thu Apr 17 04:10:20 2008
+From: soren.renner at gmail.com (=?ISO-8859-1?Q?S=F8ren_Renner?=)
+Date: Wed, 16 Apr 2008 21:10:20 -0500
+Subject: [Openviewer-dev] Yes! I too would like a framelwanker!
+Message-ID: <a4280a600804161910j7b4dc8a4wb6bc12c038c6e23f@mail.gmail.com>
+
+Where can I purchase one?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080416/238bbce8/attachment.html>
+
+From deifante at gmail.com  Thu Apr 17 07:57:18 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Wed, 16 Apr 2008 23:57:18 -0600
+Subject: [Openviewer-dev] Fixing Windows + Mogre + Winforms
+In-Reply-To: <958729.23768.qm@web82602.mail.mud.yahoo.com>
+References: <958729.23768.qm@web82602.mail.mud.yahoo.com>
+Message-ID: <f38794ad0804162257j877ce87x738513391fbef78d@mail.gmail.com>
+
+as far as I'm aware, the setup page on the wiki for windows is as updated as
+possible. I feel it's got pretty decent instructions for getting running on
+XP. I'm not sure how it works on Vista. I would love it if someone could
+check this for me.
+the setup I've provided is at
+http://www.openviewer.org/index.php/Build_Instructions
+
+On Wed, Apr 16, 2008 at 8:05 PM, Charles Krinke <cfk at pacbell.net> wrote:
+
+> I would like to suggest that for OpenViewer we should concentrate on
+> getting a well defined setup on our computers, be they Windows or Linux.
+> Then next a well defined recipe for compiling with no errors and minimal
+> warnings. Then third a well defined test on a common region or regions that
+> allows anyone to test OpenViewer.
+>
+> I would suggest that the first one be defined on our wiki so we can say:
+>
+> "See wiki page X for the setup required for your computer to compile
+> successfully OpenViewer".
+>
+> Then the second one be defined so we can say:
+>
+> "See wiki page Y and checkout our svn, runprebuild.bat, build, run and it
+> should run with no errors"
+>
+> The the third one be defined so we can say:
+>
+> "Logon to standaloneA or GridG to the region framelwanker and you should
+> see terrain, prims, walk, chat and logoff with no errors"
+>
+> Charles
+>
+>
+> ----- Original Message ----
+> From: Daedius <daedius at daedius.com>
+> To: openviewer-dev at lists.berlios.de
+> Sent: Wednesday, April 16, 2008 5:16:02 PM
+> Subject: [Openviewer-dev] Fixing Windows + Mogre + Winforms
+>
+> Hey everyone,
+>
+> Ckrinke and I noticed the windows plugins of openviewers weren't
+> working: here's how you can fix them
+>
+> - check out the latest version of libsecond life ( 1751 for me ),
+> compile, and copy the libsecondlife and openjpeg dlls into
+> openviewer/bin
+> - then apply this patch below
+>
+> Login() seems to be broken with the latest builds of libsecondlife (
+> Though maybe I am seeing glitches with OSGrid), so I've started using
+> BeginLogin(), which we probably should be doing anyways
+>
+> Daedius
+>
+>
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080416/61fd736b/attachment.html>
+
+From daedius at daedius.com  Thu Apr 17 14:16:39 2008
+From: daedius at daedius.com (Daedius)
+Date: Thu, 17 Apr 2008 07:16:39 -0500
+Subject: [Openviewer-dev] Fixing Windows + Mogre + Winforms
+In-Reply-To: <f38794ad0804162257j877ce87x738513391fbef78d@mail.gmail.com>
+References: <958729.23768.qm@web82602.mail.mud.yahoo.com>
+	<f38794ad0804162257j877ce87x738513391fbef78d@mail.gmail.com>
+Message-ID: <351467290804170516o1b5d115ajc7d8b9a34c9cb608@mail.gmail.com>
+
+I run on vista, works for me.  So does Jen.
+
+On Thu, Apr 17, 2008 at 12:57 AM, Deifante Walters <deifante at gmail.com> wrote:
+> as far as I'm aware, the setup page on the wiki for windows is as updated as
+> possible. I feel it's got pretty decent instructions for getting running on
+> XP. I'm not sure how it works on Vista. I would love it if someone could
+> check this for me.
+>
+> the setup I've provided is at
+> http://www.openviewer.org/index.php/Build_Instructions
+>
+>
+>
+> On Wed, Apr 16, 2008 at 8:05 PM, Charles Krinke <cfk at pacbell.net> wrote:
+>
+> >
+> >
+> >
+> >
+> >
+> >
+> > I would like to suggest that for OpenViewer we should concentrate on
+> getting a well defined setup on our computers, be they Windows or Linux.
+> Then next a well defined recipe for compiling with no errors and minimal
+> warnings. Then third a well defined test on a common region or regions that
+> allows anyone to test OpenViewer.
+> >
+> > I would suggest that the first one be defined on our wiki so we can say:
+> >
+> > "See wiki page X for the setup required for your computer to compile
+> successfully OpenViewer".
+> >
+> > Then the second one be defined so we can say:
+> >
+> > "See wiki page Y and checkout our svn, runprebuild.bat, build, run and it
+> should run with no errors"
+> >
+> > The the third one be defined so we can say:
+> >
+> > "Logon to standaloneA or GridG to the region framelwanker and you should
+> see terrain, prims, walk, chat and logoff with no errors"
+> >
+> > Charles
+> >
+> >
+> >
+> >
+> >
+> > ----- Original Message ----
+> > From: Daedius <daedius at daedius.com>
+> > To: openviewer-dev at lists.berlios.de
+> > Sent: Wednesday, April 16, 2008 5:16:02 PM
+> > Subject: [Openviewer-dev] Fixing Windows + Mogre + Winforms
+> >
+> > Hey everyone,
+> >
+> > Ckrinke and I noticed the windows plugins of openviewers weren't
+> > working: here's how you can fix them
+> >
+> > - check out the latest version of libsecond life ( 1751 for me ),
+> > compile, and copy the libsecondlife and openjpeg dlls into
+> > openviewer/bin
+> > - then apply this patch below
+> >
+> > Login() seems to be broken with the latest builds of libsecondlife (
+> > Though maybe I am seeing glitches with OSGrid), so I've started using
+> > BeginLogin(), which we probably should be doing anyways
+> >
+> > Daedius
+> >
+> >
+> > _______________________________________________
+> > Openviewer-dev mailing list
+> > Openviewer-dev at lists.berlios.de
+> > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+> >
+>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+
+
+From daedius at daedius.com  Thu Apr 17 17:08:52 2008
+From: daedius at daedius.com (Daedius)
+Date: Thu, 17 Apr 2008 10:08:52 -0500
+Subject: [Openviewer-dev] Follow-Up: Windows + Mogre People Stable?
+Message-ID: <351467290804170808i3fb94d9h455aadc20f857c38@mail.gmail.com>
+
+I wanted to see how our windows people were doing after last nights
+commits.  Is anyone getting build error or having errors thrown when
+logging into grid?  I only know of one issue with the delay it takes
+to login, pretty sure that is not from our side though.
+
+- Daedius
+
+
+From deifante at gmail.com  Fri Apr 18 23:20:01 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Fri, 18 Apr 2008 15:20:01 -0600
+Subject: [Openviewer-dev] Follow-Up: Windows + Mogre People Stable?
+In-Reply-To: <351467290804170808i3fb94d9h455aadc20f857c38@mail.gmail.com>
+References: <351467290804170808i3fb94d9h455aadc20f857c38@mail.gmail.com>
+Message-ID: <f38794ad0804181420o5712acen2637a66c06c984b5@mail.gmail.com>
+
+I've no issues.
+
+On Thu, Apr 17, 2008 at 9:08 AM, Daedius <daedius at daedius.com> wrote:
+
+> I wanted to see how our windows people were doing after last nights
+> commits.  Is anyone getting build error or having errors thrown when
+> logging into grid?  I only know of one issue with the delay it takes
+> to login, pretty sure that is not from our side though.
+>
+> - Daedius
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080418/4fc391ac/attachment.html>
+
+From daedius at daedius.com  Mon Apr 21 08:55:31 2008
+From: daedius at daedius.com (Daedius)
+Date: Mon, 21 Apr 2008 01:55:31 -0500
+Subject: [Openviewer-dev] Third Life Milestone 1 Preview Released and Need
+	of OpenViewer Expansion
+Message-ID: <351467290804202355u6d6ffd25w92c4890d2ca3dcb7@mail.gmail.com>
+
+It's been a busy weekend!  We released a first preview of milestone 1
+on winforms under a new UI/Render plugin combination called "Third
+Life".  You can download a zip and run OpenViewer.exe from the link
+listed on http://code.google.com/p/thirdlife/.  Please note that this
+is Windows only for now =)  Here's a list of some of the features we
+have:
+
+- Completely modular UI
+- Embedded rendering of metaverse
+- Ability to send out chat
+
+Sometime this week Jen and I would like to talk with OpenViewer about
+expanding the interfaces on the rendering module.  I noticed two
+limitations this weekend:
+
+- I'd like to expand the interface to support more input into the
+rendering module from the UI ( both keyboard and mouse )
+- Also, there isn't a way to pass in resizing events to the renderer
+(in cases where usercontrols/windows resize).   This would be very
+helpful to us, since we now have a resizable embedded renderer, but no
+way to tell ogre3d to resize when our window does ;)
+
+Anyhow, mail me back your thoughts! Thanks
+
+- Daedius
+
+
+From daedius at daedius.com  Tue Apr 22 16:49:04 2008
+From: daedius at daedius.com (Daedius)
+Date: Tue, 22 Apr 2008 09:49:04 -0500
+Subject: [Openviewer-dev] Fractal Spline Source?
+Message-ID: <351467290804220749n2fc37b6ek8ce5979816a06809@mail.gmail.com>
+
+Could whoever has the most recent source for this DLL please commit it
+to the source.  I found a bug in it the other day I would like to try
+to fix if I see it again, or at least understand. Thanks. =)
+
+- Daedius
+
+
+From daedius at daedius.com  Wed Apr 23 06:15:06 2008
+From: daedius at daedius.com (Daedius)
+Date: Tue, 22 Apr 2008 23:15:06 -0500
+Subject: [Openviewer-dev] Overly Verbose SL Protocol
+Message-ID: <351467290804222115n87e1de3lc1201c605a3f1e4f@mail.gmail.com>
+
+Is there any way we can turn off all that  output coming from the SL
+model now?  Its very messy.
+
+- Daedius
+
+
+From michaelwri22 at yahoo.co.uk  Thu Apr 24 09:57:56 2008
+From: michaelwri22 at yahoo.co.uk (Michael Wright)
+Date: Thu, 24 Apr 2008 08:57:56 +0100 (BST)
+Subject: [Openviewer-dev] Fractal Spline Source?
+In-Reply-To: <351467290804220749n2fc37b6ek8ce5979816a06809@mail.gmail.com>
+Message-ID: <204511.65418.qm@web23013.mail.ird.yahoo.com>
+
+the dll (unless someone else has made some changes) is just the code from the open metaverse project svn, with just some minor compile errors fixed, like .Somemethod renamed to .somemethod (or the other way round as it wouldn't compile as it was). When I get home (this weekend) I can email the code with the few changes I did to you, but don't think we should have it in openviewer svn due to it being LGPL. Think its better just to keep our svn as bsd, and either have another svn for libraries or just keep the fractal spline in the meta verse project svn (which actaully is what I suggest so that we don't create a fork of it). 
+
+Daedius <daedius at daedius.com> wrote: Could whoever has the most recent source for this DLL please commit it
+to the source.  I found a bug in it the other day I would like to try
+to fix if I see it again, or at least understand. Thanks. =)
+
+- Daedius
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+       
+---------------------------------
+Sent from Yahoo! Mail.
+A Smarter Email.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080424/590acb16/attachment.html>
+
+From daedius at daedius.com  Thu Apr 24 15:15:20 2008
+From: daedius at daedius.com (Daedius)
+Date: Thu, 24 Apr 2008 08:15:20 -0500
+Subject: [Openviewer-dev] Fractal Spline Source?
+In-Reply-To: <204511.65418.qm@web23013.mail.ird.yahoo.com>
+References: <351467290804220749n2fc37b6ek8ce5979816a06809@mail.gmail.com>
+	<204511.65418.qm@web23013.mail.ird.yahoo.com>
+Message-ID: <351467290804240615y239feffdic4e5c5b49e404929@mail.gmail.com>
+
+Thanks MW! =)
+
+On Thu, Apr 24, 2008 at 2:57 AM, Michael Wright
+<michaelwri22 at yahoo.co.uk> wrote:
+> the dll (unless someone else has made some changes) is just the code from
+> the open metaverse project svn, with just some minor compile errors fixed,
+> like .Somemethod renamed to .somemethod (or the other way round as it
+> wouldn't compile as it was). When I get home (this weekend) I can email the
+> code with the few changes I did to you, but don't think we should have it in
+> openviewer svn due to it being LGPL. Think its better just to keep our svn
+> as bsd, and either have another svn for libraries or just keep the fractal
+> spline in the meta verse project svn (which actaully is what I suggest so
+> that we don't create a fork of it).
+>
+>
+> Daedius <daedius at daedius.com> wrote:
+>
+>  Could whoever has the most recent source for this DLL please commit it
+> to the source. I found a bug in it the other day I would like to try
+> to fix if I see it again, or at least understand. Thanks. =)
+>
+> - Daedius
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>
+>  ________________________________
+>  Sent from Yahoo! Mail.
+>  A Smarter Email.
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+
+

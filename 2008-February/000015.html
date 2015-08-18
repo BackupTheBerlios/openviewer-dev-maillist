@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] On Installation Packaging and UI Selection
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20On%20Installation%20Packaging%20and%20UI%20Selection&In-Reply-To=%3CD34F5C5E193B4144AD333BBBB940A52805279D%40exchange1.lan.konge.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000013.html">
+   <LINK REL="Next"  HREF="000016.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] On Installation Packaging and UI Selection</H1>
+    <B>Tedd Hansen</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20On%20Installation%20Packaging%20and%20UI%20Selection&In-Reply-To=%3CD34F5C5E193B4144AD333BBBB940A52805279D%40exchange1.lan.konge.net%3E"
+       TITLE="[Openviewer-dev] On Installation Packaging and UI Selection">tedd at konge.net
+       </A><BR>
+    <I>Sun Feb 24 14:10:04 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000013.html">[Openviewer-dev] On Installation Packaging and UI Selection
+</A></li>
+        <LI>Next message: <A HREF="000016.html">[Openviewer-dev] Forms architecture
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>For Windows the best choice of installer for OpenViewer I'd say is
+Nullsofts NSIS. <A HREF="http://nsis.sourceforge.net/Main_Page">http://nsis.sourceforge.net/Main_Page</A>
+It would be very easy to integrate it with a make-installer-script that
+makes packages for cross platforms.
+
+I have experience with it and it's a very clean &quot;1 text-file to make 1
+.exe-file for install&quot; approach, can be automated and supports all
+features like silent install, uninstall, upgrades, scriptable
+menus/options, etc...
+It has very advanced features if that is required too...
+
+Unless anyone knows of a cross-platform installer then NSIS is probably
+the best choice.
+
+- Tedd
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev-bounces at lists.berlios.de</A>] On Behalf Of Daedius
+Sent: 22. februar 2008 21:16
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev at lists.berlios.de</A>
+Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+
+How do we want to distribute openviewer to the public?  I feel this
+should be a pretty important question.  We are much more graphical
+than opensim ever is, and more people will be caring about OpenViewer
+to be easy to install and get into.  Given our crossplatform goals, we
+have to consider how we can make it easy for anyone to install
+openviewer and run it.  Several questions are in my mind:
+
+- Who has experience with installers?
+- What installers will we have for each platform?
+- What will the process be like? And how will we get the user to a ui
+interface that they can use on their operating system?
+
+On my mind to these questions:
+
+It would be nice to have these:
+
+OSX: .dmg file with a drag icon over to applications,  i'd like to
+avoid doing a full blown out installer on OSX, but i'm not sure if its
+possible
+Linux: Packages for ubuntu and gentoo
+Windows: Nullsoft installer
+
+What I think we may need is the ability to have a crossplatform ui
+chooser.  Not all ui plugins may be available for everyone. Maybe
+programmed in gtk.
+
+Daedius
+_______________________________________________
+Openviewer-dev mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000013.html">[Openviewer-dev] On Installation Packaging and UI Selection
+</A></li>
+	<LI>Next message: <A HREF="000016.html">[Openviewer-dev] Forms architecture
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

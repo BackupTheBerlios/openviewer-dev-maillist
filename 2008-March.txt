@@ -1,0 +1,4660 @@
+From soren.renner at gmail.com  Wed Mar  5 17:22:20 2008
+From: soren.renner at gmail.com (=?ISO-8859-1?Q?S=F8ren_Renner?=)
+Date: Wed, 5 Mar 2008 10:22:20 -0600
+Subject: [Openviewer-dev] nant error
+Message-ID: <a4280a600803050822q7d7e318dy439984d003173ebe@mail.gmail.com>
+
+1. Where would I use the suggested -pkg option? not when invoking nant, i
+know that.
+
+2. I have this package installed: libmono-addins-gui0.2-cil so that is not
+the problem.
+
+3. ??
+
+4 Thank you and hello.
+
+
+ ....                 [csc]
+/home/sr/DEVELOP/openviewer/OpenViewer/UI/Gtk/Gtk.cs(30,7): error CS0246:
+The type or namespace name `Gtk' could not be found. Are you missing a using
+directive or an assembly reference?
+                  [csc]     Try using -pkg:gtk-sharp  ....
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080305/2dc095d2/attachment.html>
+
+From soren.renner at gmail.com  Wed Mar  5 17:47:42 2008
+From: soren.renner at gmail.com (=?ISO-8859-1?Q?S=F8ren_Renner?=)
+Date: Wed, 5 Mar 2008 10:47:42 -0600
+Subject: [Openviewer-dev] It is too soon for me to be saying this.
+Message-ID: <a4280a600803050847k504137f1l99bff95dd53c0ad6@mail.gmail.com>
+
+Since openviewer is in such an early stage, though, I will risk it. Let us
+think about using Python-Ogre.
+
+* MOGRE "Doesn't work in Linux through Mono." (
+http://www.ogre3d.org/wiki/index.php/MOGRE_Introduction)
+
+* OgreDotNet seems not to exist right now.
+
+* Python-Ogre does exist.
+
+* Many years ago I used Python-OpenGL and was the maintainer for the PyOGL
+demos. I wrote an renderer that would draw LOD depending on where the camera
+was looking -- including trees which branched fractally when they were
+approached. I'll do it again, too.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080305/b04578c0/attachment.html>
+
+From daedius at daedius.com  Wed Mar  5 18:23:59 2008
+From: daedius at daedius.com (Daedius)
+Date: Wed, 5 Mar 2008 11:23:59 -0600
+Subject: [Openviewer-dev] It is too soon for me to be saying this.
+In-Reply-To: <a4280a600803050847k504137f1l99bff95dd53c0ad6@mail.gmail.com>
+References: <a4280a600803050847k504137f1l99bff95dd53c0ad6@mail.gmail.com>
+Message-ID: <351467290803050923v68aa1629vf7cd416cbe66a75f@mail.gmail.com>
+
+Hi there Soren,
+
+Thanks for your interest.  I know our mailing lists are a bit empty,
+so here is what I know has been said:
+* We aren't going to use mogredotnet
+* Many people want ogredotnet, and some are trying to revive the
+project, some like me want to create a higher level graphics engine
+above ogredotnet that we can swigify for openviewer specifically.
+* Python is pretty far out of the capabilities of most people in this
+project.  I think many of us assume LibSecondLife (C#) is going to be
+the primary thing we are building on
+* Our repository is horribly broken and often.
+
+My suggestion to you if your interested in some of the popular ideas
+going around:
+* Learn how to use swig
+* Learn how to use GTK#
+* Take a look at the Sleek project and see how it uses LibSecondLife
+
+- Daedius
+
+On 3/5/08, S?ren Renner <soren.renner at gmail.com> wrote:
+> Since openviewer is in such an early stage, though, I will risk it. Let us
+> think about using Python-Ogre.
+>
+> * MOGRE "Doesn't work in Linux through Mono."
+> (http://www.ogre3d.org/wiki/index.php/MOGRE_Introduction)
+>
+> * OgreDotNet seems not to exist right now.
+>
+> * Python-Ogre does exist.
+>
+> * Many years ago I used Python-OpenGL and was the maintainer for the PyOGL
+> demos. I wrote an renderer that would draw LOD depending on where the camera
+> was looking -- including trees which branched fractally when they were
+> approached. I'll do it again, too.
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+
+
+From soren.renner at gmail.com  Wed Mar  5 18:34:44 2008
+From: soren.renner at gmail.com (=?ISO-8859-1?Q?S=F8ren_Renner?=)
+Date: Wed, 5 Mar 2008 11:34:44 -0600
+Subject: [Openviewer-dev] It is too soon for me to be saying this.
+In-Reply-To: <351467290803050923v68aa1629vf7cd416cbe66a75f@mail.gmail.com>
+References: <a4280a600803050847k504137f1l99bff95dd53c0ad6@mail.gmail.com>
+	<351467290803050923v68aa1629vf7cd416cbe66a75f@mail.gmail.com>
+Message-ID: <a4280a600803050934td890a8cp5efa81b9fd8cdcef@mail.gmail.com>
+
+I am interested in openviewer because according to some sources rexviewer is
+going to be merging with it. As for "[p]ython is pretty far out of the
+capabilities of most people in this
+project", perhaps you are attempting to pull my leg. Certainly if python is
+beyond them they are not programmers of any kind. It must be the single
+easiest language in the world.
+
+Please don't force me to fork the project less than an hour after I joined
+it. I exhort you ro reread my previous mail and consider whether you may be
+wrong.
+
+On Wed, Mar 5, 2008 at 11:23 AM, Daedius <daedius at daedius.com> wrote:
+
+> Hi there Soren,
+>
+> Thanks for your interest.  I know our mailing lists are a bit empty,
+> so here is what I know has been said:
+> * We aren't going to use mogredotnet
+> * Many people want ogredotnet, and some are trying to revive the
+> project, some like me want to create a higher level graphics engine
+> above ogredotnet that we can swigify for openviewer specifically.
+> * Python is pretty far out of the capabilities of most people in this
+> project.  I think many of us assume LibSecondLife (C#) is going to be
+> the primary thing we are building on
+> * Our repository is horribly broken and often.
+>
+> My suggestion to you if your interested in some of the popular ideas
+> going around:
+> * Learn how to use swig
+> * Learn how to use GTK#
+> * Take a look at the Sleek project and see how it uses LibSecondLife
+>
+> - Daedius
+>
+> On 3/5/08, S?ren Renner <soren.renner at gmail.com> wrote:
+> > Since openviewer is in such an early stage, though, I will risk it. Let
+> us
+> > think about using Python-Ogre.
+> >
+> > * MOGRE "Doesn't work in Linux through Mono."
+> > (http://www.ogre3d.org/wiki/index.php/MOGRE_Introduction)
+> >
+> > * OgreDotNet seems not to exist right now.
+> >
+> > * Python-Ogre does exist.
+> >
+> > * Many years ago I used Python-OpenGL and was the maintainer for the
+> PyOGL
+> > demos. I wrote an renderer that would draw LOD depending on where the
+> camera
+> > was looking -- including trees which branched fractally when they were
+> > approached. I'll do it again, too.
+> >
+> > _______________________________________________
+> >  Openviewer-dev mailing list
+> >  Openviewer-dev at lists.berlios.de
+> > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+> >
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080305/ff0d1b6f/attachment.html>
+
+From adjohn at gmail.com  Wed Mar  5 18:50:40 2008
+From: adjohn at gmail.com (Adam Johnson)
+Date: Thu, 6 Mar 2008 02:50:40 +0900
+Subject: [Openviewer-dev] It is too soon for me to be saying this.
+In-Reply-To: <a4280a600803050934td890a8cp5efa81b9fd8cdcef@mail.gmail.com>
+References: <a4280a600803050847k504137f1l99bff95dd53c0ad6@mail.gmail.com>
+	<351467290803050923v68aa1629vf7cd416cbe66a75f@mail.gmail.com>
+	<a4280a600803050934td890a8cp5efa81b9fd8cdcef@mail.gmail.com>
+Message-ID: <56468c1f0803050950n2b181f81l17cccfde7faf2792@mail.gmail.com>
+
+The problem lies in our base using libsecondlife, which is in C#.  if
+we go with python, then we have a bit of a problem.  We would then
+have to write our own networking code from scratch.  I would rather
+not re-invent the wheel.  If we can use any language, why not go with
+regular Ogre in C++ for example?
+
+There are other reasons for choosing c# though.  CLR makes it easy to
+port existing projects to it.  It is a managed language which relieves
+us from a lot of work, and headache in the future, many of the
+developers in the community prefer it over other languages, to name a
+few.
+
+Regards,
+Adam J
+
+
+On Thu, Mar 6, 2008 at 2:34 AM, S?ren Renner <soren.renner at gmail.com> wrote:
+> I am interested in openviewer because according to some sources rexviewer is
+> going to be merging with it. As for "[p]ython is pretty far out of the
+> capabilities of most people in this
+>  project", perhaps you are attempting to pull my leg. Certainly if python is
+> beyond them they are not programmers of any kind. It must be the single
+> easiest language in the world.
+>
+> Please don't force me to fork the project less than an hour after I joined
+> it. I exhort you ro reread my previous mail and consider whether you may be
+> wrong.
+>
+>
+>
+> On Wed, Mar 5, 2008 at 11:23 AM, Daedius <daedius at daedius.com> wrote:
+> > Hi there Soren,
+> >
+> > Thanks for your interest.  I know our mailing lists are a bit empty,
+> > so here is what I know has been said:
+> > * We aren't going to use mogredotnet
+> > * Many people want ogredotnet, and some are trying to revive the
+> > project, some like me want to create a higher level graphics engine
+> > above ogredotnet that we can swigify for openviewer specifically.
+> > * Python is pretty far out of the capabilities of most people in this
+> > project.  I think many of us assume LibSecondLife (C#) is going to be
+> > the primary thing we are building on
+> > * Our repository is horribly broken and often.
+> >
+> > My suggestion to you if your interested in some of the popular ideas
+> > going around:
+> > * Learn how to use swig
+> > * Learn how to use GTK#
+> > * Take a look at the Sleek project and see how it uses LibSecondLife
+> >
+> > - Daedius
+> >
+> >
+> >
+> >
+> > On 3/5/08, S?ren Renner <soren.renner at gmail.com> wrote:
+> > > Since openviewer is in such an early stage, though, I will risk it. Let
+> us
+> > > think about using Python-Ogre.
+> > >
+> > > * MOGRE "Doesn't work in Linux through Mono."
+> > > (http://www.ogre3d.org/wiki/index.php/MOGRE_Introduction)
+> > >
+> > > * OgreDotNet seems not to exist right now.
+> > >
+> > > * Python-Ogre does exist.
+> > >
+> > > * Many years ago I used Python-OpenGL and was the maintainer for the
+> PyOGL
+> > > demos. I wrote an renderer that would draw LOD depending on where the
+> camera
+> > > was looking -- including trees which branched fractally when they were
+> > > approached. I'll do it again, too.
+> > >
+> > > _______________________________________________
+> > >  Openviewer-dev mailing list
+> > >  Openviewer-dev at lists.berlios.de
+> > > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> > >
+> > >
+> > _______________________________________________
+> > Openviewer-dev mailing list
+> > Openviewer-dev at lists.berlios.de
+> > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+
+From tedd at konge.net  Wed Mar  5 18:47:50 2008
+From: tedd at konge.net (Tedd Hansen)
+Date: Wed, 5 Mar 2008 18:47:50 +0100
+Subject: [Openviewer-dev] It is too soon for me to be saying this.
+Message-ID: <D34F5C5E193B4144AD333BBBB940A528052809@exchange1.lan.konge.net>
+
+I signed up for C#. I'm not interested in learning yet another language just now. But I do know that Pythoneers are very passionate about their language.
+
+I'd suggest if the majority wants C# that you are the one that learn C# instead of everyone learning Python, regardless of how easy it is.
+
+ 
+
+If you want to fork because you do not like what the rest have been discussing, then I suggest you do so. Threats like that do not belong in a community like this and will not be taken well.
+
+However if you want to work with us, and make decisions with us, we truly welcome you. New members are always welcome!
+
+ 
+
+- Tedd
+
+ 
+
+From: openviewer-dev-bounces at lists.berlios.de [mailto:openviewer-dev-bounces at lists.berlios.de] On Behalf Of S?ren Renner
+Sent: 5. mars 2008 18:35
+To: openviewer-dev at lists.berlios.de
+Subject: Re: [Openviewer-dev] It is too soon for me to be saying this.
+
+ 
+
+I am interested in openviewer because according to some sources rexviewer is going to be merging with it. As for "[p]ython is pretty far out of the capabilities of most people in this
+project", perhaps you are attempting to pull my leg. Certainly if python is beyond them they are not programmers of any kind. It must be the single easiest language in the world. 
+
+Please don't force me to fork the project less than an hour after I joined it. I exhort you ro reread my previous mail and consider whether you may be wrong.
+
+On Wed, Mar 5, 2008 at 11:23 AM, Daedius <daedius at daedius.com> wrote:
+
+Hi there Soren,
+
+Thanks for your interest.  I know our mailing lists are a bit empty,
+so here is what I know has been said:
+* We aren't going to use mogredotnet
+* Many people want ogredotnet, and some are trying to revive the
+project, some like me want to create a higher level graphics engine
+above ogredotnet that we can swigify for openviewer specifically.
+* Python is pretty far out of the capabilities of most people in this
+project.  I think many of us assume LibSecondLife (C#) is going to be
+the primary thing we are building on
+* Our repository is horribly broken and often.
+
+My suggestion to you if your interested in some of the popular ideas
+going around:
+* Learn how to use swig
+* Learn how to use GTK#
+* Take a look at the Sleek project and see how it uses LibSecondLife
+
+- Daedius
+
+
+On 3/5/08, S?ren Renner <soren.renner at gmail.com> wrote:
+> Since openviewer is in such an early stage, though, I will risk it. Let us
+> think about using Python-Ogre.
+>
+> * MOGRE "Doesn't work in Linux through Mono."
+> (http://www.ogre3d.org/wiki/index.php/MOGRE_Introduction)
+>
+> * OgreDotNet seems not to exist right now.
+>
+> * Python-Ogre does exist.
+>
+> * Many years ago I used Python-OpenGL and was the maintainer for the PyOGL
+> demos. I wrote an renderer that would draw LOD depending on where the camera
+> was looking -- including trees which branched fractally when they were
+> approached. I'll do it again, too.
+>
+
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080305/0d5db07e/attachment.html>
+
+From daedius at daedius.com  Wed Mar  5 20:35:11 2008
+From: daedius at daedius.com (Daedius)
+Date: Wed, 5 Mar 2008 13:35:11 -0600
+Subject: [Openviewer-dev] Aether UI Project: My Big Vision Of Things To Come
+Message-ID: <351467290803051135n23cd3132s714c27b33241f3ff@mail.gmail.com>
+
+Hey all,
+
+In an effort to keep things on OpenViewer mailing list lively.  I
+wanted to write you all about my own personal project I'm exploring
+and would like to build on top of the OpenViewer platform.  I'm
+calling this project "Aether" ( http://code.google.com/p/aether/ ) for
+now.  I know many of you all are working on your own personal visions
+of what the primary UI module should be, but perhaps you might be
+interested in what I have in mind:
+
+Here is my beliefs on the future of metaverses:
+- Metaverses are going to be as ubiquitous as web pages one day
+- The common person wants a familiar interface to work with
+metaverses, and that has not been provided yet by SecondLife or any
+other project thus far.
+- The future must be cross platform (duh)
+- We will never be able to define a UI that everyone wants to use.
+
+With these beliefs in mind,  I plan to make Aether, a mozilla-plugin
+metaverse viewer (As a UI module for openviewer).  My hope is to make
+use of several technologies for UI and 3D instead of trying to create
+my own.  So whats the short goal.
+
+          "Put metaverses inside firefox!"
+
+Simple enough.  What are the implications by this?
+
+1.  We No Longer Define The UI:
+Leave this up to the person who runs a website in mozilla.  Everyone
+has their own styles and needs.  Why should we be imposing a
+standardized UI format on people.  Metaverses ARE not games (which do
+have standardized UI), metaverse are interfaces to interacting with
+information.  Right now, HTML and friends are king in this area, so
+lets not change that.
+
+2.  People Might Be Connected To Multiple Grids At Once or Multiple
+Locations in a Single Grid
+I might be cruising through an Amazon.com grid , looking at 3D copies
+of books while simultaneously  standing in a small room on a Digg.com
+grid, yelling at people about the latest stories.  This has
+implications for how we need to design openviewer platform.  We must
+have multigrid support.  This may even have implications for opensim,
+the need to be able to be logged into multiple places on a single
+grid.
+
+3. We Need To Think C++
+Despite our fondness of .Net.  The real world still uses C++.  Ogre3D,
+Mozilla, other technologies are our greatest allies and our greatest
+limitations.  I plan to create a build system for Aether than can run
+on msys on win32, and osx, and linux.   The big question will be how
+much of C++ do we really need.  It is my hope that we can limit it to
+just the graphics engine and just the plugin engine.  I love C#, and
+want to try to write as much of Aether in C# as possible.
+
+If any of you are interested by this idea, please check out my google
+project ( http://code.google.com/p/aether/ ) where I will be hosting
+this UI module for openviewer.  I would like to strive as much as
+possible to work with the core OpenViewer team to shape a foundation
+that can truly be used for any UI on top of it.  Thanks, and remember
+to dream big!  Please contact me if your interested in developing this
+idea with me =)
+
+- Daedius
+
+
+From pfinn at ca.ibm.com  Wed Mar  5 21:18:50 2008
+From: pfinn at ca.ibm.com (Peter Finn)
+Date: Wed, 5 Mar 2008 15:18:50 -0500
+Subject: [Openviewer-dev] Aether UI Project: My Big Vision Of Things To
+	Come
+In-Reply-To: <351467290803051135n23cd3132s714c27b33241f3ff@mail.gmail.com>
+Message-ID: <OF6761FE63.BD532792-ON85257403.006E7606-85257403.006F9675@ca.ibm.com>
+
+Great insight and sounds like an interesting project   We discussed a thin 
+client or a plug-in at some point and we decided at some point we need to 
+explore some options, We fussed with Java,  flash and silverlight.   M$ 
+codec issues aside for an thin client silverlight / Moonlight looked like 
+a better option.
+
+In terms of ogre3d in a browser and getting people to download your client 
+there is Clive Jacksons Blink3D active but closed source (ogre has an 
+alternative licence) and there is an opensource project that is pretty 
+dead called Emma last update 2005   http://emma3d.sourceforge.net/ 
+
+Nink
+
+
+
+
+Daedius <daedius at daedius.com> 
+Sent by: openviewer-dev-bounces at lists.berlios.de
+03/05/08 02:35 PM
+Please respond to
+openviewer-dev at lists.berlios.de
+
+
+To
+openviewer-dev at lists.berlios.de
+cc
+
+Subject
+[Openviewer-dev] Aether UI Project: My Big Vision Of Things To Come
+
+
+
+
+
+
+Hey all,
+
+In an effort to keep things on OpenViewer mailing list lively.  I
+wanted to write you all about my own personal project I'm exploring
+and would like to build on top of the OpenViewer platform.  I'm
+calling this project "Aether" ( http://code.google.com/p/aether/ ) for
+now.  I know many of you all are working on your own personal visions
+of what the primary UI module should be, but perhaps you might be
+interested in what I have in mind:
+
+Here is my beliefs on the future of metaverses:
+- Metaverses are going to be as ubiquitous as web pages one day
+- The common person wants a familiar interface to work with
+metaverses, and that has not been provided yet by SecondLife or any
+other project thus far.
+- The future must be cross platform (duh)
+- We will never be able to define a UI that everyone wants to use.
+
+With these beliefs in mind,  I plan to make Aether, a mozilla-plugin
+metaverse viewer (As a UI module for openviewer).  My hope is to make
+use of several technologies for UI and 3D instead of trying to create
+my own.  So whats the short goal.
+
+          "Put metaverses inside firefox!"
+
+Simple enough.  What are the implications by this?
+
+1.  We No Longer Define The UI:
+Leave this up to the person who runs a website in mozilla.  Everyone
+has their own styles and needs.  Why should we be imposing a
+standardized UI format on people.  Metaverses ARE not games (which do
+have standardized UI), metaverse are interfaces to interacting with
+information.  Right now, HTML and friends are king in this area, so
+lets not change that.
+
+2.  People Might Be Connected To Multiple Grids At Once or Multiple
+Locations in a Single Grid
+I might be cruising through an Amazon.com grid , looking at 3D copies
+of books while simultaneously  standing in a small room on a Digg.com
+grid, yelling at people about the latest stories.  This has
+implications for how we need to design openviewer platform.  We must
+have multigrid support.  This may even have implications for opensim,
+the need to be able to be logged into multiple places on a single
+grid.
+
+3. We Need To Think C++
+Despite our fondness of .Net.  The real world still uses C++.  Ogre3D,
+Mozilla, other technologies are our greatest allies and our greatest
+limitations.  I plan to create a build system for Aether than can run
+on msys on win32, and osx, and linux.   The big question will be how
+much of C++ do we really need.  It is my hope that we can limit it to
+just the graphics engine and just the plugin engine.  I love C#, and
+want to try to write as much of Aether in C# as possible.
+
+If any of you are interested by this idea, please check out my google
+project ( http://code.google.com/p/aether/ ) where I will be hosting
+this UI module for openviewer.  I would like to strive as much as
+possible to work with the core OpenViewer team to shape a foundation
+that can truly be used for any UI on top of it.  Thanks, and remember
+to dream big!  Please contact me if your interested in developing this
+idea with me =)
+
+- Daedius
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080305/3aafc977/attachment.html>
+
+From michaelwri22 at yahoo.co.uk  Wed Mar  5 22:00:34 2008
+From: michaelwri22 at yahoo.co.uk (Michael Wright)
+Date: Wed, 5 Mar 2008 21:00:34 +0000 (GMT)
+Subject: [Openviewer-dev] Aether UI Project: My Big Vision Of Things To
+	Come
+In-Reply-To: <OF6761FE63.BD532792-ON85257403.006E7606-85257403.006F9675@ca.ibm.com>
+Message-ID: <543032.63694.qm@web23002.mail.ird.yahoo.com>
+
+Hi Peter,
+
+On the subject of a embedded client in a browser. I believe you were involved with Clive Jackson's InDuality plugin, that allowed the Second life client to be used in a browser. But its been a while since I heard anything about this. Do you happen to know what the latest release plans are for that?
+
+Peter Finn <pfinn at ca.ibm.com> wrote:  
+Great insight and sounds like an interesting project   We discussed a thin client or a plug-in at some point and we decided at some point we need to  explore some options, We fussed with Java,  flash and silverlight.   M$ codec issues aside for an thin client silverlight / Moonlight looked like a better option. 
+ 
+In terms of ogre3d in a browser and getting people to download your client there is Clive Jacksons Blink3D active but closed source (ogre has an alternative licence) and there is an opensource project that is pretty dead called Emma last update 2005   http://emma3d.sourceforge.net/   
+
+ Nink 
+ 
+ 
+ 
+   Daedius <daedius at daedius.com>  
+Sent by: openviewer-dev-bounces at lists.berlios.de 03/05/08 02:35 PM    Please respond to
+ openviewer-dev at lists.berlios.de
+ 
+ 
+    To
+ openviewer-dev at lists.berlios.de   cc
+  
+  Subject
+ [Openviewer-dev] Aether UI Project: My Big Vision Of Things To Come 
+    
+
+ 
+ 
+ 
+ 
+Hey all,
+ 
+ In an effort to keep things on OpenViewer mailing list lively.  I
+ wanted to write you all about my own personal project I'm exploring
+ and would like to build on top of the OpenViewer platform.  I'm
+ calling this project "Aether" ( http://code.google.com/p/aether/ ) for
+ now.  I know many of you all are working on your own personal visions
+ of what the primary UI module should be, but perhaps you might be
+ interested in what I have in mind:
+ 
+ Here is my beliefs on the future of metaverses:
+ - Metaverses are going to be as ubiquitous as web pages one day
+ - The common person wants a familiar interface to work with
+ metaverses, and that has not been provided yet by SecondLife or any
+ other project thus far.
+ - The future must be cross platform (duh)
+ - We will never be able to define a UI that everyone wants to use.
+ 
+ With these beliefs in mind,  I plan to make Aether, a mozilla-plugin
+ metaverse viewer (As a UI module for openviewer).  My hope is to make
+ use of several technologies for UI and 3D instead of trying to create
+ my own.  So whats the short goal.
+ 
+           "Put metaverses inside firefox!"
+ 
+ Simple enough.  What are the implications by this?
+ 
+ 1.  We No Longer Define The UI:
+ Leave this up to the person who runs a website in mozilla.  Everyone
+ has their own styles and needs.  Why should we be imposing a
+ standardized UI format on people.  Metaverses ARE not games (which do
+ have standardized UI), metaverse are interfaces to interacting with
+ information.  Right now, HTML and friends are king in this area, so
+ lets not change that.
+ 
+ 2.  People Might Be Connected To Multiple Grids At Once or Multiple
+ Locations in a Single Grid
+ I might be cruising through an Amazon.com grid , looking at 3D copies
+ of books while simultaneously  standing in a small room on a Digg.com
+ grid, yelling at people about the latest stories.  This has
+ implications for how we need to design openviewer platform.  We must
+ have multigrid support.  This may even have implications for opensim,
+ the need to be able to be logged into multiple places on a single
+ grid.
+ 
+ 3. We Need To Think C++
+ Despite our fondness of .Net.  The real world still uses C++.  Ogre3D,
+ Mozilla, other technologies are our greatest allies and our greatest
+ limitations.  I plan to create a build system for Aether than can run
+ on msys on win32, and osx, and linux.   The big question will be how
+ much of C++ do we really need.  It is my hope that we can limit it to
+ just the graphics engine and just the plugin engine.  I love C#, and
+ want to try to write as much of Aether in C# as possible.
+ 
+ If any of you are interested by this idea, please check out my google
+ project ( http://code.google.com/p/aether/ ) where I will be hosting
+ this UI module for openviewer.  I would like to strive as much as
+ possible to work with the core OpenViewer team to shape a foundation
+ that can truly be used for any UI on top of it.  Thanks, and remember
+ to dream big!  Please contact me if your interested in developing this
+ idea with me =)
+ 
+ - Daedius
+ _______________________________________________
+ Openviewer-dev mailing list
+ Openviewer-dev at lists.berlios.de
+ https://lists.berlios.de/mailman/listinfo/openviewer-dev
+  
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+       
+---------------------------------
+Sent from Yahoo! Mail.
+A Smarter Inbox.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080305/75a3413f/attachment.html>
+
+From daedius at daedius.com  Wed Mar  5 22:01:43 2008
+From: daedius at daedius.com (Daedius)
+Date: Wed, 5 Mar 2008 15:01:43 -0600
+Subject: [Openviewer-dev] Aether UI Project: My Big Vision Of Things To
+	Come
+In-Reply-To: <543032.63694.qm@web23002.mail.ird.yahoo.com>
+References: <OF6761FE63.BD532792-ON85257403.006E7606-85257403.006F9675@ca.ibm.com>
+	<543032.63694.qm@web23002.mail.ird.yahoo.com>
+Message-ID: <351467290803051301t257986a9q29c51e3500d46686@mail.gmail.com>
+
+Thanks for the links Peter =)  I am excited about silverlight as well.  In
+fact, I just downloaded the Silverlight 2 beta 2 hours ago, and the first
+thing I tried was creating a libsecondlife silverlight assembly library.  It
+failed, sadly, there still a bit a ways to go in terms of library support.
+But who knows.  LibSecondLife behind a webservice with a silverlight
+frontend might be a reality soon.
+
+- Daedius
+
+On 3/5/08, Michael Wright <michaelwri22 at yahoo.co.uk> wrote:
+>
+> Hi Peter,
+>
+> On the subject of a embedded client in a browser. I believe you were
+> involved with Clive Jackson's InDuality plugin, that allowed the Second life
+> client to be used in a browser. But its been a while since I heard anything
+> about this. Do you happen to know what the latest release plans are for
+> that?
+>
+> *Peter Finn <pfinn at ca.ibm.com>* wrote:
+>
+>
+> Great insight and sounds like an interesting project   We discussed a thin
+> client or a plug-in at some point and we decided at some point we need to
+>  explore some options, We fussed with Java,  flash and silverlight.   M$
+> codec issues aside for an thin client silverlight / Moonlight looked like a
+> better option.
+>
+> In terms of ogre3d in a browser and getting people to download your client
+> there is Clive Jacksons Blink3D active but closed source (ogre has an
+> alternative licence) and there is an opensource project that is pretty dead
+> called Emma last update 2005   http://emma3d.sourceforge.net/
+>
+> Nink
+>
+>
+>
+>  *Daedius <daedius at daedius.com>*
+> Sent by: openviewer-dev-bounces at lists.berlios.de 03/05/08 02:35 PM  Please
+> respond to
+> openviewer-dev at lists.berlios.de
+>
+>   To
+> openviewer-dev at lists.berlios.de  cc
+>
+>  Subject
+> [Openviewer-dev] Aether UI Project: My Big Vision Of Things To Come
+>
+>
+>
+>
+>
+>
+> Hey all,
+>
+> In an effort to keep things on OpenViewer mailing list lively.  I
+> wanted to write you all about my own personal project I'm exploring
+> and would like to build on top of the OpenViewer platform.  I'm
+> calling this project "Aether" ( http://code.google.com/p/aether/ ) for
+> now.  I know many of you all are working on your own personal visions
+> of what the primary UI module should be, but perhaps you might be
+> interested in what I have in mind:
+>
+> Here is my beliefs on the future of metaverses:
+> - Metaverses are going to be as ubiquitous as web pages one day
+> - The common person wants a familiar interface to work with
+> metaverses, and that has not been provided yet by SecondLife or any
+> other project thus far.
+> - The future must be cross platform (duh)
+> - We will never be able to define a UI that everyone wants to use.
+>
+> With these beliefs in mind,  I plan to make Aether, a mozilla-plugin
+> metaverse viewer (As a UI module for openviewer).  My hope is to make
+> use of several technologies for UI and 3D instead of trying to create
+> my own.  So whats the short goal.
+>
+>          "Put metaverses inside firefox!"
+>
+> Simple enough.  What are the implications by this?
+>
+> 1.  We No Longer Define The UI:
+> Leave this up to the person who runs a website in mozilla.  Everyone
+> has their own styles and needs.  Why should we be imposing a
+> standardized UI format on people.  Metaverses ARE not games (which do
+> have standardized UI), metaverse are interfaces to interacting with
+> information.  Right now, HTML and friends are king in this area, so
+> lets not change that.
+>
+> 2.  People Might Be Connected To Multiple Grids At Once or Multiple
+> Locations in a Single Grid
+> I might be cruising through an Amazon.com grid , looking at 3D copies
+> of books while simultaneously  standing in a small room on a Digg.com
+> grid, yelling at people about the latest stories.  This has
+> implications for how we need to design openviewer platform.  We must
+> have multigrid support.  This may even have implications for opensim,
+> the need to be able to be logged into multiple places on a single
+> grid.
+>
+> 3. We Need To Think C++
+> Despite our fondness of .Net.  The real world still uses C++.  Ogre3D,
+> Mozilla, other technologies are our greatest allies and our greatest
+> limitations.  I plan to create a build system for Aether than can run
+> on msys on win32, and osx, and linux.   The big question will be how
+> much of C++ do we really need.  It is my hope that we can limit it to
+> just the graphics engine and just the plugin engine.  I love C#, and
+> want to try to write as much of Aether in C# as possible.
+>
+> If any of you are interested by this idea, please check out my google
+> project ( http://code.google.com/p/aether/ ) where I will be hosting
+> this UI module for openviewer.  I would like to strive as much as
+> possible to work with the core OpenViewer team to shape a foundation
+> that can truly be used for any UI on top of it.  Thanks, and remember
+> to dream big!  Please contact me if your interested in developing this
+> idea with me =)
+>
+> - Daedius
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+> ------------------------------
+> Sent from Yahoo! Mail <http://uk.docs.yahoo.com/nowyoucan.html>.
+> A Smarter Inbox.
+>
+>
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080305/b5ac665a/attachment.html>
+
+From daedius at daedius.com  Fri Mar  7 20:26:12 2008
+From: daedius at daedius.com (Daedius)
+Date: Fri, 7 Mar 2008 13:26:12 -0600
+Subject: [Openviewer-dev] SLeek Interest In GTK# Port as New UI Module for
+	OpenViewer
+Message-ID: <351467290803071126k3636b249ld7730ce2721dcdaf@mail.gmail.com>
+
+I have been chatting on SLeek Discussion boards with Paul Clement (the
+project owner).  I talked a bit with him about the vision of
+OpenViewer and our pondering of a GTK# port of SLeek.  He seemed
+really interested on making SLeek compatible as a UI module, I invited
+him to come by our IRC chat rooms and talk.  I'll repost when I get
+more follow up information on a specific date and time.
+
+As mentioned before.  I believe the project offers us a group real
+world implementation of the LibSL library, and can help us start a
+healthy direction for the foundations of OpenViewer model side.  We
+will need to think about a few things:
+
+-  How do we make our platform easily accessible for
+creators/developers/maintainers of OpenViewer UIs ( documentation,
+APIs, etc).
+- What features are we going to need to be successful model side.
+Ability to login to multiple grids? Abstraction of configuration  (
+not everyone may want to control openviewer by our xml files )
+- How can we provide intuitive interfaces between openviewer and the
+UI for the various types o f UIs that will come to exist (3D, 2D,
+Winforms, Console)?
+
+Let these thoughts stew a bit in your smart creative minds out there =)
+
+- Daedius
+
+
+From daedius at daedius.com  Fri Mar  7 20:30:20 2008
+From: daedius at daedius.com (Daedius)
+Date: Fri, 7 Mar 2008 13:30:20 -0600
+Subject: [Openviewer-dev] OpenViewer as a Testing Framework for OpenSim
+Message-ID: <351467290803071130q3cbc2034kb285c4ab611cfdac@mail.gmail.com>
+
+I wanted to put this idea on the mailing list so I do not forget it.
+When I came to openviewer,  I  initially did not plan to be working on
+3d or GTK# interfaces.   I love automated testing and was the first to
+integrate NUnit into the OpenSim project.  My vision was this:
+
+"Functional testing of metaverses is not enough.   If I could simulate
+a person using a real viewer.  I might be able to get better results
+in automated realtime testing of grids"
+
+A viewer doesnt have to be controlled by a user.  It can be controlled
+by a robot ;)  or even replayed.   I figure a Testing UI module down
+the line will be very helpful to the opensim community as a whole.
+Any thoughts or ideas?  Praise or condemnation?
+
+- Daedius
+
+
+From gryc.ueusp at gmail.com  Fri Mar  7 21:47:14 2008
+From: gryc.ueusp at gmail.com (Gryc Ueusp)
+Date: Fri, 7 Mar 2008 14:47:14 -0600
+Subject: [Openviewer-dev] OpenViewer as a Testing Framework for OpenSim
+In-Reply-To: <351467290803071130q3cbc2034kb285c4ab611cfdac@mail.gmail.com>
+References: <351467290803071130q3cbc2034kb285c4ab611cfdac@mail.gmail.com>
+Message-ID: <200803071447.17136.gryc.ueusp@gmail.com>
+
++1
+
+I think that the Testing UI module could take the form of common/easy 
+scripting interface for writing scripts to control the client. IronPython 
+maybe? XML?
+
+Also, once this is done, a web-interface for it becomes trivial, if we can 
+specify input from a module as well as from various UI elements (keyboards, 
+mice, etc)
+
+On Friday 07 March 2008 1:30:20 pm Daedius wrote:
+> I wanted to put this idea on the mailing list so I do not forget it.
+> When I came to openviewer,  I  initially did not plan to be working on
+> 3d or GTK# interfaces.   I love automated testing and was the first to
+> integrate NUnit into the OpenSim project.  My vision was this:
+>
+> "Functional testing of metaverses is not enough.   If I could simulate
+> a person using a real viewer.  I might be able to get better results
+> in automated realtime testing of grids"
+>
+> A viewer doesnt have to be controlled by a user.  It can be controlled
+> by a robot ;)  or even replayed.   I figure a Testing UI module down
+> the line will be very helpful to the opensim community as a whole.
+> Any thoughts or ideas?  Praise or condemnation?
+>
+> - Daedius
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+-- 
+Gryc Ueusp
+<gryc.ueusp at gmail.com>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080307/9ca28d59/attachment.pgp>
+
+From daedius at daedius.com  Fri Mar  7 22:07:56 2008
+From: daedius at daedius.com (Daedius)
+Date: Fri, 7 Mar 2008 15:07:56 -0600
+Subject: [Openviewer-dev] OpenViewer as a Testing Framework for OpenSim
+In-Reply-To: <200803071447.17136.gryc.ueusp@gmail.com>
+References: <351467290803071130q3cbc2034kb285c4ab611cfdac@mail.gmail.com>
+	<200803071447.17136.gryc.ueusp@gmail.com>
+Message-ID: <351467290803071307p75d83972u69ffb3e2ad7e7696@mail.gmail.com>
+
+I like your idea.   My preference is to have nunit tests written.   In
+my ideal world, it would be awesome if we could write unit tests that
+A) intantiate grids ( on multiple machines even possibly?) B) load up
+our tester UI and connect to them , then C) run scripted tests like a
+normal user would.    We might be able to have a collection of scripts
+written in iron python ( or any other language ), have mono compile
+them on the fly, and run them within the unit test.
+
+I during january I was writting a distributed crossplatform build
+system that ran tests through master slave architecture, hand off jobs
+that were entirely specified trough nant.  My goal was to create a
+testing environment for the diverse crossplatform machines opensim was
+meant to run on.  The architecture is very similar to BuildBot if that
+means anything to you.  I even was able to get realtime results of
+builds happening across seperate machines =)  all the test/build
+results were available via webservice, and then simply accessed by
+PHP.  It was teh awesome.
+
+I'm curious on how IronPython works as a scripting language?  Is it
+very crossplatform at this point in time?
+
+- Daedius
+
+On 3/7/08, Gryc Ueusp <gryc.ueusp at gmail.com> wrote:
+> +1
+>
+>  I think that the Testing UI module could take the form of common/easy
+>  scripting interface for writing scripts to control the client. IronPython
+>  maybe? XML?
+>
+>  Also, once this is done, a web-interface for it becomes trivial, if we can
+>  specify input from a module as well as from various UI elements (keyboards,
+>  mice, etc)
+>
+>
+>  On Friday 07 March 2008 1:30:20 pm Daedius wrote:
+>  > I wanted to put this idea on the mailing list so I do not forget it.
+>  > When I came to openviewer,  I  initially did not plan to be working on
+>  > 3d or GTK# interfaces.   I love automated testing and was the first to
+>  > integrate NUnit into the OpenSim project.  My vision was this:
+>  >
+>  > "Functional testing of metaverses is not enough.   If I could simulate
+>  > a person using a real viewer.  I might be able to get better results
+>  > in automated realtime testing of grids"
+>  >
+>  > A viewer doesnt have to be controlled by a user.  It can be controlled
+>  > by a robot ;)  or even replayed.   I figure a Testing UI module down
+>  > the line will be very helpful to the opensim community as a whole.
+>  > Any thoughts or ideas?  Praise or condemnation?
+>  >
+>  > - Daedius
+>
+> > _______________________________________________
+>  > Openviewer-dev mailing list
+>  > Openviewer-dev at lists.berlios.de
+>  > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>
+>
+>  --
+>  Gryc Ueusp
+>  <gryc.ueusp at gmail.com>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>
+
+
+From gryc.ueusp at gmail.com  Fri Mar  7 22:31:53 2008
+From: gryc.ueusp at gmail.com (Gryc Ueusp)
+Date: Fri, 7 Mar 2008 15:31:53 -0600
+Subject: [Openviewer-dev] OpenViewer as a Testing Framework for OpenSim
+In-Reply-To: <351467290803071307p75d83972u69ffb3e2ad7e7696@mail.gmail.com>
+References: <351467290803071130q3cbc2034kb285c4ab611cfdac@mail.gmail.com>
+	<200803071447.17136.gryc.ueusp@gmail.com>
+	<351467290803071307p75d83972u69ffb3e2ad7e7696@mail.gmail.com>
+Message-ID: <200803071531.56743.gryc.ueusp@gmail.com>
+
+On Friday 07 March 2008 3:07:56 pm Daedius wrote:
+> I like your idea.   My preference is to have nunit tests written.   In
+> my ideal world, it would be awesome if we could write unit tests that
+> A) intantiate grids ( on multiple machines even possibly?) B) load up
+> our tester UI and connect to them , then C) run scripted tests like a
+> normal user would.    We might be able to have a collection of scripts
+> written in iron python ( or any other language ), have mono compile
+> them on the fly, and run them within the unit test.
+
+Yeah, I meant that developers would have their unit tests, then the scripting 
+interface for the client would enable a user to basically click a button and 
+have the agent the client was connected to to be moved automatically, taking 
+actions like testing inventory, movement, chat, etc.  (Then, not only would 
+it be an automated testing interface, but a scripted client for "free" :P)
+
+>
+> I during january I was writting a distributed crossplatform build
+> system that ran tests through master slave architecture, hand off jobs
+> that were entirely specified trough nant.  My goal was to create a
+> testing environment for the diverse crossplatform machines opensim was
+> meant to run on.  The architecture is very similar to BuildBot if that
+> means anything to you.  I even was able to get realtime results of
+> builds happening across seperate machines =)  all the test/build
+> results were available via webservice, and then simply accessed by
+> PHP.  It was teh awesome.
+
+Yes, I saw that, it was quite interesting :D
+Speaking of tests, how is openviewer unittest-wise?
+
+>
+> I'm curious on how IronPython works as a scripting language?  Is it
+> very crossplatform at this point in time?
+
+I'd like to say it's cross platform, but the ipy.exe binary has an issue on 
+Ubuntu Gutsy where it doesnt display any output to consoles, but will write 
+to stdout just fine.  In other words, it's crossplatform enough to not worry 
+about it.  (Personally I think IronPython is blasphemy, but I'd rather see a 
+scriptable interface in a Python language than in VB.NET :P)
+
+>
+> - Daedius
+>
+> On 3/7/08, Gryc Ueusp <gryc.ueusp at gmail.com> wrote:
+> > +1
+> >
+> >  I think that the Testing UI module could take the form of common/easy
+> >  scripting interface for writing scripts to control the client.
+> > IronPython maybe? XML?
+> >
+> >  Also, once this is done, a web-interface for it becomes trivial, if we
+> > can specify input from a module as well as from various UI elements
+> > (keyboards, mice, etc)
+> >
+> >  On Friday 07 March 2008 1:30:20 pm Daedius wrote:
+> >  > I wanted to put this idea on the mailing list so I do not forget it.
+> >  > When I came to openviewer,  I  initially did not plan to be working on
+> >  > 3d or GTK# interfaces.   I love automated testing and was the first to
+> >  > integrate NUnit into the OpenSim project.  My vision was this:
+> >  >
+> >  > "Functional testing of metaverses is not enough.   If I could simulate
+> >  > a person using a real viewer.  I might be able to get better results
+> >  > in automated realtime testing of grids"
+> >  >
+> >  > A viewer doesnt have to be controlled by a user.  It can be controlled
+> >  > by a robot ;)  or even replayed.   I figure a Testing UI module down
+> >  > the line will be very helpful to the opensim community as a whole.
+> >  > Any thoughts or ideas?  Praise or condemnation?
+> >  >
+> >  > - Daedius
+> > >
+> > > _______________________________________________
+> > >
+> >  > Openviewer-dev mailing list
+> >  > Openviewer-dev at lists.berlios.de
+> >  > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+> >  --
+> >  Gryc Ueusp
+> >  <gryc.ueusp at gmail.com>
+> >
+> > _______________________________________________
+> >  Openviewer-dev mailing list
+> >  Openviewer-dev at lists.berlios.de
+> >  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+-- 
+Gryc Ueusp
+<gryc.ueusp at gmail.com>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080307/63cd88e3/attachment.pgp>
+
+From tedd at konge.net  Thu Mar 13 08:51:15 2008
+From: tedd at konge.net (Tedd Hansen)
+Date: Thu, 13 Mar 2008 08:51:15 +0100
+Subject: [Openviewer-dev] Aether UI Project: My Big Vision Of Things To
+	Come
+Message-ID: <D34F5C5E193B4144AD333BBBB940A528052834@exchange1.lan.konge.net>
+
+Some special case I've thought of:
+Use OpenViewer to (off-screen) render the view of multiple avatars,
+possible two renderings per avatar with slightly different offsets. Then
+feed the picture into an ANN for processing. :)
+
+-----Original Message-----
+From: openviewer-dev-bounces at lists.berlios.de
+[mailto:openviewer-dev-bounces at lists.berlios.de] On Behalf Of Daedius
+Sent: 5. mars 2008 20:35
+To: openviewer-dev at lists.berlios.de
+Subject: [Openviewer-dev] Aether UI Project: My Big Vision Of Things To
+Come
+
+Hey all,
+
+In an effort to keep things on OpenViewer mailing list lively.  I
+wanted to write you all about my own personal project I'm exploring
+and would like to build on top of the OpenViewer platform.  I'm
+calling this project "Aether" ( http://code.google.com/p/aether/ ) for
+now.  I know many of you all are working on your own personal visions
+of what the primary UI module should be, but perhaps you might be
+interested in what I have in mind:
+
+Here is my beliefs on the future of metaverses:
+- Metaverses are going to be as ubiquitous as web pages one day
+- The common person wants a familiar interface to work with
+metaverses, and that has not been provided yet by SecondLife or any
+other project thus far.
+- The future must be cross platform (duh)
+- We will never be able to define a UI that everyone wants to use.
+
+With these beliefs in mind,  I plan to make Aether, a mozilla-plugin
+metaverse viewer (As a UI module for openviewer).  My hope is to make
+use of several technologies for UI and 3D instead of trying to create
+my own.  So whats the short goal.
+
+          "Put metaverses inside firefox!"
+
+Simple enough.  What are the implications by this?
+
+1.  We No Longer Define The UI:
+Leave this up to the person who runs a website in mozilla.  Everyone
+has their own styles and needs.  Why should we be imposing a
+standardized UI format on people.  Metaverses ARE not games (which do
+have standardized UI), metaverse are interfaces to interacting with
+information.  Right now, HTML and friends are king in this area, so
+lets not change that.
+
+2.  People Might Be Connected To Multiple Grids At Once or Multiple
+Locations in a Single Grid
+I might be cruising through an Amazon.com grid , looking at 3D copies
+of books while simultaneously  standing in a small room on a Digg.com
+grid, yelling at people about the latest stories.  This has
+implications for how we need to design openviewer platform.  We must
+have multigrid support.  This may even have implications for opensim,
+the need to be able to be logged into multiple places on a single
+grid.
+
+3. We Need To Think C++
+Despite our fondness of .Net.  The real world still uses C++.  Ogre3D,
+Mozilla, other technologies are our greatest allies and our greatest
+limitations.  I plan to create a build system for Aether than can run
+on msys on win32, and osx, and linux.   The big question will be how
+much of C++ do we really need.  It is my hope that we can limit it to
+just the graphics engine and just the plugin engine.  I love C#, and
+want to try to write as much of Aether in C# as possible.
+
+If any of you are interested by this idea, please check out my google
+project ( http://code.google.com/p/aether/ ) where I will be hosting
+this UI module for openviewer.  I would like to strive as much as
+possible to work with the core OpenViewer team to shape a foundation
+that can truly be used for any UI on top of it.  Thanks, and remember
+to dream big!  Please contact me if your interested in developing this
+idea with me =)
+
+- Daedius
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+
+From daedius at daedius.com  Thu Mar 13 14:43:54 2008
+From: daedius at daedius.com (Daedius)
+Date: Thu, 13 Mar 2008 08:43:54 -0500
+Subject: [Openviewer-dev] Aether UI Project: My Big Vision Of Things To
+	Come
+In-Reply-To: <D34F5C5E193B4144AD333BBBB940A528052834@exchange1.lan.konge.net>
+References: <D34F5C5E193B4144AD333BBBB940A528052834@exchange1.lan.konge.net>
+Message-ID: <351467290803130643k577dee18n4669ff7cb047c707@mail.gmail.com>
+
+n00b detection ANN ;P
+
+On 3/13/08, Tedd Hansen <tedd at konge.net> wrote:
+> Some special case I've thought of:
+>  Use OpenViewer to (off-screen) render the view of multiple avatars,
+>  possible two renderings per avatar with slightly different offsets. Then
+>  feed the picture into an ANN for processing. :)
+>
+>  -----Original Message-----
+>  From: openviewer-dev-bounces at lists.berlios.de
+>  [mailto:openviewer-dev-bounces at lists.berlios.de] On Behalf Of Daedius
+>  Sent: 5. mars 2008 20:35
+>  To: openviewer-dev at lists.berlios.de
+>  Subject: [Openviewer-dev] Aether UI Project: My Big Vision Of Things To
+>  Come
+>
+>  Hey all,
+>
+>  In an effort to keep things on OpenViewer mailing list lively.  I
+>  wanted to write you all about my own personal project I'm exploring
+>  and would like to build on top of the OpenViewer platform.  I'm
+>  calling this project "Aether" ( http://code.google.com/p/aether/ ) for
+>  now.  I know many of you all are working on your own personal visions
+>  of what the primary UI module should be, but perhaps you might be
+>  interested in what I have in mind:
+>
+>  Here is my beliefs on the future of metaverses:
+>  - Metaverses are going to be as ubiquitous as web pages one day
+>  - The common person wants a familiar interface to work with
+>  metaverses, and that has not been provided yet by SecondLife or any
+>  other project thus far.
+>  - The future must be cross platform (duh)
+>  - We will never be able to define a UI that everyone wants to use.
+>
+>  With these beliefs in mind,  I plan to make Aether, a mozilla-plugin
+>  metaverse viewer (As a UI module for openviewer).  My hope is to make
+>  use of several technologies for UI and 3D instead of trying to create
+>  my own.  So whats the short goal.
+>
+>           "Put metaverses inside firefox!"
+>
+>  Simple enough.  What are the implications by this?
+>
+>  1.  We No Longer Define The UI:
+>  Leave this up to the person who runs a website in mozilla.  Everyone
+>  has their own styles and needs.  Why should we be imposing a
+>  standardized UI format on people.  Metaverses ARE not games (which do
+>  have standardized UI), metaverse are interfaces to interacting with
+>  information.  Right now, HTML and friends are king in this area, so
+>  lets not change that.
+>
+>  2.  People Might Be Connected To Multiple Grids At Once or Multiple
+>  Locations in a Single Grid
+>  I might be cruising through an Amazon.com grid , looking at 3D copies
+>  of books while simultaneously  standing in a small room on a Digg.com
+>  grid, yelling at people about the latest stories.  This has
+>  implications for how we need to design openviewer platform.  We must
+>  have multigrid support.  This may even have implications for opensim,
+>  the need to be able to be logged into multiple places on a single
+>  grid.
+>
+>  3. We Need To Think C++
+>  Despite our fondness of .Net.  The real world still uses C++.  Ogre3D,
+>  Mozilla, other technologies are our greatest allies and our greatest
+>  limitations.  I plan to create a build system for Aether than can run
+>  on msys on win32, and osx, and linux.   The big question will be how
+>  much of C++ do we really need.  It is my hope that we can limit it to
+>  just the graphics engine and just the plugin engine.  I love C#, and
+>  want to try to write as much of Aether in C# as possible.
+>
+>  If any of you are interested by this idea, please check out my google
+>  project ( http://code.google.com/p/aether/ ) where I will be hosting
+>  this UI module for openviewer.  I would like to strive as much as
+>  possible to work with the core OpenViewer team to shape a foundation
+>  that can truly be used for any UI on top of it.  Thanks, and remember
+>  to dream big!  Please contact me if your interested in developing this
+>  idea with me =)
+>
+>  - Daedius
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+
+
+From tedd at konge.net  Thu Mar 13 15:00:30 2008
+From: tedd at konge.net (Tedd Hansen)
+Date: Thu, 13 Mar 2008 15:00:30 +0100
+Subject: [Openviewer-dev] Aether UI Project: My Big Vision Of Things
+	ToCome
+Message-ID: <D34F5C5E193B4144AD333BBBB940A528052837@exchange1.lan.konge.net>
+
+What makes it n00b?
+The point of it is to allow OpenSim and OpenViewer to be key components
+in the ongoing effort/research surrounding ANN/AGI. I will not be our
+redeemer, I lack both the brain/capacity/knowledge and time/dedication.
+But I can do my part in providing some of the tools.
+
+-----Original Message-----
+From: openviewer-dev-bounces at lists.berlios.de
+[mailto:openviewer-dev-bounces at lists.berlios.de] On Behalf Of Daedius
+Sent: 13. mars 2008 14:44
+To: openviewer-dev at lists.berlios.de
+Subject: Re: [Openviewer-dev] Aether UI Project: My Big Vision Of Things
+ToCome
+
+n00b detection ANN ;P
+
+On 3/13/08, Tedd Hansen <tedd at konge.net> wrote:
+> Some special case I've thought of:
+>  Use OpenViewer to (off-screen) render the view of multiple avatars,
+>  possible two renderings per avatar with slightly different offsets.
+Then
+>  feed the picture into an ANN for processing. :)
+>
+>  -----Original Message-----
+>  From: openviewer-dev-bounces at lists.berlios.de
+>  [mailto:openviewer-dev-bounces at lists.berlios.de] On Behalf Of Daedius
+>  Sent: 5. mars 2008 20:35
+>  To: openviewer-dev at lists.berlios.de
+>  Subject: [Openviewer-dev] Aether UI Project: My Big Vision Of Things
+To
+>  Come
+>
+>  Hey all,
+>
+>  In an effort to keep things on OpenViewer mailing list lively.  I
+>  wanted to write you all about my own personal project I'm exploring
+>  and would like to build on top of the OpenViewer platform.  I'm
+>  calling this project "Aether" ( http://code.google.com/p/aether/ )
+for
+>  now.  I know many of you all are working on your own personal visions
+>  of what the primary UI module should be, but perhaps you might be
+>  interested in what I have in mind:
+>
+>  Here is my beliefs on the future of metaverses:
+>  - Metaverses are going to be as ubiquitous as web pages one day
+>  - The common person wants a familiar interface to work with
+>  metaverses, and that has not been provided yet by SecondLife or any
+>  other project thus far.
+>  - The future must be cross platform (duh)
+>  - We will never be able to define a UI that everyone wants to use.
+>
+>  With these beliefs in mind,  I plan to make Aether, a mozilla-plugin
+>  metaverse viewer (As a UI module for openviewer).  My hope is to make
+>  use of several technologies for UI and 3D instead of trying to create
+>  my own.  So whats the short goal.
+>
+>           "Put metaverses inside firefox!"
+>
+>  Simple enough.  What are the implications by this?
+>
+>  1.  We No Longer Define The UI:
+>  Leave this up to the person who runs a website in mozilla.  Everyone
+>  has their own styles and needs.  Why should we be imposing a
+>  standardized UI format on people.  Metaverses ARE not games (which do
+>  have standardized UI), metaverse are interfaces to interacting with
+>  information.  Right now, HTML and friends are king in this area, so
+>  lets not change that.
+>
+>  2.  People Might Be Connected To Multiple Grids At Once or Multiple
+>  Locations in a Single Grid
+>  I might be cruising through an Amazon.com grid , looking at 3D copies
+>  of books while simultaneously  standing in a small room on a Digg.com
+>  grid, yelling at people about the latest stories.  This has
+>  implications for how we need to design openviewer platform.  We must
+>  have multigrid support.  This may even have implications for opensim,
+>  the need to be able to be logged into multiple places on a single
+>  grid.
+>
+>  3. We Need To Think C++
+>  Despite our fondness of .Net.  The real world still uses C++.
+Ogre3D,
+>  Mozilla, other technologies are our greatest allies and our greatest
+>  limitations.  I plan to create a build system for Aether than can run
+>  on msys on win32, and osx, and linux.   The big question will be how
+>  much of C++ do we really need.  It is my hope that we can limit it to
+>  just the graphics engine and just the plugin engine.  I love C#, and
+>  want to try to write as much of Aether in C# as possible.
+>
+>  If any of you are interested by this idea, please check out my google
+>  project ( http://code.google.com/p/aether/ ) where I will be hosting
+>  this UI module for openviewer.  I would like to strive as much as
+>  possible to work with the core OpenViewer team to shape a foundation
+>  that can truly be used for any UI on top of it.  Thanks, and remember
+>  to dream big!  Please contact me if your interested in developing
+this
+>  idea with me =)
+>
+>  - Daedius
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+
+From daedius at daedius.com  Thu Mar 13 15:37:50 2008
+From: daedius at daedius.com (Daedius)
+Date: Thu, 13 Mar 2008 09:37:50 -0500
+Subject: [Openviewer-dev] Aether UI Project: My Big Vision Of Things
+	ToCome
+In-Reply-To: <D34F5C5E193B4144AD333BBBB940A528052837@exchange1.lan.konge.net>
+References: <D34F5C5E193B4144AD333BBBB940A528052837@exchange1.lan.konge.net>
+Message-ID: <351467290803130737g292b0690h61ed29c36a567805@mail.gmail.com>
+
+> What makes a n00b
+Good question: Ken-doll appearance, non-prim hair, proliffic use of
+"u" and "r".  High bump/avatar-plow rate ;)
+
+On 3/13/08, Tedd Hansen <tedd at konge.net> wrote:
+> What makes it n00b?
+>  The point of it is to allow OpenSim and OpenViewer to be key components
+>  in the ongoing effort/research surrounding ANN/AGI. I will not be our
+>  redeemer, I lack both the brain/capacity/knowledge and time/dedication.
+>  But I can do my part in providing some of the tools.
+>
+>
+>  -----Original Message-----
+>  From: openviewer-dev-bounces at lists.berlios.de
+>  [mailto:openviewer-dev-bounces at lists.berlios.de] On Behalf Of Daedius
+>
+> Sent: 13. mars 2008 14:44
+>  To: openviewer-dev at lists.berlios.de
+>
+> Subject: Re: [Openviewer-dev] Aether UI Project: My Big Vision Of Things
+>  ToCome
+>
+>  n00b detection ANN ;P
+>
+>  On 3/13/08, Tedd Hansen <tedd at konge.net> wrote:
+>  > Some special case I've thought of:
+>  >  Use OpenViewer to (off-screen) render the view of multiple avatars,
+>  >  possible two renderings per avatar with slightly different offsets.
+>  Then
+>  >  feed the picture into an ANN for processing. :)
+>  >
+>  >  -----Original Message-----
+>  >  From: openviewer-dev-bounces at lists.berlios.de
+>  >  [mailto:openviewer-dev-bounces at lists.berlios.de] On Behalf Of Daedius
+>  >  Sent: 5. mars 2008 20:35
+>  >  To: openviewer-dev at lists.berlios.de
+>  >  Subject: [Openviewer-dev] Aether UI Project: My Big Vision Of Things
+>  To
+>  >  Come
+>  >
+>  >  Hey all,
+>  >
+>  >  In an effort to keep things on OpenViewer mailing list lively.  I
+>  >  wanted to write you all about my own personal project I'm exploring
+>  >  and would like to build on top of the OpenViewer platform.  I'm
+>  >  calling this project "Aether" ( http://code.google.com/p/aether/ )
+>  for
+>  >  now.  I know many of you all are working on your own personal visions
+>  >  of what the primary UI module should be, but perhaps you might be
+>  >  interested in what I have in mind:
+>  >
+>  >  Here is my beliefs on the future of metaverses:
+>  >  - Metaverses are going to be as ubiquitous as web pages one day
+>  >  - The common person wants a familiar interface to work with
+>  >  metaverses, and that has not been provided yet by SecondLife or any
+>  >  other project thus far.
+>  >  - The future must be cross platform (duh)
+>  >  - We will never be able to define a UI that everyone wants to use.
+>  >
+>  >  With these beliefs in mind,  I plan to make Aether, a mozilla-plugin
+>  >  metaverse viewer (As a UI module for openviewer).  My hope is to make
+>  >  use of several technologies for UI and 3D instead of trying to create
+>  >  my own.  So whats the short goal.
+>  >
+>  >           "Put metaverses inside firefox!"
+>  >
+>  >  Simple enough.  What are the implications by this?
+>  >
+>  >  1.  We No Longer Define The UI:
+>  >  Leave this up to the person who runs a website in mozilla.  Everyone
+>  >  has their own styles and needs.  Why should we be imposing a
+>  >  standardized UI format on people.  Metaverses ARE not games (which do
+>  >  have standardized UI), metaverse are interfaces to interacting with
+>  >  information.  Right now, HTML and friends are king in this area, so
+>  >  lets not change that.
+>  >
+>  >  2.  People Might Be Connected To Multiple Grids At Once or Multiple
+>  >  Locations in a Single Grid
+>  >  I might be cruising through an Amazon.com grid , looking at 3D copies
+>  >  of books while simultaneously  standing in a small room on a Digg.com
+>  >  grid, yelling at people about the latest stories.  This has
+>  >  implications for how we need to design openviewer platform.  We must
+>  >  have multigrid support.  This may even have implications for opensim,
+>  >  the need to be able to be logged into multiple places on a single
+>  >  grid.
+>  >
+>  >  3. We Need To Think C++
+>  >  Despite our fondness of .Net.  The real world still uses C++.
+>  Ogre3D,
+>  >  Mozilla, other technologies are our greatest allies and our greatest
+>  >  limitations.  I plan to create a build system for Aether than can run
+>  >  on msys on win32, and osx, and linux.   The big question will be how
+>  >  much of C++ do we really need.  It is my hope that we can limit it to
+>  >  just the graphics engine and just the plugin engine.  I love C#, and
+>  >  want to try to write as much of Aether in C# as possible.
+>  >
+>  >  If any of you are interested by this idea, please check out my google
+>  >  project ( http://code.google.com/p/aether/ ) where I will be hosting
+>  >  this UI module for openviewer.  I would like to strive as much as
+>  >  possible to work with the core OpenViewer team to shape a foundation
+>  >  that can truly be used for any UI on top of it.  Thanks, and remember
+>  >  to dream big!  Please contact me if your interested in developing
+>  this
+>  >  idea with me =)
+>  >
+>  >  - Daedius
+>  >  _______________________________________________
+>  >  Openviewer-dev mailing list
+>  >  Openviewer-dev at lists.berlios.de
+>  >  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>  >
+>  >
+>  >  _______________________________________________
+>  >  Openviewer-dev mailing list
+>  >  Openviewer-dev at lists.berlios.de
+>  >  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>  >
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+
+
+From michaelwri22 at yahoo.co.uk  Thu Mar 13 16:52:04 2008
+From: michaelwri22 at yahoo.co.uk (Michael Wright)
+Date: Thu, 13 Mar 2008 15:52:04 +0000 (GMT)
+Subject: [Openviewer-dev] Aether UI Project: My Big Vision Of Things
+	ToCome
+In-Reply-To: <351467290803130737g292b0690h61ed29c36a567805@mail.gmail.com>
+Message-ID: <844435.78838.qm@web23005.mail.ird.yahoo.com>
+
+
+What makes a n00b
+Good question: Ken-doll appearance, non-prim hair,
+<hmm looks at my SL avatar and checks both of those features off>
+
+Daedius <daedius at daedius.com> wrote: > What makes a n00b
+Good question: Ken-doll appearance, non-prim hair, proliffic use of
+"u" and "r".  High bump/avatar-plow rate ;)
+
+On 3/13/08, Tedd Hansen  wrote:
+> What makes it n00b?
+>  The point of it is to allow OpenSim and OpenViewer to be key components
+>  in the ongoing effort/research surrounding ANN/AGI. I will not be our
+>  redeemer, I lack both the brain/capacity/knowledge and time/dedication.
+>  But I can do my part in providing some of the tools.
+>
+>
+>  -----Original Message-----
+>  From: openviewer-dev-bounces at lists.berlios.de
+>  [mailto:openviewer-dev-bounces at lists.berlios.de] On Behalf Of Daedius
+>
+> Sent: 13. mars 2008 14:44
+>  To: openviewer-dev at lists.berlios.de
+>
+> Subject: Re: [Openviewer-dev] Aether UI Project: My Big Vision Of Things
+>  ToCome
+>
+>  n00b detection ANN ;P
+>
+>  On 3/13/08, Tedd Hansen  wrote:
+>  > Some special case I've thought of:
+>  >  Use OpenViewer to (off-screen) render the view of multiple avatars,
+>  >  possible two renderings per avatar with slightly different offsets.
+>  Then
+>  >  feed the picture into an ANN for processing. :)
+>  >
+>  >  -----Original Message-----
+>  >  From: openviewer-dev-bounces at lists.berlios.de
+>  >  [mailto:openviewer-dev-bounces at lists.berlios.de] On Behalf Of Daedius
+>  >  Sent: 5. mars 2008 20:35
+>  >  To: openviewer-dev at lists.berlios.de
+>  >  Subject: [Openviewer-dev] Aether UI Project: My Big Vision Of Things
+>  To
+>  >  Come
+>  >
+>  >  Hey all,
+>  >
+>  >  In an effort to keep things on OpenViewer mailing list lively.  I
+>  >  wanted to write you all about my own personal project I'm exploring
+>  >  and would like to build on top of the OpenViewer platform.  I'm
+>  >  calling this project "Aether" ( http://code.google.com/p/aether/ )
+>  for
+>  >  now.  I know many of you all are working on your own personal visions
+>  >  of what the primary UI module should be, but perhaps you might be
+>  >  interested in what I have in mind:
+>  >
+>  >  Here is my beliefs on the future of metaverses:
+>  >  - Metaverses are going to be as ubiquitous as web pages one day
+>  >  - The common person wants a familiar interface to work with
+>  >  metaverses, and that has not been provided yet by SecondLife or any
+>  >  other project thus far.
+>  >  - The future must be cross platform (duh)
+>  >  - We will never be able to define a UI that everyone wants to use.
+>  >
+>  >  With these beliefs in mind,  I plan to make Aether, a mozilla-plugin
+>  >  metaverse viewer (As a UI module for openviewer).  My hope is to make
+>  >  use of several technologies for UI and 3D instead of trying to create
+>  >  my own.  So whats the short goal.
+>  >
+>  >           "Put metaverses inside firefox!"
+>  >
+>  >  Simple enough.  What are the implications by this?
+>  >
+>  >  1.  We No Longer Define The UI:
+>  >  Leave this up to the person who runs a website in mozilla.  Everyone
+>  >  has their own styles and needs.  Why should we be imposing a
+>  >  standardized UI format on people.  Metaverses ARE not games (which do
+>  >  have standardized UI), metaverse are interfaces to interacting with
+>  >  information.  Right now, HTML and friends are king in this area, so
+>  >  lets not change that.
+>  >
+>  >  2.  People Might Be Connected To Multiple Grids At Once or Multiple
+>  >  Locations in a Single Grid
+>  >  I might be cruising through an Amazon.com grid , looking at 3D copies
+>  >  of books while simultaneously  standing in a small room on a Digg.com
+>  >  grid, yelling at people about the latest stories.  This has
+>  >  implications for how we need to design openviewer platform.  We must
+>  >  have multigrid support.  This may even have implications for opensim,
+>  >  the need to be able to be logged into multiple places on a single
+>  >  grid.
+>  >
+>  >  3. We Need To Think C++
+>  >  Despite our fondness of .Net.  The real world still uses C++.
+>  Ogre3D,
+>  >  Mozilla, other technologies are our greatest allies and our greatest
+>  >  limitations.  I plan to create a build system for Aether than can run
+>  >  on msys on win32, and osx, and linux.   The big question will be how
+>  >  much of C++ do we really need.  It is my hope that we can limit it to
+>  >  just the graphics engine and just the plugin engine.  I love C#, and
+>  >  want to try to write as much of Aether in C# as possible.
+>  >
+>  >  If any of you are interested by this idea, please check out my google
+>  >  project ( http://code.google.com/p/aether/ ) where I will be hosting
+>  >  this UI module for openviewer.  I would like to strive as much as
+>  >  possible to work with the core OpenViewer team to shape a foundation
+>  >  that can truly be used for any UI on top of it.  Thanks, and remember
+>  >  to dream big!  Please contact me if your interested in developing
+>  this
+>  >  idea with me =)
+>  >
+>  >  - Daedius
+>  >  _______________________________________________
+>  >  Openviewer-dev mailing list
+>  >  Openviewer-dev at lists.berlios.de
+>  >  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>  >
+>  >
+>  >  _______________________________________________
+>  >  Openviewer-dev mailing list
+>  >  Openviewer-dev at lists.berlios.de
+>  >  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>  >
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+       
+---------------------------------
+Sent from Yahoo! Mail.
+The World &#39;s Favourite Email.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080313/c5937f8d/attachment.html>
+
+From jeffames at gmail.com  Mon Mar 17 04:05:56 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Mon, 17 Mar 2008 12:05:56 +0900
+Subject: [Openviewer-dev] nant error
+In-Reply-To: <a4280a600803050822q7d7e318dy439984d003173ebe@mail.gmail.com>
+References: <a4280a600803050822q7d7e318dy439984d003173ebe@mail.gmail.com>
+Message-ID: <acd357460803162005m65fe385ep25f47c1b9fdaa344@mail.gmail.com>
+
+Hello,
+
+You may need to install the gtk-sharp2-gapi package, or some similar
+gtk-sharp package depending on your distribution.  Also, in the latest
+revision's prebuild.xml, the path to the gtk-sharp-2.0 is hard-coded,
+so if yours differs, you may need to modify this.
+
+HTH,
+Jeff
+
+
+From daedius at daedius.com  Thu Mar 20 05:31:39 2008
+From: daedius at daedius.com (Daedius)
+Date: Wed, 19 Mar 2008 23:31:39 -0500
+Subject: [Openviewer-dev] Patch to Prebuild So Monodevelop Works
+Message-ID: <351467290803192131l62fa6fb1w662a78ec2b342a0@mail.gmail.com>
+
+MonoDevelop cannot compile the sln made with the current prebuild.
+This simple fix will enable compilation.  the ".dll" extension is
+important!
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: prebuild_monodevelop_patch.patch
+Type: text/x-patch
+Size: 3256 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080319/0bed1fe3/attachment.bin>
+
+From daedius at daedius.com  Thu Mar 20 07:00:26 2008
+From: daedius at daedius.com (Daedius)
+Date: Thu, 20 Mar 2008 01:00:26 -0500
+Subject: [Openviewer-dev] Re-Envisioning The Login Window
+Message-ID: <351467290803192300n2c835bb6kf6f41ae6f3a3e7f2@mail.gmail.com>
+
+So, here's a few things i'm trying to redesign on the login window:
+- the ability to choose a different grid quickly and easily (with
+defaults for LL grid, osgrid, etc).
+- the ability to set your starting location information
+- the ability to save your password
+- the ability to select from a list of avatar names you've previously
+logged in as
+
+Attached in the patch with my beta final design of the login control.
+Note, none of the features above are working yet.  Please tell me what
+you think! Please either apply the patch, or look below at my
+screenshot =)
+
+http://farm4.static.flickr.com/3032/2346439029_2365b6f691_o.png
+
+- Daedius
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: daedius_login_gtk.patch
+Type: text/x-patch
+Size: 63122 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080320/15c62757/attachment.bin>
+
+From daedius at daedius.com  Thu Mar 20 15:39:29 2008
+From: daedius at daedius.com (Daedius)
+Date: Thu, 20 Mar 2008 09:39:29 -0500
+Subject: [Openviewer-dev] Metaverse Project's Spline is Now LGPL
+Message-ID: <351467290803200739q63d12467r85d19a89db83d94b@mail.gmail.com>
+
+Forwarding this to the forums for reference of the communication.
+
+---------- Forwarded message ----------
+From: Richard Anaya <richard.anaya at gmail.com>
+Date: Mar 20, 2008 9:34 AM
+Subject: Re: Question About Metaverse Project =)
+To: Hugh Perkins <hughperkins at gmail.com>
+
+
+Yes! =) Thank you so much Hugh. Hope all is well over there.
+
+ - Richard
+
+
+ On 3/20/08, Hugh Perkins <hughperkins at gmail.com> wrote:
+ > Yes, go ahead, you can change the headers to "LGPL".
+ >
+ > The latest source is probably in the OSMP SVN?
+ >
+ >
+ > On Thu, Mar 20, 2008 at 6:27 AM, Daedius Moskvitch <richard.anaya at gmail.com>
+ > wrote:
+ >
+ > > Hey there Hugh,
+ > >
+ > > You may not remember me from way back when, but we once worked on the
+ > Metaverse Project.  I am currently working on the project OpenViewer ( a C#
+ > BSD viewer to Second Life ) .  We were wondering if it might be possible to
+ > change the source code liscence on your awesome Spline stuff for use in
+ > OpenViewer =) Anyhow, long time no speak.  I wanted to seek your blessing on
+ > this issue, and hope to hear from your soon!
+ > >
+ > > - Richard Anaya
+ > >
+ >
+ >
+
+
+From daedius at daedius.com  Thu Mar 20 16:24:30 2008
+From: daedius at daedius.com (Daedius)
+Date: Thu, 20 Mar 2008 10:24:30 -0500
+Subject: [Openviewer-dev] Patch: Fractal Spline Source Code
+Message-ID: <351467290803200824h1f4b461bk55d5fe82ba554ab3@mail.gmail.com>
+
+Here is a patch for the newly LGPLed fractal spline source code.
+There are various dependendencies it has, which i'm not sure we are
+going to entirely want to use.  For now, here is the source code =)
+Enjoy.  Let me know your thoughts.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: daedius_fractal_spline.patch
+Type: text/x-patch
+Size: 185712 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080320/20135402/attachment.bin>
+
+From daedius at daedius.com  Thu Mar 20 20:51:30 2008
+From: daedius at daedius.com (Daedius)
+Date: Thu, 20 Mar 2008 14:51:30 -0500
+Subject: [Openviewer-dev] PATCH: Nunit Testing
+Message-ID: <351467290803201251h48a792e7q407c1a41ebcec198@mail.gmail.com>
+
+This patch includes changes for adding an nunit testing project for
+the SL Protocol.  Right now I just test login but I think its a great
+first start.  You will need the nunit.framework.dll binary from nunit
+website ( get the .net 2.0 version )
+
+Compile as normal.
+
+to run tests
+
+cd bin
+nunit-console2 OpenViewer.Protocol.SL.Tests.dll
+
+I created a test account named Open Viewer to run our tests with.
+
+Enjoy!
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: daedius_nunit.patch
+Type: text/x-patch
+Size: 4923 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080320/38ecded5/attachment.bin>
+
+From daedius at daedius.com  Fri Mar 21 04:13:59 2008
+From: daedius at daedius.com (Daedius)
+Date: Thu, 20 Mar 2008 22:13:59 -0500
+Subject: [Openviewer-dev] PATCH: Nunit testing 2 + login changes
+Message-ID: <351467290803202013o3e3b96b5mb52149468e383299@mail.gmail.com>
+
+This patch includes what was in the last patch plus:
+- A test common and base test class that all tests can extend from
+- test coverage for the login process
+- test coverage for basic avatar communicationi
+- changing from using Login to BeginLogin for a more threaded login approach
+- All the tests now use a user on osgrid "Open Viewer"
+
+Check it out and enjoy =)
+
+- Daedius
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: daedius_unittesting_loginchange.patch
+Type: text/x-patch
+Size: 17392 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080320/b631f993/attachment.bin>
+
+From jeffames at gmail.com  Fri Mar 21 10:39:23 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Fri, 21 Mar 2008 18:39:23 +0900
+Subject: [Openviewer-dev] PATCH: Nunit testing 2 + login changes
+In-Reply-To: <351467290803202013o3e3b96b5mb52149468e383299@mail.gmail.com>
+References: <351467290803202013o3e3b96b5mb52149468e383299@mail.gmail.com>
+Message-ID: <acd357460803210239u37a1750fl4e0974c5c046fca4@mail.gmail.com>
+
+Hello,
+
+Thanks!  Most of these changes have been applied.
+
+I changed the default grid for the tests from osgrid to localhost,
+though.  I'm not sure what the osgrid feeling is about unit testing
+bots.  There could also be login conflicts with people running tests
+simultaneously.
+
+I tried changing from Login to BeginLogin, but then ogredotnet didn't
+render anything, though it appears that the OnConnected event fires.
+Not sure why this is happening.  (Incidentally, I'm working on
+changing the way the OgreDotNet engine starts up, so it's not creating
+two additional windows, and that may resolve this issue....)
+
+The console engine seems to work fine using BeginLogin, though, so
+maybe it's only ogredotnet.  Attached is Daedius's patch with just the
+login change.  Could someone try it out and see if this happens with
+mogre, or with ogredotnet on linux?
+
+Jeff
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: daedius_login.patch
+Type: application/octet-stream
+Size: 5076 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080321/476c0db2/attachment.obj>
+
+From gryc.ueusp at gmail.com  Fri Mar 21 10:50:44 2008
+From: gryc.ueusp at gmail.com (Gryc Ueusp)
+Date: Fri, 21 Mar 2008 04:50:44 -0500
+Subject: [Openviewer-dev] PATCH: Nunit testing 2 + login changes
+In-Reply-To: <acd357460803210239u37a1750fl4e0974c5c046fca4@mail.gmail.com>
+References: <351467290803202013o3e3b96b5mb52149468e383299@mail.gmail.com>
+	<acd357460803210239u37a1750fl4e0974c5c046fca4@mail.gmail.com>
+Message-ID: <200803210450.46445.gryc.ueusp@gmail.com>
+
+OSGrid doesnt mind unit test bots as long as they're for projects like 
+openviewer :P
+
+But changing the default grid to log in to is a very good idea for the reasons 
+you stated.  
+If you'd like to use OSGrid for unit testing, feel free, just use an account 
+that only you have access to, if only for your own sanity :P
+
+On Friday 21 March 2008 4:39:23 am Jeff Ames wrote:
+> Hello,
+>
+> Thanks!  Most of these changes have been applied.
+>
+> I changed the default grid for the tests from osgrid to localhost,
+> though.  I'm not sure what the osgrid feeling is about unit testing
+> bots.  There could also be login conflicts with people running tests
+> simultaneously.
+>
+> I tried changing from Login to BeginLogin, but then ogredotnet didn't
+> render anything, though it appears that the OnConnected event fires.
+> Not sure why this is happening.  (Incidentally, I'm working on
+> changing the way the OgreDotNet engine starts up, so it's not creating
+> two additional windows, and that may resolve this issue....)
+>
+> The console engine seems to work fine using BeginLogin, though, so
+> maybe it's only ogredotnet.  Attached is Daedius's patch with just the
+> login change.  Could someone try it out and see if this happens with
+> mogre, or with ogredotnet on linux?
+>
+> Jeff
+
+
+From daedius at daedius.com  Fri Mar 21 17:19:05 2008
+From: daedius at daedius.com (Daedius)
+Date: Fri, 21 Mar 2008 11:19:05 -0500
+Subject: [Openviewer-dev] PATCH: Nunit testing 2 + login changes
+In-Reply-To: <acd357460803210239u37a1750fl4e0974c5c046fca4@mail.gmail.com>
+References: <351467290803202013o3e3b96b5mb52149468e383299@mail.gmail.com>
+	<acd357460803210239u37a1750fl4e0974c5c046fca4@mail.gmail.com>
+Message-ID: <351467290803210919u742af078r5a4b0839a14f34b5@mail.gmail.com>
+
+Thank you so much Jeff =)
+
+Yes, I also talked with CKrinke about my test bots on OSGrid.  I
+should have mentioned this last email. He seemed quite happy to have
+OSGrid tested in any way.  Perhaps one day we can setup our own sim
+there.  We can automate a strip club so I finally have some place to
+give all my Lindens! ;) That would be nice. Thanks again.
+
+- Daedius
+
+On 3/21/08, Jeff Ames <jeffames at gmail.com> wrote:
+> Hello,
+>
+>  Thanks!  Most of these changes have been applied.
+>
+>  I changed the default grid for the tests from osgrid to localhost,
+>  though.  I'm not sure what the osgrid feeling is about unit testing
+>  bots.  There could also be login conflicts with people running tests
+>  simultaneously.
+>
+>  I tried changing from Login to BeginLogin, but then ogredotnet didn't
+>  render anything, though it appears that the OnConnected event fires.
+>  Not sure why this is happening.  (Incidentally, I'm working on
+>  changing the way the OgreDotNet engine starts up, so it's not creating
+>  two additional windows, and that may resolve this issue....)
+>
+>  The console engine seems to work fine using BeginLogin, though, so
+>  maybe it's only ogredotnet.  Attached is Daedius's patch with just the
+>  login change.  Could someone try it out and see if this happens with
+>  mogre, or with ogredotnet on linux?
+>
+>
+>  Jeff
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>
+
+
+From daedius at daedius.com  Fri Mar 21 17:37:10 2008
+From: daedius at daedius.com (Daedius)
+Date: Fri, 21 Mar 2008 11:37:10 -0500
+Subject: [Openviewer-dev] Fractal Spline: What it does, What remaining to do,
+	Things that were most challenging
+Message-ID: <351467290803210937g68e4f5d9ic0a04be5e0340992@mail.gmail.com>
+
+Forwarding a transcript of an email conversation with Hugh Perkins
+------------------------------
+Interested in hearing about what you guys are doing.  By the way, I
+dont know if there's much documentation about how fractalspline works.
+ It's not very fractal or anything.
+
+What it does is (if I remember rightly):
+- we have a class that represents a cross-section
+- you feed it points, for example a triangle has three points (gotta
+love tortology :-D ), but I mean, like a prism would have a triangle
+cross-section, and hence 3 points
+- we then extrude that class a certain distance, with a certain
+constant rotational and translational change as it extrudes.
+
+- higher level classes, like Box, Prism (?) contain the extrusion class
+- they also have a function to draw the "end-caps" at either end of
+the extrusion
+
+There are two types of extrusions: linear, and rotational
+- rotational rotates the cross section around an axis, rather than
+extruding linearly
+- the translational and rotational change during extrusion still
+applies for rotational extrusions
+- as does cut
+
+Textures work, cut works, rotation and translation works.  We also
+have holes that are the same shape as their cross-section (eg
+triangular hole in triangular cross section).
+
+Remaining to do:
+- advanced stuff that was created in SecondLife after fractalspline
+came out (spirals and stuff)
+- holes that are a different shape to the cross section (circular hole
+in prism for example)
+- may be a couple of bugs with texture rotation on the end caps (?)
+
+Things that were most challenging:
+- surprisingly the extrusion part is easy-peasy
+- getting the end-caps right, and the textures on them, is quite challenging
+- if I remember rightly, the main challenge with making a circular
+hole in a prism is being able to draw the end-caps correctly.
+
+
+From daedius at daedius.com  Sat Mar 22 16:13:45 2008
+From: daedius at daedius.com (Daedius)
+Date: Sat, 22 Mar 2008 10:13:45 -0500
+Subject: [Openviewer-dev] Problem with VersionInfo
+Message-ID: <351467290803220813l5af685bp55eafc6eb132e9f@mail.gmail.com>
+
+Yesterday I heard a problem with people compiling getting an error
+about VersionInfo.  This is the second time i've heard this error.
+I've had problems compiling the source code before with errors related
+to VersionInfo too myself (I thought I just checked out when the build
+was broken).  Maybe it is something special to certain versions of
+visual studio/.net combinations. I'm going to try creating a pure
+virtual machine to simulate this problem and also verify the steps I
+believe are necessary in order to compile OpenViewer.
+
+- Daedius
+
+
+From deifante at gmail.com  Sat Mar 22 16:22:45 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Sat, 22 Mar 2008 09:22:45 -0600
+Subject: [Openviewer-dev] PATCH: My wonderful changes!
+Message-ID: <f38794ad0803220822j28d99e87o182bdfcc31dafd05@mail.gmail.com>
+
+Simple stuff, I was told that the logging could be better, so I took that an
+ran. I'm not really sure what else to say.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080322/8b44b9f6/attachment.html>
+
+From deifante at gmail.com  Sat Mar 22 16:23:48 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Sat, 22 Mar 2008 09:23:48 -0600
+Subject: [Openviewer-dev] PATCH: My wonderful changes! example out put
+Message-ID: <f38794ad0803220823u3515e53ahee34f3f8fa7f2c15@mail.gmail.com>
+
+here's some example out put
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080322/d055b98f/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: OpenViewerUnifiedExample2008-03-22.log
+Type: application/octet-stream
+Size: 5491 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080322/d055b98f/attachment.obj>
+
+From jeffames at gmail.com  Sat Mar 22 17:35:19 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Sun, 23 Mar 2008 01:35:19 +0900
+Subject: [Openviewer-dev] Problem with VersionInfo
+In-Reply-To: <351467290803220813l5af685bp55eafc6eb132e9f@mail.gmail.com>
+References: <351467290803220813l5af685bp55eafc6eb132e9f@mail.gmail.com>
+Message-ID: <acd357460803220935p220b2196u299b101277feefac@mail.gmail.com>
+
+I believe there was a problem in runprebuild2008.bat, so VS 2008 users
+might have had an error with svnRevision being undefined.  I think
+this should be fixed in r183, but if you still see it, please let us
+know.
+
+Jeff
+
+
+From deifante at gmail.com  Sat Mar 22 18:54:56 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Sat, 22 Mar 2008 11:54:56 -0600
+Subject: [Openviewer-dev] prebuild patch
+Message-ID: <f38794ad0803221054i6311ff1dv47f0cabb531d6915@mail.gmail.com>
+
+this patch adds the log4net.dll to the vs project so it will compile
+properly
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080322/6fbfc37e/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: prebuildPatchToMakeFirstPatchCompile.patch
+Type: application/octet-stream
+Size: 744 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080322/6fbfc37e/attachment.obj>
+
+From jeffames at gmail.com  Sat Mar 22 19:03:47 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Sun, 23 Mar 2008 03:03:47 +0900
+Subject: [Openviewer-dev] PATCH: My wonderful changes!
+In-Reply-To: <f38794ad0803220822j28d99e87o182bdfcc31dafd05@mail.gmail.com>
+References: <f38794ad0803220822j28d99e87o182bdfcc31dafd05@mail.gmail.com>
+Message-ID: <acd357460803221103j5668bafcw3067e373f36d9fd4@mail.gmail.com>
+
+> Simple stuff, I was told that the logging could be better, so I took that an
+> ran. I'm not really sure what else to say.
+
+Cool... could you attach the patch?  Or open a bug on mantis and
+attach it there?
+
+Thanks,
+Jeff
+
+
+From deifante at gmail.com  Sat Mar 22 19:54:47 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Sat, 22 Mar 2008 12:54:47 -0600
+Subject: [Openviewer-dev] PATCH: My wonderful changes!
+In-Reply-To: <acd357460803221103j5668bafcw3067e373f36d9fd4@mail.gmail.com>
+References: <f38794ad0803220822j28d99e87o182bdfcc31dafd05@mail.gmail.com>
+	<acd357460803221103j5668bafcw3067e373f36d9fd4@mail.gmail.com>
+Message-ID: <f38794ad0803221154t3d19682bt7db371050512ae6a@mail.gmail.com>
+
+On Sat, Mar 22, 2008 at 12:03 PM, Jeff Ames <jeffames at gmail.com> wrote:
+
+> > Simple stuff, I was told that the logging could be better, so I took
+> that an
+> > ran. I'm not really sure what else to say.
+>
+> Cool... could you attach the patch?  Or open a bug on mantis and
+> attach it there?
+>
+> Thanks,
+> Jeff
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080322/7732d3bb/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: MyFirstPatch.patch
+Type: application/octet-stream
+Size: 8831 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080322/7732d3bb/attachment.obj>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: prebuildPatchToMakeFirstPatchCompile.patch
+Type: application/octet-stream
+Size: 744 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080322/7732d3bb/attachment-0001.obj>
+
+From deifante at gmail.com  Sat Mar 22 19:56:33 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Sat, 22 Mar 2008 12:56:33 -0600
+Subject: [Openviewer-dev] PATCH: Adding logging to startup process.
+Message-ID: <f38794ad0803221156s3a5a7c2bqc4220a08719ffbbf@mail.gmail.com>
+
+Adds logging to startup process. Just a list of the settings that have been
+set before the application runs.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080322/3310375e/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: CreateStartupLogging.patch
+Type: application/octet-stream
+Size: 969 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080322/3310375e/attachment.obj>
+
+From daedius at daedius.com  Sun Mar 23 18:13:52 2008
+From: daedius at daedius.com (Daedius)
+Date: Sun, 23 Mar 2008 12:13:52 -0500
+Subject: [Openviewer-dev] GTK MVC Has Arrived
+Message-ID: <351467290803231013n75514a51n42a1c7954ec8cd3@mail.gmail.com>
+
+This patch is a massive reworking of the GTK UI in order to make it
+inline with MVC design patterns as well as several new features:
+- New UserSettings.xml file
+- Storing of recent grids visited
+- Storing of recent locations used
+- Storing of recent usernames used
+- Storage of passwords for quick reuse
+- Various UI fixes
+- Design prototype for console panel and chat panel
+
+I am very happy about how GTK is going  A week ago, I was a hardcore
+winforms guy, but GTK seems very capable for making high quality UI we
+will need for OpenViewer.  My only problem with it is the non-thread
+safe nature of GTK, which will take a little getting used to to
+perform certain tasks.  But, where there is a will there is a way.
+And I think applications like Mono Develop are already proof that it
+can be done.
+
+Additionally i'd like to say I'm very happy how I was able to
+implement MVC pattern for GTK.  View, model, controller seperation
+worked really well with GTK. The view is very stupid in code as it
+should be and there is no logic in the view.  Anyhow, apply the patch,
+and tell me how you like it.  Enjoy!
+
+- Daedius
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: daedius_gtkMVC.patch
+Type: text/x-patch
+Size: 106703 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080323/7e3ebede/attachment.bin>
+
+From hughperkins at gmail.com  Mon Mar 24 03:21:46 2008
+From: hughperkins at gmail.com (Hugh Perkins)
+Date: Mon, 24 Mar 2008 03:21:46 +0100
+Subject: [Openviewer-dev] GTK MVC Has Arrived
+In-Reply-To: <351467290803231013n75514a51n42a1c7954ec8cd3@mail.gmail.com>
+References: <351467290803231013n75514a51n42a1c7954ec8cd3@mail.gmail.com>
+Message-ID: <837db430803231921i4f131e06g983512084feb9f4d@mail.gmail.com>
+
+GTK is cool.  It's multi-platform, as are the utilities you need to create
+reasonable-looking UIs, ie Glade.  It's also quite easy to use.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080324/5c6e28f7/attachment.html>
+
+From daedius at daedius.com  Mon Mar 24 22:06:26 2008
+From: daedius at daedius.com (Daedius)
+Date: Mon, 24 Mar 2008 16:06:26 -0500
+Subject: [Openviewer-dev] GTK UI: Milestone 1
+Message-ID: <351467290803241406y4f34fe1cm646fb3064befdce2@mail.gmail.com>
+
+Hello Openviewers.  I wanted to write you all an email on the state of
+all things GTK related.  First of all, we've had alot of great
+progress over the last weekend, and I thank the many people for
+putting together the ideas and contributions to help get GTK UI
+started right!  To name a few of the things we now have:
+
+- The foundations of a UserSettings
+- A solid MVC pattern behind the GTK UI ( code manageability )
+- Login sleekness (dropdown boxes of recent grids, etc.)
+
+I want to organize and pave the way for what i'm envisioning as the
+first milestone of GTK UI:
+- Login Screen
+- Chat Screen ( Local Chat/IM/Group Chat)
+- OpenViewer Capabilities Management
+- UserSettings
+- Settings Screen
+- Bonus Feature: 3D Integration ( if its possible, if not, having an
+external window will be fine ) =o
+
+Anyhow, there is wiki page for GTK UI Milestone 1
+(http://www.openviewer.org/index.php/GTKUIMilestone1) I will keep open
+for a day or so.  Please help by contributing your ideas and thoughts
+to Milestone 1 here or on the wiki. Have a great week!
+
+- Daedius
+
+
+From deifante at gmail.com  Mon Mar 24 22:28:07 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Mon, 24 Mar 2008 15:28:07 -0600
+Subject: [Openviewer-dev] GTK UI: Milestone 1
+In-Reply-To: <351467290803241406y4f34fe1cm646fb3064befdce2@mail.gmail.com>
+References: <351467290803241406y4f34fe1cm646fb3064befdce2@mail.gmail.com>
+Message-ID: <f38794ad0803241428u2c39a207i2a1c24854d814dd9@mail.gmail.com>
+
+I believe there was some problem with the UserSettings? was that how you
+wanted to store the recent grids, locations and usernames? can I get a copy
+of this?
+
+On Mon, Mar 24, 2008 at 3:06 PM, Daedius <daedius at daedius.com> wrote:
+
+> Hello Openviewers.  I wanted to write you all an email on the state of
+> all things GTK related.  First of all, we've had alot of great
+> progress over the last weekend, and I thank the many people for
+> putting together the ideas and contributions to help get GTK UI
+> started right!  To name a few of the things we now have:
+>
+> - The foundations of a UserSettings
+> - A solid MVC pattern behind the GTK UI ( code manageability )
+> - Login sleekness (dropdown boxes of recent grids, etc.)
+>
+> I want to organize and pave the way for what i'm envisioning as the
+> first milestone of GTK UI:
+> - Login Screen
+> - Chat Screen ( Local Chat/IM/Group Chat)
+> - OpenViewer Capabilities Management
+> - UserSettings
+> - Settings Screen
+> - Bonus Feature: 3D Integration ( if its possible, if not, having an
+> external window will be fine ) =o
+>
+> Anyhow, there is wiki page for GTK UI Milestone 1
+> (http://www.openviewer.org/index.php/GTKUIMilestone1) I will keep open
+> for a day or so.  Please help by contributing your ideas and thoughts
+> to Milestone 1 here or on the wiki. Have a great week!
+>
+> - Daedius
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080324/208034cc/attachment.html>
+
+From daedius at daedius.com  Mon Mar 24 22:48:42 2008
+From: daedius at daedius.com (Daedius)
+Date: Mon, 24 Mar 2008 16:48:42 -0500
+Subject: [Openviewer-dev] GTK UI: Milestone 1
+In-Reply-To: <f38794ad0803241428u2c39a207i2a1c24854d814dd9@mail.gmail.com>
+References: <351467290803241406y4f34fe1cm646fb3064befdce2@mail.gmail.com>
+	<f38794ad0803241428u2c39a207i2a1c24854d814dd9@mail.gmail.com>
+Message-ID: <351467290803241448o4556c138k8002ca40ed806fb6@mail.gmail.com>
+
+Chi11ken made a change last night to how UserSettings works.  I'm not
+sure exactly what though.  I believe they might be autogenerated now
+the first time you login.  Chi11ken, can you communicate your changes?
+
+- Daedius
+
+On Mon, Mar 24, 2008 at 4:28 PM, Deifante Walters <deifante at gmail.com> wrote:
+> I believe there was some problem with the UserSettings? was that how you
+> wanted to store the recent grids, locations and usernames? can I get a copy
+> of this?
+>
+>
+>
+> On Mon, Mar 24, 2008 at 3:06 PM, Daedius <daedius at daedius.com> wrote:
+>
+> >
+> >
+> >
+> > Hello Openviewers.  I wanted to write you all an email on the state of
+> > all things GTK related.  First of all, we've had alot of great
+> > progress over the last weekend, and I thank the many people for
+> > putting together the ideas and contributions to help get GTK UI
+> > started right!  To name a few of the things we now have:
+> >
+> > - The foundations of a UserSettings
+> > - A solid MVC pattern behind the GTK UI ( code manageability )
+> > - Login sleekness (dropdown boxes of recent grids, etc.)
+> >
+> > I want to organize and pave the way for what i'm envisioning as the
+> > first milestone of GTK UI:
+> > - Login Screen
+> > - Chat Screen ( Local Chat/IM/Group Chat)
+> > - OpenViewer Capabilities Management
+> > - UserSettings
+> > - Settings Screen
+> > - Bonus Feature: 3D Integration ( if its possible, if not, having an
+> > external window will be fine ) =o
+> >
+> > Anyhow, there is wiki page for GTK UI Milestone 1
+> > (http://www.openviewer.org/index.php/GTKUIMilestone1) I will keep open
+> > for a day or so.  Please help by contributing your ideas and thoughts
+> > to Milestone 1 here or on the wiki. Have a great week!
+> >
+> > - Daedius
+> > _______________________________________________
+> > Openviewer-dev mailing list
+> > Openviewer-dev at lists.berlios.de
+> > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+
+
+From deifante at gmail.com  Mon Mar 24 22:59:38 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Mon, 24 Mar 2008 15:59:38 -0600
+Subject: [Openviewer-dev] PATCH: Winforms Update
+Message-ID: <f38794ad0803241459w77117409v13ea6eca7552562a@mail.gmail.com>
+
+I wanted to update the Winforms to make it similar to what's been done on
+the gtk side. I also didn't want to over write _MW's stuff that he already
+did.so right now it'll load if you ask for WinForms2 as the ui_engine. The
+biggest reason why I don't want it to be a replacement right away is because
+_MW mentioned that he was working on something that would add rendering to
+the WinForms window. Once that's in I can add it to mine and I think things
+will be cool from there.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080324/96fad4ce/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Winforms2.patch
+Type: application/octet-stream
+Size: 35801 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080324/96fad4ce/attachment.obj>
+
+From jeffames at gmail.com  Tue Mar 25 07:42:14 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Tue, 25 Mar 2008 15:42:14 +0900
+Subject: [Openviewer-dev] GTK UI: Milestone 1
+In-Reply-To: <351467290803241448o4556c138k8002ca40ed806fb6@mail.gmail.com>
+References: <351467290803241406y4f34fe1cm646fb3064befdce2@mail.gmail.com>
+	<f38794ad0803241428u2c39a207i2a1c24854d814dd9@mail.gmail.com>
+	<351467290803241448o4556c138k8002ca40ed806fb6@mail.gmail.com>
+Message-ID: <acd357460803242342s218dc2f2ic11717dff94bb131@mail.gmail.com>
+
+> - Login Screen
+> - Chat Screen (Local Chat/IM/Group Chat)
+> - Settings Screen
+
+It sounds like you're envisioning a separate tab in the notebook
+control for each of these functions.  I was thinking more along the
+lines of a Firefox for virtual worlds -- one main viewing window, an
+address bar, and windows accessible through the menu bar for things
+like setting preferences, etc.  (And perhaps tabbed browsing, with
+support for multiple virtual world connections simultaneously)
+
+One of the major goals of this project, though, is to be highly
+customizable, so if someone wants to totally rewrite the UI, it's a
+fairly simple task.  We just provide a default implementation (or
+multiple defaults -- a browser-like skin, a FPS-like skin, etc.)
+
+To keep it customizable, we should limit, or at least explicitly
+define, the dependencies between the .glade file and the code (i.e.,
+what widgets are expected to exist, and what types and names they
+should have).
+
+Another thing to keep in mind is that at some point in the distant
+future, the UI may be partially specified by the server, so you can
+log into a FPS or a virtual conference with the same viewer and get a
+UI appropriate to each.
+
+> - OpenViewer Capabilities Management
+
+
+From michaelwri22 at yahoo.co.uk  Tue Mar 25 12:32:12 2008
+From: michaelwri22 at yahoo.co.uk (Michael Wright)
+Date: Tue, 25 Mar 2008 11:32:12 +0000 (GMT)
+Subject: [Openviewer-dev] GTK UI: Milestone 1
+In-Reply-To: <acd357460803242342s218dc2f2ic11717dff94bb131@mail.gmail.com>
+Message-ID: <718852.16032.qm@web23003.mail.ird.yahoo.com>
+
++1 to this, I too envision a kind of firefox approach, with the address bar etc. Although I was also thinking of the main viewing window as being separated into two, the 3d portion and a 2d side bar that could have context specific things in, like when in build mode, it would have the build icons etc in it. At another time it could have a embedded web browser. also plugins could define panels that could be displayed in there when that plugin is active/selected.
+
+I don't think we want to have separate tabs for everything, and having to swap between tabs to do something like chat.
+
+But above all, like Jeff said, it needs to be expandable. Modules need to be able to include their own GUI panel that is integrated into the ui when they are in use. 
+
+Jeff Ames <jeffames at gmail.com> wrote: > - Login Screen
+> - Chat Screen (Local Chat/IM/Group Chat)
+> - Settings Screen
+
+It sounds like you're envisioning a separate tab in the notebook
+control for each of these functions.  I was thinking more along the
+lines of a Firefox for virtual worlds -- one main viewing window, an
+address bar, and windows accessible through the menu bar for things
+like setting preferences, etc.  (And perhaps tabbed browsing, with
+support for multiple virtual world connections simultaneously)
+
+One of the major goals of this project, though, is to be highly
+customizable, so if someone wants to totally rewrite the UI, it's a
+fairly simple task.  We just provide a default implementation (or
+multiple defaults -- a browser-like skin, a FPS-like skin, etc.)
+
+To keep it customizable, we should limit, or at least explicitly
+define, the dependencies between the .glade file and the code (i.e.,
+what widgets are expected to exist, and what types and names they
+should have).
+
+Another thing to keep in mind is that at some point in the distant
+future, the UI may be partially specified by the server, so you can
+log into a FPS or a virtual conference with the same viewer and get a
+UI appropriate to each.
+
+> - OpenViewer Capabilities Management
+
+From daedius at daedius.com  Tue Mar 25 16:01:37 2008
+From: daedius at daedius.com (Daedius)
+Date: Tue, 25 Mar 2008 10:01:37 -0500
+Subject: [Openviewer-dev] GTK UI: Milestone 1
+In-Reply-To: <718852.16032.qm@web23003.mail.ird.yahoo.com>
+References: <acd357460803242342s218dc2f2ic11717dff94bb131@mail.gmail.com>
+	<718852.16032.qm@web23003.mail.ird.yahoo.com>
+Message-ID: <351467290803250801r20be8210l5860a07ab5e4cdbe@mail.gmail.com>
+
+-1
+I don't think the openviewer should look like firefox, and I don't
+think it should look like all tabs.
+
+Firstly, I think the address bar is useless.  How often do you think a
+person is going to be manually typing in metaverse URLs?  It's only
+going to take up space.  90% of the time a user is only going to log
+into one or two grids manually and that might be it.  And when they
+do, it should be automated or easy for them to log in a second time
+without the use of an address bar.  If we wanted to do URL handling of
+metaverse URLs ( say when someone clicks something in the REAL
+firefox), we can, I just don't think a dedicated addressbar is useful.
+ Connection settings are more complex than just URL, and i'm just
+plain lazy and wouldn't want to type it out every time or deal with it
+in string form.  I think the majority of average users would agree.
+
+I envision open viewer being more like X-Chat.  If any of you are
+familiar with that software.
+
+Here is a picture of the main view:
+http://farm4.static.flickr.com/3044/2360641855_c22e80af76_o.png  . The
+chat area of the screen would be our 3D view area.  I think the area
+on the right would make a good communications/inventory area.  And the
+area on the left could make a good context sensitive control area like
+Michael was mentioning ( for build tools or what not ).  Everything
+else would be accessable via menus as Jeff suggested.
+
+Take here and look how they do connections.  Basically, there is a
+window that accessable via the menu called Network List.(
+http://farm3.static.flickr.com/2397/2361474720_0fa170983c_o.png ) This
+is where you manage all your networks you normally connect to, as well
+as suggest networks that might be interesting.  I can edit a network
+to give it more specific settings  (
+http://farm4.static.flickr.com/3225/2360642035_344b729ce9_o.png ).  I
+can specify login servers, passwords, certain rooms to join, and set
+X-Chat to automatically connect to certain networks on startup.
+
+I imagine we can use X-Chat metaphors very directly.
+
+- Daedius
+
+
+
+
+On Tue, Mar 25, 2008 at 6:32 AM, Michael Wright
+<michaelwri22 at yahoo.co.uk> wrote:
+> +1 to this, I too envision a kind of firefox approach, with the address bar
+> etc. Although I was also thinking of the main viewing window as being
+> separated into two, the 3d portion and a 2d side bar that could have context
+> specific things in, like when in build mode, it would have the build icons
+> etc in it. At another time it could have a embedded web browser. also
+> plugins could define panels that could be displayed in there when that
+> plugin is active/selected.
+>
+> I don't think we want to have separate tabs for everything, and having to
+> swap between tabs to do something like chat.
+>
+> But above all, like Jeff said, it needs to be expandable. Modules need to be
+> able to include their own GUI panel that is integrated into the ui when they
+> are in use.
+>
+>
+> Jeff Ames <jeffames at gmail.com> wrote:
+>  > - Login Screen
+> > - Chat Screen (Local Chat/IM/Group Chat)
+> > - Settings Screen
+>
+> It sounds like you're envisioning a separate tab in the notebook
+> control for each of these functions. I was thinking more along the
+> lines of a Firefox for virtual worlds -- one main viewing window, an
+> address bar, and windows accessible through the menu bar for things
+> like setting preferences, etc. (And perhaps tabbed browsing, with
+> support for multiple virtual world connections simultaneously)
+>
+> One of the major goals of this project, though, is to be highly
+> customizable, so if someone wants to totally rewrite the UI, it's a
+> fairly simple task. We just provide a default implementation (or
+> multiple defaults -- a browser-like skin, a FPS-like skin, etc.)
+>
+> To keep it customizable, we should limit, or at least explicitly
+> define, the dependencies between the .glade file and the code (i.e.,
+> what widgets are expected to exist, and what types and names they
+> should have).
+>
+> Another thing to keep in mind is that at some point in the distant
+> future, the UI may be partially specified by the server, so you can
+> log into a FPS or a virtual conference with the same viewer and get a
+> UI appropriate to each.
+>
+> > - OpenViewer Capabilities Management
+>
+> From what's on the wiki, it sounds like a lot of this should happen at
+> the protocol layer. Then the UI would query the protocol to see if
+> certain features are supported. For the time being, though, I think
+> it's fairly safe to assume that any protocol we're using is a superset
+> of the Second Life protocol.
+>
+> (If anyone wants to add other totally different protocols, they're of
+> course welcome to do so. It would be quite interesting to see how
+> well the IProtocol interface can abstract the differences out.)
+>
+> > - UserSettings
+>
+> This now auto-generates an XML file when you run the app. We may want
+> to add a version header to it, though, to avoid upgrade problems.
+>
+> However, my feeling is that it belongs more at the application layer than
+> in the GTK UI.
+>
+> > - 3D Integration (if not, an external window will be fine)
+>
+> This is something we should look into very soon (though I think MW is
+> already). If we run into problems here (like GTK# not supporting GL
+> contexts, or such), it could seriously limit the usefulness of these
+> UI's.
+>
+> > - fixed some namespacing issues
+>
+> If there are conflicts with the Gtk namespace, we can change to
+> something like GtkUI or GtkPlugin or such. However, the namespace
+> should mirror the file path (so
+> OpenViewer/UI/GtkPlugin/GtkMainWindow.cs should define a class
+> GtkMainWindow in the namespace OpenViewer.UI.GtkPlugin)
+>
+> Also, the way we're using namespaces currently means we can't have
+> classes and namespaces with the same name, so we have to avoid doing
+> something like GtkPlugin/GtkPlugin.cs.
+>
+> Jeff
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>
+>  ________________________________
+>  Sent from Yahoo! Mail.
+>  More Ways to Keep in Touch.
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+
+
+From michaelwri22 at yahoo.co.uk  Tue Mar 25 16:25:13 2008
+From: michaelwri22 at yahoo.co.uk (Michael Wright)
+Date: Tue, 25 Mar 2008 15:25:13 +0000 (GMT)
+Subject: [Openviewer-dev] GTK UI: Milestone 1
+In-Reply-To: <351467290803250801r20be8210l5860a07ab5e4cdbe@mail.gmail.com>
+Message-ID: <106261.11907.qm@web23007.mail.ird.yahoo.com>
+
+I really want to see a address bar, while it might not fit all needs, for some it will be good. And thats what openviewer should be about, making it flexibly so it can fit as many different needs as possible.
+
+I don't see one or two big grids, I still see lots and lots of smaller "grids" (hate that term). While yes some of them will have links between them and you might be able to use the same account on more than one. We should not think of big monolithic grids. Different applications have different requirements We should think of 3d websites. That is the basis of opensim and it should be of openviewer, other wise openviewer loses its appeal for use as a viewer for custom 3d applications. So yes I want to see tabs (meaning can be on more than one "grid" at same time) as well, but that can come later.
+
+ But please lets not restrict openviewer to only be used on big grids that you sign into and then stay on that grid for quite a while then are most likely going to close down the viewer. That just not how I see things working. And I really hope things don't turn out that way.
+
+As for the url, well some "grids" won't need passwords etc, so it would just be something like "MW at login.newgrid.com" and the ones that need a password can pop up a box for that to be entered. 
+
+
+I'm also against having a "hard coded" area for inventory etc. It should all be modular and just generic areas in which different panels can be placed, either my the user or the startup application settings or maybe the region you are connected to. Not all applications/regions are going to require/want inventory is the sense that it exists today, so let not make anything like that hard coded.
+
+
+
+Daedius <daedius at daedius.com> wrote: -1
+I don't think the openviewer should look like firefox, and I don't
+think it should look like all tabs.
+
+Firstly, I think the address bar is useless.  How often do you think a
+person is going to be manually typing in metaverse URLs?  It's only
+going to take up space.  90% of the time a user is only going to log
+into one or two grids manually and that might be it.  And when they
+do, it should be automated or easy for them to log in a second time
+without the use of an address bar.  If we wanted to do URL handling of
+metaverse URLs ( say when someone clicks something in the REAL
+firefox), we can, I just don't think a dedicated addressbar is useful.
+ Connection settings are more complex than just URL, and i'm just
+plain lazy and wouldn't want to type it out every time or deal with it
+in string form.  I think the majority of average users would agree.
+
+I envision open viewer being more like X-Chat.  If any of you are
+familiar with that software.
+
+Here is a picture of the main view:
+http://farm4.static.flickr.com/3044/2360641855_c22e80af76_o.png  . The
+chat area of the screen would be our 3D view area.  I think the area
+on the right would make a good communications/inventory area.  And the
+area on the left could make a good context sensitive control area like
+Michael was mentioning ( for build tools or what not ).  Everything
+else would be accessable via menus as Jeff suggested.
+
+Take here and look how they do connections.  Basically, there is a
+window that accessable via the menu called Network List.(
+http://farm3.static.flickr.com/2397/2361474720_0fa170983c_o.png ) This
+is where you manage all your networks you normally connect to, as well
+as suggest networks that might be interesting.  I can edit a network
+to give it more specific settings  (
+http://farm4.static.flickr.com/3225/2360642035_344b729ce9_o.png ).  I
+can specify login servers, passwords, certain rooms to join, and set
+X-Chat to automatically connect to certain networks on startup.
+
+I imagine we can use X-Chat metaphors very directly.
+
+- Daedius
+
+
+
+
+On Tue, Mar 25, 2008 at 6:32 AM, Michael Wright
+ wrote:
+> +1 to this, I too envision a kind of firefox approach, with the address bar
+> etc. Although I was also thinking of the main viewing window as being
+> separated into two, the 3d portion and a 2d side bar that could have context
+> specific things in, like when in build mode, it would have the build icons
+> etc in it. At another time it could have a embedded web browser. also
+> plugins could define panels that could be displayed in there when that
+> plugin is active/selected.
+>
+> I don't think we want to have separate tabs for everything, and having to
+> swap between tabs to do something like chat.
+>
+> But above all, like Jeff said, it needs to be expandable. Modules need to be
+> able to include their own GUI panel that is integrated into the ui when they
+> are in use.
+>
+>
+> Jeff Ames  wrote:
+>  > - Login Screen
+> > - Chat Screen (Local Chat/IM/Group Chat)
+> > - Settings Screen
+>
+> It sounds like you're envisioning a separate tab in the notebook
+> control for each of these functions. I was thinking more along the
+> lines of a Firefox for virtual worlds -- one main viewing window, an
+> address bar, and windows accessible through the menu bar for things
+> like setting preferences, etc. (And perhaps tabbed browsing, with
+> support for multiple virtual world connections simultaneously)
+>
+> One of the major goals of this project, though, is to be highly
+> customizable, so if someone wants to totally rewrite the UI, it's a
+> fairly simple task. We just provide a default implementation (or
+> multiple defaults -- a browser-like skin, a FPS-like skin, etc.)
+>
+> To keep it customizable, we should limit, or at least explicitly
+> define, the dependencies between the .glade file and the code (i.e.,
+> what widgets are expected to exist, and what types and names they
+> should have).
+>
+> Another thing to keep in mind is that at some point in the distant
+> future, the UI may be partially specified by the server, so you can
+> log into a FPS or a virtual conference with the same viewer and get a
+> UI appropriate to each.
+>
+> > - OpenViewer Capabilities Management
+>
+> From what's on the wiki, it sounds like a lot of this should happen at
+> the protocol layer. Then the UI would query the protocol to see if
+> certain features are supported. For the time being, though, I think
+> it's fairly safe to assume that any protocol we're using is a superset
+> of the Second Life protocol.
+>
+> (If anyone wants to add other totally different protocols, they're of
+> course welcome to do so. It would be quite interesting to see how
+> well the IProtocol interface can abstract the differences out.)
+>
+> > - UserSettings
+>
+> This now auto-generates an XML file when you run the app. We may want
+> to add a version header to it, though, to avoid upgrade problems.
+>
+> However, my feeling is that it belongs more at the application layer than
+> in the GTK UI.
+>
+> > - 3D Integration (if not, an external window will be fine)
+>
+> This is something we should look into very soon (though I think MW is
+> already). If we run into problems here (like GTK# not supporting GL
+> contexts, or such), it could seriously limit the usefulness of these
+> UI's.
+>
+> > - fixed some namespacing issues
+>
+> If there are conflicts with the Gtk namespace, we can change to
+> something like GtkUI or GtkPlugin or such. However, the namespace
+> should mirror the file path (so
+> OpenViewer/UI/GtkPlugin/GtkMainWindow.cs should define a class
+> GtkMainWindow in the namespace OpenViewer.UI.GtkPlugin)
+>
+> Also, the way we're using namespaces currently means we can't have
+> classes and namespaces with the same name, so we have to avoid doing
+> something like GtkPlugin/GtkPlugin.cs.
+>
+> Jeff
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>
+>  ________________________________
+>  Sent from Yahoo! Mail.
+>  More Ways to Keep in Touch.
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+       
+---------------------------------
+Sent from Yahoo! Mail.
+More Ways to Keep in Touch.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080325/7c3f0cb5/attachment.html>
+
+From hughperkins at gmail.com  Tue Mar 25 16:28:47 2008
+From: hughperkins at gmail.com (Hugh Perkins)
+Date: Tue, 25 Mar 2008 16:28:47 +0100
+Subject: [Openviewer-dev] GTK UI: Milestone 1
+In-Reply-To: <106261.11907.qm@web23007.mail.ird.yahoo.com>
+References: <351467290803250801r20be8210l5860a07ab5e4cdbe@mail.gmail.com>
+	<106261.11907.qm@web23007.mail.ird.yahoo.com>
+Message-ID: <837db430803250828r2654b3a0l137d41f6628a75da@mail.gmail.com>
+
+On Tue, Mar 25, 2008 at 4:25 PM, Michael Wright <michaelwri22 at yahoo.co.uk>
+wrote:
+
+> I don't see one or two big grids, I still see lots and lots of smaller
+> "grids" (hate that term). While yes some of them will have links between
+> them and you might be able to use the same account on more than one. We
+> should not think of big monolithic grids. Different applications have
+> different requirements We should think of 3d websites. That is the basis of
+> opensim and it should be of openviewer, other wise openviewer loses its
+> appeal for use as a viewer for custom 3d applications. So yes I want to see
+> tabs (meaning can be on more than one "grid" at same time) as well, but that
+> can come later.
+>
+
+Yes, I agree.  It ought to be possible to link to your sim from Facebook and
+so on.
+
+Random idea: maybe even embed a webcam from your sim into Facebook.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080325/eb6e0e0a/attachment.html>
+
+From cfk at pacbell.net  Tue Mar 25 16:22:21 2008
+From: cfk at pacbell.net (Charles Krinke)
+Date: Tue, 25 Mar 2008 08:22:21 -0700 (PDT)
+Subject: [Openviewer-dev] GTK UI: Milestone 1
+Message-ID: <885986.65776.qm@web82605.mail.mud.yahoo.com>
+
++1 for Daedius and his thoughts. We are heading into the unknown a bit and our paradigms they will be a shifting a bit.
+
+For one use case, that is a secondlife-type application, a viewer similar in its user interface to secondlife is a good thing.
+
+There will be other use cases that do use URL's as our vision of a 3-D browsing world may come to pass, so perhaps we need to accomodate both these and other notions. 
+
+Maybe a core OpenViewer with plugins using a similar strategy to OpenSim is appropriate. In any case, at this point, I would say, let it evolve and all the personalities on this channel will have an affect on how it looks.
+
+Certainly Mw's is one of the most important voices and I dont want my comments to be construed as negative against those, but I like Daedius thoughts and want to encourage him.
+
+Charles
+
+----- Original Message ----
+From: Daedius <daedius at daedius.com>
+To: openviewer-dev at lists.berlios.de
+Sent: Tuesday, March 25, 2008 7:01:37 AM
+Subject: Re: [Openviewer-dev] GTK UI: Milestone 1
+
+-1
+I don't think the openviewer should look like firefox, and I don't
+think it should look like all tabs.
+
+Firstly, I think the address bar is useless.  How often do you think a
+person is going to be manually typing in metaverse URLs?  It's only
+going to take up space.  90% of the time a user is only going to log
+into one or two grids manually and that might be it.  And when they
+do, it should be automated or easy for them to log in a second time
+without the use of an address bar.  If we wanted to do URL handling of
+metaverse URLs ( say when someone clicks something in the REAL
+firefox), we can, I just don't think a dedicated addressbar is useful.
+ Connection settings are more complex than just URL, and i'm just
+plain lazy and wouldn't want to type it out every time or deal with it
+in string form.  I think the majority of average users would agree.
+
+I envision open viewer being more like X-Chat.  If any of you are
+familiar with that software.
+
+Here is a picture of the main view:
+http://farm4.static.flickr.com/3044/2360641855_c22e80af76_o.png  . The
+chat area of the screen would be our 3D view area.  I think the area
+on the right would make a good communications/inventory area.  And the
+area on the left could make a good context sensitive control area like
+Michael was mentioning ( for build tools or what not ).  Everything
+else would be accessable via menus as Jeff suggested.
+
+Take here and look how they do connections.  Basically, there is a
+window that accessable via the menu called Network List.(
+http://farm3.static.flickr.com/2397/2361474720_0fa170983c_o.png ) This
+is where you manage all your networks you normally connect to, as well
+as suggest networks that might be interesting.  I can edit a network
+to give it more specific settings  (
+http://farm4.static.flickr.com/3225/2360642035_344b729ce9_o.png ).  I
+can specify login servers, passwords, certain rooms to join, and set
+X-Chat to automatically connect to certain networks on startup.
+
+I imagine we can use X-Chat metaphors very directly.
+
+- Daedius
+
+
+
+
+On Tue, Mar 25, 2008 at 6:32 AM, Michael Wright
+<michaelwri22 at yahoo.co.uk> wrote:
+> +1 to this, I too envision a kind of firefox approach, with the address bar
+> etc. Although I was also thinking of the main viewing window as being
+> separated into two, the 3d portion and a 2d side bar that could have context
+> specific things in, like when in build mode, it would have the build icons
+> etc in it. At another time it could have a embedded web browser. also
+> plugins could define panels that could be displayed in there when that
+> plugin is active/selected.
+>
+> I don't think we want to have separate tabs for everything, and having to
+> swap between tabs to do something like chat.
+>
+> But above all, like Jeff said, it needs to be expandable. Modules need to be
+> able to include their own GUI panel that is integrated into the ui when they
+> are in use.
+>
+>
+> Jeff Ames <jeffames at gmail.com> wrote:
+>  > - Login Screen
+> > - Chat Screen (Local Chat/IM/Group Chat)
+> > - Settings Screen
+>
+> It sounds like you're envisioning a separate tab in the notebook
+> control for each of these functions. I was thinking more along the
+> lines of a Firefox for virtual worlds -- one main viewing window, an
+> address bar, and windows accessible through the menu bar for things
+> like setting preferences, etc. (And perhaps tabbed browsing, with
+> support for multiple virtual world connections simultaneously)
+>
+> One of the major goals of this project, though, is to be highly
+> customizable, so if someone wants to totally rewrite the UI, it's a
+> fairly simple task. We just provide a default implementation (or
+> multiple defaults -- a browser-like skin, a FPS-like skin, etc.)
+>
+> To keep it customizable, we should limit, or at least explicitly
+> define, the dependencies between the .glade file and the code (i.e.,
+> what widgets are expected to exist, and what types and names they
+> should have).
+>
+> Another thing to keep in mind is that at some point in the distant
+> future, the UI may be partially specified by the server, so you can
+> log into a FPS or a virtual conference with the same viewer and get a
+> UI appropriate to each.
+>
+> > - OpenViewer Capabilities Management
+>
+> From what's on the wiki, it sounds like a lot of this should happen at
+> the protocol layer. Then the UI would query the protocol to see if
+> certain features are supported. For the time being, though, I think
+> it's fairly safe to assume that any protocol we're using is a superset
+> of the Second Life protocol.
+>
+> (If anyone wants to add other totally different protocols, they're of
+> course welcome to do so. It would be quite interesting to see how
+> well the IProtocol interface can abstract the differences out.)
+>
+> > - UserSettings
+>
+> This now auto-generates an XML file when you run the app. We may want
+> to add a version header to it, though, to avoid upgrade problems.
+>
+> However, my feeling is that it belongs more at the application layer than
+> in the GTK UI.
+>
+> > - 3D Integration (if not, an external window will be fine)
+>
+> This is something we should look into very soon (though I think MW is
+> already). If we run into problems here (like GTK# not supporting GL
+> contexts, or such), it could seriously limit the usefulness of these
+> UI's.
+>
+> > - fixed some namespacing issues
+>
+> If there are conflicts with the Gtk namespace, we can change to
+> something like GtkUI or GtkPlugin or such. However, the namespace
+> should mirror the file path (so
+> OpenViewer/UI/GtkPlugin/GtkMainWindow.cs should define a class
+> GtkMainWindow in the namespace OpenViewer.UI.GtkPlugin)
+>
+> Also, the way we're using namespaces currently means we can't have
+> classes and namespaces with the same name, so we have to avoid doing
+> something like GtkPlugin/GtkPlugin.cs.
+>
+> Jeff
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>
+>  ________________________________
+>  Sent from Yahoo! Mail.
+>  More Ways to Keep in Touch.
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080325/2a2ac420/attachment.html>
+
+From adjohn at gmail.com  Tue Mar 25 16:54:49 2008
+From: adjohn at gmail.com (adjohn at gmail.com)
+Date: Wed, 26 Mar 2008 00:54:49 +0900
+Subject: [Openviewer-dev] GTK UI: Milestone 1
+In-Reply-To: <106261.11907.qm@web23007.mail.ird.yahoo.com>
+References: <351467290803250801r20be8210l5860a07ab5e4cdbe@mail.gmail.com>
+	<106261.11907.qm@web23007.mail.ird.yahoo.com>
+Message-ID: <56468c1f0803250854x74037a5ey61865be1f277885c@mail.gmail.com>
+
+plus 1 on the URL idea.  Though, I think the joy of having a
+customizable UI allows us to not fight about it, an let the massws
+decide.
+
+I think if we can let each grid send out a UI efinition to the client
+it would be ideal.  Be it html, xml, or whatever.
+
+On 3/26/08, Michael Wright <michaelwri22 at yahoo.co.uk> wrote:
+> I really want to see a address bar, while it might not fit all needs, for
+> some it will be good. And thats what openviewer should be about, making it
+> flexibly so it can fit as many different needs as possible.
+>
+> I don't see one or two big grids, I still see lots and lots of smaller
+> "grids" (hate that term). While yes some of them will have links between
+> them and you might be able to use the same account on more than one. We
+> should not think of big monolithic grids. Different applications have
+> different requirements We should think of 3d websites. That is the basis of
+> opensim and it should be of openviewer, other wise openviewer loses its
+> appeal for use as a viewer for custom 3d applications. So yes I want to see
+> tabs (meaning can be on more than one "grid" at same time) as well, but that
+> can come later.
+>
+>  But please lets not restrict openviewer to only be used on big grids that
+> you sign into and then stay on that grid for quite a while then are most
+> likely going to close down the viewer. That just not how I see things
+> working. And I really hope things don't turn out that way.
+>
+> As for the url, well some "grids" won't need passwords etc, so it would just
+> be something like "MW at login.newgrid.com" and the ones that need a password
+> can pop up a box for that to be entered.
+>
+>
+> I'm also against having a "hard coded" area for inventory etc. It should all
+> be modular and just generic areas in which different panels can be placed,
+> either my the user or the startup application settings or maybe the region
+> you are connected to. Not all applications/regions are going to require/want
+> inventory is the sense that it exists today, so let not make anything like
+> that hard coded.
+>
+>
+>
+> Daedius <daedius at daedius.com> wrote: -1
+> I don't think the openviewer should look like firefox, and I don't
+> think it should look like all tabs.
+>
+> Firstly, I think the address bar is useless.  How often do you think a
+> person is going to be manually typing in metaverse URLs?  It's only
+> going to take up space.  90% of the time a user is only going to log
+> into one or two grids manually and that might be it.  And when they
+> do, it should be automated or easy for them to log in a second time
+> without the use of an address bar.  If we wanted to do URL handling of
+> metaverse URLs ( say when someone clicks something in the REAL
+> firefox), we can, I just don't think a dedicated addressbar is useful.
+>  Connection settings are more complex than just URL, and i'm just
+> plain lazy and wouldn't want to type it out every time or deal with it
+> in string form.  I think the majority of average users would agree.
+>
+> I envision open viewer being more like X-Chat.  If any of you are
+> familiar with that software.
+>
+> Here is a picture of the main view:
+> http://farm4.static.flickr.com/3044/2360641855_c22e80af76_o.png  . The
+> chat area of the screen would be our 3D view area.  I think the area
+> on the right would make a good communications/inventory area.  And the
+> area on the left could make a good context sensitive control area like
+> Michael was mentioning ( for build tools or what not ).  Everything
+> else would be accessable via menus as Jeff suggested.
+>
+> Take here and look how they do connections.  Basically, there is a
+> window that accessable via the menu called Network List.(
+> http://farm3.static.flickr.com/2397/2361474720_0fa170983c_o.png ) This
+> is where you manage all your networks you normally connect to, as well
+> as suggest networks that might be interesting.  I can edit a network
+> to give it more specific settings  (
+> http://farm4.static.flickr.com/3225/2360642035_344b729ce9_o.png ).  I
+> can specify login servers, passwords, certain rooms to join, and set
+> X-Chat to automatically connect to certain networks on startup.
+>
+> I imagine we can use X-Chat metaphors very directly.
+>
+> - Daedius
+>
+>
+>
+>
+> On Tue, Mar 25, 2008 at 6:32 AM, Michael Wright
+>  wrote:
+> > +1 to this, I too envision a kind of firefox approach, with the address
+> bar
+> > etc. Although I was also thinking of the main viewing window as being
+> > separated into two, the 3d portion and a 2d side bar that could have
+> context
+> > specific things in, like when in build mode, it would have the build icons
+> > etc in it. At another time it could have a embedded web browser. also
+> > plugins could define panels that could be displayed in there when that
+> > plugin is active/selected.
+> >
+> > I don't think we want to have separate tabs for everything, and having to
+> > swap between tabs to do something like chat.
+> >
+> > But above all, like Jeff said, it needs to be expandable. Modules need to
+> be
+> > able to include their own GUI panel that is integrated into the ui when
+> they
+> > are in use.
+> >
+> >
+> > Jeff Ames  wrote:
+> >  > - Login Screen
+> > > - Chat Screen (Local Chat/IM/Group Chat)
+> > > - Settings Screen
+> >
+> > It sounds like you're envisioning a separate tab in the notebook
+> > control for each of these functions. I was thinking more along the
+> > lines of a Firefox for virtual worlds -- one main viewing window, an
+> > address bar, and windows accessible through the menu bar for things
+> > like setting preferences, etc. (And perhaps tabbed browsing, with
+> > support for multiple virtual world connections simultaneously)
+> >
+> > One of the major goals of this project, though, is to be highly
+> > customizable, so if someone wants to totally rewrite the UI, it's a
+> > fairly simple task. We just provide a default implementation (or
+> > multiple defaults -- a browser-like skin, a FPS-like skin, etc.)
+> >
+> > To keep it customizable, we should limit, or at least explicitly
+> > define, the dependencies between the .glade file and the code (i.e.,
+> > what widgets are expected to exist, and what types and names they
+> > should have).
+> >
+> > Another thing to keep in mind is that at some point in the distant
+> > future, the UI may be partially specified by the server, so you can
+> > log into a FPS or a virtual conference with the same viewer and get a
+> > UI appropriate to each.
+> >
+> > > - OpenViewer Capabilities Management
+> >
+> > From what's on the wiki, it sounds like a lot of this should happen at
+> > the protocol layer. Then the UI would query the protocol to see if
+> > certain features are supported. For the time being, though, I think
+> > it's fairly safe to assume that any protocol we're using is a superset
+> > of the Second Life protocol.
+> >
+> > (If anyone wants to add other totally different protocols, they're of
+> > course welcome to do so. It would be quite interesting to see how
+> > well the IProtocol interface can abstract the differences out.)
+> >
+> > > - UserSettings
+> >
+> > This now auto-generates an XML file when you run the app. We may want
+> > to add a version header to it, though, to avoid upgrade problems.
+> >
+> > However, my feeling is that it belongs more at the application layer than
+> > in the GTK UI.
+> >
+> > > - 3D Integration (if not, an external window will be fine)
+> >
+> > This is something we should look into very soon (though I think MW is
+> > already). If we run into problems here (like GTK# not supporting GL
+> > contexts, or such), it could seriously limit the usefulness of these
+> > UI's.
+> >
+> > > - fixed some namespacing issues
+> >
+> > If there are conflicts with the Gtk namespace, we can change to
+> > something like GtkUI or GtkPlugin or such. However, the namespace
+> > should mirror the file path (so
+> > OpenViewer/UI/GtkPlugin/GtkMainWindow.cs should define a class
+> > GtkMainWindow in the namespace OpenViewer.UI.GtkPlugin)
+> >
+> > Also, the way we're using namespaces currently means we can't have
+> > classes and namespaces with the same name, so we have to avoid doing
+> > something like GtkPlugin/GtkPlugin.cs.
+> >
+> > Jeff
+> > _______________________________________________
+> > Openviewer-dev mailing list
+> > Openviewer-dev at lists.berlios.de
+> > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+> >
+> >
+> >  ________________________________
+> >  Sent from Yahoo! Mail.
+> >  More Ways to Keep in Touch.
+> > _______________________________________________
+> >  Openviewer-dev mailing list
+> >  Openviewer-dev at lists.berlios.de
+> >  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+> >
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>
+> ---------------------------------
+> Sent from Yahoo! Mail.
+> More Ways to Keep in Touch.
+
+
+From daedius at daedius.com  Tue Mar 25 17:41:37 2008
+From: daedius at daedius.com (Daedius)
+Date: Tue, 25 Mar 2008 11:41:37 -0500
+Subject: [Openviewer-dev] [patch] Splash Screen for GTK UI
+Message-ID: <351467290803250941r6bceb2f6n454863d5b97adb5b@mail.gmail.com>
+
+Here is a patch for someone to review for possible inclusion into the
+trunk.  Tell me what you think of my art skills! ;)
+
+https://developer.berlios.de/mantis/view.php?id=51
+
+- Daedius
+
+
+From gryc.ueusp at gmail.com  Tue Mar 25 22:35:32 2008
+From: gryc.ueusp at gmail.com (Gryc Ueusp)
+Date: Tue, 25 Mar 2008 16:35:32 -0500
+Subject: [Openviewer-dev] [patch] Splash Screen for GTK UI
+In-Reply-To: <351467290803250941r6bceb2f6n454863d5b97adb5b@mail.gmail.com>
+References: <351467290803250941r6bceb2f6n454863d5b97adb5b@mail.gmail.com>
+Message-ID: <200803251635.33404.gryc.ueusp@gmail.com>
+
+Looks good, but some time in the future can we please have an option to 
+disable that wait time in the ini?  I like splash screens and all, but having 
+one pop up while you test a program over and over gets annoying after a 
+while :P
+
+On Tuesday 25 March 2008 11:41:37 am Daedius wrote:
+> Here is a patch for someone to review for possible inclusion into the
+> trunk.  Tell me what you think of my art skills! ;)
+>
+> https://developer.berlios.de/mantis/view.php?id=51
+>
+> - Daedius
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+
+From daedius at daedius.com  Tue Mar 25 22:58:22 2008
+From: daedius at daedius.com (Daedius)
+Date: Tue, 25 Mar 2008 16:58:22 -0500
+Subject: [Openviewer-dev] [patch] Splash Screen for GTK UI
+In-Reply-To: <200803251635.33404.gryc.ueusp@gmail.com>
+References: <351467290803250941r6bceb2f6n454863d5b97adb5b@mail.gmail.com>
+	<200803251635.33404.gryc.ueusp@gmail.com>
+Message-ID: <351467290803251458k76f3dffbwef79f732f10392d4@mail.gmail.com>
+
+Hey Gryc, thanks for testing. I reduced the time a bit in a new patch.
+Hehe, yah, in the future its going to be doing something useful like
+loading application settings files, preparing our complex screens.
+etc. =] Glad you like it.
+
+- Daedius
+
+On Tue, Mar 25, 2008 at 4:35 PM, Gryc Ueusp <gryc.ueusp at gmail.com> wrote:
+> Looks good, but some time in the future can we please have an option to
+>  disable that wait time in the ini?  I like splash screens and all, but having
+>  one pop up while you test a program over and over gets annoying after a
+>  while :P
+>
+>
+>
+>  On Tuesday 25 March 2008 11:41:37 am Daedius wrote:
+>  > Here is a patch for someone to review for possible inclusion into the
+>  > trunk.  Tell me what you think of my art skills! ;)
+>  >
+>  > https://developer.berlios.de/mantis/view.php?id=51
+>  >
+>  > - Daedius
+>  > _______________________________________________
+>  > Openviewer-dev mailing list
+>  > Openviewer-dev at lists.berlios.de
+>  > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+
+
+From daedius at daedius.com  Wed Mar 26 05:45:35 2008
+From: daedius at daedius.com (Daedius)
+Date: Tue, 25 Mar 2008 23:45:35 -0500
+Subject: [Openviewer-dev] [patch] Simplification of the GtkUI project
+Message-ID: <351467290803252145q177b1518t96216afd49f4823e@mail.gmail.com>
+
+I have another patch for review for possible inclusion into the trunk.
+ https://developer.berlios.de/mantis/view.php?id=52  It includes the
+elimination of a lot of our interfaces so that people aren't scared of
+ever modifying GtkUI.  It also includes a redesign of the GTK window.
+The login box is now accessible from the menu, and there is a mock
+address bar.  Tell me your thoughts! =)
+
+- Daedius
+
+
+From ryan at 3di.jp  Wed Mar 26 05:48:38 2008
+From: ryan at 3di.jp (Ryan McDougall)
+Date: Wed, 26 Mar 2008 13:48:38 +0900
+Subject: [Openviewer-dev] GTK UI: Milestone 1
+In-Reply-To: <351467290803250801r20be8210l5860a07ab5e4cdbe@mail.gmail.com>
+References: <acd357460803242342s218dc2f2ic11717dff94bb131@mail.gmail.com>
+	<718852.16032.qm@web23003.mail.ird.yahoo.com>
+	<351467290803250801r20be8210l5860a07ab5e4cdbe@mail.gmail.com>
+Message-ID: <1206506918.26851.66.camel@localhost.localdomain>
+
+I'm not a fan X-chat UI at all, but I think that its possible to allow
+people to easily switch between many smallish virtual worlds as easily
+as with the web without making it look like Firefox.
+
+In fact a hybrid of the two UIs, and what I had in mind, might look more
+like Pidgin:
+
+- A small session-wide window lists 
+
+  1. The avatars you posses, and the VW they were last logged into. You
+click on an avatar and you log into the last know VW. Avatar portability
+would make this menu moot.
+
+  2. The distinct grids (SL,HiPiHi,etc) you hold distinct accounts in.
+You click on one and you log into it. OpenID would make this menu moot.
+
+  3. A list of "bookmarked" locations, represented by a URI, presented
+in menu form. After all there will be less VWs than there are web pages,
+and less moving in between them. It makes less sense to force people to
+type URIs.
+
+- When a login happens, a 3D display screen comes up -- with tabs if
+you're logged into more than one or with more than one avatar.
+
+Cheers,
+
+On Tue, 2008-03-25 at 10:01 -0500, Daedius wrote: 
+> -1
+> I don't think the openviewer should look like firefox, and I don't
+> think it should look like all tabs.
+> 
+> Firstly, I think the address bar is useless.  How often do you think a
+> person is going to be manually typing in metaverse URLs?  It's only
+> going to take up space.  90% of the time a user is only going to log
+> into one or two grids manually and that might be it.  And when they
+> do, it should be automated or easy for them to log in a second time
+> without the use of an address bar.  If we wanted to do URL handling of
+> metaverse URLs ( say when someone clicks something in the REAL
+> firefox), we can, I just don't think a dedicated addressbar is useful.
+>  Connection settings are more complex than just URL, and i'm just
+> plain lazy and wouldn't want to type it out every time or deal with it
+> in string form.  I think the majority of average users would agree.
+> 
+> I envision open viewer being more like X-Chat.  If any of you are
+> familiar with that software.
+> 
+> Here is a picture of the main view:
+> http://farm4.static.flickr.com/3044/2360641855_c22e80af76_o.png  . The
+> chat area of the screen would be our 3D view area.  I think the area
+> on the right would make a good communications/inventory area.  And the
+> area on the left could make a good context sensitive control area like
+> Michael was mentioning ( for build tools or what not ).  Everything
+> else would be accessable via menus as Jeff suggested.
+> 
+> Take here and look how they do connections.  Basically, there is a
+> window that accessable via the menu called Network List.(
+> http://farm3.static.flickr.com/2397/2361474720_0fa170983c_o.png ) This
+> is where you manage all your networks you normally connect to, as well
+> as suggest networks that might be interesting.  I can edit a network
+> to give it more specific settings  (
+> http://farm4.static.flickr.com/3225/2360642035_344b729ce9_o.png ).  I
+> can specify login servers, passwords, certain rooms to join, and set
+> X-Chat to automatically connect to certain networks on startup.
+> 
+> I imagine we can use X-Chat metaphors very directly.
+> 
+> - Daedius
+> 
+> 
+> 
+> 
+> On Tue, Mar 25, 2008 at 6:32 AM, Michael Wright
+> <michaelwri22 at yahoo.co.uk> wrote:
+> > +1 to this, I too envision a kind of firefox approach, with the address bar
+> > etc. Although I was also thinking of the main viewing window as being
+> > separated into two, the 3d portion and a 2d side bar that could have context
+> > specific things in, like when in build mode, it would have the build icons
+> > etc in it. At another time it could have a embedded web browser. also
+> > plugins could define panels that could be displayed in there when that
+> > plugin is active/selected.
+> >
+> > I don't think we want to have separate tabs for everything, and having to
+> > swap between tabs to do something like chat.
+> >
+> > But above all, like Jeff said, it needs to be expandable. Modules need to be
+> > able to include their own GUI panel that is integrated into the ui when they
+> > are in use.
+> >
+> >
+> > Jeff Ames <jeffames at gmail.com> wrote:
+> >  > - Login Screen
+> > > - Chat Screen (Local Chat/IM/Group Chat)
+> > > - Settings Screen
+> >
+> > It sounds like you're envisioning a separate tab in the notebook
+> > control for each of these functions. I was thinking more along the
+> > lines of a Firefox for virtual worlds -- one main viewing window, an
+> > address bar, and windows accessible through the menu bar for things
+> > like setting preferences, etc. (And perhaps tabbed browsing, with
+> > support for multiple virtual world connections simultaneously)
+> >
+> > One of the major goals of this project, though, is to be highly
+> > customizable, so if someone wants to totally rewrite the UI, it's a
+> > fairly simple task. We just provide a default implementation (or
+> > multiple defaults -- a browser-like skin, a FPS-like skin, etc.)
+> >
+> > To keep it customizable, we should limit, or at least explicitly
+> > define, the dependencies between the .glade file and the code (i.e.,
+> > what widgets are expected to exist, and what types and names they
+> > should have).
+> >
+> > Another thing to keep in mind is that at some point in the distant
+> > future, the UI may be partially specified by the server, so you can
+> > log into a FPS or a virtual conference with the same viewer and get a
+> > UI appropriate to each.
+> >
+> > > - OpenViewer Capabilities Management
+> >
+> > From what's on the wiki, it sounds like a lot of this should happen at
+> > the protocol layer. Then the UI would query the protocol to see if
+> > certain features are supported. For the time being, though, I think
+> > it's fairly safe to assume that any protocol we're using is a superset
+> > of the Second Life protocol.
+> >
+> > (If anyone wants to add other totally different protocols, they're of
+> > course welcome to do so. It would be quite interesting to see how
+> > well the IProtocol interface can abstract the differences out.)
+> >
+> > > - UserSettings
+> >
+> > This now auto-generates an XML file when you run the app. We may want
+> > to add a version header to it, though, to avoid upgrade problems.
+> >
+> > However, my feeling is that it belongs more at the application layer than
+> > in the GTK UI.
+> >
+> > > - 3D Integration (if not, an external window will be fine)
+> >
+> > This is something we should look into very soon (though I think MW is
+> > already). If we run into problems here (like GTK# not supporting GL
+> > contexts, or such), it could seriously limit the usefulness of these
+> > UI's.
+> >
+> > > - fixed some namespacing issues
+> >
+> > If there are conflicts with the Gtk namespace, we can change to
+> > something like GtkUI or GtkPlugin or such. However, the namespace
+> > should mirror the file path (so
+> > OpenViewer/UI/GtkPlugin/GtkMainWindow.cs should define a class
+> > GtkMainWindow in the namespace OpenViewer.UI.GtkPlugin)
+> >
+> > Also, the way we're using namespaces currently means we can't have
+> > classes and namespaces with the same name, so we have to avoid doing
+> > something like GtkPlugin/GtkPlugin.cs.
+> >
+> > Jeff
+> > _______________________________________________
+> > Openviewer-dev mailing list
+> > Openviewer-dev at lists.berlios.de
+> > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+> >
+> >
+> >  ________________________________
+> >  Sent from Yahoo! Mail.
+> >  More Ways to Keep in Touch.
+> > _______________________________________________
+> >  Openviewer-dev mailing list
+> >  Openviewer-dev at lists.berlios.de
+> >  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+> >
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+-- 
+Software Engineer
+http://www.3di.jp
+
+The opinions expressed herein represent those of the individual, and do
+not constitute company policy unless expressly stated.
+
+
+
+From pfinn at ca.ibm.com  Wed Mar 26 16:12:08 2008
+From: pfinn at ca.ibm.com (Peter Finn)
+Date: Wed, 26 Mar 2008 11:12:08 -0400
+Subject: [Openviewer-dev] GTK UI: Milestone 1
+In-Reply-To: <837db430803250828r2654b3a0l137d41f6628a75da@mail.gmail.com>
+Message-ID: <OF0295A780.E1BFF765-ON85257418.0052360D-85257418.005381FB@ca.ibm.com>
+
+The idea of menus and configuration sounds a little outdated and not 
+exactly user friendly just  to enter a virtual world or someone's grid. 
+Here is a vid from when a demo I gave at virtual worlds 2007. 
+
+http://www.virtualuniversecommunity.org/demo/ 
+
+
+
+Nink
+
+
+
+
+
+
+"Hugh Perkins" <hughperkins at gmail.com> 
+Sent by: openviewer-dev-bounces at lists.berlios.de
+03/25/08 11:28 AM
+Please respond to
+openviewer-dev at lists.berlios.de
+
+
+To
+openviewer-dev at lists.berlios.de
+cc
+
+Subject
+Re: [Openviewer-dev] GTK UI: Milestone 1
+
+
+
+
+
+
+On Tue, Mar 25, 2008 at 4:25 PM, Michael Wright <michaelwri22 at yahoo.co.uk> 
+wrote:
+I don't see one or two big grids, I still see lots and lots of smaller 
+"grids" (hate that term). While yes some of them will have links between 
+them and you might be able to use the same account on more than one. We 
+should not think of big monolithic grids. Different applications have 
+different requirements We should think of 3d websites. That is the basis 
+of opensim and it should be of openviewer, other wise openviewer loses its 
+appeal for use as a viewer for custom 3d applications. So yes I want to 
+see tabs (meaning can be on more than one "grid" at same time) as well, 
+but that can come later.
+
+Yes, I agree.  It ought to be possible to link to your sim from Facebook 
+and so on.
+
+Random idea: maybe even embed a webcam from your sim into Facebook.
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080326/e58a6e51/attachment.html>
+
+From daedius at daedius.com  Wed Mar 26 16:34:35 2008
+From: daedius at daedius.com (Daedius)
+Date: Wed, 26 Mar 2008 10:34:35 -0500
+Subject: [Openviewer-dev] GTK UI: Milestone 1
+In-Reply-To: <OF0295A780.E1BFF765-ON85257418.0052360D-85257418.005381FB@ca.ibm.com>
+References: <837db430803250828r2654b3a0l137d41f6628a75da@mail.gmail.com>
+	<OF0295A780.E1BFF765-ON85257418.0052360D-85257418.005381FB@ca.ibm.com>
+Message-ID: <351467290803260834s2a7e8ffu49aee89e4712cd13@mail.gmail.com>
+
+Thanks for the link Nink,
+
+I think if openviewer ever became an embedded plugin into a firefox
+browser and was the focus of connecting into a single metaverse, you'd
+be correct.   Honestly though, open viewer as it looks like now with
+GTK UI is going to be used to connect into a variety of different
+types of grids.  Each with specific settings and saved or not saved
+passwords.  While using a URL as a shortcut into the whole process is
+beneficial, a user still might need more configuration over how they
+are connecting and how they interact with features the grid may offer.
+ I guess i'm just not sure why you think menus and settings can be
+tossed out the door ;)  Thanks for the vid though.
+
+- Daedius
+
+On Wed, Mar 26, 2008 at 10:12 AM, Peter Finn <pfinn at ca.ibm.com> wrote:
+>
+> The idea of menus and configuration sounds a little outdated and not exactly
+> user friendly just  to enter a virtual world or someone's grid. Here is a
+> vid from when a demo I gave at virtual worlds 2007.
+>
+> http://www.virtualuniversecommunity.org/demo/
+>
+>
+>
+> Nink
+>
+>
+>
+>
+>
+>
+>  "Hugh Perkins" <hughperkins at gmail.com>
+> Sent by: openviewer-dev-bounces at lists.berlios.de
+>
+> 03/25/08 11:28 AM
+>
+> Please respond to
+>
+>  openviewer-dev at lists.berlios.de
+>
+>
+> To
+> openviewer-dev at lists.berlios.de
+>
+> cc
+>
+>
+> Subject Re: [Openviewer-dev] GTK UI: Milestone 1
+>
+>
+>
+>
+>
+>
+> On Tue, Mar 25, 2008 at 4:25 PM, Michael Wright <michaelwri22 at yahoo.co.uk>
+> wrote:
+> I don't see one or two big grids, I still see lots and lots of smaller
+> "grids" (hate that term). While yes some of them will have links between
+> them and you might be able to use the same account on more than one. We
+> should not think of big monolithic grids. Different applications have
+> different requirements We should think of 3d websites. That is the basis of
+> opensim and it should be of openviewer, other wise openviewer loses its
+> appeal for use as a viewer for custom 3d applications. So yes I want to see
+> tabs (meaning can be on more than one "grid" at same time) as well, but that
+> can come later.
+>
+>  Yes, I agree.  It ought to be possible to link to your sim from Facebook
+> and so on.
+>
+>  Random idea: maybe even embed a webcam from your sim into Facebook.
+>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+
+
+From daedius at daedius.com  Wed Mar 26 16:40:55 2008
+From: daedius at daedius.com (Daedius)
+Date: Wed, 26 Mar 2008 10:40:55 -0500
+Subject: [Openviewer-dev] Finalized GTK UI Milestone 1 Spec
+Message-ID: <351467290803260840j598630c5g36f1280f584e9b9c@mail.gmail.com>
+
+GTK UI Milestone 1 has been formalized.  Thank you to everyone for
+their ideas!  Let me know if you really have a burning desire to take
+ownership of one of these ideas.  Otherwise, I'll be handing out tasks
+or working on them myself  =)  Happy hacking everyone!
+
+http://www.openviewer.org/index.php/GTKUIMilestone1
+
+    * Get a good looking logo for OV
+    * Provide a setting to override splash screen
+    * Get a good looking about box in its own view
+    * Complete the connection settings to make like pidgin
+    * Get local chat working
+    * Drop glade, glade has too many bugs, and in the end, we'll need
+our views to be specified in GTK for dockability and proper seperation
+    * Be able to safely store passwords in user settings
+    * Move user settings downward in UI project
+    * Get an address bar working with simple "mtvs://daedius
+moskvitch at osgrid.org", should prompt for password if we don't have one
+saved and connect
+    * Keyboard shortcuts
+    * Icons
+    * Documentation
+
+Note, if your idea didn't make it into this round, we'll likely be
+getting to it next milestone.  The goal of this round is to make
+something reasonable and achievable!  Let's do it!
+
+- Daedius
+
+
+From pfinn at ca.ibm.com  Wed Mar 26 18:18:41 2008
+From: pfinn at ca.ibm.com (Peter Finn)
+Date: Wed, 26 Mar 2008 13:18:41 -0400
+Subject: [Openviewer-dev] GTK UI: Milestone 1
+In-Reply-To: <351467290803260834s2a7e8ffu49aee89e4712cd13@mail.gmail.com>
+Message-ID: <OF98834237.37857042-ON85257418.005A6A99-85257418.005F1848@ca.ibm.com>
+
+Hi Daedius
+
+Thanks for the feedback.  I am probably completely off base here (I 
+usually get it wrong).  My logic was to take a "how would Steve Jobs 
+create a 3D browser for an Apple" approach.    What  I was trying to 
+convey was the concept of leveraging and working within the 3D immersive 
+space versus an external or overlay 2D menu systems. 
+
+Example: 
+Your in Deepgrid on fantasy island  at coordinates 123.452.205 and you 
+render a new door.  The door automatically configures itself for the 
+appropriate information (Same as a landmark today but with additional 
+server information and settings).  A copy of the door is stored in a local 
+database on your PC as well as in world. 
+
+Later that day meet someone in  OSGrid tell them about your place and 
+render the door you made.  They walk through the door and are in OSgrid at 
+your house. (Check out croquet) 
+
+I fully agree we absolutely need to be able to configure and customize 
+settings (click on door up pops an in world control panel and enter all 
+the settings)  but hopefully that's rare as it's so much easier from the 
+user perspective if they simply walk through a pre configured door. 
+
+In terms of all the other configurations could this all be made just as 
+intuitive using an in world 3D control panel with a bunch of prims on it.  
+Click on the phone prim to configure voice, click on sun prim to configure 
+sky click on a voice prim to chat, camera prim for camera etc etc.   This 
+way even my Mother could use it and if she needed help she could render up 
+her control panel give me access then watch as I show her how to do 
+something. 
+
+Anyway just food for thought. 
+
+
+Nink
+
+
+
+
+
+Daedius <daedius at daedius.com> 
+Sent by: openviewer-dev-bounces at lists.berlios.de
+03/26/08 11:34 AM
+Please respond to
+openviewer-dev at lists.berlios.de
+
+
+To
+openviewer-dev at lists.berlios.de
+cc
+
+Subject
+Re: [Openviewer-dev] GTK UI: Milestone 1
+
+
+
+
+
+
+Thanks for the link Nink,
+
+I think if openviewer ever became an embedded plugin into a firefox
+browser and was the focus of connecting into a single metaverse, you'd
+be correct.   Honestly though, open viewer as it looks like now with
+GTK UI is going to be used to connect into a variety of different
+types of grids.  Each with specific settings and saved or not saved
+passwords.  While using a URL as a shortcut into the whole process is
+beneficial, a user still might need more configuration over how they
+are connecting and how they interact with features the grid may offer.
+ I guess i'm just not sure why you think menus and settings can be
+tossed out the door ;)  Thanks for the vid though.
+
+- Daedius
+
+On Wed, Mar 26, 2008 at 10:12 AM, Peter Finn <pfinn at ca.ibm.com> wrote:
+>
+> The idea of menus and configuration sounds a little outdated and not 
+exactly
+> user friendly just  to enter a virtual world or someone's grid. Here is 
+a
+> vid from when a demo I gave at virtual worlds 2007.
+>
+> http://www.virtualuniversecommunity.org/demo/
+>
+>
+>
+> Nink
+>
+>
+>
+>
+>
+>
+>  "Hugh Perkins" <hughperkins at gmail.com>
+> Sent by: openviewer-dev-bounces at lists.berlios.de
+>
+> 03/25/08 11:28 AM
+>
+> Please respond to
+>
+>  openviewer-dev at lists.berlios.de
+>
+>
+> To
+> openviewer-dev at lists.berlios.de
+>
+> cc
+>
+>
+> Subject Re: [Openviewer-dev] GTK UI: Milestone 1
+>
+>
+>
+>
+>
+>
+> On Tue, Mar 25, 2008 at 4:25 PM, Michael Wright 
+<michaelwri22 at yahoo.co.uk>
+> wrote:
+> I don't see one or two big grids, I still see lots and lots of smaller
+> "grids" (hate that term). While yes some of them will have links between
+> them and you might be able to use the same account on more than one. We
+> should not think of big monolithic grids. Different applications have
+> different requirements We should think of 3d websites. That is the basis 
+of
+> opensim and it should be of openviewer, other wise openviewer loses its
+> appeal for use as a viewer for custom 3d applications. So yes I want to 
+see
+> tabs (meaning can be on more than one "grid" at same time) as well, but 
+that
+> can come later.
+>
+>  Yes, I agree.  It ought to be possible to link to your sim from 
+Facebook
+> and so on.
+>
+>  Random idea: maybe even embed a webcam from your sim into Facebook.
+>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080326/f1ba815c/attachment.html>
+
+From daedius at daedius.com  Wed Mar 26 19:27:05 2008
+From: daedius at daedius.com (Daedius)
+Date: Wed, 26 Mar 2008 13:27:05 -0500
+Subject: [Openviewer-dev] GTK UI: Milestone 1
+In-Reply-To: <OF98834237.37857042-ON85257418.005A6A99-85257418.005F1848@ca.ibm.com>
+References: <351467290803260834s2a7e8ffu49aee89e4712cd13@mail.gmail.com>
+	<OF98834237.37857042-ON85257418.005A6A99-85257418.005F1848@ca.ibm.com>
+Message-ID: <351467290803261127q63a97b6fre9b5d124c4cfc502@mail.gmail.com>
+
+Hey there Nini,
+
+Thanks for your mind opening email! I don't know if you know or not,
+but I am a Steve Jobs fanboy ;)  You are entirely correct about your
+vision.  I need to put this in a "Great Ideas list" (
+http://www.openviewer.org/index.php/Ideas ):  Communication between in
+world objects and the actual application OpenViewer itself.
+
+- Daedius
+
+On Wed, Mar 26, 2008 at 12:18 PM, Peter Finn <pfinn at ca.ibm.com> wrote:
+>
+> Hi Daedius
+>
+> Thanks for the feedback.  I am probably completely off base here (I usually
+> get it wrong).  My logic was to take a "how would Steve Jobs create a 3D
+> browser for an Apple" approach.    What  I was trying to convey was the
+> concept of leveraging and working within the 3D immersive space versus an
+> external or overlay 2D menu systems.
+>
+> Example:
+> Your in Deepgrid on fantasy island  at coordinates 123.452.205 and you
+> render a new door.  The door automatically configures itself for the
+> appropriate information (Same as a landmark today but with additional server
+> information and settings).  A copy of the door is stored in a local database
+> on your PC as well as in world.
+>
+> Later that day meet someone in  OSGrid tell them about your place and render
+> the door you made.  They walk through the door and are in OSgrid at your
+> house. (Check out croquet)
+>
+> I fully agree we absolutely need to be able to configure and customize
+> settings (click on door up pops an in world control panel and enter all the
+> settings)  but hopefully that's rare as it's so much easier from the user
+> perspective if they simply walk through a pre configured door.
+>
+> In terms of all the other configurations could this all be made just as
+> intuitive using an in world 3D control panel with a bunch of prims on it.
+> Click on the phone prim to configure voice, click on sun prim to configure
+> sky click on a voice prim to chat, camera prim for camera etc etc.   This
+> way even my Mother could use it and if she needed help she could render up
+> her control panel give me access then watch as I show her how to do
+> something.
+>
+> Anyway just food for thought.
+>
+>
+> Nink
+>
+>
+>
+>
+>
+>  Daedius <daedius at daedius.com>
+> Sent by: openviewer-dev-bounces at lists.berlios.de
+>
+> 03/26/08 11:34 AM
+>
+>
+>
+> Please respond to
+>  openviewer-dev at lists.berlios.de
+>
+>
+> To openviewer-dev at lists.berlios.de
+>
+> cc
+>
+> Subject Re: [Openviewer-dev] GTK UI: Milestone 1
+>
+>
+>
+>
+>
+>
+> Thanks for the link Nink,
+>
+>  I think if openviewer ever became an embedded plugin into a firefox
+>  browser and was the focus of connecting into a single metaverse, you'd
+>  be correct.   Honestly though, open viewer as it looks like now with
+>  GTK UI is going to be used to connect into a variety of different
+>  types of grids.  Each with specific settings and saved or not saved
+>  passwords.  While using a URL as a shortcut into the whole process is
+>  beneficial, a user still might need more configuration over how they
+>  are connecting and how they interact with features the grid may offer.
+>  I guess i'm just not sure why you think menus and settings can be
+>  tossed out the door ;)  Thanks for the vid though.
+>
+>  - Daedius
+>
+>  On Wed, Mar 26, 2008 at 10:12 AM, Peter Finn <pfinn at ca.ibm.com> wrote:
+>  >
+>  > The idea of menus and configuration sounds a little outdated and not
+> exactly
+>  > user friendly just  to enter a virtual world or someone's grid. Here is a
+>  > vid from when a demo I gave at virtual worlds 2007.
+>  >
+>  > http://www.virtualuniversecommunity.org/demo/
+>  >
+>  >
+>  >
+>  > Nink
+>  >
+>  >
+>  >
+>  >
+>  >
+>  >
+>  >  "Hugh Perkins" <hughperkins at gmail.com>
+>  > Sent by: openviewer-dev-bounces at lists.berlios.de
+>  >
+>  > 03/25/08 11:28 AM
+>  >
+>  > Please respond to
+>  >
+>  >  openviewer-dev at lists.berlios.de
+>  >
+>  >
+>  > To
+>  > openviewer-dev at lists.berlios.de
+>  >
+>  > cc
+>  >
+>  >
+>  > Subject Re: [Openviewer-dev] GTK UI: Milestone 1
+>  >
+>  >
+>  >
+>  >
+>  >
+>  >
+>  > On Tue, Mar 25, 2008 at 4:25 PM, Michael Wright
+> <michaelwri22 at yahoo.co.uk>
+>  > wrote:
+>  > I don't see one or two big grids, I still see lots and lots of smaller
+>  > "grids" (hate that term). While yes some of them will have links between
+>  > them and you might be able to use the same account on more than one. We
+>  > should not think of big monolithic grids. Different applications have
+>  > different requirements We should think of 3d websites. That is the basis
+> of
+>  > opensim and it should be of openviewer, other wise openviewer loses its
+>  > appeal for use as a viewer for custom 3d applications. So yes I want to
+> see
+>  > tabs (meaning can be on more than one "grid" at same time) as well, but
+> that
+>  > can come later.
+>  >
+>  >  Yes, I agree.  It ought to be possible to link to your sim from Facebook
+>  > and so on.
+>  >
+>  >  Random idea: maybe even embed a webcam from your sim into Facebook.
+>  >
+>  >
+>  > _______________________________________________
+>  >  Openviewer-dev mailing list
+>  >  Openviewer-dev at lists.berlios.de
+>  >  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>  >
+>  >
+>  > _______________________________________________
+>  >  Openviewer-dev mailing list
+>  >  Openviewer-dev at lists.berlios.de
+>  >  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>  >
+>  >
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+
+
+From deifante at gmail.com  Thu Mar 27 00:04:05 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Wed, 26 Mar 2008 17:04:05 -0600
+Subject: [Openviewer-dev] PATCH: logging
+Message-ID: <f38794ad0803261604y4effb267pda7e803d94eab99a@mail.gmail.com>
+
+I noticed that logging wasn't all there in gtk, I've fixed that.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080326/b7f7e209/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: EnableGtkLoggin.patch
+Type: application/octet-stream
+Size: 576 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080326/b7f7e209/attachment.obj>
+
+From deifante at gmail.com  Thu Mar 27 00:21:20 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Wed, 26 Mar 2008 17:21:20 -0600
+Subject: [Openviewer-dev] PATCH: Allowing re-login
+Message-ID: <f38794ad0803261621r54b5ee21j2875c1a963671908@mail.gmail.com>
+
+Another simple patch. This allows the user to change the login strings and
+press the login again after a failed login. It also notifies the user of a
+failed login.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080326/78a47d32/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: FailedLogin.patch
+Type: application/octet-stream
+Size: 921 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080326/78a47d32/attachment.obj>
+
+From daedius at daedius.com  Thu Mar 27 23:21:39 2008
+From: daedius at daedius.com (Daedius)
+Date: Thu, 27 Mar 2008 17:21:39 -0500
+Subject: [Openviewer-dev] Request for Powers
+Message-ID: <351467290803271521y3fc8f703ne8a32cd4c99e66bd@mail.gmail.com>
+
+Hey there powers that be,
+
+I was wondering if I could get berlios bug powers to assign
+bugs/features to people so D-Font and I and others can start dolling
+out things to take ownership of GTK UI tasks.   SVN access would be
+nice too, as I know D-Font and I generate alot of backlog of work for
+ya'll! =)
+
+- Daedius
+
+
+From gryc.ueusp at gmail.com  Fri Mar 28 03:11:09 2008
+From: gryc.ueusp at gmail.com (Gryc Ueusp)
+Date: Thu, 27 Mar 2008 21:11:09 -0500
+Subject: [Openviewer-dev] Logo/Art Ideas?
+Message-ID: <200803272111.11742.gryc.ueusp@gmail.com>
+
+I've volunteered to work on a logo for OpenViewer since I happen to be a 
+self-proclaimed SVG ninja.  Does anyone have any ideas for a logo or any 
+other little icons that may need created? 
+
+(https://developer.berlios.de/mantis/view.php?id=54 is the relevant bug I hope 
+to close)
+
+
+From deifante at gmail.com  Fri Mar 28 05:14:51 2008
+From: deifante at gmail.com (Deifante Walters)
+Date: Thu, 27 Mar 2008 22:14:51 -0600
+Subject: [Openviewer-dev] Logo/Art Ideas?
+In-Reply-To: <200803272111.11742.gryc.ueusp@gmail.com>
+References: <200803272111.11742.gryc.ueusp@gmail.com>
+Message-ID: <f38794ad0803272114i572d1a3aya0a03b3890efa9c7@mail.gmail.com>
+
+I saw a great idea for one here
+http://openviewer.org/index.php/Image:Solonfieldazul.png
+;)
+
+On Thu, Mar 27, 2008 at 8:11 PM, Gryc Ueusp <gryc.ueusp at gmail.com> wrote:
+
+> I've volunteered to work on a logo for OpenViewer since I happen to be a
+> self-proclaimed SVG ninja.  Does anyone have any ideas for a logo or any
+> other little icons that may need created?
+>
+> (https://developer.berlios.de/mantis/view.php?id=54 is the relevant bug I
+> hope
+> to close)
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080327/8397d527/attachment.html>
+
+From daedius at daedius.com  Fri Mar 28 05:17:15 2008
+From: daedius at daedius.com (Daedius)
+Date: Thu, 27 Mar 2008 23:17:15 -0500
+Subject: [Openviewer-dev] Logo/Art Ideas?
+In-Reply-To: <f38794ad0803272114i572d1a3aya0a03b3890efa9c7@mail.gmail.com>
+References: <200803272111.11742.gryc.ueusp@gmail.com>
+	<f38794ad0803272114i572d1a3aya0a03b3890efa9c7@mail.gmail.com>
+Message-ID: <351467290803272117x67c0bafet1d428206684ff369@mail.gmail.com>
+
+I think we need these things:
+- splash screen
+- app icon
+- icon to represent an "avatar/person" for the avatar list for the chat feature
+- perhaps an icon to represent a "grid"
+
+As for what to make for a design for OV, I can only think of Circles
+and Triangles! =()
+
+ASCII Ninja retaliates with ninja stars!
+
+~~~~~~~~   *
+          ~~~~~~~~~~~ *
+   ~~~~~~~~~~ *
+
+
+
+On Thu, Mar 27, 2008 at 11:14 PM, Deifante Walters <deifante at gmail.com> wrote:
+> I saw a great idea for one here
+> http://openviewer.org/index.php/Image:Solonfieldazul.png
+> ;)
+>
+>
+>
+> On Thu, Mar 27, 2008 at 8:11 PM, Gryc Ueusp <gryc.ueusp at gmail.com> wrote:
+>
+> > I've volunteered to work on a logo for OpenViewer since I happen to be a
+> > self-proclaimed SVG ninja.  Does anyone have any ideas for a logo or any
+> > other little icons that may need created?
+> >
+> > (https://developer.berlios.de/mantis/view.php?id=54 is the relevant bug I
+> hope
+> > to close)
+> > _______________________________________________
+> > Openviewer-dev mailing list
+> > Openviewer-dev at lists.berlios.de
+> > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+
+
+From daedius at daedius.com  Fri Mar 28 05:19:00 2008
+From: daedius at daedius.com (Daedius)
+Date: Thu, 27 Mar 2008 23:19:00 -0500
+Subject: [Openviewer-dev] Logo/Art Ideas?
+In-Reply-To: <f38794ad0803272114i572d1a3aya0a03b3890efa9c7@mail.gmail.com>
+References: <200803272111.11742.gryc.ueusp@gmail.com>
+	<f38794ad0803272114i572d1a3aya0a03b3890efa9c7@mail.gmail.com>
+Message-ID: <351467290803272119ke6a33b9gc1700e6038a00e34@mail.gmail.com>
+
+Do Want! =)
+
++1
+
+On Thu, Mar 27, 2008 at 11:14 PM, Deifante Walters <deifante at gmail.com> wrote:
+> I saw a great idea for one here
+> http://openviewer.org/index.php/Image:Solonfieldazul.png
+> ;)
+>
+>
+>
+> On Thu, Mar 27, 2008 at 8:11 PM, Gryc Ueusp <gryc.ueusp at gmail.com> wrote:
+>
+> > I've volunteered to work on a logo for OpenViewer since I happen to be a
+> > self-proclaimed SVG ninja.  Does anyone have any ideas for a logo or any
+> > other little icons that may need created?
+> >
+> > (https://developer.berlios.de/mantis/view.php?id=54 is the relevant bug I
+> hope
+> > to close)
+> > _______________________________________________
+> > Openviewer-dev mailing list
+> > Openviewer-dev at lists.berlios.de
+> > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+>
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+
+
+From gryc.ueusp at gmail.com  Fri Mar 28 05:45:28 2008
+From: gryc.ueusp at gmail.com (Gryc Ueusp)
+Date: Thu, 27 Mar 2008 23:45:28 -0500
+Subject: [Openviewer-dev] Logo/Art Ideas?
+In-Reply-To: <351467290803272117x67c0bafet1d428206684ff369@mail.gmail.com>
+References: <200803272111.11742.gryc.ueusp@gmail.com>
+	<f38794ad0803272114i572d1a3aya0a03b3890efa9c7@mail.gmail.com>
+	<351467290803272117x67c0bafet1d428206684ff369@mail.gmail.com>
+Message-ID: <200803272345.30715.gryc.ueusp@gmail.com>
+
+On Thursday 27 March 2008 11:17:15 pm Daedius wrote:
+> I think we need these things:
+> - splash screen
+> - app icon
+> - icon to represent an "avatar/person" for the avatar list for the chat
+> feature - perhaps an icon to represent a "grid"
+
+I think that for these icons, especially for ones that go on buttons, we could 
+look at the Tango iconset.  For example, I'd use the "system-users" icon to 
+represent the avatar list, and then use an icon like "internet-web-browser" 
+to represent the grid.
+
+>
+> As for what to make for a design for OV, I can only think of Circles
+> and Triangles! =()
+>
+> ASCII Ninja retaliates with ninja stars!
+>
+> ~~~~~~~~   *
+>           ~~~~~~~~~~~ *
+>    ~~~~~~~~~~ *
+>
+> On Thu, Mar 27, 2008 at 11:14 PM, Deifante Walters <deifante at gmail.com> 
+wrote:
+> > I saw a great idea for one here
+> > http://openviewer.org/index.php/Image:Solonfieldazul.png
+> > ;)
+> >
+> > On Thu, Mar 27, 2008 at 8:11 PM, Gryc Ueusp <gryc.ueusp at gmail.com> wrote:
+> > > I've volunteered to work on a logo for OpenViewer since I happen to be
+> > > a self-proclaimed SVG ninja.  Does anyone have any ideas for a logo or
+> > > any other little icons that may need created?
+> > >
+> > > (https://developer.berlios.de/mantis/view.php?id=54 is the relevant bug
+> > > I
+> >
+> > hope
+> >
+> > > to close)
+> > > _______________________________________________
+> > > Openviewer-dev mailing list
+> > > Openviewer-dev at lists.berlios.de
+> > > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+> > _______________________________________________
+> >  Openviewer-dev mailing list
+> >  Openviewer-dev at lists.berlios.de
+> >  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+
+From stefan at tribalmedia.se  Fri Mar 28 07:57:07 2008
+From: stefan at tribalmedia.se (Stefan Andersson)
+Date: Fri, 28 Mar 2008 07:57:07 +0100
+Subject: [Openviewer-dev] Logo/Art Ideas?
+In-Reply-To: <f38794ad0803272114i572d1a3aya0a03b3890efa9c7@mail.gmail.com>
+References: <200803272111.11742.gryc.ueusp@gmail.com>
+	<f38794ad0803272114i572d1a3aya0a03b3890efa9c7@mail.gmail.com>
+Message-ID: <BLU134-W238231499F584E1F2138FAD5F90@phx.gbl>
+
+... and then we could just invert the triangles to point inwards, and we have the OpenSim logo. (as in, the client talks to many different services, the services accept many different clients)
+
+/Stefan
+
+Date: Thu, 27 Mar 2008 22:14:51 -0600
+From: deifante at gmail.com
+To: openviewer-dev at lists.berlios.de
+Subject: Re: [Openviewer-dev] Logo/Art Ideas?
+
+I saw a great idea for one here
+http://openviewer.org/index.php/Image:Solonfieldazul.png
+;)
+
+On Thu, Mar 27, 2008 at 8:11 PM, Gryc Ueusp <gryc.ueusp at gmail.com> wrote:
+
+I've volunteered to work on a logo for OpenViewer since I happen to be a
+
+self-proclaimed SVG ninja.  Does anyone have any ideas for a logo or any
+
+other little icons that may need created?
+
+
+
+(https://developer.berlios.de/mantis/view.php?id=54 is the relevant bug I hope
+
+to close)
+
+_______________________________________________
+
+Openviewer-dev mailing list
+
+Openviewer-dev at lists.berlios.de
+
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080328/438b95db/attachment.html>
+
+From jeffames at gmail.com  Fri Mar 28 08:08:09 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Fri, 28 Mar 2008 16:08:09 +0900
+Subject: [Openviewer-dev] PATCH: logging
+In-Reply-To: <f38794ad0803261604y4effb267pda7e803d94eab99a@mail.gmail.com>
+References: <f38794ad0803261604y4effb267pda7e803d94eab99a@mail.gmail.com>
+Message-ID: <acd357460803280008h7366aa88n427dcce35e23c3ca@mail.gmail.com>
+
+As far as I know, we should only need to configure log4net once in the
+application.  This is currently done in the Application, as soon as we
+start up.
+
+Jeff
+
+
+From jeffames at gmail.com  Fri Mar 28 08:17:51 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Fri, 28 Mar 2008 16:17:51 +0900
+Subject: [Openviewer-dev] PATCH: Allowing re-login
+In-Reply-To: <f38794ad0803261621r54b5ee21j2875c1a963671908@mail.gmail.com>
+References: <f38794ad0803261621r54b5ee21j2875c1a963671908@mail.gmail.com>
+Message-ID: <acd357460803280017p413cd799o8edf6a17aad86b9@mail.gmail.com>
+
+> Another simple patch. This allows the user to change the login strings and
+> press the login again after a failed login. It also notifies the user of a
+> failed login.
+
+Thanks!  Added in r233.
+
+(BTW, it might be easier to track patches on mantis than on the
+mailing list.  It also allows larger file attachments.)
+
+Jeff
+
+
+From gryc.ueusp at gmail.com  Fri Mar 28 08:02:08 2008
+From: gryc.ueusp at gmail.com (Gryc Ueusp)
+Date: Fri, 28 Mar 2008 02:02:08 -0500
+Subject: [Openviewer-dev] Logo/Art Ideas?
+In-Reply-To: <BLU134-W238231499F584E1F2138FAD5F90@phx.gbl>
+References: <200803272111.11742.gryc.ueusp@gmail.com>
+	<f38794ad0803272114i572d1a3aya0a03b3890efa9c7@mail.gmail.com>
+	<BLU134-W238231499F584E1F2138FAD5F90@phx.gbl>
+Message-ID: <200803280202.10519.gryc.ueusp@gmail.com>
+
+Sounds interesting, if a little confusing to the end-user who has to find that 
+particular icon in his programs menu...I'm all for it if they can be 
+distinguished at 16x16 px.
+
+On Friday 28 March 2008 1:57:07 am Stefan Andersson wrote:
+> ... and then we could just invert the triangles to point inwards, and we
+> have the OpenSim logo. (as in, the client talks to many different services,
+> the services accept many different clients)
+>
+> /Stefan
+>
+> Date: Thu, 27 Mar 2008 22:14:51 -0600
+> From: deifante at gmail.com
+> To: openviewer-dev at lists.berlios.de
+> Subject: Re: [Openviewer-dev] Logo/Art Ideas?
+>
+> I saw a great idea for one here
+> http://openviewer.org/index.php/Image:Solonfieldazul.png
+> ;)
+>
+> On Thu, Mar 27, 2008 at 8:11 PM, Gryc Ueusp <gryc.ueusp at gmail.com> wrote:
+>
+> I've volunteered to work on a logo for OpenViewer since I happen to be a
+>
+> self-proclaimed SVG ninja.  Does anyone have any ideas for a logo or any
+>
+> other little icons that may need created?
+>
+>
+>
+> (https://developer.berlios.de/mantis/view.php?id=54 is the relevant bug I
+> hope
+>
+> to close)
+>
+> _______________________________________________
+>
+> Openviewer-dev mailing list
+>
+> Openviewer-dev at lists.berlios.de
+>
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+
+From pfinn at ca.ibm.com  Fri Mar 28 21:37:24 2008
+From: pfinn at ca.ibm.com (Peter Finn)
+Date: Fri, 28 Mar 2008 16:37:24 -0400
+Subject: [Openviewer-dev] Logo/Art Ideas?
+In-Reply-To: <BLU134-W238231499F584E1F2138FAD5F90@phx.gbl>
+Message-ID: <OF1610449E.2E8038E3-ON8525741A.007113B8-8525741A.00714A4E@ca.ibm.com>
+
+I really like that logo would also work well as a generic navigation icon 
+in a 3D space. 
+
+Nink
+
+
+
+
+Stefan Andersson <stefan at tribalmedia.se> 
+Sent by: openviewer-dev-bounces at lists.berlios.de
+03/28/08 02:57 AM
+Please respond to
+openviewer-dev at lists.berlios.de
+
+
+To
+<openviewer-dev at lists.berlios.de>
+cc
+
+Subject
+Re: [Openviewer-dev] Logo/Art Ideas?
+
+
+
+
+
+
+... and then we could just invert the triangles to point inwards, and we 
+have the OpenSim logo. (as in, the client talks to many different 
+services, the services accept many different clients)
+
+/Stefan
+
+Date: Thu, 27 Mar 2008 22:14:51 -0600
+From: deifante at gmail.com
+To: openviewer-dev at lists.berlios.de
+Subject: Re: [Openviewer-dev] Logo/Art Ideas?
+
+I saw a great idea for one here
+http://openviewer.org/index.php/Image:Solonfieldazul.png
+;)
+
+On Thu, Mar 27, 2008 at 8:11 PM, Gryc Ueusp <gryc.ueusp at gmail.com> wrote:
+I've volunteered to work on a logo for OpenViewer since I happen to be a
+self-proclaimed SVG ninja.  Does anyone have any ideas for a logo or any
+other little icons that may need created?
+
+(https://developer.berlios.de/mantis/view.php?id=54 is the relevant bug I 
+hope
+to close)
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080328/434dbf27/attachment.html>
+

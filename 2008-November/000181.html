@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] BVH format
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20BVH%20format&In-Reply-To=%3Cf1042c500811081638y500d14a8sb7951f04ca148b59%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000182.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] BVH format</H1>
+    <B>daniel miller</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20BVH%20format&In-Reply-To=%3Cf1042c500811081638y500d14a8sb7951f04ca148b59%40mail.gmail.com%3E"
+       TITLE="[Openviewer-dev] BVH format">danbmil99 at gmail.com
+       </A><BR>
+    <I>Sun Nov  9 01:38:22 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000182.html">[Openviewer-dev] Python Optimisations
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#181">[ date ]</a>
+              <a href="thread.html#181">[ thread ]</a>
+              <a href="subject.html#181">[ subject ]</a>
+              <a href="author.html#181">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>so here's what I've learned:
+
+the Euler angles are in the local coord space for each rotation.  In other
+words, assuming ZXY ordering, first you rotate the space about the Z axis;
+then you rotate about the NEW, post-Z rotation X axis; then about the new Y
+axis.
+
+Then, in this new coordinate system, you offset to the next node (joint or
+end site).  If it's a joint, you repeat the process starting in these new
+coords.
+
+what does offset mean exactly?  The skeleton is specified already; offset is
+an artifact of BVH's original use as a motion capture format.  Offset should
+take you to the location of the next joint; the place where bones are
+connected.  If a BVH offset doesn't match the skeleton exactly, I assume the
+animation will look a bit different.  I have no idea if SL cares about
+offset; my guess is no.
+
+-danx0r
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081108/6be3d07b/attachment.html">https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081108/6be3d07b/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000182.html">[Openviewer-dev] Python Optimisations
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#181">[ date ]</a>
+              <a href="thread.html#181">[ thread ]</a>
+              <a href="subject.html#181">[ subject ]</a>
+              <a href="author.html#181">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

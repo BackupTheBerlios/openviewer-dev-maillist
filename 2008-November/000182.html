@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] Python Optimisations
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20Python%20Optimisations&In-Reply-To=%3C72C1C9E5780A134F896530D480F22BB702C84DE6%40hermes.bitlab.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000181.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] Python Optimisations</H1>
+    <B>Dirk Krause</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20Python%20Optimisations&In-Reply-To=%3C72C1C9E5780A134F896530D480F22BB702C84DE6%40hermes.bitlab.de%3E"
+       TITLE="[Openviewer-dev] Python Optimisations">dirk.krause at pixelpark.com
+       </A><BR>
+    <I>Mon Nov 10 12:31:49 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000181.html">[Openviewer-dev] BVH format
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#182">[ date ]</a>
+              <a href="thread.html#182">[ thread ]</a>
+              <a href="subject.html#182">[ subject ]</a>
+              <a href="author.html#182">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+while being the last person to give advice on how to write fast code (rather on how to write code fast &#9786; as in dirty), I stumbled across this page:
+
+<A HREF="http://en.wikibooks.org/wiki/Blender_3D:_Blending_Into_Python/Optimize">http://en.wikibooks.org/wiki/Blender_3D:_Blending_Into_Python/Optimize</A>
+(and the link therein: <A HREF="http://wiki.python.org/moin/PythonSpeed/PerformanceTips">http://wiki.python.org/moin/PythonSpeed/PerformanceTips</A> )
+
+What struck me was that the 'try' statement is 10 times slower in general as the 'if' statement (which I didn&#8217;t know ) and this page above gives the hint that one should avoid using 'try' in main loops. 
+
+I did only a quick check, and found only a few of them. Might be worth checking on these, though.
+
+Best regards,
+  Dirk
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000181.html">[Openviewer-dev] BVH format
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#182">[ date ]</a>
+              <a href="thread.html#182">[ thread ]</a>
+              <a href="subject.html#182">[ subject ]</a>
+              <a href="author.html#182">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

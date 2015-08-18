@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] Aether UI Project: My Big Vision Of Things To	Come
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20Aether%20UI%20Project%3A%20My%20Big%20Vision%20Of%20Things%20To%0A%09Come&In-Reply-To=%3CD34F5C5E193B4144AD333BBBB940A528052834%40exchange1.lan.konge.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000039.html">
+   <LINK REL="Next"  HREF="000041.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] Aether UI Project: My Big Vision Of Things To	Come</H1>
+    <B>Tedd Hansen</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20Aether%20UI%20Project%3A%20My%20Big%20Vision%20Of%20Things%20To%0A%09Come&In-Reply-To=%3CD34F5C5E193B4144AD333BBBB940A528052834%40exchange1.lan.konge.net%3E"
+       TITLE="[Openviewer-dev] Aether UI Project: My Big Vision Of Things To	Come">tedd at konge.net
+       </A><BR>
+    <I>Thu Mar 13 08:51:15 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000039.html">[Openviewer-dev] OpenViewer as a Testing Framework for OpenSim
+</A></li>
+        <LI>Next message: <A HREF="000041.html">[Openviewer-dev] Aether UI Project: My Big Vision Of Things To	Come
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#40">[ date ]</a>
+              <a href="thread.html#40">[ thread ]</a>
+              <a href="subject.html#40">[ subject ]</a>
+              <a href="author.html#40">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Some special case I've thought of:
+Use OpenViewer to (off-screen) render the view of multiple avatars,
+possible two renderings per avatar with slightly different offsets. Then
+feed the picture into an ANN for processing. :)
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev-bounces at lists.berlios.de</A>] On Behalf Of Daedius
+Sent: 5. mars 2008 20:35
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev at lists.berlios.de</A>
+Subject: [Openviewer-dev] Aether UI Project: My Big Vision Of Things To
+Come
+
+Hey all,
+
+In an effort to keep things on OpenViewer mailing list lively.  I
+wanted to write you all about my own personal project I'm exploring
+and would like to build on top of the OpenViewer platform.  I'm
+calling this project &quot;Aether&quot; ( <A HREF="http://code.google.com/p/aether/">http://code.google.com/p/aether/</A> ) for
+now.  I know many of you all are working on your own personal visions
+of what the primary UI module should be, but perhaps you might be
+interested in what I have in mind:
+
+Here is my beliefs on the future of metaverses:
+- Metaverses are going to be as ubiquitous as web pages one day
+- The common person wants a familiar interface to work with
+metaverses, and that has not been provided yet by SecondLife or any
+other project thus far.
+- The future must be cross platform (duh)
+- We will never be able to define a UI that everyone wants to use.
+
+With these beliefs in mind,  I plan to make Aether, a mozilla-plugin
+metaverse viewer (As a UI module for openviewer).  My hope is to make
+use of several technologies for UI and 3D instead of trying to create
+my own.  So whats the short goal.
+
+          &quot;Put metaverses inside firefox!&quot;
+
+Simple enough.  What are the implications by this?
+
+1.  We No Longer Define The UI:
+Leave this up to the person who runs a website in mozilla.  Everyone
+has their own styles and needs.  Why should we be imposing a
+standardized UI format on people.  Metaverses ARE not games (which do
+have standardized UI), metaverse are interfaces to interacting with
+information.  Right now, HTML and friends are king in this area, so
+lets not change that.
+
+2.  People Might Be Connected To Multiple Grids At Once or Multiple
+Locations in a Single Grid
+I might be cruising through an Amazon.com grid , looking at 3D copies
+of books while simultaneously  standing in a small room on a Digg.com
+grid, yelling at people about the latest stories.  This has
+implications for how we need to design openviewer platform.  We must
+have multigrid support.  This may even have implications for opensim,
+the need to be able to be logged into multiple places on a single
+grid.
+
+3. We Need To Think C++
+Despite our fondness of .Net.  The real world still uses C++.  Ogre3D,
+Mozilla, other technologies are our greatest allies and our greatest
+limitations.  I plan to create a build system for Aether than can run
+on msys on win32, and osx, and linux.   The big question will be how
+much of C++ do we really need.  It is my hope that we can limit it to
+just the graphics engine and just the plugin engine.  I love C#, and
+want to try to write as much of Aether in C# as possible.
+
+If any of you are interested by this idea, please check out my google
+project ( <A HREF="http://code.google.com/p/aether/">http://code.google.com/p/aether/</A> ) where I will be hosting
+this UI module for openviewer.  I would like to strive as much as
+possible to work with the core OpenViewer team to shape a foundation
+that can truly be used for any UI on top of it.  Thanks, and remember
+to dream big!  Please contact me if your interested in developing this
+idea with me =)
+
+- Daedius
+_______________________________________________
+Openviewer-dev mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000039.html">[Openviewer-dev] OpenViewer as a Testing Framework for OpenSim
+</A></li>
+	<LI>Next message: <A HREF="000041.html">[Openviewer-dev] Aether UI Project: My Big Vision Of Things To	Come
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#40">[ date ]</a>
+              <a href="thread.html#40">[ thread ]</a>
+              <a href="subject.html#40">[ subject ]</a>
+              <a href="author.html#40">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

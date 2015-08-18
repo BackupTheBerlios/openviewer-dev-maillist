@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] Fixing Windows + Mogre + Winforms
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20Fixing%20Windows%20%2B%20Mogre%20%2B%20Winforms&In-Reply-To=%3C958729.23768.qm%40web82602.mail.mud.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000141.html">
+   <LINK REL="Next"  HREF="000144.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] Fixing Windows + Mogre + Winforms</H1>
+    <B>Charles Krinke</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20Fixing%20Windows%20%2B%20Mogre%20%2B%20Winforms&In-Reply-To=%3C958729.23768.qm%40web82602.mail.mud.yahoo.com%3E"
+       TITLE="[Openviewer-dev] Fixing Windows + Mogre + Winforms">cfk at pacbell.net
+       </A><BR>
+    <I>Thu Apr 17 04:05:55 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000141.html">[Openviewer-dev] Fixing Windows + Mogre + Winforms
+</A></li>
+        <LI>Next message: <A HREF="000144.html">[Openviewer-dev] Fixing Windows + Mogre + Winforms
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#142">[ date ]</a>
+              <a href="thread.html#142">[ thread ]</a>
+              <a href="subject.html#142">[ subject ]</a>
+              <a href="author.html#142">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I would like to suggest that for OpenViewer we should concentrate on getting a well defined setup on our computers, be they Windows or Linux. Then next a well defined recipe for compiling with no errors and minimal warnings. Then third a well defined test on a common region or regions that allows anyone to test OpenViewer.
+
+I would suggest that the first one be defined on our wiki so we can say:
+
+&quot;See wiki page X for the setup required for your computer to compile successfully OpenViewer&quot;.
+
+Then the second one be defined so we can say:
+
+&quot;See wiki page Y and checkout our svn, runprebuild.bat, build, run and it should run with no errors&quot;
+
+The the third one be defined so we can say:
+
+&quot;Logon to standaloneA or GridG to the region framelwanker and you should see terrain, prims, walk, chat and logoff with no errors&quot;
+
+Charles
+
+----- Original Message ----
+From: Daedius &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">daedius at daedius.com</A>&gt;
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev at lists.berlios.de</A>
+Sent: Wednesday, April 16, 2008 5:16:02 PM
+Subject: [Openviewer-dev] Fixing Windows + Mogre + Winforms
+
+Hey everyone,
+
+Ckrinke and I noticed the windows plugins of openviewers weren't
+working: here's how you can fix them
+
+- check out the latest version of libsecond life ( 1751 for me ),
+compile, and copy the libsecondlife and openjpeg dlls into
+openviewer/bin
+- then apply this patch below
+
+Login() seems to be broken with the latest builds of libsecondlife (
+Though maybe I am seeing glitches with OSGrid), so I've started using
+BeginLogin(), which we probably should be doing anyways
+
+Daedius
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080416/31019c5c/attachment.html">https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080416/31019c5c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000141.html">[Openviewer-dev] Fixing Windows + Mogre + Winforms
+</A></li>
+	<LI>Next message: <A HREF="000144.html">[Openviewer-dev] Fixing Windows + Mogre + Winforms
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#142">[ date ]</a>
+              <a href="thread.html#142">[ thread ]</a>
+              <a href="subject.html#142">[ subject ]</a>
+              <a href="author.html#142">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

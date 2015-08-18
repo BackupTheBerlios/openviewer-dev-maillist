@@ -1,0 +1,51 @@
+From danbmil99 at gmail.com  Sun Nov  9 01:38:22 2008
+From: danbmil99 at gmail.com (daniel miller)
+Date: Sat, 8 Nov 2008 16:38:22 -0800
+Subject: [Openviewer-dev] BVH format
+Message-ID: <f1042c500811081638y500d14a8sb7951f04ca148b59@mail.gmail.com>
+
+so here's what I've learned:
+
+the Euler angles are in the local coord space for each rotation.  In other
+words, assuming ZXY ordering, first you rotate the space about the Z axis;
+then you rotate about the NEW, post-Z rotation X axis; then about the new Y
+axis.
+
+Then, in this new coordinate system, you offset to the next node (joint or
+end site).  If it's a joint, you repeat the process starting in these new
+coords.
+
+what does offset mean exactly?  The skeleton is specified already; offset is
+an artifact of BVH's original use as a motion capture format.  Offset should
+take you to the location of the next joint; the place where bones are
+connected.  If a BVH offset doesn't match the skeleton exactly, I assume the
+animation will look a bit different.  I have no idea if SL cares about
+offset; my guess is no.
+
+-danx0r
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081108/6be3d07b/attachment.html>
+
+From dirk.krause at pixelpark.com  Mon Nov 10 12:31:49 2008
+From: dirk.krause at pixelpark.com (Dirk Krause)
+Date: Mon, 10 Nov 2008 12:31:49 +0100
+Subject: [Openviewer-dev] Python Optimisations
+In-Reply-To: <f1042c500811081638y500d14a8sb7951f04ca148b59@mail.gmail.com>
+References: <f1042c500811081638y500d14a8sb7951f04ca148b59@mail.gmail.com>
+Message-ID: <72C1C9E5780A134F896530D480F22BB702C84DE6@hermes.bitlab.de>
+
+Hi,
+
+while being the last person to give advice on how to write fast code (rather on how to write code fast ? as in dirty), I stumbled across this page:
+
+http://en.wikibooks.org/wiki/Blender_3D:_Blending_Into_Python/Optimize
+(and the link therein: http://wiki.python.org/moin/PythonSpeed/PerformanceTips )
+
+What struck me was that the 'try' statement is 10 times slower in general as the 'if' statement (which I didn?t know ) and this page above gives the hint that one should avoid using 'try' in main loops. 
+
+I did only a quick check, and found only a few of them. Might be worth checking on these, though.
+
+Best regards,
+  Dirk
+

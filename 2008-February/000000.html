@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] Massive OpenViewer Architecture Changes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20Massive%20OpenViewer%20Architecture%20Changes&In-Reply-To=%3C351467290802152039r41849e6bo49507a2a350bcc9d%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000001.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] Massive OpenViewer Architecture Changes</H1>
+    <B>Richard Anaya</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20Massive%20OpenViewer%20Architecture%20Changes&In-Reply-To=%3C351467290802152039r41849e6bo49507a2a350bcc9d%40mail.gmail.com%3E"
+       TITLE="[Openviewer-dev] Massive OpenViewer Architecture Changes">daedius at daedius.com
+       </A><BR>
+    <I>Sat Feb 16 05:39:28 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000001.html">[Openviewer-dev] Architecture Changes + Mogre Improvements + Sleek	Client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I would like do address a variety of architecture changes here i this
+email.  I have been working on this reconstruction for about a week in
+the hopes of making a flexible architecture for openviewer to help us
+all stay sane and happy as we progress in this project =)
+
+First some definitions I will use:
+Metaverse Application Engine (MAE) - A group of assemblies that are in
+responsible for running an entire type of metaverse application.  The
+3D Client is a perfect example of an MAE.  3D Client is entirely in
+charge of deciding which modules it will combine to put together the
+user experience for the player.  Another example of  an MAE include
+Console Client, which puts together all the components needed for a
+console interaction with a metaverse.  Other examples may include a
+Web Service MAE,  or a 2D MAE.   These are the most high level blocks
+of operation in OpenViewer.
+
+Modules -  Modules are the blocks that are put together or used by
+MAE's to provide functionality to the user in some manner.  An example
+of this might be a Rendering Module (opengl, directx, or mogre).  When
+the 3D Client is chosen as the MAE for openviewer, a rendering module
+will be chosen either by configuration or user selection.  Other
+modules might include sound modules, or even more application specific
+modules such as tools or logging that a user may want to add, swap
+out, or remove.
+
+Mogre - Mogre is a cross platform 3d graphics engine.  It is also
+graphics technology independent.
+
+Second:  Here are how to look at the code changes I have made
+
+0) download the files and change the extensions from .zzip to .zip (evil gmail)
+ 1) Get the latest svn of openviewer
+2) extract the contents of &quot;OpenViewer bin updates.zip&quot; to the bin directory
+3) Delete the &quot;OpenViewer&quot; directory in the base directory
+4) Extract &quot;OpenViewerSource.zip&quot; to the base directory
+ 5) Run prebuild ( note, I have added the runprebuild2008.bat )
+6) Open the solution
+
+Summary,
+I have reorganized the architecture in 4 levels.  My primary goal has
+been to make things more meaningfully seperated and organized so that
+code can be more reusable, flexible, and coherent when we go to make
+this massive project =)  If you are familiar with
+Model-View-Controller (MVC) design pattern, you will see where most of
+my inspiration comes from.
+
+1)  I have reorganized the startup sequence of the application.  I
+still use Nini, but the startup process is much more organized and
+seprated.  OpenViewer should not care where it gets its statup
+configuration values from.  And I have created interfaces to the
+values that openviewer will care about, and get passed to the MAEs.
+
+2) I have understood that OpenViewer may be a not only a single type
+of 3d Cleint, it may be a 2D Client, a Console Client, or even a
+engine to a website.  Thus, I have created the concept of a Metaverse
+Application Engine. Right now there are two MAE's in OpenViewer
+directly based off the work of Chi11ken:
+
+   Client3D  -  a 3d client to a metverse which right now only uses
+mogre-based rendering modules and a little winforms (which we should
+probably remove for crossplatformability)
+
+   ConsoleClient - a simple console based client which needs some
+work, but will likely be the easiest part of this project to progress
+on, and get immediate results =)
+
+
+3) I have begun a module architecture for Client3D.  I imagine that
+Client3D will be made up of a number of modules that make the
+application.  Rendering Modules, Sound Modules, Input Modules , and
+maybe even other types as Tool Modules, Interface Modules, Statistics
+Modules.  (Who knows).  Anyhow, I have started with the one I know for
+sure, a Rendering Module, and will be attempting to build it up first.
+
+4) Following this module system,  I am now working on the first
+Rendering Module derived from Chi11ken's mogre work.  I am trying to
+turn it into a solid graphics engine in the way that mogre was
+intended to work.  It should be concerned only with high level
+graphics concepts &quot;Draw this bitmap there&quot;, &quot;Render this 3d object
+here&quot;, &quot;Move the camera this direction&quot;.
+
+
+
+
+Lastly,  There are some other matters which I believe we should change.
+
+-  Prebuild is woefully out of date.   We should use a binary only
+copy from open sim.
+-  There is a newer version of Mogre libraries than the one currently
+in Bin.  They include a crossplatform input library ( mouse, keyboard,
+joystick ).  I am going to attempt to use this in my new rendering
+module, &quot;Aether&quot;.
+ -  We should discuss the math library sometime, and how we would like
+to unify with opensim so maybe we can use the same code
+-  I would like to begin work on prim visualization as soon as
+possible, there is a project called FractelSpline which I will be
+looking into =)
+
+That is all! Thanks and enjoy the code, tell me what you all think,
+
+- Daedius
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: OpenViewer bin updates.zzip
+Type: application/octet-stream
+Size: 369 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080215/35314cf0/attachment.obj">https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080215/35314cf0/attachment.obj</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: OpenViewerSource.zzip
+Type: application/octet-stream
+Size: 119006 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080215/35314cf0/attachment-0001.obj">https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080215/35314cf0/attachment-0001.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000001.html">[Openviewer-dev] Architecture Changes + Mogre Improvements + Sleek	Client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

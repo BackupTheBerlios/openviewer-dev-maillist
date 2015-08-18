@@ -1,0 +1,1853 @@
+From daedius at daedius.com  Sat Feb 16 05:39:28 2008
+From: daedius at daedius.com (Richard Anaya)
+Date: Fri, 15 Feb 2008 22:39:28 -0600
+Subject: [Openviewer-dev] Massive OpenViewer Architecture Changes
+In-Reply-To: <351467290802152008j4e993116u5e6db7042d444ca3@mail.gmail.com>
+References: <351467290802152008j4e993116u5e6db7042d444ca3@mail.gmail.com>
+Message-ID: <351467290802152039r41849e6bo49507a2a350bcc9d@mail.gmail.com>
+
+I would like do address a variety of architecture changes here i this
+email.  I have been working on this reconstruction for about a week in
+the hopes of making a flexible architecture for openviewer to help us
+all stay sane and happy as we progress in this project =)
+
+First some definitions I will use:
+Metaverse Application Engine (MAE) - A group of assemblies that are in
+responsible for running an entire type of metaverse application.  The
+3D Client is a perfect example of an MAE.  3D Client is entirely in
+charge of deciding which modules it will combine to put together the
+user experience for the player.  Another example of  an MAE include
+Console Client, which puts together all the components needed for a
+console interaction with a metaverse.  Other examples may include a
+Web Service MAE,  or a 2D MAE.   These are the most high level blocks
+of operation in OpenViewer.
+
+Modules -  Modules are the blocks that are put together or used by
+MAE's to provide functionality to the user in some manner.  An example
+of this might be a Rendering Module (opengl, directx, or mogre).  When
+the 3D Client is chosen as the MAE for openviewer, a rendering module
+will be chosen either by configuration or user selection.  Other
+modules might include sound modules, or even more application specific
+modules such as tools or logging that a user may want to add, swap
+out, or remove.
+
+Mogre - Mogre is a cross platform 3d graphics engine.  It is also
+graphics technology independent.
+
+Second:  Here are how to look at the code changes I have made
+
+0) download the files and change the extensions from .zzip to .zip (evil gmail)
+ 1) Get the latest svn of openviewer
+2) extract the contents of "OpenViewer bin updates.zip" to the bin directory
+3) Delete the "OpenViewer" directory in the base directory
+4) Extract "OpenViewerSource.zip" to the base directory
+ 5) Run prebuild ( note, I have added the runprebuild2008.bat )
+6) Open the solution
+
+Summary,
+I have reorganized the architecture in 4 levels.  My primary goal has
+been to make things more meaningfully seperated and organized so that
+code can be more reusable, flexible, and coherent when we go to make
+this massive project =)  If you are familiar with
+Model-View-Controller (MVC) design pattern, you will see where most of
+my inspiration comes from.
+
+1)  I have reorganized the startup sequence of the application.  I
+still use Nini, but the startup process is much more organized and
+seprated.  OpenViewer should not care where it gets its statup
+configuration values from.  And I have created interfaces to the
+values that openviewer will care about, and get passed to the MAEs.
+
+2) I have understood that OpenViewer may be a not only a single type
+of 3d Cleint, it may be a 2D Client, a Console Client, or even a
+engine to a website.  Thus, I have created the concept of a Metaverse
+Application Engine. Right now there are two MAE's in OpenViewer
+directly based off the work of Chi11ken:
+
+   Client3D  -  a 3d client to a metverse which right now only uses
+mogre-based rendering modules and a little winforms (which we should
+probably remove for crossplatformability)
+
+   ConsoleClient - a simple console based client which needs some
+work, but will likely be the easiest part of this project to progress
+on, and get immediate results =)
+
+
+3) I have begun a module architecture for Client3D.  I imagine that
+Client3D will be made up of a number of modules that make the
+application.  Rendering Modules, Sound Modules, Input Modules , and
+maybe even other types as Tool Modules, Interface Modules, Statistics
+Modules.  (Who knows).  Anyhow, I have started with the one I know for
+sure, a Rendering Module, and will be attempting to build it up first.
+
+4) Following this module system,  I am now working on the first
+Rendering Module derived from Chi11ken's mogre work.  I am trying to
+turn it into a solid graphics engine in the way that mogre was
+intended to work.  It should be concerned only with high level
+graphics concepts "Draw this bitmap there", "Render this 3d object
+here", "Move the camera this direction".
+
+
+
+
+Lastly,  There are some other matters which I believe we should change.
+
+-  Prebuild is woefully out of date.   We should use a binary only
+copy from open sim.
+-  There is a newer version of Mogre libraries than the one currently
+in Bin.  They include a crossplatform input library ( mouse, keyboard,
+joystick ).  I am going to attempt to use this in my new rendering
+module, "Aether".
+ -  We should discuss the math library sometime, and how we would like
+to unify with opensim so maybe we can use the same code
+-  I would like to begin work on prim visualization as soon as
+possible, there is a project called FractelSpline which I will be
+looking into =)
+
+That is all! Thanks and enjoy the code, tell me what you all think,
+
+- Daedius
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: OpenViewer bin updates.zzip
+Type: application/octet-stream
+Size: 369 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080215/35314cf0/attachment.obj>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: OpenViewerSource.zzip
+Type: application/octet-stream
+Size: 119006 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080215/35314cf0/attachment-0001.obj>
+
+From daedius at daedius.com  Sun Feb 17 17:41:15 2008
+From: daedius at daedius.com (Daedius)
+Date: Sun, 17 Feb 2008 10:41:15 -0600
+Subject: [Openviewer-dev] Architecture Changes + Mogre Improvements + Sleek
+	Client
+In-Reply-To: <351467290802162337s17557826k722cc630e8ae9b9a@mail.gmail.com>
+References: <351467290802162337s17557826k722cc630e8ae9b9a@mail.gmail.com>
+Message-ID: <351467290802170841p583da6bak267326f7255a51b2@mail.gmail.com>
+
+I realize my architecture changes are huge.  Nevertheless, I am
+progressing,  I have a number of features i've worked on today, and
+updated my architecture to be fully compatible up to r92
+
+Here is the list of changes
+
+- Added support for the new GUI code through the OriginalClient MAE
+- Client3D through use of the Aether rendering module now uses 100%
+MOGRE only code ( no System.Windows.Forms anywhere )
+- Aether now has support for rendering text onto the screen
+- Aether now has support of MOIS for keyboard input
+- A new Metaverse Application Engine (MAE) has been integrated into
+OpenViewer, the Sleek client, a very capable winforms client thats
+been in the community for awhile.
+I resurrected this project
+
+Here are the steps to getting this code up and running
+
+0) get r92 version of openviewer
+1) download http://www.twistedprim.com/UpdatedBinariesForLatestMogre.zip
+and put UpdatedBinariesForLatestMogre.zip in base directory
+( these binaries include the latest Mogre binaries and a release
+compiled version of libsecondlife r1643 )
+2) Put http://www.twistedprim.com/Source.zip  Source.zip in base directory
+3) Delete everything in your bin directory except for media
+4) Delete the OpenViewer directory in your base directory
+5) unzip Source.zip to the base directory
+6) unzip  UpdatedBinariesForLatestMogre.zip into your base directory
+7) run prebuild
+
+My hope is that with the including of Sleek client as an MAE, we can
+learn a lot more about how it does its networking underneath for our
+other MAEs.  It was an outstanding application to begin with.  Now
+lets take our project to the next level with it!  Thanks
+
+- Daedius
+
+
+From daedius at daedius.com  Fri Feb 22 17:20:39 2008
+From: daedius at daedius.com (Daedius)
+Date: Fri, 22 Feb 2008 10:20:39 -0600
+Subject: [Openviewer-dev] Sleek UI Plugin
+Message-ID: <351467290802220820v278163e6h3b70c3632c86f3c6@mail.gmail.com>
+
+I have combined only the Sleek UI Plugin into a patch file for people
+to try out and review =)  Enjoy!
+
+0) download http://www.twistedprim.com/SleekUIPlugin.zip
+1) Move libsecondlife.dll binary to bin (this is just the release
+version of the latest libsl)
+2) Unzip SleekSrc.zip into base directory of openviewer
+3) Apply patch
+4) Run prebuild
+5) Compile
+6) Set your "ui_manager" to "SLeek" in your OpenViewer.ini
+7) Run and enjoy Sleek!
+
+Have a great weekend!
+- Daedius
+
+
+From daedius at daedius.com  Fri Feb 22 17:36:45 2008
+From: daedius at daedius.com (Daedius)
+Date: Fri, 22 Feb 2008 10:36:45 -0600
+Subject: [Openviewer-dev] Lets Discuss OgreDotNet
+Message-ID: <351467290802220836w5f4a0482ybf4cb83c322f8303@mail.gmail.com>
+
+I was talking with Adam today on IRC.  The topic of OgreDotNet came
+up.  I wanted to start discussing OgreDotNet as a viable options for
+OpenViewer.  I don't know who is currently investigating the project
+but here are some questions on my mind that I would like to know:
+
+- Why did the project die?
+- Is the swig wrapper realistically maintainable?
+- Is the swig wrapper up to date?
+- Will the swig wrapper be able to wrap the new OIS input?
+- Is anyone familiar with the Ogre3D codebase?
+- How can we leverage some of the existing minds over in the ogre
+forums to help us with this task
+
+Daedius
+
+
+From daedius at daedius.com  Fri Feb 22 18:23:07 2008
+From: daedius at daedius.com (Daedius)
+Date: Fri, 22 Feb 2008 11:23:07 -0600
+Subject: [Openviewer-dev] Do we need GTK-Sharp UI?
+Message-ID: <351467290802220923y7abebc2cpbcf99034987c39c1@mail.gmail.com>
+
+We currently have the beginnings of a simple winforms UI, and on the
+mailing list there is currently the Sleek UI.  I would like to put
+forth the proposal that if we do continue forward with a forms based
+client, that we make it in GTK sharp.  Here are my ideas for why this
+is justified:
+
+- winforms is currently unstable across platforms ( particularly on OSX)
+- GTK is in much better shape for crossplatform support (including OSX
+in 1.2.6_6)
+- Winforms has a limited life,  with the release of .net 3.5, winforms
+is basically over in favor of WPF.  Gtk however, will continue to
+improve, and be supported via the mono project.
+
+My proposal is that we port sleek over to a GTK-Sharp UI.  What are
+people's thoughts?
+
+
+From daedius at daedius.com  Fri Feb 22 21:15:53 2008
+From: daedius at daedius.com (Daedius)
+Date: Fri, 22 Feb 2008 14:15:53 -0600
+Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+Message-ID: <351467290802221215x603cc7a5yc80b35624b03f3e1@mail.gmail.com>
+
+How do we want to distribute openviewer to the public?  I feel this
+should be a pretty important question.  We are much more graphical
+than opensim ever is, and more people will be caring about OpenViewer
+to be easy to install and get into.  Given our crossplatform goals, we
+have to consider how we can make it easy for anyone to install
+openviewer and run it.  Several questions are in my mind:
+
+- Who has experience with installers?
+- What installers will we have for each platform?
+- What will the process be like? And how will we get the user to a ui
+interface that they can use on their operating system?
+
+On my mind to these questions:
+
+It would be nice to have these:
+
+OSX: .dmg file with a drag icon over to applications,  i'd like to
+avoid doing a full blown out installer on OSX, but i'm not sure if its
+possible
+Linux: Packages for ubuntu and gentoo
+Windows: Nullsoft installer
+
+What I think we may need is the ability to have a crossplatform ui
+chooser.  Not all ui plugins may be available for everyone. Maybe
+programmed in gtk.
+
+Daedius
+
+
+From daedius at daedius.com  Fri Feb 22 21:17:15 2008
+From: daedius at daedius.com (Daedius)
+Date: Fri, 22 Feb 2008 14:17:15 -0600
+Subject: [Openviewer-dev] Domain Name Problems
+Message-ID: <351467290802221217s50cc8a6dj824f477a2fd7fbdf@mail.gmail.com>
+
+Will someone talk to the appropriate person on the opensim side who
+owns our domain name.  http://www.openviewer.org is going to the
+OpenSim site.
+
+- Daedius
+
+
+From johan at 3di.jp  Sat Feb 23 02:05:42 2008
+From: johan at 3di.jp (Berntsson johan)
+Date: Sat, 23 Feb 2008 10:05:42 +0900 (JST)
+Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+In-Reply-To: <351467290802221215x603cc7a5yc80b35624b03f3e1@mail.gmail.com>
+Message-ID: <1991230503.4507551203728742294.JavaMail.root@berkeley.lan>
+
+I added the WinForms skeleton, after checking that WinForms seems to be reasonably well supported in Mono on both Linux and recent versions of OSX. My reasoning was that it really isn't that bad to work with (skinning and alpha blending are supported), well known, and won't require any additional installation. I find it hard to believe that WinForms is going to die any time soon considering the huge amount of software that has been developed with it. However, WinForms is by no means perfect and the idea is that we should be able to swap UI modules easily. I think we should stick with one concept until the platform is a bit stable, but after that people can add their own Gtk, Qt, wxWidgets or whatever module. One thing to keep in mind is the licensing issue. We can use technology that is BSD-license compatible.
+
+Anyway, it is early days and if there are good reasons to go with Gtk I'm not opposed to a swap. However, wouldn't this means a more complicated installation process since we cannot assume that GTK will work out of the box on most platforms? How good are the c#-gtk bindings? Are the XML configuration tools supported, so that the UI can easily be customized?
+
+I guess my main argument for keeping WinForms is that it is well known for c# developers, has no issues with API-bindings, and is available across all major platforms without complicated installation procedures. What is the main arguments for a swap to Gtk?
+
+Johan
+
+----- Original Message -----
+From: "Daedius" <daedius at daedius.com>
+To: openviewer-dev at lists.berlios.de
+Sent: 23 February 2008 05:15:53 o'clock (GMT+0900) Asia/Tokyo
+Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+
+How do we want to distribute openviewer to the public?  I feel this
+should be a pretty important question.  We are much more graphical
+than opensim ever is, and more people will be caring about OpenViewer
+to be easy to install and get into.  Given our crossplatform goals, we
+have to consider how we can make it easy for anyone to install
+openviewer and run it.  Several questions are in my mind:
+
+- Who has experience with installers?
+- What installers will we have for each platform?
+- What will the process be like? And how will we get the user to a ui
+interface that they can use on their operating system?
+
+On my mind to these questions:
+
+It would be nice to have these:
+
+OSX: .dmg file with a drag icon over to applications,  i'd like to
+avoid doing a full blown out installer on OSX, but i'm not sure if its
+possible
+Linux: Packages for ubuntu and gentoo
+Windows: Nullsoft installer
+
+What I think we may need is the ability to have a crossplatform ui
+chooser.  Not all ui plugins may be available for everyone. Maybe
+programmed in gtk.
+
+Daedius
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+
+From daedius at daedius.com  Sat Feb 23 04:12:29 2008
+From: daedius at daedius.com (Daedius)
+Date: Fri, 22 Feb 2008 21:12:29 -0600
+Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+In-Reply-To: <1991230503.4507551203728742294.JavaMail.root@berkeley.lan>
+References: <351467290802221215x603cc7a5yc80b35624b03f3e1@mail.gmail.com>
+	<1991230503.4507551203728742294.JavaMail.root@berkeley.lan>
+Message-ID: <351467290802221912h11c422ub7d1427c5ef063fa@mail.gmail.com>
+
+Hey there Johan,
+
+You bring up some good points.  Winforms is a popular technology, but
+I have some specific doubts:
+- Yes, winforms is popular, but as it stands winforms is never going
+to change.  It is replaced by wpf and it will never be improved upon
+from its existing state.
+- I have not seen any winforms designers for Monodevelop, so creating
+winforms applications on Linux and OSX for those people would be very
+difficult.  I worry about visual studio developers using winforms the
+way Visual Studio wants, and making it incompatible for developers who
+use monodevelop or commandline.
+- Winforms also does not have a theme which integrates well into other
+operating systems.
+- Lastly i checked on winforms support,  it was not supported in any
+seriousness at all on OSX  (GUI architecture was just too different
+perhaps?).  I only saw Cocoa# bindings.  I have, however, seen in
+recent mono builds in which Gtk+ is flourishing though.  I just ran
+Monodevelop on OSX recently and was very impressed.
+
+Secondly, I wonder exactly how we intend to use winforms.  If we ever
+get into embedding opengl into winforms, this may not be well
+understood in a crossplatform environment as much as opengl emeded
+into Gtk (which is well understood because it is open source).  I
+worry we may use Winforms in a way that makes us incompatible with
+other platforms very quickly, and not know it.
+
+Lastly, I'm not entirely sure I agree with you about the only
+supporting one platform until things are stable.  We may not be stable
+for a long time.  I would hate to leave Linux and OSX out in the cold
+till then ( and in fact, there may be developers on these operating
+systems who we could greatly benefit from their involvement).  Without
+a cross platform focus from the beginning, we risk the same problem
+countless other projects failed with in that you eventually make
+something that can never be ported.
+
+Also bear in mind, the answer might not be Winforms or GTK+.  An
+entirely Mogre or entirely Ogredotnet solution  ( where we let already
+crossplatformed projects do our UI ) might be a good route.  There no
+reason why we can't be showing buttons and text inside of opengl.
+
+Daedius
+
+On 2/22/08, Berntsson johan <johan at 3di.jp> wrote:
+> I added the WinForms skeleton, after checking that WinForms seems to be reasonably well supported in Mono on both Linux and recent versions of OSX. My reasoning was that it really isn't that bad to work with (skinning and alpha blending are supported), well known, and won't require any additional installation. I find it hard to believe that WinForms is going to die any time soon considering the huge amount of software that has been developed with it. However, WinForms is by no means perfect and the idea is that we should be able to swap UI modules easily. I think we should stick with one concept until the platform is a bit stable, but after that people can add their own Gtk, Qt, wxWidgets or whatever module. One thing to keep in mind is the licensing issue. We can use technology that is BSD-license compatible.
+>
+>  Anyway, it is early days and if there are good reasons to go with Gtk I'm not opposed to a swap. However, wouldn't this means a more complicated installation process since we cannot assume that GTK will work out of the box on most platforms? How good are the c#-gtk bindings? Are the XML configuration tools supported, so that the UI can easily be customized?
+>
+>  I guess my main argument for keeping WinForms is that it is well known for c# developers, has no issues with API-bindings, and is available across all major platforms without complicated installation procedures. What is the main arguments for a swap to Gtk?
+>
+>  Johan
+>
+>
+>  ----- Original Message -----
+>  From: "Daedius" <daedius at daedius.com>
+>  To: openviewer-dev at lists.berlios.de
+>  Sent: 23 February 2008 05:15:53 o'clock (GMT+0900) Asia/Tokyo
+>  Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+>
+>  How do we want to distribute openviewer to the public?  I feel this
+>  should be a pretty important question.  We are much more graphical
+>  than opensim ever is, and more people will be caring about OpenViewer
+>  to be easy to install and get into.  Given our crossplatform goals, we
+>  have to consider how we can make it easy for anyone to install
+>  openviewer and run it.  Several questions are in my mind:
+>
+>  - Who has experience with installers?
+>  - What installers will we have for each platform?
+>  - What will the process be like? And how will we get the user to a ui
+>  interface that they can use on their operating system?
+>
+>  On my mind to these questions:
+>
+>  It would be nice to have these:
+>
+>  OSX: .dmg file with a drag icon over to applications,  i'd like to
+>  avoid doing a full blown out installer on OSX, but i'm not sure if its
+>  possible
+>  Linux: Packages for ubuntu and gentoo
+>  Windows: Nullsoft installer
+>
+>  What I think we may need is the ability to have a crossplatform ui
+>  chooser.  Not all ui plugins may be available for everyone. Maybe
+>  programmed in gtk.
+>
+>  Daedius
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+
+
+From daedius at daedius.com  Sat Feb 23 08:18:24 2008
+From: daedius at daedius.com (Daedius)
+Date: Sat, 23 Feb 2008 01:18:24 -0600
+Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+In-Reply-To: <56468c1f0802221927n2eb69506oc977e6ab59033fa6@mail.gmail.com>
+References: <351467290802221215x603cc7a5yc80b35624b03f3e1@mail.gmail.com>
+	<1991230503.4507551203728742294.JavaMail.root@berkeley.lan>
+	<351467290802221912h11c422ub7d1427c5ef063fa@mail.gmail.com>
+	<56468c1f0802221927n2eb69506oc977e6ab59033fa6@mail.gmail.com>
+Message-ID: <351467290802222318q42f1ead1x43a66471f7d0ae93@mail.gmail.com>
+
+Sounds good to me.  That doesn't seem to bode well though for our
+current setup though (winforms login + mogre client).  Do we scrap the
+mogre rendering plugin for now to maintain crossplatformness in a
+winforms only client?  In the meantime till ogredotnet is figured out,
+we could do some other neat things:
+
+-Work on integrating in more changes from SLeek into a winforms view
+that we actually want.
+-Think of how we want our winforms client to be designed to work with
+future rendering plugins.
+-What might also be cool  is use OpenViewer as a proxy between the
+real SecondLife viewer and grids.  I can think of a number of cool
+things that we might be able to accomplish in such a setup.
+
+Any thoughts?
+
+Daedius
+
+On 2/22/08, Adam Johnson <adjohn at gmail.com> wrote:
+> I think Johan meant that we should only support one UI plugin at first, and
+> one rendering engine at first.  I am not afraid of the issue of the winforms
+> getting out of control with multi platform, as we already have devs on
+> linux, windows, and os x.  Someone will know right away if there is a
+> problem.  It also needs to be a rule, that things need to work cross
+> platform at all times. :)  This is one reason why we decided to go the
+> ogredotnet direction, because we would be stuck down the windows only road
+> for a LONG time with mogre.
+>
+> I am also slightly concerned about the process needed to install GTK on
+> Windows and OS X.  As of right now, winforms will be supported out of the
+> box in OS X and most Linux distros.  (OS X previously didn't work because it
+> needed X11, but now it is a standard installed package)
+>
+> Adam
+>
+>
+> On Sat, Feb 23, 2008 at 12:12 PM, Daedius <daedius at daedius.com> wrote:
+> > Hey there Johan,
+> >
+> > You bring up some good points.  Winforms is a popular technology, but
+> > I have some specific doubts:
+> > - Yes, winforms is popular, but as it stands winforms is never going
+> > to change.  It is replaced by wpf and it will never be improved upon
+> > from its existing state.
+> > - I have not seen any winforms designers for Monodevelop, so creating
+> > winforms applications on Linux and OSX for those people would be very
+> > difficult.  I worry about visual studio developers using winforms the
+> > way Visual Studio wants, and making it incompatible for developers who
+> > use monodevelop or commandline.
+> > - Winforms also does not have a theme which integrates well into other
+> > operating systems.
+> > - Lastly i checked on winforms support,  it was not supported in any
+> > seriousness at all on OSX  (GUI architecture was just too different
+> > perhaps?).  I only saw Cocoa# bindings.  I have, however, seen in
+> > recent mono builds in which Gtk+ is flourishing though.  I just ran
+> > Monodevelop on OSX recently and was very impressed.
+> >
+> > Secondly, I wonder exactly how we intend to use winforms.  If we ever
+> > get into embedding opengl into winforms, this may not be well
+> > understood in a crossplatform environment as much as opengl emeded
+> > into Gtk (which is well understood because it is open source).  I
+> > worry we may use Winforms in a way that makes us incompatible with
+> > other platforms very quickly, and not know it.
+> >
+> > Lastly, I'm not entirely sure I agree with you about the only
+> > supporting one platform until things are stable.  We may not be stable
+> > for a long time.  I would hate to leave Linux and OSX out in the cold
+> > till then ( and in fact, there may be developers on these operating
+> > systems who we could greatly benefit from their involvement).  Without
+> > a cross platform focus from the beginning, we risk the same problem
+> > countless other projects failed with in that you eventually make
+> > something that can never be ported.
+> >
+> > Also bear in mind, the answer might not be Winforms or GTK+.  An
+> > entirely Mogre or entirely Ogredotnet solution  ( where we let already
+> > crossplatformed projects do our UI ) might be a good route.  There no
+> > reason why we can't be showing buttons and text inside of opengl.
+> >
+> > Daedius
+> >
+> >
+> >
+> >
+> > On 2/22/08, Berntsson johan <johan at 3di.jp> wrote:
+> > > I added the WinForms skeleton, after checking that WinForms seems to be
+> reasonably well supported in Mono on both Linux and recent versions of OSX.
+> My reasoning was that it really isn't that bad to work with (skinning and
+> alpha blending are supported), well known, and won't require any additional
+> installation. I find it hard to believe that WinForms is going to die any
+> time soon considering the huge amount of software that has been developed
+> with it. However, WinForms is by no means perfect and the idea is that we
+> should be able to swap UI modules easily. I think we should stick with one
+> concept until the platform is a bit stable, but after that people can add
+> their own Gtk, Qt, wxWidgets or whatever module. One thing to keep in mind
+> is the licensing issue. We can use technology that is BSD-license
+> compatible.
+> > >
+> > >  Anyway, it is early days and if there are good reasons to go with Gtk
+> I'm not opposed to a swap. However, wouldn't this means a more complicated
+> installation process since we cannot assume that GTK will work out of the
+> box on most platforms? How good are the c#-gtk bindings? Are the XML
+> configuration tools supported, so that the UI can easily be customized?
+> > >
+> > >  I guess my main argument for keeping WinForms is that it is well known
+> for c# developers, has no issues with API-bindings, and is available across
+> all major platforms without complicated installation procedures. What is the
+> main arguments for a swap to Gtk?
+> > >
+> > >  Johan
+> > >
+> > >
+> > >  ----- Original Message -----
+> > >  From: "Daedius" <daedius at daedius.com>
+> > >  To: openviewer-dev at lists.berlios.de
+> > >  Sent: 23 February 2008 05:15:53 o'clock (GMT+0900) Asia/Tokyo
+> > >  Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+> > >
+> > >  How do we want to distribute openviewer to the public?  I feel this
+> > >  should be a pretty important question.  We are much more graphical
+> > >  than opensim ever is, and more people will be caring about OpenViewer
+> > >  to be easy to install and get into.  Given our crossplatform goals, we
+> > >  have to consider how we can make it easy for anyone to install
+> > >  openviewer and run it.  Several questions are in my mind:
+> > >
+> > >  - Who has experience with installers?
+> > >  - What installers will we have for each platform?
+> > >  - What will the process be like? And how will we get the user to a ui
+> > >  interface that they can use on their operating system?
+> > >
+> > >  On my mind to these questions:
+> > >
+> > >  It would be nice to have these:
+> > >
+> > >  OSX: .dmg file with a drag icon over to applications,  i'd like to
+> > >  avoid doing a full blown out installer on OSX, but i'm not sure if its
+> > >  possible
+> > >  Linux: Packages for ubuntu and gentoo
+> > >  Windows: Nullsoft installer
+> > >
+> > >  What I think we may need is the ability to have a crossplatform ui
+> > >  chooser.  Not all ui plugins may be available for everyone. Maybe
+> > >  programmed in gtk.
+> > >
+> > >  Daedius
+> > >
+> > > _______________________________________________
+> > >  Openviewer-dev mailing list
+> > >  Openviewer-dev at lists.berlios.de
+> > >
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> > >
+> > >
+> > >  _______________________________________________
+> > >  Openviewer-dev mailing list
+> > >  Openviewer-dev at lists.berlios.de
+> > >
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> > >
+> > _______________________________________________
+> > Openviewer-dev mailing list
+> > Openviewer-dev at lists.berlios.de
+> >
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> >
+>
+>
+
+
+From daedius at daedius.com  Sat Feb 23 08:27:20 2008
+From: daedius at daedius.com (Daedius)
+Date: Sat, 23 Feb 2008 01:27:20 -0600
+Subject: [Openviewer-dev] Axiom: Another Possible 3D Engine
+Message-ID: <351467290802222327l33fbbc13ve336846f5cc5c131@mail.gmail.com>
+
+Ogre3d based and looks like it has support toward crossplatform
+
+http://axiomengine.sourceforge.net/wiki/index.php/Axiom_Features
+
+
+From stefan at tribalmedia.se  Sat Feb 23 08:43:13 2008
+From: stefan at tribalmedia.se (Stefan Andersson)
+Date: Sat, 23 Feb 2008 08:43:13 +0100
+Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+In-Reply-To: <351467290802222318q42f1ead1x43a66471f7d0ae93@mail.gmail.com>
+References: <351467290802221215x603cc7a5yc80b35624b03f3e1@mail.gmail.com>
+	<1991230503.4507551203728742294.JavaMail.root@berkeley.lan>
+	<351467290802221912h11c422ub7d1427c5ef063fa@mail.gmail.com>
+	<56468c1f0802221927n2eb69506oc977e6ab59033fa6@mail.gmail.com> 
+	<351467290802222318q42f1ead1x43a66471f7d0ae93@mail.gmail.com>
+Message-ID: <BLU134-W15922EDBDC793667027274D51E0@phx.gbl>
+
+I was under the impression that we were aiming for a MVC type architecture with pluggable UI/Renderes and pluggable communications stacks?
+ 
+ie, a client framework with applications that consist of assembling a custom viewer?
+ 
+Best,
+/Stefan
+
+
+
+> Date: Sat, 23 Feb 2008 01:18:24 -0600> From: daedius at daedius.com> To: adjohn at gmail.com> CC: openviewer-dev at lists.berlios.de> Subject: Re: [Openviewer-dev] On Installation Packaging and UI Selection> > Sounds good to me. That doesn't seem to bode well though for our> current setup though (winforms login + mogre client). Do we scrap the> mogre rendering plugin for now to maintain crossplatformness in a> winforms only client? In the meantime till ogredotnet is figured out,> we could do some other neat things:> > -Work on integrating in more changes from SLeek into a winforms view> that we actually want.> -Think of how we want our winforms client to be designed to work with> future rendering plugins.> -What might also be cool is use OpenViewer as a proxy between the> real SecondLife viewer and grids. I can think of a number of cool> things that we might be able to accomplish in such a setup.> > Any thoughts?> > Daedius> > On 2/22/08, Adam Johnson <adjohn at gmail.com> wrote:> > I think Johan meant that we should only support one UI plugin at first, and> > one rendering engine at first. I am not afraid of the issue of the winforms> > getting out of control with multi platform, as we already have devs on> > linux, windows, and os x. Someone will know right away if there is a> > problem. It also needs to be a rule, that things need to work cross> > platform at all times. :) This is one reason why we decided to go the> > ogredotnet direction, because we would be stuck down the windows only road> > for a LONG time with mogre.> >> > I am also slightly concerned about the process needed to install GTK on> > Windows and OS X. As of right now, winforms will be supported out of the> > box in OS X and most Linux distros. (OS X previously didn't work because it> > needed X11, but now it is a standard installed package)> >> > Adam> >> >> > On Sat, Feb 23, 2008 at 12:12 PM, Daedius <daedius at daedius.com> wrote:> > > Hey there Johan,> > >> > > You bring up some good points. Winforms is a popular technology, but> > > I have some specific doubts:> > > - Yes, winforms is popular, but as it stands winforms is never going> > > to change. It is replaced by wpf and it will never be improved upon> > > from its existing state.> > > - I have not seen any winforms designers for Monodevelop, so creating> > > winforms applications on Linux and OSX for those people would be very> > > difficult. I worry about visual studio developers using winforms the> > > way Visual Studio wants, and making it incompatible for developers who> > > use monodevelop or commandline.> > > - Winforms also does not have a theme which integrates well into other> > > operating systems.> > > - Lastly i checked on winforms support, it was not supported in any> > > seriousness at all on OSX (GUI architecture was just too different> > > perhaps?). I only saw Cocoa# bindings. I have, however, seen in> > > recent mono builds in which Gtk+ is flourishing though. I just ran> > > Monodevelop on OSX recently and was very impressed.> > >> > > Secondly, I wonder exactly how we intend to use winforms. If we ever> > > get into embedding opengl into winforms, this may not be well> > > understood in a crossplatform environment as much as opengl emeded> > > into Gtk (which is well understood because it is open source). I> > > worry we may use Winforms in a way that makes us incompatible with> > > other platforms very quickly, and not know it.> > >> > > Lastly, I'm not entirely sure I agree with you about the only> > > supporting one platform until things are stable. We may not be stable> > > for a long time. I would hate to leave Linux and OSX out in the cold> > > till then ( and in fact, there may be developers on these operating> > > systems who we could greatly benefit from their involvement). Without> > > a cross platform focus from the beginning, we risk the same problem> > > countless other projects failed with in that you eventually make> > > something that can never be ported.> > >> > > Also bear in mind, the answer might not be Winforms or GTK+. An> > > entirely Mogre or entirely Ogredotnet solution ( where we let already> > > crossplatformed projects do our UI ) might be a good route. There no> > > reason why we can't be showing buttons and text inside of opengl.> > >> > > Daedius> > >> > >> > >> > >> > > On 2/22/08, Berntsson johan <johan at 3di.jp> wrote:> > > > I added the WinForms skeleton, after checking that WinForms seems to be> > reasonably well supported in Mono on both Linux and recent versions of OSX.> > My reasoning was that it really isn't that bad to work with (skinning and> > alpha blending are supported), well known, and won't require any additional> > installation. I find it hard to believe that WinForms is going to die any> > time soon considering the huge amount of software that has been developed> > with it. However, WinForms is by no means perfect and the idea is that we> > should be able to swap UI modules easily. I think we should stick with one> > concept until the platform is a bit stable, but after that people can add> > their own Gtk, Qt, wxWidgets or whatever module. One thing to keep in mind> > is the licensing issue. We can use technology that is BSD-license> > compatible.> > > >> > > > Anyway, it is early days and if there are good reasons to go with Gtk> > I'm not opposed to a swap. However, wouldn't this means a more complicated> > installation process since we cannot assume that GTK will work out of the> > box on most platforms? How good are the c#-gtk bindings? Are the XML> > configuration tools supported, so that the UI can easily be customized?> > > >> > > > I guess my main argument for keeping WinForms is that it is well known> > for c# developers, has no issues with API-bindings, and is available across> > all major platforms without complicated installation procedures. What is the> > main arguments for a swap to Gtk?> > > >> > > > Johan> > > >> > > >> > > > ----- Original Message -----> > > > From: "Daedius" <daedius at daedius.com>> > > > To: openviewer-dev at lists.berlios.de> > > > Sent: 23 February 2008 05:15:53 o'clock (GMT+0900) Asia/Tokyo> > > > Subject: [Openviewer-dev] On Installation Packaging and UI Selection> > > >> > > > How do we want to distribute openviewer to the public? I feel this> > > > should be a pretty important question. We are much more graphical> > > > than opensim ever is, and more people will be caring about OpenViewer> > > > to be easy to install and get into. Given our crossplatform goals, we> > > > have to consider how we can make it easy for anyone to install> > > > openviewer and run it. Several questions are in my mind:> > > >> > > > - Who has experience with installers?> > > > - What installers will we have for each platform?> > > > - What will the process be like? And how will we get the user to a ui> > > > interface that they can use on their operating system?> > > >> > > > On my mind to these questions:> > > >> > > > It would be nice to have these:> > > >> > > > OSX: .dmg file with a drag icon over to applications, i'd like to> > > > avoid doing a full blown out installer on OSX, but i'm not sure if its> > > > possible> > > > Linux: Packages for ubuntu and gentoo> > > > Windows: Nullsoft installer> > > >> > > > What I think we may need is the ability to have a crossplatform ui> > > > chooser. Not all ui plugins may be available for everyone. Maybe> > > > programmed in gtk.> > > >> > > > Daedius> > > >> > > > _______________________________________________> > > > Openviewer-dev mailing list> > > > Openviewer-dev at lists.berlios.de> > > >> > https://lists.berlios.de/mailman/listinfo/openviewer-dev> > > >> > > >> > > > _______________________________________________> > > > Openviewer-dev mailing list> > > > Openviewer-dev at lists.berlios.de> > > >> > https://lists.berlios.de/mailman/listinfo/openviewer-dev> > > >> > > _______________________________________________> > > Openviewer-dev mailing list> > > Openviewer-dev at lists.berlios.de> > >> > https://lists.berlios.de/mailman/listinfo/openviewer-dev> > >> >> >> _______________________________________________> Openviewer-dev mailing list> Openviewer-dev at lists.berlios.de> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080223/56c3b19a/attachment.html>
+
+From daedius at daedius.com  Sat Feb 23 09:06:33 2008
+From: daedius at daedius.com (Daedius)
+Date: Sat, 23 Feb 2008 02:06:33 -0600
+Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+In-Reply-To: <BLU134-W15922EDBDC793667027274D51E0@phx.gbl>
+References: <351467290802221215x603cc7a5yc80b35624b03f3e1@mail.gmail.com>
+	<1991230503.4507551203728742294.JavaMail.root@berkeley.lan>
+	<351467290802221912h11c422ub7d1427c5ef063fa@mail.gmail.com>
+	<56468c1f0802221927n2eb69506oc977e6ab59033fa6@mail.gmail.com>
+	<351467290802222318q42f1ead1x43a66471f7d0ae93@mail.gmail.com>
+	<BLU134-W15922EDBDC793667027274D51E0@phx.gbl>
+Message-ID: <351467290802230006m3fd70438laa89815d0717d3fd@mail.gmail.com>
+
+I  believe this is still true.  But I think in general, we are going
+to try to stay focused on one client and one model.  Even if we
+created an MVC framework,  things might be changing so quickly for new
+models or new UIs to really feel stable.
+
+Daedius
+
+On 2/23/08, Stefan Andersson <stefan at tribalmedia.se> wrote:
+>
+> I was under the impression that we were aiming for a MVC type architecture
+> with pluggable UI/Renderes and pluggable communications stacks?
+>
+>  ie, a client framework with applications that consist of assembling a
+> custom viewer?
+>
+>  Best,
+>  /Stefan
+>
+>
+>  ________________________________
+>
+>  > Date: Sat, 23 Feb 2008 01:18:24 -0600
+> > From: daedius at daedius.com
+> > To: adjohn at gmail.com
+> > CC: openviewer-dev at lists.berlios.de
+> > Subject: Re: [Openviewer-dev] On Installation Packaging and UI Selection
+>
+> >
+> > Sounds good to me. That doesn't seem to bode well though for our
+> > current setup though (winforms login + mogre client). Do we scrap the
+> > mogre rendering plugin for now to maintain crossplatformness in a
+> > winforms only client? In the meantime till ogredotnet is figured out,
+> > we could do some other neat things:
+> >
+> > -Work on integrating in more changes from SLeek into a winforms view
+> > that we actually want.
+> > -Think of how we want our winforms client to be designed to work with
+> > future rendering plugins.
+> > -What might also be cool is use OpenViewer as a proxy between the
+> > real SecondLife viewer and grids. I can think of a number of cool
+> > things that we might be able to accomplish in such a setup.
+> >
+> > Any thoughts?
+> >
+> > Daedius
+> >
+> > On 2/22/08, Adam Johnson <adjohn at gmail.com> wrote:
+> > > I think Johan meant that we should only support one UI plugin at first,
+> and
+> > > one rendering engine at first. I am not afraid of the issue of the
+> winforms
+> > > getting out of control with multi platform, as we already have devs on
+> > > linux, windows, and os x. Someone will know right away if there is a
+> > > problem. It also needs to be a rule, that things need to work cross
+> > > platform at all times. :) This is one reason why we decided to go the
+> > > ogredotnet direction, because we would be stuck down the windows only
+> road
+> > > for a LONG time with mogre.
+> > >
+> > > I am also slightly concerned about the process needed to install GTK on
+> > > Windows and OS X. As of right now, winforms will be supported out of the
+> > > box in OS X and most Linux distros. (OS X previously didn't work because
+> it
+> > > needed X11, but now it is a standard installed package)
+> > >
+> > > Adam
+> > >
+> > >
+> > > On Sat, Feb 23, 2008 at 12:12 PM, Daedius <daedius at daedius.com> wrote:
+> > > > Hey there Johan,
+> > > >
+> > > > You bring up some good points. Winforms is a popular technology, but
+> > > > I have some specific doubts:
+> > > > - Yes, winforms is popular, but as it stands winforms is never going
+> > > > to change. It is replaced by wpf and it will never be improved upon
+> > > > from its existing state.
+> > > > - I have not seen any winforms designers for Monodevelop, so creating
+> > > > winforms applications on Linux and OSX for those people would be very
+> > > > difficult. I worry about visual studio developers using winforms the
+> > > > way Visual Studio wants, and making it incompatible for developers who
+> > > > use monodevelop or commandline.
+> > > > - Winforms also does not have a theme which integrates well into other
+> > > > operating systems.
+> > > > - Lastly i checked on winforms support, it was not supported in any
+> > > > seriousness at all on OSX (GUI architecture was just too different
+> > > > perhaps?). I only saw Cocoa# bindings. I have, however, seen in
+> > > > recent mono builds in which Gtk+ is flourishing though. I just ran
+> > > > Monodevelop on OSX recently and was very impressed.
+> > > >
+> > > > Secondly, I wonder exactly how we intend to use winforms. If we ever
+> > > > get into embedding opengl into winforms, this may not be well
+> > > > understood in a crossplatform environment as much as opengl emeded
+> > > > into Gtk (which is well understood because it is open source). I
+> > > > worry we may use Winforms in a way that makes us incompatible with
+> > > > other platforms very quickly, and not know it.
+> > > >
+> > > > Lastly, I'm not entirely sure I agree with you about the only
+> > > > supporting one platform until things are stable. We may not be stable
+> > > > for a long time. I would hate to leave Linux and OSX out in the cold
+> > > > till then ( and in fact, there may be developers on these operating
+> > > > systems who we could greatly benefit from their involvement). Without
+> > > > a cross platform focus from the beginning, we risk the same problem
+> > > > countless other projects failed with in that you eventually make
+> > > > something that can never be ported.
+> > > >
+> > > > Also bear in mind, the answer might not be Winforms or GTK+. An
+> > > > entirely Mogre or entirely Ogredotnet solution ( where we let already
+> > > > crossplatformed projects do our UI ) might be a good route. There no
+> > > > reason why we can't be showing buttons and text inside of opengl.
+> > > >
+> > > > Daedius
+> > > >
+> > > >
+> > > >
+> > > >
+> > > > On 2/22/08, Berntsson johan <johan at 3di.jp> wrote:
+> > > > > I added the WinForms skeleton, after checking that WinForms seems to
+> be
+> > > reasonably well supported in Mono on both Linux and recent versions of
+> OSX.
+> > > My reasoning was that it really isn't that bad to work with (skinning
+> and
+> > > alpha blending are supported), well known, and won't require any
+> additional
+> > > installation. I find it hard to believe that WinForms is going to die
+> any
+> > > time soon considering the huge amount of software that has been
+> developed
+> > > with it. However, WinForms is by no means perfect and the idea is that
+> we
+> > > should be able to swap UI modules easily. I think we should stick with
+> one
+> > > concept until the platform is a bit stable, but after that people can
+> add
+> > > their own Gtk, Qt, wxWidgets or whatever module. One thing to keep in
+> mind
+> > > is the licensing issue. We can use technology that is BSD-license
+> > > compatible.
+> > > > >
+> > > > > Anyway, it is early days and if there are good reasons to go with
+> Gtk
+> > > I'm not opposed to a swap. However, wouldn't this means a more
+> complicated
+> > > installation process since we cannot assume that GTK will work out of
+> the
+> > > box on most platforms? How good are the c#-gtk bindings? Are the XML
+> > > configuration tools supported, so that the UI can easily be customized?
+> > > > >
+> > > > > I guess my main argument for keeping WinForms is that it is well
+> known
+> > > for c# developers, has no issues with API-bindings, and is available
+> across
+> > > all major platforms without complicated installation procedures. What is
+> the
+> > > main arguments for a swap to Gtk?
+> > > > >
+> > > > > Johan
+> > > > >
+> > > > >
+> > > > > ----- Original Message -----
+> > > > > From: "Daedius" <daedius at daedius.com>
+> > > > > To: openviewer-dev at lists.berlios.de
+> > > > > Sent: 23 February 2008 05:15:53 o'clock (GMT+0900) Asia/Tokyo
+> > > > > Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+> > > > >
+> > > > > How do we want to distribute openviewer to the public? I feel this
+> > > > > should be a pretty important question. We are much more graphical
+> > > > > than opensim ever is, and more people will be caring about
+> OpenViewer
+> > > > > to be easy to install and get into. Given our crossplatform goals,
+> we
+> > > > > have to consider how we can make it easy for anyone to install
+> > > > > openviewer and run it. Several questions are in my mind:
+> > > > >
+> > > > > - Who has experience with installers?
+> > > > > - What installers will we have for each platform?
+> > > > > - What will the process be like? And how will we get the user to a
+> ui
+> > > > > interface that they can use on their operating system?
+> > > > >
+> > > > > On my mind to these questions:
+> > > > >
+> > > > > It would be nice to have these:
+> > > > >
+> > > > > OSX: .dmg file with a drag icon over to applications, i'd like to
+> > > > > avoid doing a full blown out installer on OSX, but i'm not sure if
+> its
+> > > > > possible
+> > > > > Linux: Packages for ubuntu and gentoo
+> > > > > Windows: Nullsoft installer
+> > > > >
+> > > > > What I think we may need is the ability to have a crossplatform ui
+> > > > > chooser. Not all ui plugins may be available for everyone. Maybe
+> > > > > programmed in gtk.
+> > > > >
+> > > > > Daedius
+> > > > >
+> > > > > _______________________________________________
+> > > > > Openviewer-dev mailing list
+> > > > > Openviewer-dev at lists.berlios.de
+> > > > >
+> > >
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> > > > >
+> > > > >
+> > > > > _______________________________________________
+> > > > > Openviewer-dev mailing list
+> > > > > Openviewer-dev at lists.berlios.de
+> > > > >
+> > >
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> > > > >
+> > > > _______________________________________________
+> > > > Openviewer-dev mailing list
+> > > > Openviewer-dev at lists.berlios.de
+> > > >
+> > >
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+> > > >
+> > >
+> > >
+> > _______________________________________________
+> > Openviewer-dev mailing list
+> > Openviewer-dev at lists.berlios.de
+> >
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+
+
+From tedd at konge.net  Sun Feb 24 14:09:35 2008
+From: tedd at konge.net (Tedd Hansen)
+Date: Sun, 24 Feb 2008 14:09:35 +0100
+Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+Message-ID: <D34F5C5E193B4144AD333BBBB940A52805279C@exchange1.lan.konge.net>
+
+Hi
+
+The rendering engine will be rendering to a surface. The surface will
+most probably be a Control (in the sense of for example
+System.Windows.Forms.Control), but can be almost anything (and easily
+retargeted). So Winforms would only provide a window for renderer to run
+on. Worst case a few menus is needed, but making or porting a menu
+system isn't exactly rocket science...
+
+In a worst case scenario the application will have buttons, drop-down
+menus, images and maybe even forms (for options and similar).
+
+From tedd at konge.net  Sun Feb 24 14:10:04 2008
+From: tedd at konge.net (Tedd Hansen)
+Date: Sun, 24 Feb 2008 14:10:04 +0100
+Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+Message-ID: <D34F5C5E193B4144AD333BBBB940A52805279D@exchange1.lan.konge.net>
+
+For Windows the best choice of installer for OpenViewer I'd say is
+Nullsofts NSIS. http://nsis.sourceforge.net/Main_Page
+It would be very easy to integrate it with a make-installer-script that
+makes packages for cross platforms.
+
+I have experience with it and it's a very clean "1 text-file to make 1
+.exe-file for install" approach, can be automated and supports all
+features like silent install, uninstall, upgrades, scriptable
+menus/options, etc...
+It has very advanced features if that is required too...
+
+Unless anyone knows of a cross-platform installer then NSIS is probably
+the best choice.
+
+- Tedd
+
+-----Original Message-----
+From: openviewer-dev-bounces at lists.berlios.de
+[mailto:openviewer-dev-bounces at lists.berlios.de] On Behalf Of Daedius
+Sent: 22. februar 2008 21:16
+To: openviewer-dev at lists.berlios.de
+Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+
+How do we want to distribute openviewer to the public?  I feel this
+should be a pretty important question.  We are much more graphical
+than opensim ever is, and more people will be caring about OpenViewer
+to be easy to install and get into.  Given our crossplatform goals, we
+have to consider how we can make it easy for anyone to install
+openviewer and run it.  Several questions are in my mind:
+
+- Who has experience with installers?
+- What installers will we have for each platform?
+- What will the process be like? And how will we get the user to a ui
+interface that they can use on their operating system?
+
+On my mind to these questions:
+
+It would be nice to have these:
+
+OSX: .dmg file with a drag icon over to applications,  i'd like to
+avoid doing a full blown out installer on OSX, but i'm not sure if its
+possible
+Linux: Packages for ubuntu and gentoo
+Windows: Nullsoft installer
+
+What I think we may need is the ability to have a crossplatform ui
+chooser.  Not all ui plugins may be available for everyone. Maybe
+programmed in gtk.
+
+Daedius
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+
+From tedd at konge.net  Sun Feb 24 14:26:51 2008
+From: tedd at konge.net (Tedd Hansen)
+Date: Sun, 24 Feb 2008 14:26:51 +0100
+Subject: [Openviewer-dev] Forms architecture
+Message-ID: <D34F5C5E193B4144AD333BBBB940A52805279E@exchange1.lan.konge.net>
+
+Hi
+
+ 
+
+Don't know how far you've come on the architecture of the Forms-part of
+OpenViewer, but thought I'd share some thoughts. It's an obvious
+approach that may or may not spark some ideas. ;)
+
+ 
+
+In my previous job I made an advertisement application for
+busses/boats/in-store advertisement.
+
+In short, the architecture was:
+
+Startup -> Window manager -> Windows -> Content modules
+
+ 
+
+Startup also started/was helped by other modules that controls content
+(like downloader, content scheduler, etc).
+
+ 
+
+Window manager started external .EXE's and communicated with them.
+(OpenViewer don't need external .EXE's of course)
+
+These window forms were positioned on different display areas (could be
+different monitors or separating top "ad" from bottom news scroll).
+
+Window manager also pinged the window modules to kill and restart any if
+they failed. It also knew what was scheduled and how long it was to run,
+for example an image for 10 sec or video for 30 sec.
+
+ 
+
+The Windows were told (from Scheduler module via Window Manager) what to
+display. It then loaded a .dll, hooked it up to one of its display
+surfaces and told it what to do (for example loading
+myapp.display.plugin.image.dll is told to load image1.jpg).
+
+(It also had preloading etc, but that is not relevant here)
+
+ 
+
+Content modules handled actual display of whatever. (Images, video,
+flash, scrolling text, etc)
+
+ 
+
+ 
+
+Using a similar approach in OpenViewer (with a Window Manager and
+Content Modules) would abstract the Window (WinForms/GTK/whatever) and
+the rendering engine from the application itself.
+
+ 
+
+My app is running 24/7 on 320 busses, a few boats and I don't know how
+many shops - changing content every 5-30 seconds and being monitored
+remotely with screenshots daily -- so it does work at least. :)
+
+ 
+
+- Tedd
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080224/6ad43067/attachment.html>
+
+From johan at ngigroup.com  Mon Feb 25 01:49:56 2008
+From: johan at ngigroup.com (Johan Berntsson)
+Date: Mon, 25 Feb 2008 09:49:56 +0900
+Subject: [Openviewer-dev] Forms architecture
+In-Reply-To: <D34F5C5E193B4144AD333BBBB940A52805279E@exchange1.lan.konge.net>
+References: <D34F5C5E193B4144AD333BBBB940A52805279E@exchange1.lan.konge.net>
+Message-ID: <47C210B4.4030405@ngigroup.com>
+
+It does sounds like a good design for the kind of system you describe.
+
+In our case it is a bit simpler, but one thing we could consider is the 
+hot-swap mechanism you hint at. That is, the main window basically 
+provides a custom widget that the renderer module can draw on, but that 
+we can replace the renderer without restarting the program (by loading 
+another DLL and supplying the widget surface somehow). In this way we 
+could change renderers (realXtend, vanilla SL) and so on from a menu or 
+key selection.
+
+The idea is still to make OpenViewer a framework in which you can add a 
+number of plugins that actually do the work. These modules include UI, 
+Rendering, communication and so on.
+
+Re: design of WinForms. The plan is to support XAML, so that the UI can 
+be customized without rewriting the program. Can Visual Studio's UI 
+designer produce XAML? (I haven't had time to investigate, perhaps 
+someone knows?)
+
+Johan
+
+
+Tedd Hansen wrote:
+> Hi
+> 
+>  
+> 
+> Don't know how far you've come on the architecture of the Forms-part of 
+> OpenViewer, but thought I'd share some thoughts. It's an obvious 
+> approach that may or may not spark some ideas. ;)
+> 
+>  
+> 
+> In my previous job I made an advertisement application for 
+> busses/boats/in-store advertisement.
+> 
+> In short, the architecture was:
+> 
+> Startup -> Window manager -> Windows -> Content modules
+> 
+>  
+> 
+> Startup also started/was helped by other modules that controls content 
+> (like downloader, content scheduler, etc).
+> 
+>  
+> 
+> Window manager started external .EXE's and communicated with them. 
+> (OpenViewer don't need external .EXE's of course)
+> 
+> These window forms were positioned on different display areas (could be 
+> different monitors or separating top "ad" from bottom news scroll).
+> 
+> Window manager also pinged the window modules to kill and restart any if 
+> they failed. It also knew what was scheduled and how long it was to run, 
+> for example an image for 10 sec or video for 30 sec.
+> 
+>  
+> 
+> The Windows were told (from Scheduler module via Window Manager) what to 
+> display. It then loaded a .dll, hooked it up to one of its display 
+> surfaces and told it what to do (for example loading 
+> myapp.display.plugin.image.dll is told to load image1.jpg).
+> 
+> (It also had preloading etc, but that is not relevant here)
+> 
+>  
+> 
+> Content modules handled actual display of whatever. (Images, video, 
+> flash, scrolling text, etc)
+> 
+>  
+> 
+>  
+> 
+> Using a similar approach in OpenViewer (with a Window Manager and 
+> Content Modules) would abstract the Window (WinForms/GTK/whatever) and 
+> the rendering engine from the application itself.
+> 
+>  
+> 
+> My app is running 24/7 on 320 busses, a few boats and I don't know how 
+> many shops - changing content every 5-30 seconds and being monitored 
+> remotely with screenshots daily -- so it does work at least. :)
+> 
+>  
+> 
+> - Tedd
+> 
+> 
+> ------------------------------------------------------------------------
+> 
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+From daedius at daedius.com  Mon Feb 25 04:38:23 2008
+From: daedius at daedius.com (Daedius)
+Date: Sun, 24 Feb 2008 21:38:23 -0600
+Subject: [Openviewer-dev] Forms architecture
+In-Reply-To: <47C210B4.4030405@ngigroup.com>
+References: <D34F5C5E193B4144AD333BBBB940A52805279E@exchange1.lan.konge.net>
+	<47C210B4.4030405@ngigroup.com>
+Message-ID: <351467290802241938p57623936lf6a5fede7c145a6b@mail.gmail.com>
+
+As far as I know, XAML is as far from crossplatform as you can get
+about right now.  Unless you know something I dont?
+
+Daedius
+
+On 2/24/08, Johan Berntsson <johan at ngigroup.com> wrote:
+> It does sounds like a good design for the kind of system you describe.
+>
+>  In our case it is a bit simpler, but one thing we could consider is the
+>  hot-swap mechanism you hint at. That is, the main window basically
+>  provides a custom widget that the renderer module can draw on, but that
+>  we can replace the renderer without restarting the program (by loading
+>  another DLL and supplying the widget surface somehow). In this way we
+>  could change renderers (realXtend, vanilla SL) and so on from a menu or
+>  key selection.
+>
+>  The idea is still to make OpenViewer a framework in which you can add a
+>  number of plugins that actually do the work. These modules include UI,
+>  Rendering, communication and so on.
+>
+>  Re: design of WinForms. The plan is to support XAML, so that the UI can
+>  be customized without rewriting the program. Can Visual Studio's UI
+>  designer produce XAML? (I haven't had time to investigate, perhaps
+>  someone knows?)
+>
+>  Johan
+>
+>
+>
+>  Tedd Hansen wrote:
+>  > Hi
+>  >
+>  >
+>  >
+>  > Don't know how far you've come on the architecture of the Forms-part of
+>  > OpenViewer, but thought I'd share some thoughts. It's an obvious
+>  > approach that may or may not spark some ideas. ;)
+>  >
+>  >
+>  >
+>  > In my previous job I made an advertisement application for
+>  > busses/boats/in-store advertisement.
+>  >
+>  > In short, the architecture was:
+>  >
+>  > Startup -> Window manager -> Windows -> Content modules
+>  >
+>  >
+>  >
+>  > Startup also started/was helped by other modules that controls content
+>  > (like downloader, content scheduler, etc).
+>  >
+>  >
+>  >
+>  > Window manager started external .EXE's and communicated with them.
+>  > (OpenViewer don't need external .EXE's of course)
+>  >
+>  > These window forms were positioned on different display areas (could be
+>  > different monitors or separating top "ad" from bottom news scroll).
+>  >
+>  > Window manager also pinged the window modules to kill and restart any if
+>  > they failed. It also knew what was scheduled and how long it was to run,
+>  > for example an image for 10 sec or video for 30 sec.
+>  >
+>  >
+>  >
+>  > The Windows were told (from Scheduler module via Window Manager) what to
+>  > display. It then loaded a .dll, hooked it up to one of its display
+>  > surfaces and told it what to do (for example loading
+>  > myapp.display.plugin.image.dll is told to load image1.jpg).
+>  >
+>  > (It also had preloading etc, but that is not relevant here)
+>  >
+>  >
+>  >
+>  > Content modules handled actual display of whatever. (Images, video,
+>  > flash, scrolling text, etc)
+>  >
+>  >
+>  >
+>  >
+>  >
+>  > Using a similar approach in OpenViewer (with a Window Manager and
+>  > Content Modules) would abstract the Window (WinForms/GTK/whatever) and
+>  > the rendering engine from the application itself.
+>  >
+>  >
+>  >
+>  > My app is running 24/7 on 320 busses, a few boats and I don't know how
+>  > many shops - changing content every 5-30 seconds and being monitored
+>  > remotely with screenshots daily -- so it does work at least. :)
+>  >
+>  >
+>  >
+>  > - Tedd
+>  >
+>  >
+>
+> > ------------------------------------------------------------------------
+>  >
+>  > _______________________________________________
+>  > Openviewer-dev mailing list
+>  > Openviewer-dev at lists.berlios.de
+>  > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+
+
+From johan at 3di.jp  Mon Feb 25 06:25:51 2008
+From: johan at 3di.jp (Berntsson johan)
+Date: Mon, 25 Feb 2008 14:25:51 +0900 (JST)
+Subject: [Openviewer-dev] Forms architecture
+In-Reply-To: <351467290802241938p57623936lf6a5fede7c145a6b@mail.gmail.com>
+Message-ID: <326579398.70731203917151587.JavaMail.root@berkeley.lan>
+
+From: "Daedius" <daedius at daedius.com>
+>As far as I know, XAML is as far from crossplatform as you can get
+>about right now.  Unless you know something I dont?
+
+No, it seems that you are right. I did lots of WinForms programming a couple of years back, but obviously things have changed since. XAML doesn't do what I expected it to (parse an XML description of the UI and instantiate the objects from that, similar to glade-gtk). There is myxaml (http://www.myxaml.com/) and a hack called WinForms Markup Language (http://www.thinkingms.com/pensieve/PermaLink,guid,fc269607-7c39-4f96-b7c6-edd2247413a4.aspx)
+but these projects seem dead or have licenses that are not suitable. Is there really no way to standard way of separating code (callbacks) and UI layout in WinForms/WPF?
+
+If so, perhaps we should go down the GTK# path anyway.
+
+Johan
+
+On 2/24/08, Johan Berntsson <johan at ngigroup.com> wrote:
+> It does sounds like a good design for the kind of system you describe.
+>
+>  In our case it is a bit simpler, but one thing we could consider is the
+>  hot-swap mechanism you hint at. That is, the main window basically
+>  provides a custom widget that the renderer module can draw on, but that
+>  we can replace the renderer without restarting the program (by loading
+>  another DLL and supplying the widget surface somehow). In this way we
+>  could change renderers (realXtend, vanilla SL) and so on from a menu or
+>  key selection.
+>
+>  The idea is still to make OpenViewer a framework in which you can add a
+>  number of plugins that actually do the work. These modules include UI,
+>  Rendering, communication and so on.
+>
+>  Re: design of WinForms. The plan is to support XAML, so that the UI can
+>  be customized without rewriting the program. Can Visual Studio's UI
+>  designer produce XAML? (I haven't had time to investigate, perhaps
+>  someone knows?)
+>
+>  Johan
+>
+>
+>
+>  Tedd Hansen wrote:
+>  > Hi
+>  >
+>  >
+>  >
+>  > Don't know how far you've come on the architecture of the Forms-part of
+>  > OpenViewer, but thought I'd share some thoughts. It's an obvious
+>  > approach that may or may not spark some ideas. ;)
+>  >
+>  >
+>  >
+>  > In my previous job I made an advertisement application for
+>  > busses/boats/in-store advertisement.
+>  >
+>  > In short, the architecture was:
+>  >
+>  > Startup -> Window manager -> Windows -> Content modules
+>  >
+>  >
+>  >
+>  > Startup also started/was helped by other modules that controls content
+>  > (like downloader, content scheduler, etc).
+>  >
+>  >
+>  >
+>  > Window manager started external .EXE's and communicated with them.
+>  > (OpenViewer don't need external .EXE's of course)
+>  >
+>  > These window forms were positioned on different display areas (could be
+>  > different monitors or separating top "ad" from bottom news scroll).
+>  >
+>  > Window manager also pinged the window modules to kill and restart any if
+>  > they failed. It also knew what was scheduled and how long it was to run,
+>  > for example an image for 10 sec or video for 30 sec.
+>  >
+>  >
+>  >
+>  > The Windows were told (from Scheduler module via Window Manager) what to
+>  > display. It then loaded a .dll, hooked it up to one of its display
+>  > surfaces and told it what to do (for example loading
+>  > myapp.display.plugin.image.dll is told to load image1.jpg).
+>  >
+>  > (It also had preloading etc, but that is not relevant here)
+>  >
+>  >
+>  >
+>  > Content modules handled actual display of whatever. (Images, video,
+>  > flash, scrolling text, etc)
+>  >
+>  >
+>  >
+>  >
+>  >
+>  > Using a similar approach in OpenViewer (with a Window Manager and
+>  > Content Modules) would abstract the Window (WinForms/GTK/whatever) and
+>  > the rendering engine from the application itself.
+>  >
+>  >
+>  >
+>  > My app is running 24/7 on 320 busses, a few boats and I don't know how
+>  > many shops - changing content every 5-30 seconds and being monitored
+>  > remotely with screenshots daily -- so it does work at least. :)
+>  >
+>  >
+>  >
+>  > - Tedd
+>  >
+>  >
+>
+> > ------------------------------------------------------------------------
+>  >
+>  > _______________________________________________
+>  > Openviewer-dev mailing list
+>  > Openviewer-dev at lists.berlios.de
+>  > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+
+From tedd at konge.net  Mon Feb 25 10:31:43 2008
+From: tedd at konge.net (Tedd Hansen)
+Date: Mon, 25 Feb 2008 10:31:43 +0100
+Subject: [Openviewer-dev] Forms architecture
+Message-ID: <D34F5C5E193B4144AD333BBBB940A5280527A2@exchange1.lan.konge.net>
+
+Someone should fix the reply-to address of this list... Annoying :)
+
+-----Original Message-----
+From: Tedd Hansen 
+Sent: 25. februar 2008 10:31
+To: 'Daedius'
+Subject: RE: [Openviewer-dev] Forms architecture
+
+Isn't XAML used by Silverlight, which is developed by Novell/Mono on
+contract from Microsoft to be as cross platform/cross browser as
+possible?
+
+-----Original Message-----
+From: openviewer-dev-bounces at lists.berlios.de
+[mailto:openviewer-dev-bounces at lists.berlios.de] On Behalf Of Daedius
+Sent: 25. februar 2008 04:38
+To: Johan Berntsson
+Cc: openviewer-dev at lists.berlios.de
+Subject: Re: [Openviewer-dev] Forms architecture
+
+As far as I know, XAML is as far from crossplatform as you can get
+about right now.  Unless you know something I dont?
+
+Daedius
+
+On 2/24/08, Johan Berntsson <johan at ngigroup.com> wrote:
+> It does sounds like a good design for the kind of system you describe.
+>
+>  In our case it is a bit simpler, but one thing we could consider is
+the
+>  hot-swap mechanism you hint at. That is, the main window basically
+>  provides a custom widget that the renderer module can draw on, but
+that
+>  we can replace the renderer without restarting the program (by
+loading
+>  another DLL and supplying the widget surface somehow). In this way we
+>  could change renderers (realXtend, vanilla SL) and so on from a menu
+or
+>  key selection.
+>
+>  The idea is still to make OpenViewer a framework in which you can add
+a
+>  number of plugins that actually do the work. These modules include
+UI,
+>  Rendering, communication and so on.
+>
+>  Re: design of WinForms. The plan is to support XAML, so that the UI
+can
+>  be customized without rewriting the program. Can Visual Studio's UI
+>  designer produce XAML? (I haven't had time to investigate, perhaps
+>  someone knows?)
+>
+>  Johan
+>
+>
+>
+>  Tedd Hansen wrote:
+>  > Hi
+>  >
+>  >
+>  >
+>  > Don't know how far you've come on the architecture of the
+Forms-part of
+>  > OpenViewer, but thought I'd share some thoughts. It's an obvious
+>  > approach that may or may not spark some ideas. ;)
+>  >
+>  >
+>  >
+>  > In my previous job I made an advertisement application for
+>  > busses/boats/in-store advertisement.
+>  >
+>  > In short, the architecture was:
+>  >
+>  > Startup -> Window manager -> Windows -> Content modules
+>  >
+>  >
+>  >
+>  > Startup also started/was helped by other modules that controls
+content
+>  > (like downloader, content scheduler, etc).
+>  >
+>  >
+>  >
+>  > Window manager started external .EXE's and communicated with them.
+>  > (OpenViewer don't need external .EXE's of course)
+>  >
+>  > These window forms were positioned on different display areas
+(could be
+>  > different monitors or separating top "ad" from bottom news scroll).
+>  >
+>  > Window manager also pinged the window modules to kill and restart
+any if
+>  > they failed. It also knew what was scheduled and how long it was to
+run,
+>  > for example an image for 10 sec or video for 30 sec.
+>  >
+>  >
+>  >
+>  > The Windows were told (from Scheduler module via Window Manager)
+what to
+>  > display. It then loaded a .dll, hooked it up to one of its display
+>  > surfaces and told it what to do (for example loading
+>  > myapp.display.plugin.image.dll is told to load image1.jpg).
+>  >
+>  > (It also had preloading etc, but that is not relevant here)
+>  >
+>  >
+>  >
+>  > Content modules handled actual display of whatever. (Images, video,
+>  > flash, scrolling text, etc)
+>  >
+>  >
+>  >
+>  >
+>  >
+>  > Using a similar approach in OpenViewer (with a Window Manager and
+>  > Content Modules) would abstract the Window (WinForms/GTK/whatever)
+and
+>  > the rendering engine from the application itself.
+>  >
+>  >
+>  >
+>  > My app is running 24/7 on 320 busses, a few boats and I don't know
+how
+>  > many shops - changing content every 5-30 seconds and being
+monitored
+>  > remotely with screenshots daily -- so it does work at least. :)
+>  >
+>  >
+>  >
+>  > - Tedd
+>  >
+>  >
+>
+> >
+------------------------------------------------------------------------
+>  >
+>  > _______________________________________________
+>  > Openviewer-dev mailing list
+>  > Openviewer-dev at lists.berlios.de
+>  > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+
+From tedd at konge.net  Mon Feb 25 10:37:25 2008
+From: tedd at konge.net (Tedd Hansen)
+Date: Mon, 25 Feb 2008 10:37:25 +0100
+Subject: [Openviewer-dev] Forms architecture
+Message-ID: <D34F5C5E193B4144AD333BBBB940A5280527A3@exchange1.lan.konge.net>
+
+The project is called Moonlight.
+
+This was 6 months ago:
+http://www.mono-project.com/MoonlightShots
+
+-----Original Message-----
+From: openviewer-dev-bounces at lists.berlios.de
+[mailto:openviewer-dev-bounces at lists.berlios.de] On Behalf Of Tedd
+Hansen
+Sent: 25. februar 2008 10:32
+To: openviewer-dev at lists.berlios.de
+Subject: Re: [Openviewer-dev] Forms architecture
+
+Someone should fix the reply-to address of this list... Annoying :)
+
+-----Original Message-----
+From: Tedd Hansen 
+Sent: 25. februar 2008 10:31
+To: 'Daedius'
+Subject: RE: [Openviewer-dev] Forms architecture
+
+Isn't XAML used by Silverlight, which is developed by Novell/Mono on
+contract from Microsoft to be as cross platform/cross browser as
+possible?
+
+-----Original Message-----
+From: openviewer-dev-bounces at lists.berlios.de
+[mailto:openviewer-dev-bounces at lists.berlios.de] On Behalf Of Daedius
+Sent: 25. februar 2008 04:38
+To: Johan Berntsson
+Cc: openviewer-dev at lists.berlios.de
+Subject: Re: [Openviewer-dev] Forms architecture
+
+As far as I know, XAML is as far from crossplatform as you can get
+about right now.  Unless you know something I dont?
+
+Daedius
+
+On 2/24/08, Johan Berntsson <johan at ngigroup.com> wrote:
+> It does sounds like a good design for the kind of system you describe.
+>
+>  In our case it is a bit simpler, but one thing we could consider is
+the
+>  hot-swap mechanism you hint at. That is, the main window basically
+>  provides a custom widget that the renderer module can draw on, but
+that
+>  we can replace the renderer without restarting the program (by
+loading
+>  another DLL and supplying the widget surface somehow). In this way we
+>  could change renderers (realXtend, vanilla SL) and so on from a menu
+or
+>  key selection.
+>
+>  The idea is still to make OpenViewer a framework in which you can add
+a
+>  number of plugins that actually do the work. These modules include
+UI,
+>  Rendering, communication and so on.
+>
+>  Re: design of WinForms. The plan is to support XAML, so that the UI
+can
+>  be customized without rewriting the program. Can Visual Studio's UI
+>  designer produce XAML? (I haven't had time to investigate, perhaps
+>  someone knows?)
+>
+>  Johan
+>
+>
+>
+>  Tedd Hansen wrote:
+>  > Hi
+>  >
+>  >
+>  >
+>  > Don't know how far you've come on the architecture of the
+Forms-part of
+>  > OpenViewer, but thought I'd share some thoughts. It's an obvious
+>  > approach that may or may not spark some ideas. ;)
+>  >
+>  >
+>  >
+>  > In my previous job I made an advertisement application for
+>  > busses/boats/in-store advertisement.
+>  >
+>  > In short, the architecture was:
+>  >
+>  > Startup -> Window manager -> Windows -> Content modules
+>  >
+>  >
+>  >
+>  > Startup also started/was helped by other modules that controls
+content
+>  > (like downloader, content scheduler, etc).
+>  >
+>  >
+>  >
+>  > Window manager started external .EXE's and communicated with them.
+>  > (OpenViewer don't need external .EXE's of course)
+>  >
+>  > These window forms were positioned on different display areas
+(could be
+>  > different monitors or separating top "ad" from bottom news scroll).
+>  >
+>  > Window manager also pinged the window modules to kill and restart
+any if
+>  > they failed. It also knew what was scheduled and how long it was to
+run,
+>  > for example an image for 10 sec or video for 30 sec.
+>  >
+>  >
+>  >
+>  > The Windows were told (from Scheduler module via Window Manager)
+what to
+>  > display. It then loaded a .dll, hooked it up to one of its display
+>  > surfaces and told it what to do (for example loading
+>  > myapp.display.plugin.image.dll is told to load image1.jpg).
+>  >
+>  > (It also had preloading etc, but that is not relevant here)
+>  >
+>  >
+>  >
+>  > Content modules handled actual display of whatever. (Images, video,
+>  > flash, scrolling text, etc)
+>  >
+>  >
+>  >
+>  >
+>  >
+>  > Using a similar approach in OpenViewer (with a Window Manager and
+>  > Content Modules) would abstract the Window (WinForms/GTK/whatever)
+and
+>  > the rendering engine from the application itself.
+>  >
+>  >
+>  >
+>  > My app is running 24/7 on 320 busses, a few boats and I don't know
+how
+>  > many shops - changing content every 5-30 seconds and being
+monitored
+>  > remotely with screenshots daily -- so it does work at least. :)
+>  >
+>  >
+>  >
+>  > - Tedd
+>  >
+>  >
+>
+> >
+------------------------------------------------------------------------
+>  >
+>  > _______________________________________________
+>  > Openviewer-dev mailing list
+>  > Openviewer-dev at lists.berlios.de
+>  > https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+
+From daedius at daedius.com  Tue Feb 26 16:45:16 2008
+From: daedius at daedius.com (Daedius)
+Date: Tue, 26 Feb 2008 09:45:16 -0600
+Subject: [Openviewer-dev] Implications of Binding Ogre3d
+Message-ID: <351467290802260745ga7b17bcka1249272e510e9a6@mail.gmail.com>
+
+- We will need to learn how to properly make a C++ project and a
+compile system that is cross platform for it
+- We will need to learn how to install ogre3d in whatever installer we use
+- We will need to understand how we want to integrate ogre3d into the
+UI we use (embeded or not, etc.)
+- We should analyze exactly what are the major parts of ogre3d we
+should focus on bindings, set a reasonable goal, and give it a shot
+
+Just some  thoughts of mine! Anyone have any opinions?
+- Richard =)
+
+
+From stefan at tribalmedia.se  Tue Feb 26 21:44:31 2008
+From: stefan at tribalmedia.se (Stefan Andersson)
+Date: Tue, 26 Feb 2008 21:44:31 +0100
+Subject: [Openviewer-dev] Forms architecture
+In-Reply-To: <D34F5C5E193B4144AD333BBBB940A52805279E@exchange1.lan.konge.net>
+References: <D34F5C5E193B4144AD333BBBB940A52805279E@exchange1.lan.konge.net>
+Message-ID: <BLU134-W21D2A30864ABCB0229D7F7D5190@phx.gbl>
+
+Yeah, I'd definitively suggest we create our own abstraction for the rendering surface; something that can take our high-level model and events, and turn them into render-engine and output specifics.
+ 
+SinceI haven't even scratched at the surface on how for example Ogre differs between win and linux with regards to the rendering surface I can't really come with any concrete suggestions. I guess it's just a question of code and refactor, code and refactor. ;-)
+ 
+Best,
+/Stefan
+
+
+Date: Sun, 24 Feb 2008 14:26:51 +0100From: tedd at konge.netTo: openviewer-dev at lists.berlios.deSubject: [Openviewer-dev] Forms architecture
+
+
+
+
+Hi
+ 
+Don't know how far you've come on the architecture of the Forms-part of OpenViewer, but thought I'd share some thoughts. It's an obvious approach that may or may not spark some ideas. ;)
+ 
+In my previous job I made an advertisement application for busses/boats/in-store advertisement.
+In short, the architecture was:
+Startup -> Window manager -> Windows -> Content modules
+ 
+Startup also started/was helped by other modules that controls content (like downloader, content scheduler, etc).
+ 
+Window manager started external .EXE's and communicated with them. (OpenViewer don't need external .EXE's of course)
+These window forms were positioned on different display areas (could be different monitors or separating top "ad" from bottom news scroll).
+Window manager also pinged the window modules to kill and restart any if they failed. It also knew what was scheduled and how long it was to run, for example an image for 10 sec or video for 30 sec.
+ 
+The Windows were told (from Scheduler module via Window Manager) what to display. It then loaded a .dll, hooked it up to one of its display surfaces and told it what to do (for example loading myapp.display.plugin.image.dll is told to load image1.jpg).
+(It also had preloading etc, but that is not relevant here)
+ 
+Content modules handled actual display of whatever. (Images, video, flash, scrolling text, etc)
+ 
+ 
+Using a similar approach in OpenViewer (with a Window Manager and Content Modules) would abstract the Window (WinForms/GTK/whatever) and the rendering engine from the application itself.
+ 
+My app is running 24/7 on 320 busses, a few boats and I don't know how many shops - changing content every 5-30 seconds and being monitored remotely with screenshots daily -- so it does work at least. :)
+ 
+- Tedd
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080226/b538a3b1/attachment.html>
+
+From jeffames at gmail.com  Thu Feb 28 03:25:52 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Thu, 28 Feb 2008 11:25:52 +0900
+Subject: [Openviewer-dev] bug tracker
+Message-ID: <acd357460802271825h76566068gf088b14e8fdc75bb@mail.gmail.com>
+
+Hello,
+
+There is a mantis bug tracker now available:
+  https://developer.berlios.de/mantis/set_project.php?project_id=9312
+
+Please feel free to add bugs, feature requests, patches, etc.
+
+Jeff
+
+

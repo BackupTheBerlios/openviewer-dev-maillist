@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] OpenViewer as a Testing Framework for OpenSim
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20OpenViewer%20as%20a%20Testing%20Framework%20for%20OpenSim&In-Reply-To=%3C200803071531.56743.gryc.ueusp%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000038.html">
+   <LINK REL="Next"  HREF="000040.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] OpenViewer as a Testing Framework for OpenSim</H1>
+    <B>Gryc Ueusp</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20OpenViewer%20as%20a%20Testing%20Framework%20for%20OpenSim&In-Reply-To=%3C200803071531.56743.gryc.ueusp%40gmail.com%3E"
+       TITLE="[Openviewer-dev] OpenViewer as a Testing Framework for OpenSim">gryc.ueusp at gmail.com
+       </A><BR>
+    <I>Fri Mar  7 22:31:53 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000038.html">[Openviewer-dev] OpenViewer as a Testing Framework for OpenSim
+</A></li>
+        <LI>Next message: <A HREF="000040.html">[Openviewer-dev] Aether UI Project: My Big Vision Of Things To	Come
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#39">[ date ]</a>
+              <a href="thread.html#39">[ thread ]</a>
+              <a href="subject.html#39">[ subject ]</a>
+              <a href="author.html#39">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Friday 07 March 2008 3:07:56 pm Daedius wrote:
+&gt;<i> I like your idea.   My preference is to have nunit tests written.   In
+</I>&gt;<i> my ideal world, it would be awesome if we could write unit tests that
+</I>&gt;<i> A) intantiate grids ( on multiple machines even possibly?) B) load up
+</I>&gt;<i> our tester UI and connect to them , then C) run scripted tests like a
+</I>&gt;<i> normal user would.    We might be able to have a collection of scripts
+</I>&gt;<i> written in iron python ( or any other language ), have mono compile
+</I>&gt;<i> them on the fly, and run them within the unit test.
+</I>
+Yeah, I meant that developers would have their unit tests, then the scripting 
+interface for the client would enable a user to basically click a button and 
+have the agent the client was connected to to be moved automatically, taking 
+actions like testing inventory, movement, chat, etc.  (Then, not only would 
+it be an automated testing interface, but a scripted client for &quot;free&quot; :P)
+
+&gt;<i>
+</I>&gt;<i> I during january I was writting a distributed crossplatform build
+</I>&gt;<i> system that ran tests through master slave architecture, hand off jobs
+</I>&gt;<i> that were entirely specified trough nant.  My goal was to create a
+</I>&gt;<i> testing environment for the diverse crossplatform machines opensim was
+</I>&gt;<i> meant to run on.  The architecture is very similar to BuildBot if that
+</I>&gt;<i> means anything to you.  I even was able to get realtime results of
+</I>&gt;<i> builds happening across seperate machines =)  all the test/build
+</I>&gt;<i> results were available via webservice, and then simply accessed by
+</I>&gt;<i> PHP.  It was teh awesome.
+</I>
+Yes, I saw that, it was quite interesting :D
+Speaking of tests, how is openviewer unittest-wise?
+
+&gt;<i>
+</I>&gt;<i> I'm curious on how IronPython works as a scripting language?  Is it
+</I>&gt;<i> very crossplatform at this point in time?
+</I>
+I'd like to say it's cross platform, but the ipy.exe binary has an issue on 
+Ubuntu Gutsy where it doesnt display any output to consoles, but will write 
+to stdout just fine.  In other words, it's crossplatform enough to not worry 
+about it.  (Personally I think IronPython is blasphemy, but I'd rather see a 
+scriptable interface in a Python language than in VB.NET :P)
+
+&gt;<i>
+</I>&gt;<i> - Daedius
+</I>&gt;<i>
+</I>&gt;<i> On 3/7/08, Gryc Ueusp &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">gryc.ueusp at gmail.com</A>&gt; wrote:
+</I>&gt;<i> &gt; +1
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;  I think that the Testing UI module could take the form of common/easy
+</I>&gt;<i> &gt;  scripting interface for writing scripts to control the client.
+</I>&gt;<i> &gt; IronPython maybe? XML?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;  Also, once this is done, a web-interface for it becomes trivial, if we
+</I>&gt;<i> &gt; can specify input from a module as well as from various UI elements
+</I>&gt;<i> &gt; (keyboards, mice, etc)
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;  On Friday 07 March 2008 1:30:20 pm Daedius wrote:
+</I>&gt;<i> &gt;  &gt; I wanted to put this idea on the mailing list so I do not forget it.
+</I>&gt;<i> &gt;  &gt; When I came to openviewer,  I  initially did not plan to be working on
+</I>&gt;<i> &gt;  &gt; 3d or GTK# interfaces.   I love automated testing and was the first to
+</I>&gt;<i> &gt;  &gt; integrate NUnit into the OpenSim project.  My vision was this:
+</I>&gt;<i> &gt;  &gt;
+</I>&gt;<i> &gt;  &gt; &quot;Functional testing of metaverses is not enough.   If I could simulate
+</I>&gt;<i> &gt;  &gt; a person using a real viewer.  I might be able to get better results
+</I>&gt;<i> &gt;  &gt; in automated realtime testing of grids&quot;
+</I>&gt;<i> &gt;  &gt;
+</I>&gt;<i> &gt;  &gt; A viewer doesnt have to be controlled by a user.  It can be controlled
+</I>&gt;<i> &gt;  &gt; by a robot ;)  or even replayed.   I figure a Testing UI module down
+</I>&gt;<i> &gt;  &gt; the line will be very helpful to the opensim community as a whole.
+</I>&gt;<i> &gt;  &gt; Any thoughts or ideas?  Praise or condemnation?
+</I>&gt;<i> &gt;  &gt;
+</I>&gt;<i> &gt;  &gt; - Daedius
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; _______________________________________________
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt;  &gt; Openviewer-dev mailing list
+</I>&gt;<i> &gt;  &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i> &gt;  &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;  --
+</I>&gt;<i> &gt;  Gryc Ueusp
+</I>&gt;<i> &gt;  &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">gryc.ueusp at gmail.com</A>&gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt;  Openviewer-dev mailing list
+</I>&gt;<i> &gt;  <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i> &gt;  <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>
+
+
+-- 
+Gryc Ueusp
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">gryc.ueusp at gmail.com</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: This is a digitally signed message part.
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080307/63cd88e3/attachment.pgp">https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080307/63cd88e3/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000038.html">[Openviewer-dev] OpenViewer as a Testing Framework for OpenSim
+</A></li>
+	<LI>Next message: <A HREF="000040.html">[Openviewer-dev] Aether UI Project: My Big Vision Of Things To	Come
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#39">[ date ]</a>
+              <a href="thread.html#39">[ thread ]</a>
+              <a href="subject.html#39">[ subject ]</a>
+              <a href="author.html#39">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

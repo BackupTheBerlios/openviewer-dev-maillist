@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] Architecture Changes + Mogre Improvements + Sleek	Client
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20Architecture%20Changes%20%2B%20Mogre%20Improvements%20%2B%20Sleek%0A%09Client&In-Reply-To=%3C351467290802170841p583da6bak267326f7255a51b2%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000000.html">
+   <LINK REL="Next"  HREF="000002.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] Architecture Changes + Mogre Improvements + Sleek	Client</H1>
+    <B>Daedius</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20Architecture%20Changes%20%2B%20Mogre%20Improvements%20%2B%20Sleek%0A%09Client&In-Reply-To=%3C351467290802170841p583da6bak267326f7255a51b2%40mail.gmail.com%3E"
+       TITLE="[Openviewer-dev] Architecture Changes + Mogre Improvements + Sleek	Client">daedius at daedius.com
+       </A><BR>
+    <I>Sun Feb 17 17:41:15 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000000.html">[Openviewer-dev] Massive OpenViewer Architecture Changes
+</A></li>
+        <LI>Next message: <A HREF="000002.html">[Openviewer-dev] Sleek UI Plugin
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I realize my architecture changes are huge.  Nevertheless, I am
+progressing,  I have a number of features i've worked on today, and
+updated my architecture to be fully compatible up to r92
+
+Here is the list of changes
+
+- Added support for the new GUI code through the OriginalClient MAE
+- Client3D through use of the Aether rendering module now uses 100%
+MOGRE only code ( no System.Windows.Forms anywhere )
+- Aether now has support for rendering text onto the screen
+- Aether now has support of MOIS for keyboard input
+- A new Metaverse Application Engine (MAE) has been integrated into
+OpenViewer, the Sleek client, a very capable winforms client thats
+been in the community for awhile.
+I resurrected this project
+
+Here are the steps to getting this code up and running
+
+0) get r92 version of openviewer
+1) download <A HREF="http://www.twistedprim.com/UpdatedBinariesForLatestMogre.zip">http://www.twistedprim.com/UpdatedBinariesForLatestMogre.zip</A>
+and put UpdatedBinariesForLatestMogre.zip in base directory
+( these binaries include the latest Mogre binaries and a release
+compiled version of libsecondlife r1643 )
+2) Put <A HREF="http://www.twistedprim.com/Source.zip">http://www.twistedprim.com/Source.zip</A>  Source.zip in base directory
+3) Delete everything in your bin directory except for media
+4) Delete the OpenViewer directory in your base directory
+5) unzip Source.zip to the base directory
+6) unzip  UpdatedBinariesForLatestMogre.zip into your base directory
+7) run prebuild
+
+My hope is that with the including of Sleek client as an MAE, we can
+learn a lot more about how it does its networking underneath for our
+other MAEs.  It was an outstanding application to begin with.  Now
+lets take our project to the next level with it!  Thanks
+
+- Daedius
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000000.html">[Openviewer-dev] Massive OpenViewer Architecture Changes
+</A></li>
+	<LI>Next message: <A HREF="000002.html">[Openviewer-dev] Sleek UI Plugin
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] latest svn
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20latest%20svn&In-Reply-To=%3C185083.55615.qm%40web57806.mail.re3.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000169.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] latest svn</H1>
+    <B>dan miller</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20latest%20svn&In-Reply-To=%3C185083.55615.qm%40web57806.mail.re3.yahoo.com%3E"
+       TITLE="[Openviewer-dev] latest svn">danbmil99 at yahoo.com
+       </A><BR>
+    <I>Wed Oct  1 08:59:49 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000169.html">[Openviewer-dev] patch to implement chat
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#168">[ date ]</a>
+              <a href="thread.html#168">[ thread ]</a>
+              <a href="subject.html#168">[ subject ]</a>
+              <a href="author.html#168">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hmmm --- looking at the code, I don't see how it's supposed to work.  If login fails, I see the wx menus, but if login succeeds, the code stays in OgreRenderer.start(), which has its own main loop.
+
+Python threading: I think you're supposed to subclass run(), then call start() to get the thread going.  Instead, we're subclassing start().
+
+I tried it the 'right' way, and indeed the menu bar comes up, but ogre crashes with a nasty segfault.
+
+It may be that ogre needs to be the main thread.
+
+Does anyone have an alternate experience?  I just want to be sure I'm not seeing something different on my machine than what is expected at this point.
+
+Daniel B. Miller
+aka danx0r
+life is a simulation
+
+
+--- On Tue, 9/30/08, Jeff Ames &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">jeffames at gmail.com</A>&gt; wrote:
+
+&gt;<i> From: Jeff Ames &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">jeffames at gmail.com</A>&gt;
+</I>&gt;<i> Subject: Re: [Openviewer-dev] latest svn
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i> Date: Tuesday, September 30, 2008, 3:31 AM
+</I>&gt;<i> Hello,
+</I>&gt;<i> 
+</I>&gt;<i> It should now be running in a wx window, though so far
+</I>&gt;<i> there are no
+</I>&gt;<i> menubars or other widgets, so it looks pretty much like the
+</I>&gt;<i> Ogre
+</I>&gt;<i> window did.
+</I>&gt;<i> 
+</I>&gt;<i> After it logs in successfully, it should start the
+</I>&gt;<i> rendering window.
+</I>&gt;<i> Terrain loads somewhat slowly, patch by patch.  Then the
+</I>&gt;<i> ninja avatar
+</I>&gt;<i> should appear (though this has failed from time to time for
+</I>&gt;<i> me).  The
+</I>&gt;<i> camera should be pointed at the avatar, and if the
+</I>&gt;<i> avatar's position
+</I>&gt;<i> changes through terrain changes or such, the camera should
+</I>&gt;<i> shift as
+</I>&gt;<i> well.
+</I>&gt;<i> 
+</I>&gt;<i> The Wx UI doesn't exit gracefully yet, so Ctrl-C will
+</I>&gt;<i> leave you logged
+</I>&gt;<i> in until your session times out.
+</I>&gt;<i> 
+</I>&gt;<i> I haven't seen any problems with it going monochrome. 
+</I>&gt;<i> It is generally
+</I>&gt;<i> fairly unresponsive in general, just due to lack of
+</I>&gt;<i> functionality at
+</I>&gt;<i> the moment, so it's hard for me to say whether anything
+</I>&gt;<i> is hanging,
+</I>&gt;<i> but I haven't seen anything to suggest that it is.
+</I>&gt;<i> 
+</I>&gt;<i> Jeff
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Openviewer-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000169.html">[Openviewer-dev] patch to implement chat
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#168">[ date ]</a>
+              <a href="thread.html#168">[ thread ]</a>
+              <a href="subject.html#168">[ subject ]</a>
+              <a href="author.html#168">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

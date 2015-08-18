@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] &gt;= 372 no workie for me
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20%3E%3D%20372%20no%20workie%20for%20me&In-Reply-To=%3Cf1042c500810021546g39ea35nd97ef621bea02cdf%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000170.html">
+   <LINK REL="Next"  HREF="000172.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] &gt;= 372 no workie for me</H1>
+    <B>daniel miller</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20%3E%3D%20372%20no%20workie%20for%20me&In-Reply-To=%3Cf1042c500810021546g39ea35nd97ef621bea02cdf%40mail.gmail.com%3E"
+       TITLE="[Openviewer-dev] &gt;= 372 no workie for me">danbmil99 at gmail.com
+       </A><BR>
+    <I>Fri Oct  3 00:46:51 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000170.html">[Openviewer-dev] patch to implement chat
+</A></li>
+        <LI>Next message: <A HREF="000172.html">[Openviewer-dev] patch fixes crashing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#171">[ date ]</a>
+              <a href="thread.html#171">[ thread ]</a>
+              <a href="subject.html#171">[ subject ]</a>
+              <a href="author.html#171">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>in 374, this is what I get:
+
+867 [2] INFO  - &lt;Test User&gt;: Connecting to (127.0.0.1:9000)
+1293 [3] INFO  - &lt;Test User&gt;: Received a region handshake for OpenSim Test (
+127.0.0.1:9000)
+1312 [3] ERROR - &lt;Test User&gt;: Async Packet Event Handler:
+System.ArgumentException: Object must be an array of primitives.
+  at System.Buffer.ByteLength (System.Array array) [0x00000]
+  at System.Buffer.BlockCopy (System.Array src, Int32 srcOffset,
+System.Array dst, Int32 dstOffset, Int32 count) [0x00000]
+  at OpenMetaverse.ParcelManager.ParcelOverlayHandler
+(OpenMetaverse.Packets.Packet packet, OpenMetaverse.Simulator simulator)
+[0x00000]
+  at OpenMetaverse.PacketEventDictionary.ThreadPoolDelegate (System.Object
+state) [0x00000]
+mono: ../../src/xcb_lock.c:77: _XGetXCBBuffer: Assertion `((int) ((xcb_req)
+- (dpy-&gt;request)) &gt;= 0)' failed.
+Login: Connecting to simulator...
+Login: Welcome to OpenSimulator
+Stacktrace:
+
+  at (wrapper managed-to-native) Python.Runtime.Runtime.Py_Main
+(int,string[]) &lt;0x00004&gt;
+  at (wrapper managed-to-native) Python.Runtime.Runtime.Py_Main
+(int,string[]) &lt;0xffffffff&gt;
+  at Python.Runtime.PythonConsole.Main (string[]) &lt;0x0001e&gt;
+  at (wrapper runtime-invoke)
+Python.Runtime.PythonConsole.runtime_invoke_int_string[]
+(object,intptr,intptr,intptr) &lt;0xffffffff&gt;
+
+Native stacktrace:
+
+    mono [0x817f546]
+    [0xb7f34440]
+    /lib/tls/i686/cmov/libc.so.6(abort+0x101) [0xb7cfea01]
+    /lib/tls/i686/cmov/libc.so.6(__assert_fail+0xee) [0xb7cf610e]
+    /usr/lib/libX11.so.6 [0xb2173324]
+    /usr/lib/libX11.so.6(_XSend+0x63) [0xb21745f3]
+    /usr/lib/libX11.so.6(_XEventsQueued+0x88) [0xb2174758]
+    /usr/lib/libX11.so.6(XPending+0x62) [0xb215d9d2]
+    /usr/lib/libgdk-x11-2.0.so.0 [0xb0fe504d]
+    /usr/lib/libgdk-x11-2.0.so.0 [0xb0fe5141]
+    /usr/lib/libglib-2.0.so.0(g_main_context_prepare+0x18f) [0xb7ea668f]
+    /usr/lib/libglib-2.0.so.0 [0xb7ea6e49]
+    /usr/lib/libglib-2.0.so.0(g_main_context_pending+0x6a) [0xb7ea783a]
+    /usr/lib/libgtk-x11-2.0.so.0(gtk_events_pending+0x31) [0xb116f141]
+    /usr/lib/libwx_gtk2u_core-2.8.so.0(_ZNK11wxEventLoop7PendingEv+0x2b)
+[0xb166d78b]
+    /usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/_core_.so
+[0xb1c97f3b]
+
+and so on.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081002/6b3a509e/attachment.html">https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081002/6b3a509e/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000170.html">[Openviewer-dev] patch to implement chat
+</A></li>
+	<LI>Next message: <A HREF="000172.html">[Openviewer-dev] patch fixes crashing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#171">[ date ]</a>
+              <a href="thread.html#171">[ thread ]</a>
+              <a href="subject.html#171">[ subject ]</a>
+              <a href="author.html#171">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

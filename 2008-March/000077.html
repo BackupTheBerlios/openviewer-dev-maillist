@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] GTK UI: Milestone 1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20GTK%20UI%3A%20Milestone%201&In-Reply-To=%3C885986.65776.qm%40web82605.mail.mud.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000069.html">
+   <LINK REL="Next"  HREF="000080.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] GTK UI: Milestone 1</H1>
+    <B>Charles Krinke</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20GTK%20UI%3A%20Milestone%201&In-Reply-To=%3C885986.65776.qm%40web82605.mail.mud.yahoo.com%3E"
+       TITLE="[Openviewer-dev] GTK UI: Milestone 1">cfk at pacbell.net
+       </A><BR>
+    <I>Tue Mar 25 16:22:21 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000069.html">[Openviewer-dev] PATCH: Winforms Update
+</A></li>
+        <LI>Next message: <A HREF="000080.html">[Openviewer-dev] [patch] Splash Screen for GTK UI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#77">[ date ]</a>
+              <a href="thread.html#77">[ thread ]</a>
+              <a href="subject.html#77">[ subject ]</a>
+              <a href="author.html#77">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>+1 for Daedius and his thoughts. We are heading into the unknown a bit and our paradigms they will be a shifting a bit.
+
+For one use case, that is a secondlife-type application, a viewer similar in its user interface to secondlife is a good thing.
+
+There will be other use cases that do use URL's as our vision of a 3-D browsing world may come to pass, so perhaps we need to accomodate both these and other notions. 
+
+Maybe a core OpenViewer with plugins using a similar strategy to OpenSim is appropriate. In any case, at this point, I would say, let it evolve and all the personalities on this channel will have an affect on how it looks.
+
+Certainly Mw's is one of the most important voices and I dont want my comments to be construed as negative against those, but I like Daedius thoughts and want to encourage him.
+
+Charles
+
+----- Original Message ----
+From: Daedius &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">daedius at daedius.com</A>&gt;
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev at lists.berlios.de</A>
+Sent: Tuesday, March 25, 2008 7:01:37 AM
+Subject: Re: [Openviewer-dev] GTK UI: Milestone 1
+
+-1
+I don't think the openviewer should look like firefox, and I don't
+think it should look like all tabs.
+
+Firstly, I think the address bar is useless.  How often do you think a
+person is going to be manually typing in metaverse URLs?  It's only
+going to take up space.  90% of the time a user is only going to log
+into one or two grids manually and that might be it.  And when they
+do, it should be automated or easy for them to log in a second time
+without the use of an address bar.  If we wanted to do URL handling of
+metaverse URLs ( say when someone clicks something in the REAL
+firefox), we can, I just don't think a dedicated addressbar is useful.
+ Connection settings are more complex than just URL, and i'm just
+plain lazy and wouldn't want to type it out every time or deal with it
+in string form.  I think the majority of average users would agree.
+
+I envision open viewer being more like X-Chat.  If any of you are
+familiar with that software.
+
+Here is a picture of the main view:
+<A HREF="http://farm4.static.flickr.com/3044/2360641855_c22e80af76_o.png">http://farm4.static.flickr.com/3044/2360641855_c22e80af76_o.png</A>  . The
+chat area of the screen would be our 3D view area.  I think the area
+on the right would make a good communications/inventory area.  And the
+area on the left could make a good context sensitive control area like
+Michael was mentioning ( for build tools or what not ).  Everything
+else would be accessable via menus as Jeff suggested.
+
+Take here and look how they do connections.  Basically, there is a
+window that accessable via the menu called Network List.(
+<A HREF="http://farm3.static.flickr.com/2397/2361474720_0fa170983c_o.png">http://farm3.static.flickr.com/2397/2361474720_0fa170983c_o.png</A> ) This
+is where you manage all your networks you normally connect to, as well
+as suggest networks that might be interesting.  I can edit a network
+to give it more specific settings  (
+<A HREF="http://farm4.static.flickr.com/3225/2360642035_344b729ce9_o.png">http://farm4.static.flickr.com/3225/2360642035_344b729ce9_o.png</A> ).  I
+can specify login servers, passwords, certain rooms to join, and set
+X-Chat to automatically connect to certain networks on startup.
+
+I imagine we can use X-Chat metaphors very directly.
+
+- Daedius
+
+
+
+
+On Tue, Mar 25, 2008 at 6:32 AM, Michael Wright
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">michaelwri22 at yahoo.co.uk</A>&gt; wrote:
+&gt;<i> +1 to this, I too envision a kind of firefox approach, with the address bar
+</I>&gt;<i> etc. Although I was also thinking of the main viewing window as being
+</I>&gt;<i> separated into two, the 3d portion and a 2d side bar that could have context
+</I>&gt;<i> specific things in, like when in build mode, it would have the build icons
+</I>&gt;<i> etc in it. At another time it could have a embedded web browser. also
+</I>&gt;<i> plugins could define panels that could be displayed in there when that
+</I>&gt;<i> plugin is active/selected.
+</I>&gt;<i>
+</I>&gt;<i> I don't think we want to have separate tabs for everything, and having to
+</I>&gt;<i> swap between tabs to do something like chat.
+</I>&gt;<i>
+</I>&gt;<i> But above all, like Jeff said, it needs to be expandable. Modules need to be
+</I>&gt;<i> able to include their own GUI panel that is integrated into the ui when they
+</I>&gt;<i> are in use.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Jeff Ames &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">jeffames at gmail.com</A>&gt; wrote:
+</I>&gt;<i>  &gt; - Login Screen
+</I>&gt;<i> &gt; - Chat Screen (Local Chat/IM/Group Chat)
+</I>&gt;<i> &gt; - Settings Screen
+</I>&gt;<i>
+</I>&gt;<i> It sounds like you're envisioning a separate tab in the notebook
+</I>&gt;<i> control for each of these functions. I was thinking more along the
+</I>&gt;<i> lines of a Firefox for virtual worlds -- one main viewing window, an
+</I>&gt;<i> address bar, and windows accessible through the menu bar for things
+</I>&gt;<i> like setting preferences, etc. (And perhaps tabbed browsing, with
+</I>&gt;<i> support for multiple virtual world connections simultaneously)
+</I>&gt;<i>
+</I>&gt;<i> One of the major goals of this project, though, is to be highly
+</I>&gt;<i> customizable, so if someone wants to totally rewrite the UI, it's a
+</I>&gt;<i> fairly simple task. We just provide a default implementation (or
+</I>&gt;<i> multiple defaults -- a browser-like skin, a FPS-like skin, etc.)
+</I>&gt;<i>
+</I>&gt;<i> To keep it customizable, we should limit, or at least explicitly
+</I>&gt;<i> define, the dependencies between the .glade file and the code (i.e.,
+</I>&gt;<i> what widgets are expected to exist, and what types and names they
+</I>&gt;<i> should have).
+</I>&gt;<i>
+</I>&gt;<i> Another thing to keep in mind is that at some point in the distant
+</I>&gt;<i> future, the UI may be partially specified by the server, so you can
+</I>&gt;<i> log into a FPS or a virtual conference with the same viewer and get a
+</I>&gt;<i> UI appropriate to each.
+</I>&gt;<i>
+</I>&gt;<i> &gt; - OpenViewer Capabilities Management
+</I>&gt;<i>
+</I>&gt;<i> From what's on the wiki, it sounds like a lot of this should happen at
+</I>&gt;<i> the protocol layer. Then the UI would query the protocol to see if
+</I>&gt;<i> certain features are supported. For the time being, though, I think
+</I>&gt;<i> it's fairly safe to assume that any protocol we're using is a superset
+</I>&gt;<i> of the Second Life protocol.
+</I>&gt;<i>
+</I>&gt;<i> (If anyone wants to add other totally different protocols, they're of
+</I>&gt;<i> course welcome to do so. It would be quite interesting to see how
+</I>&gt;<i> well the IProtocol interface can abstract the differences out.)
+</I>&gt;<i>
+</I>&gt;<i> &gt; - UserSettings
+</I>&gt;<i>
+</I>&gt;<i> This now auto-generates an XML file when you run the app. We may want
+</I>&gt;<i> to add a version header to it, though, to avoid upgrade problems.
+</I>&gt;<i>
+</I>&gt;<i> However, my feeling is that it belongs more at the application layer than
+</I>&gt;<i> in the GTK UI.
+</I>&gt;<i>
+</I>&gt;<i> &gt; - 3D Integration (if not, an external window will be fine)
+</I>&gt;<i>
+</I>&gt;<i> This is something we should look into very soon (though I think MW is
+</I>&gt;<i> already). If we run into problems here (like GTK# not supporting GL
+</I>&gt;<i> contexts, or such), it could seriously limit the usefulness of these
+</I>&gt;<i> UI's.
+</I>&gt;<i>
+</I>&gt;<i> &gt; - fixed some namespacing issues
+</I>&gt;<i>
+</I>&gt;<i> If there are conflicts with the Gtk namespace, we can change to
+</I>&gt;<i> something like GtkUI or GtkPlugin or such. However, the namespace
+</I>&gt;<i> should mirror the file path (so
+</I>&gt;<i> OpenViewer/UI/GtkPlugin/GtkMainWindow.cs should define a class
+</I>&gt;<i> GtkMainWindow in the namespace OpenViewer.UI.GtkPlugin)
+</I>&gt;<i>
+</I>&gt;<i> Also, the way we're using namespaces currently means we can't have
+</I>&gt;<i> classes and namespaces with the same name, so we have to avoid doing
+</I>&gt;<i> something like GtkPlugin/GtkPlugin.cs.
+</I>&gt;<i>
+</I>&gt;<i> Jeff
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Openviewer-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  ________________________________
+</I>&gt;<i>  Sent from Yahoo! Mail.
+</I>&gt;<i>  More Ways to Keep in Touch.
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i>  Openviewer-dev mailing list
+</I>&gt;<i>  <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i>  <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>_______________________________________________
+Openviewer-dev mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080325/2a2ac420/attachment.html">https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080325/2a2ac420/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000069.html">[Openviewer-dev] PATCH: Winforms Update
+</A></li>
+	<LI>Next message: <A HREF="000080.html">[Openviewer-dev] [patch] Splash Screen for GTK UI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#77">[ date ]</a>
+              <a href="thread.html#77">[ thread ]</a>
+              <a href="subject.html#77">[ subject ]</a>
+              <a href="author.html#77">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

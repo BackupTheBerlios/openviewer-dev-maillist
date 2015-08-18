@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] GtkUI Milestone 1 Design Spec: Please	lookover!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20GtkUI%20Milestone%201%20Design%20Spec%3A%20Please%09lookover%21&In-Reply-To=%3C1207886612.22021.32.camel%40localhost.localdomain%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000129.html">
+   <LINK REL="Next"  HREF="000131.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] GtkUI Milestone 1 Design Spec: Please	lookover!</H1>
+    <B>Ryan McDougall</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20GtkUI%20Milestone%201%20Design%20Spec%3A%20Please%09lookover%21&In-Reply-To=%3C1207886612.22021.32.camel%40localhost.localdomain%3E"
+       TITLE="[Openviewer-dev] GtkUI Milestone 1 Design Spec: Please	lookover!">sempuki1 at gmail.com
+       </A><BR>
+    <I>Fri Apr 11 06:03:32 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000129.html">[Openviewer-dev] GtkUI Milestone 1 Design Spec: Please lookover!
+</A></li>
+        <LI>Next message: <A HREF="000131.html">[Openviewer-dev] GtkUI Milestone 1 Design Spec: Please lookover!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#130">[ date ]</a>
+              <a href="thread.html#130">[ thread ]</a>
+              <a href="subject.html#130">[ subject ]</a>
+              <a href="author.html#130">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+On Thu, 2008-04-10 at 22:53 -0500, Gryc Ueusp wrote:
+&gt;<i> (Some opinions and not necessarily in the order presented)
+</I>&gt;<i> 
+</I>&gt;<i> First, wrt &quot;User should be able to type in action text&quot;: 
+</I>&gt;<i> The client should change &quot;/me&quot; to the speaking user's name.  The user shouldnt 
+</I>&gt;<i> have to type in action text, the client should just handle it.  
+</I>&gt;<i> 
+</I>&gt;<i> Second, wrt the about screens: 
+</I>&gt;<i> Can we load that text from a file instead of embedding it inside the glade 
+</I>&gt;<i> files?
+</I>&gt;<i> 
+</I>&gt;<i> &quot;Enter in a URL for us to try to extrapolate a grid for them to connect to&quot;:
+</I>&gt;<i> So then it would basically brute-force a loginuri? Like, if a user entered 
+</I>&gt;<i> &quot;osgrid.org&quot;, would it just try logging in using &quot;<A HREF="http://www.osgrid.org:8002">http://www.osgrid.org:8002</A>&quot;?
+</I>
+I think OS has just committed a patch from lulurun to allow logins from
+URLs of the form <A HREF="http://grid.org/region/x/y/z">http://grid.org/region/x/y/z</A>
+
+Cheers,
+
+&gt;<i> The address bar controls are rather unintuitive.  Those buttons should 
+</I>&gt;<i> probably go into menu options instead, and be replaced with a &quot;Go!&quot; button on 
+</I>&gt;<i> the right side of the address bar.  If I want my browsing history, I'll go 
+</I>&gt;<i> to &quot;History&quot;, if I want my favorites, I'll go to &quot;Favorites&quot; just like every 
+</I>&gt;<i> other browser since NCSA Mosaic.  Also, connect/disconnect is rather weighty 
+</I>&gt;<i> to put on the address bar, since personally it takes about 20 seconds to log 
+</I>&gt;<i> in to any grid.  It's comparable to re-dialing on a dialup modem, and I dont 
+</I>&gt;<i> need to accidentally click that while I'm browsing.  If I want to connect, 
+</I>&gt;<i> I'll type it in or select it from a list and hit enter or click the &quot;go&quot; 
+</I>&gt;<i> button.  If I want to disconnect, I'll close the tab (or the whole client), 
+</I>&gt;<i> or if it's there and I really want to, a &quot;logout&quot; selection from a mennu 
+</I>&gt;<i> somewhere.
+</I>&gt;<i> 
+</I>&gt;<i> Also, in the &quot;Accounts&quot; dialog, instead of &quot;Add&quot; perhaps consider naming that 
+</I>&gt;<i> button &quot;New&quot;.
+</I>&gt;<i> 
+</I>&gt;<i> On Thursday 10 April 2008 8:05:29 pm Daedius wrote:
+</I>&gt;<i> &gt; Hey everyone,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I have put together a GtkUI milestone 1 design specification for
+</I>&gt;<i> &gt; review.  Its 27 pages long and shows mocks of what will be created
+</I>&gt;<i> &gt; along with use cases.  Please review it here:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; <A HREF="https://developer.berlios.de/mantis/file_download.php?file_id=22&amp;type=bug">https://developer.berlios.de/mantis/file_download.php?file_id=22&amp;type=bug</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I'd love to hear your ideas!
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; - Daedius
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; Openviewer-dev mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Openviewer-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000129.html">[Openviewer-dev] GtkUI Milestone 1 Design Spec: Please lookover!
+</A></li>
+	<LI>Next message: <A HREF="000131.html">[Openviewer-dev] GtkUI Milestone 1 Design Spec: Please lookover!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#130">[ date ]</a>
+              <a href="thread.html#130">[ thread ]</a>
+              <a href="subject.html#130">[ subject ]</a>
+              <a href="author.html#130">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

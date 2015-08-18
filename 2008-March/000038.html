@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] OpenViewer as a Testing Framework for OpenSim
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20OpenViewer%20as%20a%20Testing%20Framework%20for%20OpenSim&In-Reply-To=%3C351467290803071307p75d83972u69ffb3e2ad7e7696%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000037.html">
+   <LINK REL="Next"  HREF="000039.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] OpenViewer as a Testing Framework for OpenSim</H1>
+    <B>Daedius</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20OpenViewer%20as%20a%20Testing%20Framework%20for%20OpenSim&In-Reply-To=%3C351467290803071307p75d83972u69ffb3e2ad7e7696%40mail.gmail.com%3E"
+       TITLE="[Openviewer-dev] OpenViewer as a Testing Framework for OpenSim">daedius at daedius.com
+       </A><BR>
+    <I>Fri Mar  7 22:07:56 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000037.html">[Openviewer-dev] OpenViewer as a Testing Framework for OpenSim
+</A></li>
+        <LI>Next message: <A HREF="000039.html">[Openviewer-dev] OpenViewer as a Testing Framework for OpenSim
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#38">[ date ]</a>
+              <a href="thread.html#38">[ thread ]</a>
+              <a href="subject.html#38">[ subject ]</a>
+              <a href="author.html#38">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I like your idea.   My preference is to have nunit tests written.   In
+my ideal world, it would be awesome if we could write unit tests that
+A) intantiate grids ( on multiple machines even possibly?) B) load up
+our tester UI and connect to them , then C) run scripted tests like a
+normal user would.    We might be able to have a collection of scripts
+written in iron python ( or any other language ), have mono compile
+them on the fly, and run them within the unit test.
+
+I during january I was writting a distributed crossplatform build
+system that ran tests through master slave architecture, hand off jobs
+that were entirely specified trough nant.  My goal was to create a
+testing environment for the diverse crossplatform machines opensim was
+meant to run on.  The architecture is very similar to BuildBot if that
+means anything to you.  I even was able to get realtime results of
+builds happening across seperate machines =)  all the test/build
+results were available via webservice, and then simply accessed by
+PHP.  It was teh awesome.
+
+I'm curious on how IronPython works as a scripting language?  Is it
+very crossplatform at this point in time?
+
+- Daedius
+
+On 3/7/08, Gryc Ueusp &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">gryc.ueusp at gmail.com</A>&gt; wrote:
+&gt;<i> +1
+</I>&gt;<i>
+</I>&gt;<i>  I think that the Testing UI module could take the form of common/easy
+</I>&gt;<i>  scripting interface for writing scripts to control the client. IronPython
+</I>&gt;<i>  maybe? XML?
+</I>&gt;<i>
+</I>&gt;<i>  Also, once this is done, a web-interface for it becomes trivial, if we can
+</I>&gt;<i>  specify input from a module as well as from various UI elements (keyboards,
+</I>&gt;<i>  mice, etc)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  On Friday 07 March 2008 1:30:20 pm Daedius wrote:
+</I>&gt;<i>  &gt; I wanted to put this idea on the mailing list so I do not forget it.
+</I>&gt;<i>  &gt; When I came to openviewer,  I  initially did not plan to be working on
+</I>&gt;<i>  &gt; 3d or GTK# interfaces.   I love automated testing and was the first to
+</I>&gt;<i>  &gt; integrate NUnit into the OpenSim project.  My vision was this:
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; &quot;Functional testing of metaverses is not enough.   If I could simulate
+</I>&gt;<i>  &gt; a person using a real viewer.  I might be able to get better results
+</I>&gt;<i>  &gt; in automated realtime testing of grids&quot;
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; A viewer doesnt have to be controlled by a user.  It can be controlled
+</I>&gt;<i>  &gt; by a robot ;)  or even replayed.   I figure a Testing UI module down
+</I>&gt;<i>  &gt; the line will be very helpful to the opensim community as a whole.
+</I>&gt;<i>  &gt; Any thoughts or ideas?  Praise or condemnation?
+</I>&gt;<i>  &gt;
+</I>&gt;<i>  &gt; - Daedius
+</I>&gt;<i>
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i>  &gt; Openviewer-dev mailing list
+</I>&gt;<i>  &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i>  &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  --
+</I>&gt;<i>  Gryc Ueusp
+</I>&gt;<i>  &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">gryc.ueusp at gmail.com</A>&gt;
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i>  Openviewer-dev mailing list
+</I>&gt;<i>  <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i>  <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000037.html">[Openviewer-dev] OpenViewer as a Testing Framework for OpenSim
+</A></li>
+	<LI>Next message: <A HREF="000039.html">[Openviewer-dev] OpenViewer as a Testing Framework for OpenSim
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#38">[ date ]</a>
+              <a href="thread.html#38">[ thread ]</a>
+              <a href="subject.html#38">[ subject ]</a>
+              <a href="author.html#38">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

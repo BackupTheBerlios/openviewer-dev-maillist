@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] On Installation Packaging and UI Selection
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20On%20Installation%20Packaging%20and%20UI%20Selection&In-Reply-To=%3C351467290802221912h11c422ub7d1427c5ef063fa%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000007.html">
+   <LINK REL="Next"  HREF="000006.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] On Installation Packaging and UI Selection</H1>
+    <B>Daedius</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20On%20Installation%20Packaging%20and%20UI%20Selection&In-Reply-To=%3C351467290802221912h11c422ub7d1427c5ef063fa%40mail.gmail.com%3E"
+       TITLE="[Openviewer-dev] On Installation Packaging and UI Selection">daedius at daedius.com
+       </A><BR>
+    <I>Sat Feb 23 04:12:29 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000007.html">[Openviewer-dev] On Installation Packaging and UI Selection
+</A></li>
+        <LI>Next message: <A HREF="000006.html">[Openviewer-dev] Domain Name Problems
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hey there Johan,
+
+You bring up some good points.  Winforms is a popular technology, but
+I have some specific doubts:
+- Yes, winforms is popular, but as it stands winforms is never going
+to change.  It is replaced by wpf and it will never be improved upon
+from its existing state.
+- I have not seen any winforms designers for Monodevelop, so creating
+winforms applications on Linux and OSX for those people would be very
+difficult.  I worry about visual studio developers using winforms the
+way Visual Studio wants, and making it incompatible for developers who
+use monodevelop or commandline.
+- Winforms also does not have a theme which integrates well into other
+operating systems.
+- Lastly i checked on winforms support,  it was not supported in any
+seriousness at all on OSX  (GUI architecture was just too different
+perhaps?).  I only saw Cocoa# bindings.  I have, however, seen in
+recent mono builds in which Gtk+ is flourishing though.  I just ran
+Monodevelop on OSX recently and was very impressed.
+
+Secondly, I wonder exactly how we intend to use winforms.  If we ever
+get into embedding opengl into winforms, this may not be well
+understood in a crossplatform environment as much as opengl emeded
+into Gtk (which is well understood because it is open source).  I
+worry we may use Winforms in a way that makes us incompatible with
+other platforms very quickly, and not know it.
+
+Lastly, I'm not entirely sure I agree with you about the only
+supporting one platform until things are stable.  We may not be stable
+for a long time.  I would hate to leave Linux and OSX out in the cold
+till then ( and in fact, there may be developers on these operating
+systems who we could greatly benefit from their involvement).  Without
+a cross platform focus from the beginning, we risk the same problem
+countless other projects failed with in that you eventually make
+something that can never be ported.
+
+Also bear in mind, the answer might not be Winforms or GTK+.  An
+entirely Mogre or entirely Ogredotnet solution  ( where we let already
+crossplatformed projects do our UI ) might be a good route.  There no
+reason why we can't be showing buttons and text inside of opengl.
+
+Daedius
+
+On 2/22/08, Berntsson johan &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">johan at 3di.jp</A>&gt; wrote:
+&gt;<i> I added the WinForms skeleton, after checking that WinForms seems to be reasonably well supported in Mono on both Linux and recent versions of OSX. My reasoning was that it really isn't that bad to work with (skinning and alpha blending are supported), well known, and won't require any additional installation. I find it hard to believe that WinForms is going to die any time soon considering the huge amount of software that has been developed with it. However, WinForms is by no means perfect and the idea is that we should be able to swap UI modules easily. I think we should stick with one concept until the platform is a bit stable, but after that people can add their own Gtk, Qt, wxWidgets or whatever module. One thing to keep in mind is the licensing issue. We can use technology that is BSD-license compatible.
+</I>&gt;<i>
+</I>&gt;<i>  Anyway, it is early days and if there are good reasons to go with Gtk I'm not opposed to a swap. However, wouldn't this means a more complicated installation process since we cannot assume that GTK will work out of the box on most platforms? How good are the c#-gtk bindings? Are the XML configuration tools supported, so that the UI can easily be customized?
+</I>&gt;<i>
+</I>&gt;<i>  I guess my main argument for keeping WinForms is that it is well known for c# developers, has no issues with API-bindings, and is available across all major platforms without complicated installation procedures. What is the main arguments for a swap to Gtk?
+</I>&gt;<i>
+</I>&gt;<i>  Johan
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  ----- Original Message -----
+</I>&gt;<i>  From: &quot;Daedius&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">daedius at daedius.com</A>&gt;
+</I>&gt;<i>  To: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i>  Sent: 23 February 2008 05:15:53 o'clock (GMT+0900) Asia/Tokyo
+</I>&gt;<i>  Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+</I>&gt;<i>
+</I>&gt;<i>  How do we want to distribute openviewer to the public?  I feel this
+</I>&gt;<i>  should be a pretty important question.  We are much more graphical
+</I>&gt;<i>  than opensim ever is, and more people will be caring about OpenViewer
+</I>&gt;<i>  to be easy to install and get into.  Given our crossplatform goals, we
+</I>&gt;<i>  have to consider how we can make it easy for anyone to install
+</I>&gt;<i>  openviewer and run it.  Several questions are in my mind:
+</I>&gt;<i>
+</I>&gt;<i>  - Who has experience with installers?
+</I>&gt;<i>  - What installers will we have for each platform?
+</I>&gt;<i>  - What will the process be like? And how will we get the user to a ui
+</I>&gt;<i>  interface that they can use on their operating system?
+</I>&gt;<i>
+</I>&gt;<i>  On my mind to these questions:
+</I>&gt;<i>
+</I>&gt;<i>  It would be nice to have these:
+</I>&gt;<i>
+</I>&gt;<i>  OSX: .dmg file with a drag icon over to applications,  i'd like to
+</I>&gt;<i>  avoid doing a full blown out installer on OSX, but i'm not sure if its
+</I>&gt;<i>  possible
+</I>&gt;<i>  Linux: Packages for ubuntu and gentoo
+</I>&gt;<i>  Windows: Nullsoft installer
+</I>&gt;<i>
+</I>&gt;<i>  What I think we may need is the ability to have a crossplatform ui
+</I>&gt;<i>  chooser.  Not all ui plugins may be available for everyone. Maybe
+</I>&gt;<i>  programmed in gtk.
+</I>&gt;<i>
+</I>&gt;<i>  Daedius
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i>  Openviewer-dev mailing list
+</I>&gt;<i>  <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i>  <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  _______________________________________________
+</I>&gt;<i>  Openviewer-dev mailing list
+</I>&gt;<i>  <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i>  <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000007.html">[Openviewer-dev] On Installation Packaging and UI Selection
+</A></li>
+	<LI>Next message: <A HREF="000006.html">[Openviewer-dev] Domain Name Problems
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> No subject
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.2.1331736990.8202.openviewer-dev%40lists.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000071.html">
+   <LINK REL="Next"  HREF="000078.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>No subject</H1>
+    <B></B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.2.1331736990.8202.openviewer-dev%40lists.berlios.de%3E"
+       TITLE="No subject">
+       </A><BR>
+    <I>Wed Mar 14 15:56:30 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000071.html">No subject
+</A></li>
+        <LI>Next message: <A HREF="000078.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#73">[ date ]</a>
+              <a href="thread.html#73">[ thread ]</a>
+              <a href="subject.html#73">[ subject ]</a>
+              <a href="author.html#73">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>the protocol layer.  Then the UI would query the protocol to see if
+certain features are supported.  For the time being, though, I think
+it's fairly safe to assume that any protocol we're using is a superset
+of the Second Life protocol.
+
+(If anyone wants to add other totally different protocols, they're of
+course welcome to do so.  It would be quite interesting to see how
+well the IProtocol interface can abstract the differences out.)
+
+&gt;<i> - UserSettings
+</I>
+This now auto-generates an XML file when you run the app.  We may want
+to add a version header to it, though, to avoid upgrade problems.
+
+However, my feeling is that it belongs more at the application layer than
+in the GTK UI.
+
+&gt;<i> - 3D Integration (if not, an external window will be fine)
+</I>
+This is something we should look into very soon (though I think MW is
+already).  If we run into problems here (like GTK# not supporting GL
+contexts, or such), it could seriously limit the usefulness of these
+UI's.
+
+&gt;<i> - fixed some namespacing issues
+</I>
+If there are conflicts with the Gtk namespace, we can change to
+something like GtkUI or GtkPlugin or such.  However, the namespace
+should mirror the file path (so
+OpenViewer/UI/GtkPlugin/GtkMainWindow.cs should define a class
+GtkMainWindow in the namespace OpenViewer.UI.GtkPlugin)
+
+Also, the way we're using namespaces currently means we can't have
+classes and namespaces with the same name, so we have to avoid doing
+something like GtkPlugin/GtkPlugin.cs.
+
+Jeff
+_______________________________________________
+Openviewer-dev mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+
+
+       
+---------------------------------
+Sent from Yahoo! Mail.
+More Ways to Keep in Touch.
+--0-861566474-1206444732=:16032
+Content-Type: text/html; charset=iso-8859-1
+Content-Transfer-Encoding: 8bit
+
++1 to this, I too envision a kind of firefox approach, with the address bar etc. Although I was also thinking of the main viewing window as being separated into two, the 3d portion and a 2d side bar that could have context specific things in, like when in build mode, it would have the build icons etc in it. At another time it could have a embedded web browser. also plugins could define panels that could be displayed in there when that plugin is active/selected.&lt;br&gt;&lt;br&gt;I don't think we want to have separate tabs for everything, and having to swap between tabs to do something like chat.&lt;br&gt;&lt;br&gt;But above all, like Jeff said, it needs to be expandable. Modules need to be able to include their own GUI panel that is integrated into the ui when they are in use. &lt;br&gt;&lt;br&gt;&lt;b&gt;&lt;i&gt;Jeff Ames &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">jeffames at gmail.com</A>&gt;&lt;/i&gt;&lt;/b&gt; wrote:&lt;blockquote class=&quot;replbq&quot; style=&quot;border-left: 2px solid rgb(16, 16, 255); margin-left: 5px; padding-left: 5px;&quot;&gt; &gt; - Login Screen&lt;br&gt;&gt; - Chat Screen
+ (Local Chat/IM/Group Chat)&lt;br&gt;&gt; - Settings Screen&lt;br&gt;&lt;br&gt;It sounds like you're envisioning a separate tab in the notebook&lt;br&gt;control for each of these functions.  I was thinking more along the&lt;br&gt;lines of a Firefox for virtual worlds -- one main viewing window, an&lt;br&gt;address bar, and windows accessible through the menu bar for things&lt;br&gt;like setting preferences, etc.  (And perhaps tabbed browsing, with&lt;br&gt;support for multiple virtual world connections simultaneously)&lt;br&gt;&lt;br&gt;One of the major goals of this project, though, is to be highly&lt;br&gt;customizable, so if someone wants to totally rewrite the UI, it's a&lt;br&gt;fairly simple task.  We just provide a default implementation (or&lt;br&gt;multiple defaults -- a browser-like skin, a FPS-like skin, etc.)&lt;br&gt;&lt;br&gt;To keep it customizable, we should limit, or at least explicitly&lt;br&gt;define, the dependencies between the .glade file and the code (i.e.,&lt;br&gt;what widgets are expected to exist, and what types and names they&lt;br&gt;should
+ have).&lt;br&gt;&lt;br&gt;Another thing to keep in mind is that at some point in the distant&lt;br&gt;future, the UI may be partially specified by the server, so you can&lt;br&gt;log into a FPS or a virtual conference with the same viewer and get a&lt;br&gt;UI appropriate to each.&lt;br&gt;&lt;br&gt;&gt; - OpenViewer Capabilities Management&lt;br&gt;&lt;br&gt;From what's on the wiki, it sounds like a lot of this should happen at&lt;br&gt;the protocol layer.  Then the UI would query the protocol to see if&lt;br&gt;certain features are supported.  For the time being, though, I think&lt;br&gt;it's fairly safe to assume that any protocol we're using is a superset&lt;br&gt;of the Second Life protocol.&lt;br&gt;&lt;br&gt;(If anyone wants to add other totally different protocols, they're of&lt;br&gt;course welcome to do so.  It would be quite interesting to see how&lt;br&gt;well the IProtocol interface can abstract the differences out.)&lt;br&gt;&lt;br&gt;&gt; - UserSettings&lt;br&gt;&lt;br&gt;This now auto-generates an XML file when you run the app.  We may want&lt;br&gt;to add a version header to it,
+ though, to avoid upgrade problems.&lt;br&gt;&lt;br&gt;However, my feeling is that it belongs more at the application layer than&lt;br&gt;in the GTK UI.&lt;br&gt;&lt;br&gt;&gt; - 3D Integration (if not, an external window will be fine)&lt;br&gt;&lt;br&gt;This is something we should look into very soon (though I think MW is&lt;br&gt;already).  If we run into problems here (like GTK# not supporting GL&lt;br&gt;contexts, or such), it could seriously limit the usefulness of these&lt;br&gt;UI's.&lt;br&gt;&lt;br&gt;&gt; - fixed some namespacing issues&lt;br&gt;&lt;br&gt;If there are conflicts with the Gtk namespace, we can change to&lt;br&gt;something like GtkUI or GtkPlugin or such.  However, the namespace&lt;br&gt;should mirror the file path (so&lt;br&gt;OpenViewer/UI/GtkPlugin/GtkMainWindow.cs should define a class&lt;br&gt;GtkMainWindow in the namespace OpenViewer.UI.GtkPlugin)&lt;br&gt;&lt;br&gt;Also, the way we're using namespaces currently means we can't have&lt;br&gt;classes and namespaces with the same name, so we have to avoid doing&lt;br&gt;something like
+ GtkPlugin/GtkPlugin.cs.&lt;br&gt;&lt;br&gt;Jeff&lt;br&gt;_______________________________________________&lt;br&gt;Openviewer-dev mailing list&lt;br&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&lt;br&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev&lt;br">https://lists.berlios.de/mailman/listinfo/openviewer-dev&lt;br</A>&gt;&lt;/blockquote&gt;&lt;br&gt;&lt;p&gt;&#32;
+      &lt;hr size=1&gt;
+Sent from &lt;a  
+href=&quot;<A HREF="http://us.rd.yahoo.com/mailuk/taglines/isp/control/*http://us.rd.yahoo.com/evt=52421/*http://uk.docs.yahoo.com/nowyoucan.html">http://us.rd.yahoo.com/mailuk/taglines/isp/control/*http://us.rd.yahoo.com/evt=52421/*http://uk.docs.yahoo.com/nowyoucan.html</A>&quot; target=_blank&gt;Yahoo! Mail&lt;/a&gt;.
+&lt;br&gt;
+More Ways to Keep in Touch.
+--0-861566474-1206444732=:16032--
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000071.html">No subject
+</A></li>
+	<LI>Next message: <A HREF="000078.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#73">[ date ]</a>
+              <a href="thread.html#73">[ thread ]</a>
+              <a href="subject.html#73">[ subject ]</a>
+              <a href="author.html#73">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

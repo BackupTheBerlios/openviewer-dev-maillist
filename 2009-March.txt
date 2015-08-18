@@ -1,0 +1,78 @@
+From jeffames at gmail.com  Sun Mar  8 03:33:57 2009
+From: jeffames at gmail.com (Jeff Ames)
+Date: Sun, 8 Mar 2009 11:33:57 +0900
+Subject: [Openviewer-dev] experimental mxp protocol impl in tracker
+In-Reply-To: <49A5BFB7.7010404@kyperjokki.fi>
+References: <49A5BFB7.7010404@kyperjokki.fi>
+Message-ID: <acd357460903071833n7567e8c1y69c9f2ea6800a4be@mail.gmail.com>
+
+Hello,
+
+Thanks for the patch!  I added it in r670.
+
+I haven't tested the MXP functionality (will do when I get a chance).
+But it is a step forward, and it doesn't interfere with connections
+via libomv at all.  Now that OpenSim is supporting MXP as well, it'd
+be great to have a client that can do either OMV or MXP.
+
+Jeff
+
+
+From cfk at pacbell.net  Sun Mar 22 23:02:47 2009
+From: cfk at pacbell.net (Charles Krinke)
+Date: Sun, 22 Mar 2009 15:02:47 -0700 (PDT)
+Subject: [Openviewer-dev] density
+Message-ID: <768627.43239.qm@web82605.mail.mud.yahoo.com>
+
+We have m_density defined in two different places with two different values.
+
+One is in: ...\OpenSim\Region\Physics\OdePlugin\ODECharacter.cs - (72, 22) : 
+
+public float m_density = 60f;
+
+Another is in:   ...\OpenSim\Region\Physics\OdePlugin\ODEPrim.cs(152):       
+
+ private float m_density = 10.000006836f; // Aluminum g/cm3;
+
+And in looking at the usage to calculate mass, it looks like the math is right, but yet, the avatar seems to have a higher density then the prim. 
+
+I know that these are empirically determined, but in trying to look forward to a world where we actually might use the density of metal, rubber, glass, rock, plywood to do some additional physics *stuff*, it seems that we might want to see if we can harmonize our notion of density a little bit.
+
+Perhaps I am just missing the boat here. But, I would like to understand how we might be able to move forward a little bit on density some time.
+
+Charles
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20090322/292147a6/attachment.html>
+
+From cfk at pacbell.net  Sun Mar 22 23:03:21 2009
+From: cfk at pacbell.net (Charles Krinke)
+Date: Sun, 22 Mar 2009 15:03:21 -0700 (PDT)
+Subject: [Openviewer-dev] density
+Message-ID: <972962.68444.qm@web82608.mail.mud.yahoo.com>
+
+Arrgh. Sorry, clicked the wrong list.
+
+
+Charles
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20090322/32d59889/attachment.html>
+
+From cfk at pacbell.net  Sat Mar 28 21:42:20 2009
+From: cfk at pacbell.net (Charles Krinke)
+Date: Sat, 28 Mar 2009 13:42:20 -0700 (PDT)
+Subject: [Openviewer-dev] region name constraints
+Message-ID: <494519.90524.qm@web82603.mail.mud.yahoo.com>
+
+I am getting some comments about region names beginning with spaces *and* region names longer then 32 characters having some side effects in map and search from OSGrid users.
+
+It makes me wonder if the grid server should have some additional constraints to trim leading spaces and names longer then 32 characters so associated .PHP programs and the client do not get unhappy. 
+
+So, I pose the question and wonder what folks think is the proper solution.
+
+Charles
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20090328/2e3a0ae9/attachment.html>
+

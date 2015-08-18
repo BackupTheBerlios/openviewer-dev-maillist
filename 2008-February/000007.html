@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] On Installation Packaging and UI Selection
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20On%20Installation%20Packaging%20and%20UI%20Selection&In-Reply-To=%3C1991230503.4507551203728742294.JavaMail.root%40berkeley.lan%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000005.html">
+   <LINK REL="Next"  HREF="000008.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] On Installation Packaging and UI Selection</H1>
+    <B>Berntsson johan</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20On%20Installation%20Packaging%20and%20UI%20Selection&In-Reply-To=%3C1991230503.4507551203728742294.JavaMail.root%40berkeley.lan%3E"
+       TITLE="[Openviewer-dev] On Installation Packaging and UI Selection">johan at 3di.jp
+       </A><BR>
+    <I>Sat Feb 23 02:05:42 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000005.html">[Openviewer-dev] On Installation Packaging and UI Selection
+</A></li>
+        <LI>Next message: <A HREF="000008.html">[Openviewer-dev] On Installation Packaging and UI Selection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#7">[ date ]</a>
+              <a href="thread.html#7">[ thread ]</a>
+              <a href="subject.html#7">[ subject ]</a>
+              <a href="author.html#7">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I added the WinForms skeleton, after checking that WinForms seems to be reasonably well supported in Mono on both Linux and recent versions of OSX. My reasoning was that it really isn't that bad to work with (skinning and alpha blending are supported), well known, and won't require any additional installation. I find it hard to believe that WinForms is going to die any time soon considering the huge amount of software that has been developed with it. However, WinForms is by no means perfect and the idea is that we should be able to swap UI modules easily. I think we should stick with one concept until the platform is a bit stable, but after that people can add their own Gtk, Qt, wxWidgets or whatever module. One thing to keep in mind is the licensing issue. We can use technology that is BSD-license compatible.
+
+Anyway, it is early days and if there are good reasons to go with Gtk I'm not opposed to a swap. However, wouldn't this means a more complicated installation process since we cannot assume that GTK will work out of the box on most platforms? How good are the c#-gtk bindings? Are the XML configuration tools supported, so that the UI can easily be customized?
+
+I guess my main argument for keeping WinForms is that it is well known for c# developers, has no issues with API-bindings, and is available across all major platforms without complicated installation procedures. What is the main arguments for a swap to Gtk?
+
+Johan
+
+----- Original Message -----
+From: &quot;Daedius&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">daedius at daedius.com</A>&gt;
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev at lists.berlios.de</A>
+Sent: 23 February 2008 05:15:53 o'clock (GMT+0900) Asia/Tokyo
+Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+
+How do we want to distribute openviewer to the public?  I feel this
+should be a pretty important question.  We are much more graphical
+than opensim ever is, and more people will be caring about OpenViewer
+to be easy to install and get into.  Given our crossplatform goals, we
+have to consider how we can make it easy for anyone to install
+openviewer and run it.  Several questions are in my mind:
+
+- Who has experience with installers?
+- What installers will we have for each platform?
+- What will the process be like? And how will we get the user to a ui
+interface that they can use on their operating system?
+
+On my mind to these questions:
+
+It would be nice to have these:
+
+OSX: .dmg file with a drag icon over to applications,  i'd like to
+avoid doing a full blown out installer on OSX, but i'm not sure if its
+possible
+Linux: Packages for ubuntu and gentoo
+Windows: Nullsoft installer
+
+What I think we may need is the ability to have a crossplatform ui
+chooser.  Not all ui plugins may be available for everyone. Maybe
+programmed in gtk.
+
+Daedius
+_______________________________________________
+Openviewer-dev mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000005.html">[Openviewer-dev] On Installation Packaging and UI Selection
+</A></li>
+	<LI>Next message: <A HREF="000008.html">[Openviewer-dev] On Installation Packaging and UI Selection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#7">[ date ]</a>
+              <a href="thread.html#7">[ thread ]</a>
+              <a href="subject.html#7">[ subject ]</a>
+              <a href="author.html#7">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

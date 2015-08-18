@@ -1,0 +1,373 @@
+From danbmil99 at yahoo.com  Wed Oct  1 08:59:49 2008
+From: danbmil99 at yahoo.com (dan miller)
+Date: Tue, 30 Sep 2008 23:59:49 -0700 (PDT)
+Subject: [Openviewer-dev] latest svn
+In-Reply-To: <acd357460809300031wbdd6fe4waeaae59c84ebb1ca@mail.gmail.com>
+Message-ID: <185083.55615.qm@web57806.mail.re3.yahoo.com>
+
+hmmm --- looking at the code, I don't see how it's supposed to work.  If login fails, I see the wx menus, but if login succeeds, the code stays in OgreRenderer.start(), which has its own main loop.
+
+Python threading: I think you're supposed to subclass run(), then call start() to get the thread going.  Instead, we're subclassing start().
+
+I tried it the 'right' way, and indeed the menu bar comes up, but ogre crashes with a nasty segfault.
+
+It may be that ogre needs to be the main thread.
+
+Does anyone have an alternate experience?  I just want to be sure I'm not seeing something different on my machine than what is expected at this point.
+
+Daniel B. Miller
+aka danx0r
+life is a simulation
+
+
+--- On Tue, 9/30/08, Jeff Ames <jeffames at gmail.com> wrote:
+
+> From: Jeff Ames <jeffames at gmail.com>
+> Subject: Re: [Openviewer-dev] latest svn
+> To: openviewer-dev at lists.berlios.de
+> Date: Tuesday, September 30, 2008, 3:31 AM
+> Hello,
+> 
+> It should now be running in a wx window, though so far
+> there are no
+> menubars or other widgets, so it looks pretty much like the
+> Ogre
+> window did.
+> 
+> After it logs in successfully, it should start the
+> rendering window.
+> Terrain loads somewhat slowly, patch by patch.  Then the
+> ninja avatar
+> should appear (though this has failed from time to time for
+> me).  The
+> camera should be pointed at the avatar, and if the
+> avatar's position
+> changes through terrain changes or such, the camera should
+> shift as
+> well.
+> 
+> The Wx UI doesn't exit gracefully yet, so Ctrl-C will
+> leave you logged
+> in until your session times out.
+> 
+> I haven't seen any problems with it going monochrome. 
+> It is generally
+> fairly unresponsive in general, just due to lack of
+> functionality at
+> the moment, so it's hard for me to say whether anything
+> is hanging,
+> but I haven't seen anything to suggest that it is.
+> 
+> Jeff
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+From danbmil99 at yahoo.com  Thu Oct  2 10:47:55 2008
+From: danbmil99 at yahoo.com (dan miller)
+Date: Thu, 2 Oct 2008 01:47:55 -0700 (PDT)
+Subject: [Openviewer-dev] patch to implement chat
+In-Reply-To: <acd357460809300031wbdd6fe4waeaae59c84ebb1ca@mail.gmail.com>
+Message-ID: <340296.45804.qm@web57804.mail.re3.yahoo.com>
+
+ok, here's a simple wx window that does basic chat (in & out).  It's a separate window for now but maybe should be part of the main panel.  Need to clean up format & stuff but nice proof of concept I think.
+
+put patch_chat in pyov, and from there do:
+patch -p0 < patch_chat
+tested on -r 368
+
+only works with -m gui
+
+
+I love Python!
+
+
+
+Daniel B. Miller
+aka danx0r
+life is a simulation
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: patch_chat
+Type: application/octet-stream
+Size: 3549 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081002/ee167e4e/attachment.obj>
+
+From jeffames at gmail.com  Thu Oct  2 11:11:42 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Thu, 2 Oct 2008 18:11:42 +0900
+Subject: [Openviewer-dev] patch to implement chat
+In-Reply-To: <340296.45804.qm@web57804.mail.re3.yahoo.com>
+References: <acd357460809300031wbdd6fe4waeaae59c84ebb1ca@mail.gmail.com>
+	<340296.45804.qm@web57804.mail.re3.yahoo.com>
+Message-ID: <acd357460810020211p11a8bba9n544113444c7812a7@mail.gmail.com>
+
+Thanks!  Added in r371.
+
+Jeff
+
+
+From danbmil99 at gmail.com  Fri Oct  3 00:46:51 2008
+From: danbmil99 at gmail.com (daniel miller)
+Date: Thu, 2 Oct 2008 15:46:51 -0700
+Subject: [Openviewer-dev] >= 372 no workie for me
+Message-ID: <f1042c500810021546g39ea35nd97ef621bea02cdf@mail.gmail.com>
+
+in 374, this is what I get:
+
+867 [2] INFO  - <Test User>: Connecting to (127.0.0.1:9000)
+1293 [3] INFO  - <Test User>: Received a region handshake for OpenSim Test (
+127.0.0.1:9000)
+1312 [3] ERROR - <Test User>: Async Packet Event Handler:
+System.ArgumentException: Object must be an array of primitives.
+  at System.Buffer.ByteLength (System.Array array) [0x00000]
+  at System.Buffer.BlockCopy (System.Array src, Int32 srcOffset,
+System.Array dst, Int32 dstOffset, Int32 count) [0x00000]
+  at OpenMetaverse.ParcelManager.ParcelOverlayHandler
+(OpenMetaverse.Packets.Packet packet, OpenMetaverse.Simulator simulator)
+[0x00000]
+  at OpenMetaverse.PacketEventDictionary.ThreadPoolDelegate (System.Object
+state) [0x00000]
+mono: ../../src/xcb_lock.c:77: _XGetXCBBuffer: Assertion `((int) ((xcb_req)
+- (dpy->request)) >= 0)' failed.
+Login: Connecting to simulator...
+Login: Welcome to OpenSimulator
+Stacktrace:
+
+  at (wrapper managed-to-native) Python.Runtime.Runtime.Py_Main
+(int,string[]) <0x00004>
+  at (wrapper managed-to-native) Python.Runtime.Runtime.Py_Main
+(int,string[]) <0xffffffff>
+  at Python.Runtime.PythonConsole.Main (string[]) <0x0001e>
+  at (wrapper runtime-invoke)
+Python.Runtime.PythonConsole.runtime_invoke_int_string[]
+(object,intptr,intptr,intptr) <0xffffffff>
+
+Native stacktrace:
+
+    mono [0x817f546]
+    [0xb7f34440]
+    /lib/tls/i686/cmov/libc.so.6(abort+0x101) [0xb7cfea01]
+    /lib/tls/i686/cmov/libc.so.6(__assert_fail+0xee) [0xb7cf610e]
+    /usr/lib/libX11.so.6 [0xb2173324]
+    /usr/lib/libX11.so.6(_XSend+0x63) [0xb21745f3]
+    /usr/lib/libX11.so.6(_XEventsQueued+0x88) [0xb2174758]
+    /usr/lib/libX11.so.6(XPending+0x62) [0xb215d9d2]
+    /usr/lib/libgdk-x11-2.0.so.0 [0xb0fe504d]
+    /usr/lib/libgdk-x11-2.0.so.0 [0xb0fe5141]
+    /usr/lib/libglib-2.0.so.0(g_main_context_prepare+0x18f) [0xb7ea668f]
+    /usr/lib/libglib-2.0.so.0 [0xb7ea6e49]
+    /usr/lib/libglib-2.0.so.0(g_main_context_pending+0x6a) [0xb7ea783a]
+    /usr/lib/libgtk-x11-2.0.so.0(gtk_events_pending+0x31) [0xb116f141]
+    /usr/lib/libwx_gtk2u_core-2.8.so.0(_ZNK11wxEventLoop7PendingEv+0x2b)
+[0xb166d78b]
+    /usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/_core_.so
+[0xb1c97f3b]
+
+and so on.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081002/6b3a509e/attachment.html>
+
+From danbmil99 at gmail.com  Fri Oct  3 08:40:42 2008
+From: danbmil99 at gmail.com (daniel miller)
+Date: Thu, 2 Oct 2008 23:40:42 -0700
+Subject: [Openviewer-dev] patch fixes crashing
+Message-ID: <f1042c500810022340x1b7234a1j20ce4c3788cf012f@mail.gmail.com>
+
+moving onConnected back to main thread
+
+in rev 378:
+
+patch -p0 < patch_fix_login_crash
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081002/8a68d1c2/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: patch_fix_login_crash
+Type: application/octet-stream
+Size: 992 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081002/8a68d1c2/attachment.obj>
+
+From dirk.krause at pixelpark.com  Fri Oct  3 13:41:44 2008
+From: dirk.krause at pixelpark.com (Dirk Krause)
+Date: Fri, 3 Oct 2008 13:41:44 +0200
+Subject: [Openviewer-dev] externalWindowHandle fix
+References: <f1042c500810022340x1b7234a1j20ce4c3788cf012f@mail.gmail.com>
+Message-ID: <72C1C9E5780A134F896530D480F22BB7021427C1@hermes.bitlab.de>
+
+
+Hi,
+
+I found the reason why the top/left of the ogre display is not correct in the wxpanel.
+
+line 64, ogrerenderer.py should read:
+   renderParams["externalWindowHandle"] = handle
+
+Its not parentWindowHandle but externalWindowHandle.
+
+Best regards,
+  Dirk
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: winmail.dat
+Type: application/ms-tnef
+Size: 2409 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081003/727aec05/attachment.bin>
+
+From jeffames at gmail.com  Fri Oct  3 16:31:18 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Fri, 3 Oct 2008 23:31:18 +0900
+Subject: [Openviewer-dev] externalWindowHandle fix
+In-Reply-To: <72C1C9E5780A134F896530D480F22BB7021427C1@hermes.bitlab.de>
+References: <f1042c500810022340x1b7234a1j20ce4c3788cf012f@mail.gmail.com>
+	<72C1C9E5780A134F896530D480F22BB7021427C1@hermes.bitlab.de>
+Message-ID: <acd357460810030731o4f4d96c0xbe9459e0bc3e6544@mail.gmail.com>
+
+Thanks for the fix!  Changed this in r382.
+
+Jeff
+
+
+From jeffames at gmail.com  Fri Oct  3 17:35:23 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Sat, 4 Oct 2008 00:35:23 +0900
+Subject: [Openviewer-dev] patch fixes crashing
+In-Reply-To: <f1042c500810022340x1b7234a1j20ce4c3788cf012f@mail.gmail.com>
+References: <f1042c500810022340x1b7234a1j20ce4c3788cf012f@mail.gmail.com>
+Message-ID: <acd357460810030835v544d38ccud7ba254a64f5c27d@mail.gmail.com>
+
+Thanks for pointing out the shortcomings of the threaded event model.
+The login bit should be fixed in r380, but it still needs some
+cleaning up and probably should be switched to a proper event queue.
+I'll try to get to this soon.
+
+Jeff
+
+
+From danbmil99 at gmail.com  Sat Oct  4 08:45:24 2008
+From: danbmil99 at gmail.com (daniel miller)
+Date: Fri, 3 Oct 2008 23:45:24 -0700
+Subject: [Openviewer-dev] first take on prims
+Message-ID: <f1042c500810032345y753dc168m371103cf0de63fe7@mail.gmail.com>
+
+Ok, this is a pretty big patch.  It works for me on revision 383.  From the
+pyov folder:
+
+patch -p0 < patch_prims
+
+basic functionality for box prims.  No textures yet.
+
+-danx0r
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081003/e610b202/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: patch_prims
+Type: application/octet-stream
+Size: 15067 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081003/e610b202/attachment.obj>
+
+From jeffames at gmail.com  Sat Oct  4 08:59:25 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Sat, 4 Oct 2008 15:59:25 +0900
+Subject: [Openviewer-dev] first take on prims
+In-Reply-To: <f1042c500810032345y753dc168m371103cf0de63fe7@mail.gmail.com>
+References: <f1042c500810032345y753dc168m371103cf0de63fe7@mail.gmail.com>
+Message-ID: <acd357460810032359s6481f035p69247ef58106a22e@mail.gmail.com>
+
+Very cool :)  Added in r385.
+
+Jeff
+
+
+From danbmil99 at gmail.com  Sun Oct  5 08:43:12 2008
+From: danbmil99 at gmail.com (daniel miller)
+Date: Sat, 4 Oct 2008 23:43:12 -0700
+Subject: [Openviewer-dev] region and sim handles
+Message-ID: <f1042c500810042343x4a8693b2l9ff750670cb654bd@mail.gmail.com>
+
+Dahlia Trimble has pointed out that prims and terrain do not respect
+regions.  I have confirmed this with a simple test on a 2-region standalone
+sim: any terrain mods or prim rezzing that happens on the second region is
+reflected in pyov in the first region.
+
+Other observations (bugs):
+
+* trying to cross a region boundary doesn't work (not a real crash, but
+things are left in a funky state)
+
+* it appears to Dahlia that the terrain is rendered rotated 90*.  I've been
+leveling my terrain for tests so I never noticed
+
+-danx0r
+
+
+On Fri, Oct 3, 2008 at 11:59 PM, Jeff Ames <jeffames at gmail.com> wrote:
+
+> Very cool :)  Added in r385.
+>
+> Jeff
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081004/8e902d73/attachment.html>
+
+From dirk.krause at pixelpark.com  Mon Oct  6 10:38:52 2008
+From: dirk.krause at pixelpark.com (Dirk Krause)
+Date: Mon, 6 Oct 2008 10:38:52 +0200
+Subject: [Openviewer-dev] windows cursor bug probably solved
+Message-ID: <72C1C9E5780A134F896530D480F22BB7021427C6@hermes.bitlab.de>
+
+
+could you change line 222 of wxUI.py to
+
+ self.renderPanel = wx.Panel(self, wx.ID_ANY, style=wx.WANTS_CHARS)
+
+and check if this still works on linux?
+
+seems to work ok on win.
+
+-- Dirk/Barth
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081006/b02346ad/attachment.html>
+
+From jeffames at gmail.com  Fri Oct 17 06:55:31 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Fri, 17 Oct 2008 13:55:31 +0900
+Subject: [Openviewer-dev] SVN restructuring
+Message-ID: <acd357460810162155u7337d7adq6181efa9f40d1aad@mail.gmail.com>
+
+Hello,
+
+Seeing as how the C# version of openviewer is mostly dead these days,
+I've moved it to its own branch and moved pyov to trunk.  Please
+update your local copies so they point to the right repository.  Doing
+a "svn switch URL" should work to convert existing local copies over
+to the new location.
+
+Pyov:
+  http://openviewer.org/svn/openviewer/trunk
+
+Pyov developers:
+  svn+ssh://USERNAME at openviewer.org/var/svn/openviewer/trunk
+
+C# viewer:
+  http://openviewer.org/svn/openviewer/branches/csharp-viewer
+
+Jeff
+
+

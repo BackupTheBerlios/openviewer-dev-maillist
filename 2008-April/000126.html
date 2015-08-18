@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] tdd
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20tdd&In-Reply-To=%3CBLU134-W45BA95585CC09AB89FB4C8D5EC0%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000122.html">
+   <LINK REL="Next"  HREF="000123.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] tdd</H1>
+    <B>Stefan Andersson</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20tdd&In-Reply-To=%3CBLU134-W45BA95585CC09AB89FB4C8D5EC0%40phx.gbl%3E"
+       TITLE="[Openviewer-dev] tdd">stefan at tribalmedia.se
+       </A><BR>
+    <I>Thu Apr 10 09:13:11 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000122.html">[Openviewer-dev] tdd
+</A></li>
+        <LI>Next message: <A HREF="000123.html">[Openviewer-dev] New Server Ideas
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#126">[ date ]</a>
+              <a href="thread.html#126">[ thread ]</a>
+              <a href="subject.html#126">[ subject ]</a>
+              <a href="author.html#126">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I have worked quite a lot with Test Driven Development.
+ 
++1 on doing it now, if it's ever going to be done; retrofitting code for TDD is notoriously hairy.
+ 
+* Make sure everbody sees the difference between unit testing and integration testing (and that they should be separate test spaces)
+* Badly written tests are as hampering for development as badly written code. Make sure your test test exactly the requisite it's supposed to; not more, not less. Refactor code to accomodate for testing.
+* Tests should live in assemblies side by side with the code it's testing, following the same code and name conventions.
+ 
+One of the effects of TDD is 'decoupling', since you want to be able to test isolated units.
+Also, you really don't want your call stack to get deep (since that's complicating the scenario setup) so code for simple operations involving few actors.
+Also, TDD tends to push the developer away from state; it's difficult to write tests to proof changes in the internal state of an object. Incidentally, this leads to better code, as many bugs and unnessecary complexities emanate from use of state.
+/Stefan
+
+
+
+&gt;<i> Date: Wed, 9 Apr 2008 15:17:35 -0500&gt; From: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">daedius at daedius.com</A>&gt; To: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev at lists.berlios.de</A>&gt; Subject: Re: [Openviewer-dev] tdd&gt; &gt; +1 For test driven development.&gt; &gt; Our group is small, and we have the opportunity to influence the&gt; methodology of how OpenViewer will be created for years to come. We&gt; should aim for a process that tries to keep a real view of the quality&gt; of our application. I feel test driven development is that way.&gt; Break down our application into small testable chunks of code.&gt; &gt; I think this is good in many ways. For example, just yesterday,&gt; Harrison was having a trouble testing OgreDotNet in isolation. We did&gt; not know what his issue was exactly, So I created an nunit test so he&gt; can run a ogredotnet 3d window alone without any other dependencies.&gt; With such tests our our library, we can give people a suite of tests&gt; that people can run on their respective operating system and runtime&gt; to verify our code works under our assumptions, or to aid them in&gt; resolving issues when they do not function.&gt; &gt; - Daedius&gt; &gt; &gt; On Wed, Apr 9, 2008 at 2:57 PM, Deifante Walters &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">deifante at gmail.com</A>&gt; wrote:&gt; &gt; Hello, in the irc channel the idea of Test Driven Development was brought&gt; &gt; up. The idea being that this will assist in making sure the code quality is&gt; &gt; there. It was also mentioned that if the whole group is not on board with&gt; &gt; this idea it will not float. What do people think about this?&gt; &gt;&gt; &gt; D-Font&gt; &gt;&gt; &gt; _______________________________________________&gt; &gt; Openviewer-dev mailing list&gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>&gt; &gt;&gt; &gt;&gt; _______________________________________________&gt; Openviewer-dev mailing list&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080410/f9d7b034/attachment.html">https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080410/f9d7b034/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000122.html">[Openviewer-dev] tdd
+</A></li>
+	<LI>Next message: <A HREF="000123.html">[Openviewer-dev] New Server Ideas
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#126">[ date ]</a>
+              <a href="thread.html#126">[ thread ]</a>
+              <a href="subject.html#126">[ subject ]</a>
+              <a href="author.html#126">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

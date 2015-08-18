@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] region and sim handles
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20region%20and%20sim%20handles&In-Reply-To=%3Cf1042c500810042343x4a8693b2l9ff750670cb654bd%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000177.html">
+   <LINK REL="Next"  HREF="000179.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] region and sim handles</H1>
+    <B>daniel miller</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20region%20and%20sim%20handles&In-Reply-To=%3Cf1042c500810042343x4a8693b2l9ff750670cb654bd%40mail.gmail.com%3E"
+       TITLE="[Openviewer-dev] region and sim handles">danbmil99 at gmail.com
+       </A><BR>
+    <I>Sun Oct  5 08:43:12 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000177.html">[Openviewer-dev] first take on prims
+</A></li>
+        <LI>Next message: <A HREF="000179.html">[Openviewer-dev] windows cursor bug probably solved
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#178">[ date ]</a>
+              <a href="thread.html#178">[ thread ]</a>
+              <a href="subject.html#178">[ subject ]</a>
+              <a href="author.html#178">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dahlia Trimble has pointed out that prims and terrain do not respect
+regions.  I have confirmed this with a simple test on a 2-region standalone
+sim: any terrain mods or prim rezzing that happens on the second region is
+reflected in pyov in the first region.
+
+Other observations (bugs):
+
+* trying to cross a region boundary doesn't work (not a real crash, but
+things are left in a funky state)
+
+* it appears to Dahlia that the terrain is rendered rotated 90*.  I've been
+leveling my terrain for tests so I never noticed
+
+-danx0r
+
+
+On Fri, Oct 3, 2008 at 11:59 PM, Jeff Ames &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">jeffames at gmail.com</A>&gt; wrote:
+
+&gt;<i> Very cool :)  Added in r385.
+</I>&gt;<i>
+</I>&gt;<i> Jeff
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Openviewer-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081004/8e902d73/attachment.html">https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081004/8e902d73/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000177.html">[Openviewer-dev] first take on prims
+</A></li>
+	<LI>Next message: <A HREF="000179.html">[Openviewer-dev] windows cursor bug probably solved
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#178">[ date ]</a>
+              <a href="thread.html#178">[ thread ]</a>
+              <a href="subject.html#178">[ subject ]</a>
+              <a href="author.html#178">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

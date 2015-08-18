@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] On Installation Packaging and UI Selection
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20On%20Installation%20Packaging%20and%20UI%20Selection&In-Reply-To=%3CBLU134-W15922EDBDC793667027274D51E0%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000009.html">
+   <LINK REL="Next"  HREF="000012.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] On Installation Packaging and UI Selection</H1>
+    <B>Stefan Andersson</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20On%20Installation%20Packaging%20and%20UI%20Selection&In-Reply-To=%3CBLU134-W15922EDBDC793667027274D51E0%40phx.gbl%3E"
+       TITLE="[Openviewer-dev] On Installation Packaging and UI Selection">stefan at tribalmedia.se
+       </A><BR>
+    <I>Sat Feb 23 08:43:13 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000009.html">[Openviewer-dev] On Installation Packaging and UI Selection
+</A></li>
+        <LI>Next message: <A HREF="000012.html">[Openviewer-dev] On Installation Packaging and UI Selection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#11">[ date ]</a>
+              <a href="thread.html#11">[ thread ]</a>
+              <a href="subject.html#11">[ subject ]</a>
+              <a href="author.html#11">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I was under the impression that we were aiming for a MVC type architecture with pluggable UI/Renderes and pluggable communications stacks?
+ 
+ie, a client framework with applications that consist of assembling a custom viewer?
+ 
+Best,
+/Stefan
+
+
+
+&gt;<i> Date: Sat, 23 Feb 2008 01:18:24 -0600&gt; From: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">daedius at daedius.com</A>&gt; To: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">adjohn at gmail.com</A>&gt; CC: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev at lists.berlios.de</A>&gt; Subject: Re: [Openviewer-dev] On Installation Packaging and UI Selection&gt; &gt; Sounds good to me. That doesn't seem to bode well though for our&gt; current setup though (winforms login + mogre client). Do we scrap the&gt; mogre rendering plugin for now to maintain crossplatformness in a&gt; winforms only client? In the meantime till ogredotnet is figured out,&gt; we could do some other neat things:&gt; &gt; -Work on integrating in more changes from SLeek into a winforms view&gt; that we actually want.&gt; -Think of how we want our winforms client to be designed to work with&gt; future rendering plugins.&gt; -What might also be cool is use OpenViewer as a proxy between the&gt; real SecondLife viewer and grids. I can think of a number of cool&gt; things that we might be able to accomplish in such a setup.&gt; &gt; Any thoughts?&gt; &gt; Daedius&gt; &gt; On 2/22/08, Adam Johnson &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">adjohn at gmail.com</A>&gt; wrote:&gt; &gt; I think Johan meant that we should only support one UI plugin at first, and&gt; &gt; one rendering engine at first. I am not afraid of the issue of the winforms&gt; &gt; getting out of control with multi platform, as we already have devs on&gt; &gt; linux, windows, and os x. Someone will know right away if there is a&gt; &gt; problem. It also needs to be a rule, that things need to work cross&gt; &gt; platform at all times. :) This is one reason why we decided to go the&gt; &gt; ogredotnet direction, because we would be stuck down the windows only road&gt; &gt; for a LONG time with mogre.&gt; &gt;&gt; &gt; I am also slightly concerned about the process needed to install GTK on&gt; &gt; Windows and OS X. As of right now, winforms will be supported out of the&gt; &gt; box in OS X and most Linux distros. (OS X previously didn't work because it&gt; &gt; needed X11, but now it is a standard installed package)&gt; &gt;&gt; &gt; Adam&gt; &gt;&gt; &gt;&gt; &gt; On Sat, Feb 23, 2008 at 12:12 PM, Daedius &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">daedius at daedius.com</A>&gt; wrote:&gt; &gt; &gt; Hey there Johan,&gt; &gt; &gt;&gt; &gt; &gt; You bring up some good points. Winforms is a popular technology, but&gt; &gt; &gt; I have some specific doubts:&gt; &gt; &gt; - Yes, winforms is popular, but as it stands winforms is never going&gt; &gt; &gt; to change. It is replaced by wpf and it will never be improved upon&gt; &gt; &gt; from its existing state.&gt; &gt; &gt; - I have not seen any winforms designers for Monodevelop, so creating&gt; &gt; &gt; winforms applications on Linux and OSX for those people would be very&gt; &gt; &gt; difficult. I worry about visual studio developers using winforms the&gt; &gt; &gt; way Visual Studio wants, and making it incompatible for developers who&gt; &gt; &gt; use monodevelop or commandline.&gt; &gt; &gt; - Winforms also does not have a theme which integrates well into other&gt; &gt; &gt; operating systems.&gt; &gt; &gt; - Lastly i checked on winforms support, it was not supported in any&gt; &gt; &gt; seriousness at all on OSX (GUI architecture was just too different&gt; &gt; &gt; perhaps?). I only saw Cocoa# bindings. I have, however, seen in&gt; &gt; &gt; recent mono builds in which Gtk+ is flourishing though. I just ran&gt; &gt; &gt; Monodevelop on OSX recently and was very impressed.&gt; &gt; &gt;&gt; &gt; &gt; Secondly, I wonder exactly how we intend to use winforms. If we ever&gt; &gt; &gt; get into embedding opengl into winforms, this may not be well&gt; &gt; &gt; understood in a crossplatform environment as much as opengl emeded&gt; &gt; &gt; into Gtk (which is well understood because it is open source). I&gt; &gt; &gt; worry we may use Winforms in a way that makes us incompatible with&gt; &gt; &gt; other platforms very quickly, and not know it.&gt; &gt; &gt;&gt; &gt; &gt; Lastly, I'm not entirely sure I agree with you about the only&gt; &gt; &gt; supporting one platform until things are stable. We may not be stable&gt; &gt; &gt; for a long time. I would hate to leave Linux and OSX out in the cold&gt; &gt; &gt; till then ( and in fact, there may be developers on these operating&gt; &gt; &gt; systems who we could greatly benefit from their involvement). Without&gt; &gt; &gt; a cross platform focus from the beginning, we risk the same problem&gt; &gt; &gt; countless other projects failed with in that you eventually make&gt; &gt; &gt; something that can never be ported.&gt; &gt; &gt;&gt; &gt; &gt; Also bear in mind, the answer might not be Winforms or GTK+. An&gt; &gt; &gt; entirely Mogre or entirely Ogredotnet solution ( where we let already&gt; &gt; &gt; crossplatformed projects do our UI ) might be a good route. There no&gt; &gt; &gt; reason why we can't be showing buttons and text inside of opengl.&gt; &gt; &gt;&gt; &gt; &gt; Daedius&gt; &gt; &gt;&gt; &gt; &gt;&gt; &gt; &gt;&gt; &gt; &gt;&gt; &gt; &gt; On 2/22/08, Berntsson johan &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">johan at 3di.jp</A>&gt; wrote:&gt; &gt; &gt; &gt; I added the WinForms skeleton, after checking that WinForms seems to be&gt; &gt; reasonably well supported in Mono on both Linux and recent versions of OSX.&gt; &gt; My reasoning was that it really isn't that bad to work with (skinning and&gt; &gt; alpha blending are supported), well known, and won't require any additional&gt; &gt; installation. I find it hard to believe that WinForms is going to die any&gt; &gt; time soon considering the huge amount of software that has been developed&gt; &gt; with it. However, WinForms is by no means perfect and the idea is that we&gt; &gt; should be able to swap UI modules easily. I think we should stick with one&gt; &gt; concept until the platform is a bit stable, but after that people can add&gt; &gt; their own Gtk, Qt, wxWidgets or whatever module. One thing to keep in mind&gt; &gt; is the licensing issue. We can use technology that is BSD-license&gt; &gt; compatible.&gt; &gt; &gt; &gt;&gt; &gt; &gt; &gt; Anyway, it is early days and if there are good reasons to go with Gtk&gt; &gt; I'm not opposed to a swap. However, wouldn't this means a more complicated&gt; &gt; installation process since we cannot assume that GTK will work out of the&gt; &gt; box on most platforms? How good are the c#-gtk bindings? Are the XML&gt; &gt; configuration tools supported, so that the UI can easily be customized?&gt; &gt; &gt; &gt;&gt; &gt; &gt; &gt; I guess my main argument for keeping WinForms is that it is well known&gt; &gt; for c# developers, has no issues with API-bindings, and is available across&gt; &gt; all major platforms without complicated installation procedures. What is the&gt; &gt; main arguments for a swap to Gtk?&gt; &gt; &gt; &gt;&gt; &gt; &gt; &gt; Johan&gt; &gt; &gt; &gt;&gt; &gt; &gt; &gt;&gt; &gt; &gt; &gt; ----- Original Message -----&gt; &gt; &gt; &gt; From: &quot;Daedius&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">daedius at daedius.com</A>&gt;&gt; &gt; &gt; &gt; To: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev at lists.berlios.de</A>&gt; &gt; &gt; &gt; Sent: 23 February 2008 05:15:53 o'clock (GMT+0900) Asia/Tokyo&gt; &gt; &gt; &gt; Subject: [Openviewer-dev] On Installation Packaging and UI Selection&gt; &gt; &gt; &gt;&gt; &gt; &gt; &gt; How do we want to distribute openviewer to the public? I feel this&gt; &gt; &gt; &gt; should be a pretty important question. We are much more graphical&gt; &gt; &gt; &gt; than opensim ever is, and more people will be caring about OpenViewer&gt; &gt; &gt; &gt; to be easy to install and get into. Given our crossplatform goals, we&gt; &gt; &gt; &gt; have to consider how we can make it easy for anyone to install&gt; &gt; &gt; &gt; openviewer and run it. Several questions are in my mind:&gt; &gt; &gt; &gt;&gt; &gt; &gt; &gt; - Who has experience with installers?&gt; &gt; &gt; &gt; - What installers will we have for each platform?&gt; &gt; &gt; &gt; - What will the process be like? And how will we get the user to a ui&gt; &gt; &gt; &gt; interface that they can use on their operating system?&gt; &gt; &gt; &gt;&gt; &gt; &gt; &gt; On my mind to these questions:&gt; &gt; &gt; &gt;&gt; &gt; &gt; &gt; It would be nice to have these:&gt; &gt; &gt; &gt;&gt; &gt; &gt; &gt; OSX: .dmg file with a drag icon over to applications, i'd like to&gt; &gt; &gt; &gt; avoid doing a full blown out installer on OSX, but i'm not sure if its&gt; &gt; &gt; &gt; possible&gt; &gt; &gt; &gt; Linux: Packages for ubuntu and gentoo&gt; &gt; &gt; &gt; Windows: Nullsoft installer&gt; &gt; &gt; &gt;&gt; &gt; &gt; &gt; What I think we may need is the ability to have a crossplatform ui&gt; &gt; &gt; &gt; chooser. Not all ui plugins may be available for everyone. Maybe&gt; &gt; &gt; &gt; programmed in gtk.&gt; &gt; &gt; &gt;&gt; &gt; &gt; &gt; Daedius&gt; &gt; &gt; &gt;&gt; &gt; &gt; &gt; _______________________________________________&gt; &gt; &gt; &gt; Openviewer-dev mailing list&gt; &gt; &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&gt; &gt; &gt; &gt;&gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>&gt; &gt; &gt; &gt;&gt; &gt; &gt; &gt;&gt; &gt; &gt; &gt; _______________________________________________&gt; &gt; &gt; &gt; Openviewer-dev mailing list&gt; &gt; &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&gt; &gt; &gt; &gt;&gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>&gt; &gt; &gt; &gt;&gt; &gt; &gt; _______________________________________________&gt; &gt; &gt; Openviewer-dev mailing list&gt; &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&gt; &gt; &gt;&gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>&gt; &gt; &gt;&gt; &gt;&gt; &gt;&gt; _______________________________________________&gt; Openviewer-dev mailing list&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080223/56c3b19a/attachment.html">https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080223/56c3b19a/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000009.html">[Openviewer-dev] On Installation Packaging and UI Selection
+</A></li>
+	<LI>Next message: <A HREF="000012.html">[Openviewer-dev] On Installation Packaging and UI Selection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#11">[ date ]</a>
+              <a href="thread.html#11">[ thread ]</a>
+              <a href="subject.html#11">[ subject ]</a>
+              <a href="author.html#11">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

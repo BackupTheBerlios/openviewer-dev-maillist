@@ -1,0 +1,557 @@
+From bogus@does.not.exist.com  Wed Mar 14 15:56:30 2012
+From: bogus@does.not.exist.com ()
+Date: Wed, 14 Mar 2012 14:56:30 -0000
+Subject: No subject
+Message-ID: <mailman.0.1331736990.8202.openviewer-dev@lists.berlios.de>
+
+For .Net the WinForms framework provides a very compatible and easy way
+to do things. So since the rendering engine not should be tied down
+whatever window it runs in (I can see MANY uses where you'd want to
+render it in different places). WinForms will do the job just fine, and
+at the same time provide a good modular approach that later can be
+easily ported to any forms-platform of choice.
+
+- Tedd
+
+-----Original Message-----
+From: openviewer-dev-bounces at lists.berlios.de
+[mailto:openviewer-dev-bounces at lists.berlios.de] On Behalf Of Daedius
+Sent: 23. februar 2008 04:12
+To: Berntsson johan
+Cc: openviewer-dev at lists.berlios.de
+Subject: Re: [Openviewer-dev] On Installation Packaging and UI Selection
+
+Hey there Johan,
+
+You bring up some good points.  Winforms is a popular technology, but
+I have some specific doubts:
+- Yes, winforms is popular, but as it stands winforms is never going
+to change.  It is replaced by wpf and it will never be improved upon
+from its existing state.
+- I have not seen any winforms designers for Monodevelop, so creating
+winforms applications on Linux and OSX for those people would be very
+difficult.  I worry about visual studio developers using winforms the
+way Visual Studio wants, and making it incompatible for developers who
+use monodevelop or commandline.
+- Winforms also does not have a theme which integrates well into other
+operating systems.
+- Lastly i checked on winforms support,  it was not supported in any
+seriousness at all on OSX  (GUI architecture was just too different
+perhaps?).  I only saw Cocoa# bindings.  I have, however, seen in
+recent mono builds in which Gtk+ is flourishing though.  I just ran
+Monodevelop on OSX recently and was very impressed.
+
+Secondly, I wonder exactly how we intend to use winforms.  If we ever
+get into embedding opengl into winforms, this may not be well
+understood in a crossplatform environment as much as opengl emeded
+into Gtk (which is well understood because it is open source).  I
+worry we may use Winforms in a way that makes us incompatible with
+other platforms very quickly, and not know it.
+
+Lastly, I'm not entirely sure I agree with you about the only
+supporting one platform until things are stable.  We may not be stable
+for a long time.  I would hate to leave Linux and OSX out in the cold
+till then ( and in fact, there may be developers on these operating
+systems who we could greatly benefit from their involvement).  Without
+a cross platform focus from the beginning, we risk the same problem
+countless other projects failed with in that you eventually make
+something that can never be ported.
+
+Also bear in mind, the answer might not be Winforms or GTK+.  An
+entirely Mogre or entirely Ogredotnet solution  ( where we let already
+crossplatformed projects do our UI ) might be a good route.  There no
+reason why we can't be showing buttons and text inside of opengl.
+
+Daedius
+
+On 2/22/08, Berntsson johan <johan at 3di.jp> wrote:
+> I added the WinForms skeleton, after checking that WinForms seems to
+be reasonably well supported in Mono on both Linux and recent versions
+of OSX. My reasoning was that it really isn't that bad to work with
+(skinning and alpha blending are supported), well known, and won't
+require any additional installation. I find it hard to believe that
+WinForms is going to die any time soon considering the huge amount of
+software that has been developed with it. However, WinForms is by no
+means perfect and the idea is that we should be able to swap UI modules
+easily. I think we should stick with one concept until the platform is a
+bit stable, but after that people can add their own Gtk, Qt, wxWidgets
+or whatever module. One thing to keep in mind is the licensing issue. We
+can use technology that is BSD-license compatible.
+>
+>  Anyway, it is early days and if there are good reasons to go with Gtk
+I'm not opposed to a swap. However, wouldn't this means a more
+complicated installation process since we cannot assume that GTK will
+work out of the box on most platforms? How good are the c#-gtk bindings?
+Are the XML configuration tools supported, so that the UI can easily be
+customized?
+>
+>  I guess my main argument for keeping WinForms is that it is well
+known for c# developers, has no issues with API-bindings, and is
+available across all major platforms without complicated installation
+procedures. What is the main arguments for a swap to Gtk?
+>
+>  Johan
+>
+>
+>  ----- Original Message -----
+>  From: "Daedius" <daedius at daedius.com>
+>  To: openviewer-dev at lists.berlios.de
+>  Sent: 23 February 2008 05:15:53 o'clock (GMT+0900) Asia/Tokyo
+>  Subject: [Openviewer-dev] On Installation Packaging and UI Selection
+>
+>  How do we want to distribute openviewer to the public?  I feel this
+>  should be a pretty important question.  We are much more graphical
+>  than opensim ever is, and more people will be caring about OpenViewer
+>  to be easy to install and get into.  Given our crossplatform goals,
+we
+>  have to consider how we can make it easy for anyone to install
+>  openviewer and run it.  Several questions are in my mind:
+>
+>  - Who has experience with installers?
+>  - What installers will we have for each platform?
+>  - What will the process be like? And how will we get the user to a ui
+>  interface that they can use on their operating system?
+>
+>  On my mind to these questions:
+>
+>  It would be nice to have these:
+>
+>  OSX: .dmg file with a drag icon over to applications,  i'd like to
+>  avoid doing a full blown out installer on OSX, but i'm not sure if
+its
+>  possible
+>  Linux: Packages for ubuntu and gentoo
+>  Windows: Nullsoft installer
+>
+>  What I think we may need is the ability to have a crossplatform ui
+>  chooser.  Not all ui plugins may be available for everyone. Maybe
+>  programmed in gtk.
+>
+>  Daedius
+>
+> _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+>
+>  _______________________________________________
+>  Openviewer-dev mailing list
+>  Openviewer-dev at lists.berlios.de
+>  https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+
+
+From bogus@does.not.exist.com  Wed Mar 14 15:56:30 2012
+From: bogus@does.not.exist.com ()
+Date: Wed, 14 Mar 2012 14:56:30 -0000
+Subject: No subject
+Message-ID: <mailman.1.1331736990.8202.openviewer-dev@lists.berlios.de>
+
+the protocol layer.  Then the UI would query the protocol to see if
+certain features are supported.  For the time being, though, I think
+it's fairly safe to assume that any protocol we're using is a superset
+of the Second Life protocol.
+
+(If anyone wants to add other totally different protocols, they're of
+course welcome to do so.  It would be quite interesting to see how
+well the IProtocol interface can abstract the differences out.)
+
+> - UserSettings
+
+This now auto-generates an XML file when you run the app.  We may want
+to add a version header to it, though, to avoid upgrade problems.
+
+However, my feeling is that it belongs more at the application layer than
+in the GTK UI.
+
+> - 3D Integration (if not, an external window will be fine)
+
+This is something we should look into very soon (though I think MW is
+already).  If we run into problems here (like GTK# not supporting GL
+contexts, or such), it could seriously limit the usefulness of these
+UI's.
+
+> - fixed some namespacing issues
+
+If there are conflicts with the Gtk namespace, we can change to
+something like GtkUI or GtkPlugin or such.  However, the namespace
+should mirror the file path (so
+OpenViewer/UI/GtkPlugin/GtkMainWindow.cs should define a class
+GtkMainWindow in the namespace OpenViewer.UI.GtkPlugin)
+
+Also, the way we're using namespaces currently means we can't have
+classes and namespaces with the same name, so we have to avoid doing
+something like GtkPlugin/GtkPlugin.cs.
+
+Jeff
+
+
+From bogus@does.not.exist.com  Wed Mar 14 15:56:30 2012
+From: bogus@does.not.exist.com ()
+Date: Wed, 14 Mar 2012 14:56:30 -0000
+Subject: No subject
+Message-ID: <mailman.2.1331736990.8202.openviewer-dev@lists.berlios.de>
+
+the protocol layer.  Then the UI would query the protocol to see if
+certain features are supported.  For the time being, though, I think
+it's fairly safe to assume that any protocol we're using is a superset
+of the Second Life protocol.
+
+(If anyone wants to add other totally different protocols, they're of
+course welcome to do so.  It would be quite interesting to see how
+well the IProtocol interface can abstract the differences out.)
+
+> - UserSettings
+
+This now auto-generates an XML file when you run the app.  We may want
+to add a version header to it, though, to avoid upgrade problems.
+
+However, my feeling is that it belongs more at the application layer than
+in the GTK UI.
+
+> - 3D Integration (if not, an external window will be fine)
+
+This is something we should look into very soon (though I think MW is
+already).  If we run into problems here (like GTK# not supporting GL
+contexts, or such), it could seriously limit the usefulness of these
+UI's.
+
+> - fixed some namespacing issues
+
+If there are conflicts with the Gtk namespace, we can change to
+something like GtkUI or GtkPlugin or such.  However, the namespace
+should mirror the file path (so
+OpenViewer/UI/GtkPlugin/GtkMainWindow.cs should define a class
+GtkMainWindow in the namespace OpenViewer.UI.GtkPlugin)
+
+Also, the way we're using namespaces currently means we can't have
+classes and namespaces with the same name, so we have to avoid doing
+something like GtkPlugin/GtkPlugin.cs.
+
+Jeff
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+       
+---------------------------------
+Sent from Yahoo! Mail.
+More Ways to Keep in Touch.
+--0-861566474-1206444732=:16032
+Content-Type: text/html; charset=iso-8859-1
+Content-Transfer-Encoding: 8bit
+
++1 to this, I too envision a kind of firefox approach, with the address bar etc. Although I was also thinking of the main viewing window as being separated into two, the 3d portion and a 2d side bar that could have context specific things in, like when in build mode, it would have the build icons etc in it. At another time it could have a embedded web browser. also plugins could define panels that could be displayed in there when that plugin is active/selected.<br><br>I don't think we want to have separate tabs for everything, and having to swap between tabs to do something like chat.<br><br>But above all, like Jeff said, it needs to be expandable. Modules need to be able to include their own GUI panel that is integrated into the ui when they are in use. <br><br><b><i>Jeff Ames &lt;jeffames at gmail.com&gt;</i></b> wrote:<blockquote class="replbq" style="border-left: 2px solid rgb(16, 16, 255); margin-left: 5px; padding-left: 5px;"> &gt; - Login Screen<br>&gt; - Chat Screen
+ (Local Chat/IM/Group Chat)<br>&gt; - Settings Screen<br><br>It sounds like you're envisioning a separate tab in the notebook<br>control for each of these functions.  I was thinking more along the<br>lines of a Firefox for virtual worlds -- one main viewing window, an<br>address bar, and windows accessible through the menu bar for things<br>like setting preferences, etc.  (And perhaps tabbed browsing, with<br>support for multiple virtual world connections simultaneously)<br><br>One of the major goals of this project, though, is to be highly<br>customizable, so if someone wants to totally rewrite the UI, it's a<br>fairly simple task.  We just provide a default implementation (or<br>multiple defaults -- a browser-like skin, a FPS-like skin, etc.)<br><br>To keep it customizable, we should limit, or at least explicitly<br>define, the dependencies between the .glade file and the code (i.e.,<br>what widgets are expected to exist, and what types and names they<br>should
+ have).<br><br>Another thing to keep in mind is that at some point in the distant<br>future, the UI may be partially specified by the server, so you can<br>log into a FPS or a virtual conference with the same viewer and get a<br>UI appropriate to each.<br><br>&gt; - OpenViewer Capabilities Management<br><br>From what's on the wiki, it sounds like a lot of this should happen at<br>the protocol layer.  Then the UI would query the protocol to see if<br>certain features are supported.  For the time being, though, I think<br>it's fairly safe to assume that any protocol we're using is a superset<br>of the Second Life protocol.<br><br>(If anyone wants to add other totally different protocols, they're of<br>course welcome to do so.  It would be quite interesting to see how<br>well the IProtocol interface can abstract the differences out.)<br><br>&gt; - UserSettings<br><br>This now auto-generates an XML file when you run the app.  We may want<br>to add a version header to it,
+ though, to avoid upgrade problems.<br><br>However, my feeling is that it belongs more at the application layer than<br>in the GTK UI.<br><br>&gt; - 3D Integration (if not, an external window will be fine)<br><br>This is something we should look into very soon (though I think MW is<br>already).  If we run into problems here (like GTK# not supporting GL<br>contexts, or such), it could seriously limit the usefulness of these<br>UI's.<br><br>&gt; - fixed some namespacing issues<br><br>If there are conflicts with the Gtk namespace, we can change to<br>something like GtkUI or GtkPlugin or such.  However, the namespace<br>should mirror the file path (so<br>OpenViewer/UI/GtkPlugin/GtkMainWindow.cs should define a class<br>GtkMainWindow in the namespace OpenViewer.UI.GtkPlugin)<br><br>Also, the way we're using namespaces currently means we can't have<br>classes and namespaces with the same name, so we have to avoid doing<br>something like
+ GtkPlugin/GtkPlugin.cs.<br><br>Jeff<br>_______________________________________________<br>Openviewer-dev mailing list<br>Openviewer-dev at lists.berlios.de<br>https://lists.berlios.de/mailman/listinfo/openviewer-dev<br></blockquote><br><p>&#32;
+      <hr size=1>
+Sent from <a  
+href="http://us.rd.yahoo.com/mailuk/taglines/isp/control/*http://us.rd.yahoo.com/evt=52421/*http://uk.docs.yahoo.com/nowyoucan.html" target=_blank>Yahoo! Mail</a>.
+<br>
+More Ways to Keep in Touch.
+--0-861566474-1206444732=:16032--
+
+
+
+From bogus@does.not.exist.com  Wed Mar 14 15:56:30 2012
+From: bogus@does.not.exist.com ()
+Date: Wed, 14 Mar 2012 14:56:30 -0000
+Subject: No subject
+Message-ID: <mailman.3.1331736991.8202.openviewer-dev@lists.berlios.de>
+
+what's 
+on 
+the 
+wiki, 
+it 
+sounds 
+like 
+a 
+lot 
+of 
+this 
+should 
+happen 
+at<br>&gt; 
+the 
+protocol 
+layer. 
+Then 
+the 
+UI 
+would 
+query 
+the 
+protocol 
+to 
+see 
+if<br>&gt; 
+certain 
+features 
+are 
+supported. 
+For 
+the 
+time 
+being, 
+though, 
+I 
+think<br>&gt; 
+it's 
+fairly 
+safe 
+to 
+assume 
+that 
+any 
+protocol 
+we're 
+using 
+is 
+a 
+superset<br>&gt; 
+of 
+the 
+Second 
+Life 
+protocol.<br>&gt;<br>&gt; 
+(If 
+anyone 
+wants 
+to 
+add 
+other 
+totally 
+different 
+protocols, 
+they're 
+of<br>&gt; 
+course 
+welcome 
+to 
+do 
+so. 
+It 
+would 
+be 
+quite 
+interesting 
+to 
+see 
+how<br>&gt; 
+well 
+the 
+IProtocol 
+interface 
+can 
+abstract 
+the 
+differences 
+out.)<br>&gt;<br>&gt; 
+&gt; 
+- 
+UserSettings<br>&gt;<br>&gt; 
+This 
+now 
+auto-generates 
+an 
+XML 
+file 
+when 
+you 
+run 
+the 
+app. 
+We 
+may 
+want<br>&gt; 
+to 
+add 
+a 
+version 
+header 
+to 
+it, 
+though, 
+to 
+avoid 
+upgrade 
+problems.<br>&gt;<br>&gt; 
+However, 
+my 
+feeling 
+is 
+that 
+it 
+belongs 
+more 
+at 
+the 
+application 
+layer 
+than<br>&gt; 
+in 
+the 
+GTK 
+UI.<br>&gt;<br>&gt; 
+&gt; 
+- 
+3D 
+Integration 
+(if 
+not, 
+an 
+external 
+window 
+will 
+be 
+fine)<br>&gt;<br>&gt; 
+This 
+is 
+something 
+we 
+should 
+look 
+into 
+very 
+soon 
+(though 
+I 
+think 
+MW 
+is<br>&gt; 
+already). 
+If 
+we 
+run 
+into 
+problems 
+here 
+(like 
+GTK# 
+not 
+supporting 
+GL<br>&gt; 
+contexts, 
+or 
+such), 
+it 
+could 
+seriously 
+limit 
+the 
+usefulness 
+of 
+these<br>&gt; 
+UI's.<br>&gt;<br>&gt; 
+&gt; 
+- 
+fixed 
+some 
+namespacing 
+issues<br>&gt;<br>&gt; 
+If 
+there 
+are 
+conflicts 
+with 
+the 
+Gtk 
+namespace, 
+we 
+can 
+change 
+to<br>&gt; 
+something 
+like 
+GtkUI 
+or 
+GtkPlugin 
+or 
+such. 
+However, 
+the 
+namespace<br>&gt; 
+should 
+mirror 
+the 
+file 
+path 
+(so<br>&gt; 
+OpenViewer/UI/GtkPlugin/GtkMainWindow.cs 
+should 
+define 
+a 
+class<br>&gt; 
+GtkMainWindow 
+in 
+the 
+namespace 
+OpenViewer.UI.GtkPlugin)<br>&gt;<br>&gt; 
+Also, 
+the 
+way 
+we're 
+using 
+namespaces 
+currently 
+means 
+we 
+can't 
+have<br>&gt; 
+classes 
+and 
+namespaces 
+with 
+the 
+same 
+name, 
+so 
+we 
+have 
+to 
+avoid 
+doing<br>&gt; 
+something 
+like 
+GtkPlugin/GtkPlugin.cs.<br>&gt;<br>&gt; 
+Jeff<br>&gt; 
+_______________________________________________<br>&gt; 
+Openviewer-dev 
+mailing 
+list<br>&gt; 
+<a ymailto="mailto:Openviewer-dev at lists.berlios.de" href="mailto:Openviewer-dev at lists.berlios.de">Openviewer-dev at lists.berlios.de</a><br>&gt; 
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev" target="_blank">https://lists.berlios.de/mailman/listinfo/openviewer-dev</a><br>&gt;<br>&gt;<br>&gt;<br>&gt;&nbsp; 
+________________________________<br>&gt;&nbsp; 
+Sent 
+from 
+Yahoo! 
+Mail.<br>&gt;&nbsp; 
+More 
+Ways 
+to 
+Keep 
+in 
+Touch.<br>&gt; 
+_______________________________________________<br>&gt;&nbsp; 
+Openviewer-dev 
+mailing 
+list<br>&gt;&nbsp; 
+<a ymailto="mailto:Openviewer-dev at lists.berlios.de" href="mailto:Openviewer-dev at lists.berlios.de">Openviewer-dev at lists.berlios.de</a><br>&gt;&nbsp; 
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev" target="_blank">https://lists.berlios.de/mailman/listinfo/openviewer-dev</a><br>&gt;<br>&gt;<br>_______________________________________________<br>Openviewer-dev 
+mailing 
+list<br><a ymailto="mailto:Openviewer-dev at lists.berlios.de" href="mailto:Openviewer-dev at lists.berlios.de">Openviewer-dev at lists.berlios.de</a><br><a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev" target="_blank">https://lists.berlios.de/mailman/listinfo/openviewer-dev</a><br></div><br></div></div></body></html>
+--0-1729617952-1206458541=:65776--
+
+

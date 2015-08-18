@@ -1,0 +1,229 @@
+From jeffames at gmail.com  Mon Jul  7 02:36:30 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Mon, 7 Jul 2008 09:36:30 +0900
+Subject: [Openviewer-dev] Suggestion for an updated GTK+ UI ( .glade
+	attachment )
+In-Reply-To: <4880eb1a0806231101l3bb37d07m96de6e32e822a652@mail.gmail.com>
+References: <4880eb1a0806231101l3bb37d07m96de6e32e822a652@mail.gmail.com>
+Message-ID: <acd357460807061736w6e6ec0f4n6019f86be66080e2@mail.gmail.com>
+
+My take on the UI is that everyone is going to want something slightly
+different here, so our best bet is to provide a kind of
+middle-of-the-road UI that is easily extensible and modifiable.
+
+I'd also suggest that we avoid adding any UI components until the
+underlying functionality exists.  It's all too easy to get sucked into
+designing a beautiful UI, but one where all the buttons are greyed
+out.
+
+Jeff
+
+
+From adjohn at gmail.com  Mon Jul  7 05:23:46 2008
+From: adjohn at gmail.com (Adam Johnson)
+Date: Mon, 7 Jul 2008 12:23:46 +0900
+Subject: [Openviewer-dev] Suggestion for an updated GTK+ UI ( .glade
+	attachment )
+In-Reply-To: <acd357460807061736w6e6ec0f4n6019f86be66080e2@mail.gmail.com>
+References: <4880eb1a0806231101l3bb37d07m96de6e32e822a652@mail.gmail.com>
+	<acd357460807061736w6e6ec0f4n6019f86be66080e2@mail.gmail.com>
+Message-ID: <56468c1f0807062023s1ff028c8oc77b14ff881fb2bd@mail.gmail.com>
+
++1 to chi11ken's statement.  I think there will be too many heated
+opinions on what the UI design should be.  It also takes attention
+away from what is really needed right now, functionality.
+
+The great thing about OpenViewer is that it is easy for someone to
+create a fully custom viewer that fits their needs.
+
+Adam J
+
+On Mon, Jul 7, 2008 at 9:36 AM, Jeff Ames <jeffames at gmail.com> wrote:
+> My take on the UI is that everyone is going to want something slightly
+> different here, so our best bet is to provide a kind of
+> middle-of-the-road UI that is easily extensible and modifiable.
+>
+> I'd also suggest that we avoid adding any UI components until the
+> underlying functionality exists.  It's all too easy to get sucked into
+> designing a beautiful UI, but one where all the buttons are greyed
+> out.
+>
+> Jeff
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+
+
+From belxjander at gmail.com  Mon Jul  7 07:20:15 2008
+From: belxjander at gmail.com (Belxjander Serechai)
+Date: Mon, 7 Jul 2008 14:20:15 +0900
+Subject: [Openviewer-dev] Suggestion for an updated GTK+ UI ( .glade
+	attachment )
+In-Reply-To: <56468c1f0807062023s1ff028c8oc77b14ff881fb2bd@mail.gmail.com>
+References: <4880eb1a0806231101l3bb37d07m96de6e32e822a652@mail.gmail.com>
+	<acd357460807061736w6e6ec0f4n6019f86be66080e2@mail.gmail.com>
+	<56468c1f0807062023s1ff028c8oc77b14ff881fb2bd@mail.gmail.com>
+Message-ID: <4880eb1a0807062220v4ea35f18xffcf568b637cb14c@mail.gmail.com>
+
+Thats why I was doing the .glade UI base I did as only being base
+material... I was hopefully aiming for not being "feature complete"
+but instead
+  have a mechanism where plugins can "add" or "replace" existing
+functionality as the user chooses
+
+The only issue would then come down to plugin availability,  which is
+why I had the mozilla plugins repo in mind myself for such things...
+  providing a central directory of plugins to the viewer all clearly
+marked as written by whomever writes the specific plugin...
+
+I know it was not all that clear for the .glade file I posted up...
+but I was offering it up more for commentary to hash out something
+respectable
+  as a UI "base"... so that there isnt just a single person pushing a
+UI on everyone but getting a more "rounded" UI experience together
+  and also discussing places where the UI needs to remain "incomplete"
+to push people into designing and implimenting plugins to fill gaps
+
+as for functionality... Im still trying to track down what happens to
+the image data for it to *be* cachable like the rest of the asset
+content,
+  I am definitively missing something... and Im not totally sure what
+I am missing in my trying various things
+
+Belxjander
+
+On Mon, Jul 7, 2008 at 12:23 PM, Adam Johnson <adjohn at gmail.com> wrote:
+> +1 to chi11ken's statement.  I think there will be too many heated
+> opinions on what the UI design should be.  It also takes attention
+> away from what is really needed right now, functionality.
+>
+> The great thing about OpenViewer is that it is easy for someone to
+> create a fully custom viewer that fits their needs.
+>
+> Adam J
+>
+> On Mon, Jul 7, 2008 at 9:36 AM, Jeff Ames <jeffames at gmail.com> wrote:
+>> My take on the UI is that everyone is going to want something slightly
+>> different here, so our best bet is to provide a kind of
+>> middle-of-the-road UI that is easily extensible and modifiable.
+>>
+>> I'd also suggest that we avoid adding any UI components until the
+>> underlying functionality exists.  It's all too easy to get sucked into
+>> designing a beautiful UI, but one where all the buttons are greyed
+>> out.
+>>
+>> Jeff
+>> _______________________________________________
+>> Openviewer-dev mailing list
+>> Openviewer-dev at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>>
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+>
+
+
+From francis.chang at intel.com  Wed Jul 30 00:39:58 2008
+From: francis.chang at intel.com (Chang, Francis)
+Date: Tue, 29 Jul 2008 15:39:58 -0700
+Subject: [Openviewer-dev] OpenViewer Status
+Message-ID: <B43DA0998FC18F46A583FFFE01BF7FE58DDB5BA9@orsmsx504.amr.corp.intel.com>
+
+Hi everyone,
+
+I'm interested in doing some openviewer development, and I had a few questions about its status.
+
+Is openviewer under active development? I've been following the IRC channels and the mailing lists for about a little while and there seems to be very little activity. The roadmap/milestones on the website seem to be ambiguous about anticipated completion dates.
+
+In the Media portion of Openviewer, there's a few screenshots of Openviewer running the Mogre wrapper - however, there's no Mogre code in SVN. Are there plans to transition OpenViewer to use Mogre instead of OgreDotNet? I believe OgreDotNet is no longer being updated.
+
+In my development environment (VS2008/XP), I ran into a couple of multi-threading issues. I've got a couple of work-arounds - is anyone interested in this code?
+
+--
+Francis
+
+
+From jeffames at gmail.com  Wed Jul 30 03:40:18 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Wed, 30 Jul 2008 10:40:18 +0900
+Subject: [Openviewer-dev] OpenViewer Status
+In-Reply-To: <B43DA0998FC18F46A583FFFE01BF7FE58DDB5BA9@orsmsx504.amr.corp.intel.com>
+References: <B43DA0998FC18F46A583FFFE01BF7FE58DDB5BA9@orsmsx504.amr.corp.intel.com>
+Message-ID: <acd357460807291840u9ab648bh1d939499776712da@mail.gmail.com>
+
+> Is openviewer under active development?
+
+Yes.  There hasn't been much activity on the mailing list or IRC
+lately because we've been a little side-tracked looking into some new
+possibilities.
+
+> Are there plans to transition OpenViewer to use Mogre instead of
+> OgreDotNet? I believe OgreDotNet is no longer being updated.
+
+We were using Mogre, but it's a Windows-only library.  We've updated
+the old OgreDotNet to work with recent versions of Ogre, and now it's
+working on Linux, Mac OS X, and Windows.  As of r324, we've switched
+to only officially supporting OgreDotNet.
+
+> In my development environment (VS2008/XP), I ran into a couple of
+> multi-threading issues. I've got a couple of work-arounds - is
+> anyone interested in this code?
+
+Is this under WinForms?  I'm not sure we'll use WinForms long-term due
+to the somewhat lacking support under mono, but there may be people
+interested in using it for particular projects.  If you have any code
+to contribute, it would be much appreciated.  You can submit patches
+through trac on the OpenViewer website.
+
+Jeff
+
+
+From francis.chang at intel.com  Wed Jul 30 05:38:19 2008
+From: francis.chang at intel.com (Chang, Francis)
+Date: Tue, 29 Jul 2008 20:38:19 -0700
+Subject: [Openviewer-dev] OpenViewer Status
+In-Reply-To: <acd357460807291840u9ab648bh1d939499776712da@mail.gmail.com>
+References: <B43DA0998FC18F46A583FFFE01BF7FE58DDB5BA9@orsmsx504.amr.corp.intel.com>
+	<acd357460807291840u9ab648bh1d939499776712da@mail.gmail.com>
+Message-ID: <B43DA0998FC18F46A583FFFE01BF7FE598BC4FA5@orsmsx504.amr.corp.intel.com>
+
+Hi Jeff,
+
+Thanks for your reply!
+
+> Yes.  There hasn't been much activity on the mailing list or IRC
+> lately because we've been a little side-tracked looking into some new
+> possibilities.
+
+What other things are you looking into? I'm trying to get a sense for where this project is headed.
+
+Can you tell me what the goal of openviewer is? What will it provide that the opensource secondlife client won't? What timeline do you see for when openviewer development? How much of the existing codebase do you see being rewritten in the near future?
+
+> We were using Mogre, but it's a Windows-only library.  We've updated
+> the old OgreDotNet to work with recent versions of Ogre, and now it's
+> working on Linux, Mac OS X, and Windows.  As of r324, we've switched
+> to only officially supporting OgreDotNet.
+
+That makes a lot of sense. Is performance an important consideration for openviewer? As I understand it, the SWIG wrappers that ogredotnet uses have a penalty due to lots of boxing/unboxing. (Although I'm no expert, this might not be significant at all)
+
+> > In my development environment (VS2008/XP), I ran into a couple of
+> > multi-threading issues. I've got a couple of work-arounds - is
+> > anyone interested in this code?
+>
+> Is this under WinForms?  I'm not sure we'll use WinForms long-term due
+> to the somewhat lacking support under mono, but there may be people
+> interested in using it for particular projects.  If you have any code
+> to contribute, it would be much appreciated.  You can submit patches
+> through trac on the OpenViewer website.
+
+One of the bugs was with winforms. The other was an object sharing issue between the World and the TerrainManager. I've submitted the patch through trac.
+
+--
+Francis
+
+
+

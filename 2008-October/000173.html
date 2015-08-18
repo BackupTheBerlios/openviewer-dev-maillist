@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] externalWindowHandle fix
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20externalWindowHandle%20fix&In-Reply-To=%3C72C1C9E5780A134F896530D480F22BB7021427C1%40hermes.bitlab.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000172.html">
+   <LINK REL="Next"  HREF="000174.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] externalWindowHandle fix</H1>
+    <B>Dirk Krause</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20externalWindowHandle%20fix&In-Reply-To=%3C72C1C9E5780A134F896530D480F22BB7021427C1%40hermes.bitlab.de%3E"
+       TITLE="[Openviewer-dev] externalWindowHandle fix">dirk.krause at pixelpark.com
+       </A><BR>
+    <I>Fri Oct  3 13:41:44 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000172.html">[Openviewer-dev] patch fixes crashing
+</A></li>
+        <LI>Next message: <A HREF="000174.html">[Openviewer-dev] externalWindowHandle fix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#173">[ date ]</a>
+              <a href="thread.html#173">[ thread ]</a>
+              <a href="subject.html#173">[ subject ]</a>
+              <a href="author.html#173">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi,
+
+I found the reason why the top/left of the ogre display is not correct in the wxpanel.
+
+line 64, ogrerenderer.py should read:
+   renderParams[&quot;externalWindowHandle&quot;] = handle
+
+Its not parentWindowHandle but externalWindowHandle.
+
+Best regards,
+  Dirk
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: winmail.dat
+Type: application/ms-tnef
+Size: 2409 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081003/727aec05/attachment.bin">https://lists.berlios.de/pipermail/openviewer-dev/attachments/20081003/727aec05/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000172.html">[Openviewer-dev] patch fixes crashing
+</A></li>
+	<LI>Next message: <A HREF="000174.html">[Openviewer-dev] externalWindowHandle fix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#173">[ date ]</a>
+              <a href="thread.html#173">[ thread ]</a>
+              <a href="subject.html#173">[ subject ]</a>
+              <a href="author.html#173">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

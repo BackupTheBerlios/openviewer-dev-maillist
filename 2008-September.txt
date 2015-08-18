@@ -1,0 +1,239 @@
+From danbmil99 at yahoo.com  Sun Sep 21 21:32:45 2008
+From: danbmil99 at yahoo.com (dan miller)
+Date: Sun, 21 Sep 2008 12:32:45 -0700 (PDT)
+Subject: [Openviewer-dev] testing list, info about OS-X
+Message-ID: <818463.13731.qm@web57802.mail.re3.yahoo.com>
+
+thought I would test whether this list is actually operational, since I haven't seen any traffic.
+
+I'm successfully fiddling away with Python-Ogre on Windows and Linux, but I think it's really important that we have 3-plat support from the get-go to the degree possible.  With that in mind, I've been watching the p-og list with an eye on Mac support.  He's a recent thread that looks promising:
+
+http://www.ogre3d.org/phpBB2addons/viewtopic.php?t=6853
+
+I should point out that I spent a good part of a week trying without success to build on either Windows or Ubuntu.  This is a *very* difficult project to get building -- it's a perfect storm of multiple libraries, multiple languages, multiple make environments, and limited attention from the devs on ease of build.  They're trying, but they have a difficult job on their hands.  I would allocate at least a *full week*, meaning hours a day for many days, if you expect to get this going -- unless you are a true build stud, in which case a coffee-injected 24-hour marathon may do it (but then no time for feedback from the lists).
+
+I've been working with the binaries on win/unix, and concentrating on what I care about, which is getting the viewer going.  More on that soon, hopefully.
+
+-danx0r
+
+
+Daniel B. Miller
+aka danx0r
+life is a simulation
+
+
+From cfk at pacbell.net  Sun Sep 28 19:21:49 2008
+From: cfk at pacbell.net (Charles Krinke)
+Date: Sun, 28 Sep 2008 10:21:49 -0700 (PDT)
+Subject: [Openviewer-dev] Mantis#2290 Patch
+Message-ID: <234928.93288.qm@web82603.mail.mud.yahoo.com>
+
+In Mantis#2290 is a small patch that needs looking at. It is from a new submitter that has submitted two small patches that apply cleanly. This one involves some of the module loading and I would appreciate a note from another core-developer regarding how we wish to proceed.
+
+Charles
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080928/c01526c5/attachment.html>
+
+From danbmil99 at yahoo.com  Sun Sep 28 21:04:21 2008
+From: danbmil99 at yahoo.com (dan miller)
+Date: Sun, 28 Sep 2008 12:04:21 -0700 (PDT)
+Subject: [Openviewer-dev] Mantis#2290 Patch
+In-Reply-To: <234928.93288.qm@web82603.mail.mud.yahoo.com>
+Message-ID: <610289.62608.qm@web57803.mail.re3.yahoo.com>
+
+charles --
+
+did you mean to send this to the openviewer list?  Sounds like an opensim bug.  We haven't written enough code here to get to bug report #1, much less 2K!
+
+Daniel B. Miller
+aka danx0r
+life is a simulation
+
+
+--- On Sun, 9/28/08, Charles Krinke <cfk at pacbell.net> wrote:
+
+> From: Charles Krinke <cfk at pacbell.net>
+> Subject: [Openviewer-dev] Mantis#2290 Patch
+> To: openviewer-dev at lists.berlios.de
+> Date: Sunday, September 28, 2008, 1:21 PM
+> In Mantis#2290 is a small patch that needs looking at. It is
+> from a new submitter that has submitted two small patches
+> that apply cleanly. This one involves some of the module
+> loading and I would appreciate a note from another
+> core-developer regarding how we wish to proceed.
+> 
+> Charles
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+From cfk at pacbell.net  Sun Sep 28 23:56:56 2008
+From: cfk at pacbell.net (Charles Krinke)
+Date: Sun, 28 Sep 2008 14:56:56 -0700 (PDT)
+Subject: [Openviewer-dev] Mantis#2290 Patch
+Message-ID: <378757.26970.qm@web82605.mail.mud.yahoo.com>
+
+Sorry. Wrong button. My apologies.
+
+Charles
+
+
+
+----- Original Message ----
+From: dan miller <danbmil99 at yahoo.com>
+To: openviewer-dev at lists.berlios.de
+Sent: Sunday, September 28, 2008 12:04:21 PM
+Subject: Re: [Openviewer-dev] Mantis#2290 Patch
+
+charles --
+
+did you mean to send this to the openviewer list?  Sounds like an opensim bug.  We haven't written enough code here to get to bug report #1, much less 2K!
+
+Daniel B. Miller
+aka danx0r
+life is a simulation
+
+
+--- On Sun, 9/28/08, Charles Krinke <cfk at pacbell.net> wrote:
+
+> From: Charles Krinke <cfk at pacbell.net>
+> Subject: [Openviewer-dev] Mantis#2290 Patch
+> To: openviewer-dev at lists.berlios.de
+> Date: Sunday, September 28, 2008, 1:21 PM
+> In Mantis#2290 is a small patch that needs looking at. It is
+> from a new submitter that has submitted two small patches
+> that apply cleanly. This one involves some of the module
+> loading and I would appreciate a note from another
+> core-developer regarding how we wish to proceed.
+> 
+> Charles
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080928/47a4c75b/attachment.html>
+
+From francis.chang at intel.com  Mon Sep 29 23:10:51 2008
+From: francis.chang at intel.com (Chang, Francis)
+Date: Mon, 29 Sep 2008 14:10:51 -0700
+Subject: [Openviewer-dev] Mantis#2290 Patch
+In-Reply-To: <610289.62608.qm@web57803.mail.re3.yahoo.com>
+References: <234928.93288.qm@web82603.mail.mud.yahoo.com>
+	<610289.62608.qm@web57803.mail.re3.yahoo.com>
+Message-ID: <B43DA0998FC18F46A583FFFE01BF7FE5BD6C37D3@orsmsx504.amr.corp.intel.com>
+
+Hi danx0r,
+
+For what it's worth, I did send a bug report and a patch to the C# openviewer a couple months ago :)
+
+http://openviewer.org/ticket/27
+
+I'm not sure it's of any relevance anymore though, since it looks like the python openviewer is now the active project.
+
+--
+Francis
+
+-----Original Message-----
+From: openviewer-dev-bounces at lists.berlios.de [mailto:openviewer-dev-bounces at lists.berlios.de] On Behalf Of dan miller
+Sent: Sunday, September 28, 2008 12:04 PM
+To: openviewer-dev at lists.berlios.de
+Subject: Re: [Openviewer-dev] Mantis#2290 Patch
+
+charles --
+
+did you mean to send this to the openviewer list?  Sounds like an opensim bug.  We haven't written enough code here to get to bug report #1, much less 2K!
+
+Daniel B. Miller
+aka danx0r
+life is a simulation
+
+
+--- On Sun, 9/28/08, Charles Krinke <cfk at pacbell.net> wrote:
+
+> From: Charles Krinke <cfk at pacbell.net>
+> Subject: [Openviewer-dev] Mantis#2290 Patch
+> To: openviewer-dev at lists.berlios.de
+> Date: Sunday, September 28, 2008, 1:21 PM
+> In Mantis#2290 is a small patch that needs looking at. It is
+> from a new submitter that has submitted two small patches
+> that apply cleanly. This one involves some of the module
+> loading and I would appreciate a note from another
+> core-developer regarding how we wish to proceed.
+>
+> Charles
+> _______________________________________________
+> Openviewer-dev mailing list
+> Openviewer-dev at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/openviewer-dev
+_______________________________________________
+Openviewer-dev mailing list
+Openviewer-dev at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/openviewer-dev
+
+
+From danbmil99 at yahoo.com  Tue Sep 30 09:16:31 2008
+From: danbmil99 at yahoo.com (dan miller)
+Date: Tue, 30 Sep 2008 00:16:31 -0700 (PDT)
+Subject: [Openviewer-dev] latest svn
+In-Reply-To: <B43DA0998FC18F46A583FFFE01BF7FE5BD6C37D3@orsmsx504.amr.corp.intel.com>
+Message-ID: <460993.7528.qm@web57805.mail.re3.yahoo.com>
+
+trying to run -r 360 --
+
+result:  lots of console output; finally an ogre window appears.  In the window, I see a Ninja warrior standing on the default terrain island.  Then the ogre window goes monochrome, and everything is unresponsive.  I see no wx gui or any other widgets (wxogre is installed).
+
+Previous version didn't go gray, and ctl-C would log me out.  This version, ctl-C just quickly closes ogre and dumps me back the console (no proper logout).
+
+I'd like to get this working and make some contributions.  I think I can get basic bounding-box prims working, perhaps some camera movement.  However I can't get far until I know it's working normally, which apparently it isn't yet.  It would be helpful if the readme could include a description of what level of functionality is expected for each release.
+
+thoughts?
+
+Daniel B. Miller
+aka danx0r
+life is a simulation
+
+
+
+
+From jeffames at gmail.com  Tue Sep 30 09:31:11 2008
+From: jeffames at gmail.com (Jeff Ames)
+Date: Tue, 30 Sep 2008 16:31:11 +0900
+Subject: [Openviewer-dev] latest svn
+In-Reply-To: <460993.7528.qm@web57805.mail.re3.yahoo.com>
+References: <B43DA0998FC18F46A583FFFE01BF7FE5BD6C37D3@orsmsx504.amr.corp.intel.com>
+	<460993.7528.qm@web57805.mail.re3.yahoo.com>
+Message-ID: <acd357460809300031wbdd6fe4waeaae59c84ebb1ca@mail.gmail.com>
+
+Hello,
+
+It should now be running in a wx window, though so far there are no
+menubars or other widgets, so it looks pretty much like the Ogre
+window did.
+
+After it logs in successfully, it should start the rendering window.
+Terrain loads somewhat slowly, patch by patch.  Then the ninja avatar
+should appear (though this has failed from time to time for me).  The
+camera should be pointed at the avatar, and if the avatar's position
+changes through terrain changes or such, the camera should shift as
+well.
+
+The Wx UI doesn't exit gracefully yet, so Ctrl-C will leave you logged
+in until your session times out.
+
+I haven't seen any problems with it going monochrome.  It is generally
+fairly unresponsive in general, just due to lack of functionality at
+the moment, so it's hard for me to say whether anything is hanging,
+but I haven't seen anything to suggest that it is.
+
+Jeff
+
+

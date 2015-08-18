@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] Fixing Windows + Mogre + Winforms
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20Fixing%20Windows%20%2B%20Mogre%20%2B%20Winforms&In-Reply-To=%3Cf38794ad0804162257j877ce87x738513391fbef78d%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000142.html">
+   <LINK REL="Next"  HREF="000145.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] Fixing Windows + Mogre + Winforms</H1>
+    <B>Deifante Walters</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20Fixing%20Windows%20%2B%20Mogre%20%2B%20Winforms&In-Reply-To=%3Cf38794ad0804162257j877ce87x738513391fbef78d%40mail.gmail.com%3E"
+       TITLE="[Openviewer-dev] Fixing Windows + Mogre + Winforms">deifante at gmail.com
+       </A><BR>
+    <I>Thu Apr 17 07:57:18 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000142.html">[Openviewer-dev] Fixing Windows + Mogre + Winforms
+</A></li>
+        <LI>Next message: <A HREF="000145.html">[Openviewer-dev] Fixing Windows + Mogre + Winforms
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#144">[ date ]</a>
+              <a href="thread.html#144">[ thread ]</a>
+              <a href="subject.html#144">[ subject ]</a>
+              <a href="author.html#144">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>as far as I'm aware, the setup page on the wiki for windows is as updated as
+possible. I feel it's got pretty decent instructions for getting running on
+XP. I'm not sure how it works on Vista. I would love it if someone could
+check this for me.
+the setup I've provided is at
+<A HREF="http://www.openviewer.org/index.php/Build_Instructions">http://www.openviewer.org/index.php/Build_Instructions</A>
+
+On Wed, Apr 16, 2008 at 8:05 PM, Charles Krinke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">cfk at pacbell.net</A>&gt; wrote:
+
+&gt;<i> I would like to suggest that for OpenViewer we should concentrate on
+</I>&gt;<i> getting a well defined setup on our computers, be they Windows or Linux.
+</I>&gt;<i> Then next a well defined recipe for compiling with no errors and minimal
+</I>&gt;<i> warnings. Then third a well defined test on a common region or regions that
+</I>&gt;<i> allows anyone to test OpenViewer.
+</I>&gt;<i>
+</I>&gt;<i> I would suggest that the first one be defined on our wiki so we can say:
+</I>&gt;<i>
+</I>&gt;<i> &quot;See wiki page X for the setup required for your computer to compile
+</I>&gt;<i> successfully OpenViewer&quot;.
+</I>&gt;<i>
+</I>&gt;<i> Then the second one be defined so we can say:
+</I>&gt;<i>
+</I>&gt;<i> &quot;See wiki page Y and checkout our svn, runprebuild.bat, build, run and it
+</I>&gt;<i> should run with no errors&quot;
+</I>&gt;<i>
+</I>&gt;<i> The the third one be defined so we can say:
+</I>&gt;<i>
+</I>&gt;<i> &quot;Logon to standaloneA or GridG to the region framelwanker and you should
+</I>&gt;<i> see terrain, prims, walk, chat and logoff with no errors&quot;
+</I>&gt;<i>
+</I>&gt;<i> Charles
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ----- Original Message ----
+</I>&gt;<i> From: Daedius &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">daedius at daedius.com</A>&gt;
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i> Sent: Wednesday, April 16, 2008 5:16:02 PM
+</I>&gt;<i> Subject: [Openviewer-dev] Fixing Windows + Mogre + Winforms
+</I>&gt;<i>
+</I>&gt;<i> Hey everyone,
+</I>&gt;<i>
+</I>&gt;<i> Ckrinke and I noticed the windows plugins of openviewers weren't
+</I>&gt;<i> working: here's how you can fix them
+</I>&gt;<i>
+</I>&gt;<i> - check out the latest version of libsecond life ( 1751 for me ),
+</I>&gt;<i> compile, and copy the libsecondlife and openjpeg dlls into
+</I>&gt;<i> openviewer/bin
+</I>&gt;<i> - then apply this patch below
+</I>&gt;<i>
+</I>&gt;<i> Login() seems to be broken with the latest builds of libsecondlife (
+</I>&gt;<i> Though maybe I am seeing glitches with OSGrid), so I've started using
+</I>&gt;<i> BeginLogin(), which we probably should be doing anyways
+</I>&gt;<i>
+</I>&gt;<i> Daedius
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Openviewer-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080416/61fd736b/attachment.html">https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080416/61fd736b/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000142.html">[Openviewer-dev] Fixing Windows + Mogre + Winforms
+</A></li>
+	<LI>Next message: <A HREF="000145.html">[Openviewer-dev] Fixing Windows + Mogre + Winforms
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#144">[ date ]</a>
+              <a href="thread.html#144">[ thread ]</a>
+              <a href="subject.html#144">[ subject ]</a>
+              <a href="author.html#144">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

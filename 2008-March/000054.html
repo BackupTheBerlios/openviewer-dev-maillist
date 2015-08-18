@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] PATCH: Nunit testing 2 + login changes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20PATCH%3A%20Nunit%20testing%202%20%2B%20login%20changes&In-Reply-To=%3C351467290803210919u742af078r5a4b0839a14f34b5%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000053.html">
+   <LINK REL="Next"  HREF="000055.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] PATCH: Nunit testing 2 + login changes</H1>
+    <B>Daedius</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20PATCH%3A%20Nunit%20testing%202%20%2B%20login%20changes&In-Reply-To=%3C351467290803210919u742af078r5a4b0839a14f34b5%40mail.gmail.com%3E"
+       TITLE="[Openviewer-dev] PATCH: Nunit testing 2 + login changes">daedius at daedius.com
+       </A><BR>
+    <I>Fri Mar 21 17:19:05 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000053.html">[Openviewer-dev] PATCH: Nunit testing 2 + login changes
+</A></li>
+        <LI>Next message: <A HREF="000055.html">[Openviewer-dev] Fractal Spline: What it does, What remaining to do,	Things that were most challenging
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#54">[ date ]</a>
+              <a href="thread.html#54">[ thread ]</a>
+              <a href="subject.html#54">[ subject ]</a>
+              <a href="author.html#54">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thank you so much Jeff =)
+
+Yes, I also talked with CKrinke about my test bots on OSGrid.  I
+should have mentioned this last email. He seemed quite happy to have
+OSGrid tested in any way.  Perhaps one day we can setup our own sim
+there.  We can automate a strip club so I finally have some place to
+give all my Lindens! ;) That would be nice. Thanks again.
+
+- Daedius
+
+On 3/21/08, Jeff Ames &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">jeffames at gmail.com</A>&gt; wrote:
+&gt;<i> Hello,
+</I>&gt;<i>
+</I>&gt;<i>  Thanks!  Most of these changes have been applied.
+</I>&gt;<i>
+</I>&gt;<i>  I changed the default grid for the tests from osgrid to localhost,
+</I>&gt;<i>  though.  I'm not sure what the osgrid feeling is about unit testing
+</I>&gt;<i>  bots.  There could also be login conflicts with people running tests
+</I>&gt;<i>  simultaneously.
+</I>&gt;<i>
+</I>&gt;<i>  I tried changing from Login to BeginLogin, but then ogredotnet didn't
+</I>&gt;<i>  render anything, though it appears that the OnConnected event fires.
+</I>&gt;<i>  Not sure why this is happening.  (Incidentally, I'm working on
+</I>&gt;<i>  changing the way the OgreDotNet engine starts up, so it's not creating
+</I>&gt;<i>  two additional windows, and that may resolve this issue....)
+</I>&gt;<i>
+</I>&gt;<i>  The console engine seems to work fine using BeginLogin, though, so
+</I>&gt;<i>  maybe it's only ogredotnet.  Attached is Daedius's patch with just the
+</I>&gt;<i>  login change.  Could someone try it out and see if this happens with
+</I>&gt;<i>  mogre, or with ogredotnet on linux?
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  Jeff
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i>  Openviewer-dev mailing list
+</I>&gt;<i>  <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">Openviewer-dev at lists.berlios.de</A>
+</I>&gt;<i>  <A HREF="https://lists.berlios.de/mailman/listinfo/openviewer-dev">https://lists.berlios.de/mailman/listinfo/openviewer-dev</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000053.html">[Openviewer-dev] PATCH: Nunit testing 2 + login changes
+</A></li>
+	<LI>Next message: <A HREF="000055.html">[Openviewer-dev] Fractal Spline: What it does, What remaining to do,	Things that were most challenging
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#54">[ date ]</a>
+              <a href="thread.html#54">[ thread ]</a>
+              <a href="subject.html#54">[ subject ]</a>
+              <a href="author.html#54">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

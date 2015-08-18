@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Openviewer-dev] GTK MVC Has Arrived
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openviewer-dev/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20GTK%20MVC%20Has%20Arrived&In-Reply-To=%3C351467290803231013n75514a51n42a1c7954ec8cd3%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000063.html">
+   <LINK REL="Next"  HREF="000065.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Openviewer-dev] GTK MVC Has Arrived</H1>
+    <B>Daedius</B> 
+    <A HREF="mailto:openviewer-dev%40lists.berlios.de?Subject=Re%3A%20%5BOpenviewer-dev%5D%20GTK%20MVC%20Has%20Arrived&In-Reply-To=%3C351467290803231013n75514a51n42a1c7954ec8cd3%40mail.gmail.com%3E"
+       TITLE="[Openviewer-dev] GTK MVC Has Arrived">daedius at daedius.com
+       </A><BR>
+    <I>Sun Mar 23 18:13:52 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000063.html">[Openviewer-dev] PATCH: Adding logging to startup process.
+</A></li>
+        <LI>Next message: <A HREF="000065.html">[Openviewer-dev] GTK MVC Has Arrived
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#64">[ date ]</a>
+              <a href="thread.html#64">[ thread ]</a>
+              <a href="subject.html#64">[ subject ]</a>
+              <a href="author.html#64">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>This patch is a massive reworking of the GTK UI in order to make it
+inline with MVC design patterns as well as several new features:
+- New UserSettings.xml file
+- Storing of recent grids visited
+- Storing of recent locations used
+- Storing of recent usernames used
+- Storage of passwords for quick reuse
+- Various UI fixes
+- Design prototype for console panel and chat panel
+
+I am very happy about how GTK is going  A week ago, I was a hardcore
+winforms guy, but GTK seems very capable for making high quality UI we
+will need for OpenViewer.  My only problem with it is the non-thread
+safe nature of GTK, which will take a little getting used to to
+perform certain tasks.  But, where there is a will there is a way.
+And I think applications like Mono Develop are already proof that it
+can be done.
+
+Additionally i'd like to say I'm very happy how I was able to
+implement MVC pattern for GTK.  View, model, controller seperation
+worked really well with GTK. The view is very stupid in code as it
+should be and there is no logic in the view.  Anyhow, apply the patch,
+and tell me how you like it.  Enjoy!
+
+- Daedius
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: daedius_gtkMVC.patch
+Type: text/x-patch
+Size: 106703 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080323/7e3ebede/attachment.bin">https://lists.berlios.de/pipermail/openviewer-dev/attachments/20080323/7e3ebede/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000063.html">[Openviewer-dev] PATCH: Adding logging to startup process.
+</A></li>
+	<LI>Next message: <A HREF="000065.html">[Openviewer-dev] GTK MVC Has Arrived
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#64">[ date ]</a>
+              <a href="thread.html#64">[ thread ]</a>
+              <a href="subject.html#64">[ subject ]</a>
+              <a href="author.html#64">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openviewer-dev">More information about the Openviewer-dev
+mailing list</a><br>
+</body></html>

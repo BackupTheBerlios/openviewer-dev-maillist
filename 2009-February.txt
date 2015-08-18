@@ -1,0 +1,24 @@
+From antont at kyperjokki.fi  Wed Feb 25 23:01:27 2009
+From: antont at kyperjokki.fi (Toni Alatalo)
+Date: Thu, 26 Feb 2009 00:01:27 +0200
+Subject: [Openviewer-dev] experimental mxp protocol impl in tracker
+Message-ID: <49A5BFB7.7010404@kyperjokki.fi>
+
+very incomplete but already gave some ideas about how implementing
+different protocols is and how the abstractions in openviewer work.
+http://www.openviewer.org/ticket/71
+
+had issues with python.net vs. the mxp.dll, perhaps related to .net
+versions - perhaps someone can test. in fact the dll that's attached to
+the patch may not be functional with python.net, but it should be ..
+will look that more again soon enough i hope,
+
+now just basically put the code up so that it's somewhere.
+
+did little refactoring in the core to support this, made it optional for
+protocols to implement event handlers.
+
+~Toni
+
+
+
